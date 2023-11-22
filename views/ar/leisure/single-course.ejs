@@ -1,0 +1,272 @@
+<style>
+    .leisure-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 90000;
+    }
+
+    .leisure-app-header {
+        position: relative;
+        z-index: 90001;
+        background-color: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .leisure-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        filter: drop-shadow(0 0 2px lightskyblue);
+        opacity: 0.5;
+    }
+
+    .leisure-app {
+        position: relative;
+        z-index: 90002;
+        background-color: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        margin-top: 30px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .leisure-app-page {
+        text-align: center;
+    }
+
+    .leisure-app-page h5 {
+        font-size: 3rem;
+        padding-bottom: 20px;
+        border-bottom: solid 1px #fff;
+    }
+    .leisure-app-page h6 {
+        font-size: 2rem;
+    }
+
+    .app-body-menu {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        margin-top: 20px;
+    }
+
+    .app-body-menu a {
+        color: rgb(18, 168, 18);
+        text-shadow: 0 0 1px rgba(0, 0, 0, 0.75);
+        background-color: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(4px);
+        border-radius: 4px;
+        font-size: 1.5rem;
+        text-decoration: none;
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+
+
+    .golf-course-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 50px;
+    }
+
+    .golf-course-list h5 {
+        font-size: 2rem;
+        padding: 10px;
+    }
+
+    .course-link {
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(4px);
+        margin-right: 15px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+        padding: 8px;
+        box-shadow:  0 0 5px rgba(0, 255, 0, 0.5);
+    }
+    
+    .course-link a {
+        text-decoration: none;
+        color: #fff;
+        text-shadow: 0 0 2px lime;
+        font-size: 2rem;
+    }
+
+    .add-golf-course {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-top: solid 1px #fff;
+        padding-top: 20px;
+    }
+    .add-golf-course h3 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+    .add-golf-course p {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: #fff;
+        margin-bottom: 0;
+    }
+    .add-golf-course form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .add-golf-course input {
+        background-color: #000;
+        border: none;
+        outline: none;
+        border-radius: 4px;
+        padding: 5px;
+        margin-bottom: 5px;
+    }
+    .add-golf-course button {
+        margin-top: 10px;
+        padding: 8px;
+        border: none;
+        outline: none;
+        border-radius: 8px;
+        background-color: lightskyblue;
+        color: #fff;
+        font-size: 1.2rem;
+    }
+    .start-round {
+        margin-top: 20px;
+    }
+    .start-round form {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 auto;
+        width: 90%;
+    }
+    .start-round p {
+        margin: 0 auto;
+        margin-bottom: 15px;
+        width: 80%;
+        color: #fff;
+        font-size: 1.2rem;
+        padding: 8px;
+    }
+    .start-round input {
+        background-color: #000;
+        padding: 5px;
+        padding-bottom: 10px;
+        border-radius: 4px;
+        outline: none;
+        border: none;
+        font-size: 1.3rem;
+        width: 60%;
+    }
+    .start-round button {
+        background-color: green;
+        font-size: 1.3rem;
+        color: #fff;
+        padding: 5px;
+        border-radius: 4px;
+        outline: none;
+        border: none;
+
+    }
+</style>
+
+
+
+<div class="leisure-background"
+    style="background-image: url('/images/system/ar/ar_golf_background_1a1a1a.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+</div>
+<div class="leisure-app-header">
+    <div class="page-title">
+        <h2>WideSpread</h2>
+    </div>
+
+    <div class="leisure-logo">
+        <img src="/images/system/ar/ar_golf_1a1a1a.png" alt="">
+    </div>
+
+
+
+
+</div>
+<div class="leisure-app">
+    <div class="leisure-app-page">
+        <h6>Welcome to</h6>
+        <h5><%= course.name %></h5>
+    </div>
+
+    <div class="leisure-app-body">
+        <div class="app-body-menu">
+            <% if (user) { %>
+                <a href="/ar/sports/golf/user/<%= user.id %>">Your Caddy</a>
+            <% } %>
+            <a href="/ar/sports/golf/courses">Golf Courses</a>
+        </div>
+
+        <% if (!user) { %>
+            <div class="start-round">
+                <p>To start your round of golf at <%= course.name %>, enter your name below and tap "Play Round". Good luck today!</p>
+                <form action="/ar/sports/golf/courses/view/<%= course.id %>/start-round" method="post">
+                    <input type="text" name="player_name" placeholder="Player Name" required>
+                    <button type="submit">Play Round</button>
+                </form>
+            </div>
+        <% } else { %>
+            <div class="start-round">
+                <p>To start your round of golf at <%= course.name %>, enter your name below and tap "Play Round". Good luck today!</p>
+                <form style="justify-content: center;" action="/ar/sports/golf/courses/view/<%= course.id %>/start-round" method="post">
+                    <input type="text" name="player" value="<%= user.id %>" hidden>
+                    <input type="text" name="player_name" value="<%= user.fname %> <%= user.lname %>" hidden>
+                    <button type="submit">Play Round</button>
+                </form>
+            </div>
+
+        <% } %>
+
+        
+        <h5 style="text-align: center; font-size: 3rem; color: #fff; margin-bottom: 30px; margin-top: 30px;">Preview Holes</h5>
+        <div class="golf-course-list">
+            <% holes.forEach(function(hole) { %>
+                <div class="course-link">
+                    <a href="/ar/sports/golf/courses/view/<%= course.id %>/holes/play/<%= hole.id %>">
+                        Hole <%= hole.hole_number %>
+                    </a>
+                </div>
+                <% }) %>
+        </div>
+
+        <div class="add-golf-course">
+            <h3>Add New Hole</h3>
+            <form action="/ar/sports/golf/courses/view/<%= course.id %>/holes/add" method="post">
+                <input type="number" name="hole_number" placeholder="Hole Number">
+                
+                <input type="number" name="par" placeholder="Par">
+                <input type="number" name="handicap" placeholder="Handicap">
+                <input type="number" name="slope" placeholder="Slope">
+
+
+                <p>Pin</p>
+
+                <input type="text" name="lat" placeholder="Latitude">
+                <input type="text" name="long" placeholder="Longitude">
+
+                <button type="submit">Add Hole</button>
+            </form>
+        </div>
+    </div>
+</div>

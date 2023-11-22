@@ -1,0 +1,513 @@
+<style>
+      #personalAssistantContainer {
+        margin-top: 15px;
+        background-color: rgba(255, 68, 0, 0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 26px;
+        padding: 10px;
+        box-shadow: 0 0 20px rgba(255, 68, 0, 0.25), inset 0 0 40px rgba(255, 255, 255, 0.25);
+        width: calc(90vw - 20px);
+        margin-inline: auto;
+      }
+      #assistantListenBtn {
+        background-color: rgba(135, 206, 250, 0.25);
+        width: 50vw;
+        max-width: 300px;
+        margin-inline: auto;
+        padding: 10px;
+        border-radius: 16px;
+        transition: ease-in-out 0.2s;
+    }
+    .cora-option {
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        border-radius: 8px;
+        padding: 5px;
+        font-size: 1.5rem;
+        color: #fff;
+
+    }
+    .cora-listening {
+        animation-name: cora-listening;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-timing-function: ease-in-out;
+        animation-play-state: running;
+        
+      }
+      .cora-speaking {
+      animation-name: cora-speaking;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-timing-function: ease-in-out;
+      animation-play-state: running;
+
+    }
+      #assistantListenBtn p {
+        color: #fff;
+        font-size: 2rem;
+        text-align: center;
+      }
+      .assistant-label {
+        color: #fff;
+        font-size: 1.2rem;
+        text-align: center;
+        max-width: 90vw;
+        margin-inline: auto;
+        padding: 8px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+      }
+      .hints-container {
+        margin-top: 10px;
+        margin-inline: auto;
+        border: solid 1px lightskyblue;
+        border-radius: 26px;
+        padding: 10px;
+        width: calc(80vw - 20px);
+        
+    }
+    .hints {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-height: 300px;
+        overflow-y: auto;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 10px;
+        gap: 0.5rem;
+
+      }
+      
+      .color-option {
+        padding: 5px;
+        margin-right: 5px;
+        margin-left: 5px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        font-size: 1.2rem;
+        background-color: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(10px);
+        text-shadow: 0 0 2px #fff;
+        box-shadow: 0 0 5px rgba(135, 206, 250, 0.5);
+      }
+    @keyframes cora-listening {
+        0%   {background-color: rgba(135, 206, 250, 0.25)}
+        25%  {background-color: rgba(255, 255, 255, 0.75);}
+        50%  {background-color: rgba(135, 206, 250, 0.25);}
+        100% {background-color: rgba(255, 255, 255, 0.75);}
+    }
+    @keyframes cora-speaking {
+        0%   {background-color: rgba(153, 205, 50, 0.25)}
+        25%  {background-color: rgba(255, 255, 255, 0.75);}
+        50%  {background-color: rgba(153, 205, 50, 0.25);}
+        100% {background-color: rgba(255, 255, 255, 0.75);}
+    }
+</style>
+
+    <h3 style="color: orangered; font-size: 2rem; text-align: center;">Virtual Assistant Testing</h3>
+    <div id="personalAssistantContainer">
+        <div class="assistant-label">
+            <p>Tap the 'Listen' button below</p>
+        </div>
+        <div id="assistantListenBtn">
+            <p>Listen</p>
+        </div>
+        <div class="assistant-label">
+            <p>Command Choices</p>
+        </div>
+        <div class="hints-container">
+            <div id="hintList" class="hints"></div>
+        </div>
+        <div id="coraResponse" class="output"></div>
+    </div>
+
+            <div id="selectedAssistant" style="display: none;">
+              <div class="assistant-option">
+                <label style="color: lightpink;" for="michelleAdult">Cora</label>
+                <input type="radio" name="voice_choice" value="1" id="michelleAdult">
+              </div>
+              <div class="assistant-option">
+                <label style="color: hotpink;" for="michelleYoung">Young Cora</label>
+                <input type="radio" name="voice_choice" value="0" id="michelleYoung">
+              </div>
+              <div class="assistant-option">
+                <label style="color: lightskyblue;" for="mikeAdult">Corey</label>
+                <input type="radio" name="voice_choice" value="3" id="mikeAdult">
+              </div>
+              <div class="assistant-option">
+                <label style="color: aqua;" for="mikeYoung">Young Corey</label>
+                <input type="radio" name="voice_choice" value="2" id="mikeYoung">
+              </div>
+            </div>
+            
+            <div id="assistantCoreContainer" style="display: none;">
+              <div id="assistantCore">
+                <div id="assistantCoreButton"><i class="fas fa-microphone"></i></div>
+              </div>
+            </div>
+
+
+<!-- <script>
+  const grammar = '#JSGF V1.0; grammar colors; public <color> = aqua | azure | beige | bisque | black | blue | brown | chocolate | coral | crimson | cyan | fuchsia | ghostwhite | gold | goldenrod | gray | green | indigo | ivory | khaki | lavender | lime | linen | magenta | maroon | moccasin | navy | olive | orange | orchid | peru | pink | plum | purple | red | salmon | sienna | silver | snow | tan | teal | thistle | tomato | turquoise | violet | white | yellow ;'
+    const voiceRecognition = window.speechSynthesis
+    const recognition = new SpeechRecognition();
+    const speechRecognitionList = new SpeechGrammarList();
+    speechRecognitionList.addFromString(grammar, 1);
+    recognition.grammars = speechRecognitionList;
+    recognition.continuous = false;
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    const diagnostic = document.querySelector('.output');
+    const bg = document.querySelector('html');
+
+    console.log('Clicked')
+    document.body.onclick = () => {
+      recognition.start();
+      console.log('Ready to receive a color command.');
+    }
+
+    recognition.onresult = (event) => {
+      const color = event.results[0][0].transcript;
+      diagnostic.textContent = `Result received: ${color}`;
+      bg.style.backgroundColor = color;
+    }
+</script> -->
+    
+
+<script>
+   
+    var SpeechRecognition = SpeechRecognition || window.webkitSpeechRecognition
+    var SpeechGrammarList = SpeechGrammarList || window.webkitSpeechGrammarList
+    var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
+    var recognition = new SpeechRecognition();
+    const coraResponse = document.getElementById('coraResponse')
+    const greetings = ['hello', 'hi', 'whats up', 'hows it going', 'greetings']
+    const weather = ['weather', 'whats it like outside', 'forecast', 'raining', 'sunny', 'cloudy', 'snowing', 'storm', 'umbrella']
+    
+    if (SpeechGrammarList) {
+      const 
+        speechRecognitionList = new SpeechGrammarList(),
+        greetingGrammar = '#JSGF V1.0; grammar greetings; public <greetings> = ' + greetings.join(' | ') + ' ;'
+        weatherGrammar = '#JSGF V1.0; grammar weather; public <weather> = ' + weather.join(' | ') + ' ;'
+
+      speechRecognitionList.addFromString(greetingGrammar, 1);
+      speechRecognitionList.addFromString(weatherGrammar, 1);
+      recognition.grammars = speechRecognitionList;
+    }
+    recognition.continuous = false;
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    const 
+        diagnostic = document.querySelector('.output'),
+        assistantListenBtn = document.getElementById('assistantListenBtn')
+        
+        let vocabOption = '';
+        
+    greetings.forEach(function (v, i, a) {
+        let hints = document.querySelector('.hints')
+        const hintList = document.getElementById('hintList')
+    //   console.log(v, i);
+      console.log('v', v);
+    //   console.log('i', i);
+    //   console.log('a', a);
+        let vocabEl = document.createElement('span')
+        vocabEl.innerText = v
+        vocabEl.style.textTransform = 'capitalize'
+        vocabEl.classList.add('cora-option')
+      hintList.appendChild(vocabEl)
+    });
+
+    assistantListenBtn.addEventListener('click', listenToUser)
+
+    function listenToUser() {
+      recognition.start();
+      assistantListenBtn.classList.add('cora-listening')
+      console.log('Listening...');
+    }
+    
+    
+    recognition.onresult = function (event) {
+        assistantListenBtn.classList.remove('cora-listening')
+        const coraHeard = event.results[0][0].transcript;
+        diagnostic.innerHTML = `<div class=".output" style="width: 90%; height: 150px; margin-inline: auto; border-radius: 26px; background-color: rgba(135, 206, 250, 0.15); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-top: 15px;">${coraHeard}</div>`;
+        console.log(event)
+        console.log(coraHeard)
+        console.log('Confidence: ' + event.results[0][0].confidence);
+        respond(event)
+    }
+
+    recognition.onspeechend = function () {
+      recognition.stop();
+    }
+
+    recognition.onnomatch = function (event) {
+      diagnostic.textContent = "Sorry, I didn't understand that.";
+    }
+
+    recognition.onerror = function (event) {
+        assistantListenBtn.classList.remove('cora-listening')
+        const err = event.error
+        recognition.stop();
+        if (err === 'no-speech') {
+            diagnostic.textContent = `Sorry, I didn't hear you. Could you please repeat that?`;
+        }
+        if (err === 'aborted') {
+            diagnostic.textContent = `Aborted`;
+        }
+        if (err === 'audio-capture') {
+            diagnostic.textContent = `audio-capture`;
+        }
+        if (err === 'network') {
+            diagnostic.textContent = `network`;
+        }
+        if (err === 'not-allowed') {
+            diagnostic.textContent = `Sorry, I'm not allowed to listen to you due to security reasons.`;
+        }
+        if (err === 'service-not-allowed') {
+            diagnostic.textContent = `Sorry, I'm not allowed to listen to you... if you'd like me to listen, please change permissions in your browser settings.`;
+        }
+        if (err === 'language-not-supported') {
+            diagnostic.textContent = `Sorry, I don't know your language yet.`;
+        }
+
+    }
+
+
+
+
+/* RESPONDING */
+
+      const
+        assitantOptions = document.querySelectorAll('.assistant-option input'),
+        assistantCore = document.getElementById('assistantCore')
+
+
+/* r = respnsonse_data onresult(event) */
+    function respond(r) {
+      console.log('r: ', r)
+      console.log('GRAMMAR LIST: ', r.currentTarget.grammars[0])
+
+      // let utterance = new SpeechSynthesisUtterance("Why hello there!");
+      // speechSynthesis.speak(utterance);
+
+
+      // responding action
+
+      // create synth
+      const synth = window.speechSynthesis;
+
+      // array for all voice options
+      let voices = []
+
+      const getVoices = () => {
+        voices = synth.getVoices()
+        // console.table(voices)
+      }
+      getVoices()
+
+      if (synth.onvoiceschanged !== undefined) {
+        synth.onvoiceschanged = getVoices
+      }
+
+      const coraHeardCap = r.results[0][0].transcript
+      const coraHeardLower = coraHeardCap.toLowerCase()
+      const coraHeard = coraHeardLower.slice(0, -1)
+      greetings.forEach(term => {
+        if (term === coraHeard) {
+          console.log('Cora heard a GREETING')
+          speak(1, 'greeting')
+        }
+      })
+      weather.forEach(term => {
+        if (term === coraHeard) {
+          console.log('Cora heard a WEATHER QUESTION')
+          speak(1, 'weather')
+        }
+      })
+          
+
+    }
+    function currentWeatherCora() {
+      (function () {
+        navigator.geolocation.getCurrentPosition(function (position) {
+          const LAT = position.coords.latitude
+          const LONG = position.coords.longitude
+          // console.log(position.coords.latitude)
+          // console.log(position.coords.longitude)
+
+          const options = {
+            method: 'GET',
+            headers: {
+              'X-RapidAPI-Key': '7e45ec5e4fmsh4f3dac417f9eaa7p179a33jsnbfe4cb2e4c79',
+              'X-RapidAPI-Host': 'weatherbit-v1-mashape.p.rapidapi.com'
+            }
+          };
+          // fetch(`https://weatherbit-v1-mashape.p.rapidapi.com/forecast/3hourly?lat=${LAT}&lon=${LONG}`, options)
+          //     .then(response => response.json())
+          //     .then(response => console.log(response))
+          //     .catch(err => console.error(err));
+          fetch(`https://weatherbit-v1-mashape.p.rapidapi.com/current?lat=${LAT}&lon=${LONG}`, options)
+            .then(response => response.json())
+            .then(response => {
+              // console.log(response)
+              response.data.forEach(resData => {
+                // console.log(resData)
+
+                const CITY_NAME = resData.city_name
+                // console.log('CITY_NAME: ', CITY_NAME)
+
+                //               °F = (°C × 9/5) + 32
+                const CURRENT_TEMP_C = resData.temp
+                const CURRENT_TEMP_F = Math.round((CURRENT_TEMP_C * 1.8) + 32)
+                // console.log(`CURRENT C: ${CURRENT_TEMP_C} --- CURRENT F: ${CURRENT_TEMP_F}`)
+
+
+
+                // Weather Description
+                const WEATHER_DESC = resData.weather.description
+                // console.log('WEATHER DESC: ', WEATHER_DESC)
+
+                const coraResponse = `It is currentyly ${CURRENT_TEMP_F} degrees and ${WEATHER_DESC} in ${CITY_NAME}.`
+                coraWeatherSpeak(coraResponse)
+              })
+            })
+            .catch(err => console.error(err));
+
+        },
+          function (error) {
+            console.log("The Locator was denied. :(")
+          })
+      })();
+    }
+
+
+        const synth = window.speechSynthesis;
+
+        // array for all voice options
+        let voices = []
+
+        const getVoices = () => {
+          voices = synth.getVoices()
+          // console.table(voices)
+        }
+        getVoices()
+
+        if (synth.onvoiceschanged !== undefined) {
+          synth.onvoiceschanged = getVoices
+        }
+
+      assistantCoreContainer.addEventListener('click', e => {
+        speak('1')
+      })
+
+      assitantOptions.forEach(assistant => {
+        assistant.addEventListener('click', e => {
+          // speak(e.target.value)
+        })
+      })
+
+      let allGrammars = ['greeting', 'weather']
+
+      const speak = (assistantSelected, grammarList) => {
+          allGrammars.forEach(grammar => {
+          if (grammar === grammarList) {
+          const voiceChoices = [
+            {
+              name: 'Young Cora',
+              rate: 1.1,
+              pitch: 1.6,
+              voice: 'Microsoft Ana Online (Natural) - English (United States)',
+              testing_text: "Hi, I'm Cora. Did you finish your homework? You have dance in 30 minutes.",
+              greeting: 'Hello! What can I do for you?',
+              weather: eval(currentWeatherCora()),
+              
+            },
+            {
+              name: 'Cora',
+              rate: 1.1,
+              pitch: 1.7,
+              voice: 'Microsoft Jenny Online (Natural) - English (United States)',
+              testing_text: "What can I help you with?",
+              greeting: 'Hello! What can I do for you?',
+              weather: eval(currentWeatherCora()),
+            },
+            {
+              name: 'Young Corey',
+              rate: 1.4,
+              pitch: 2,
+              voice: 'Microsoft Sam Online (Natural) - English (Hongkong)',
+              testing_text: "Hi, I'm Corey. Did you finish your homework? You have football practice in 1 hour",
+              greeting: 'Hello! What can I do for you?',
+              weather: currentWeatherCora,
+            },
+            {
+              name: 'Corey',
+              rate: 1,
+              pitch: 0.6,
+              voice: 'Microsoft Ryan Online (Natural) - English (United Kingdom)',
+              testing_text: "Hi, I'm Corey. What can I help you with? Dress warm today, it's going to be cold and windy outside.",
+              greeting: 'Hello! What can I do for you?',
+              weather: currentWeatherCora,
+            },
+
+          ]
+
+          const usersAssistant = parseInt(assistantSelected)
+        
+        
+        const selectedVoice = voiceChoices[assistantSelected].voice
+
+        random_greeting = voiceChoices[assistantSelected].greeting[Math.floor(Math.random() * voiceChoices[assistantSelected].greeting.length)]
+        console.log(random_greeting)
+
+
+            console.log('MATCHED GRAMMARS: ', grammar, grammarList)
+            const speakTextString = eval(`voiceChoices[usersAssistant].${grammar}`)
+            console.log(speakTextString)
+            const speakText = new SpeechSynthesisUtterance(speakTextString)
+            console.log(speakText)
+
+
+
+          speakText.onstart = e => {
+            console.log('SPEAKING STARTED')
+            assistantListenBtn.classList.add('cora-speaking')
+
+          }
+          speakText.onend = e => {
+            console.log('Wait for user to reply or run a function on the app...')
+            assistantListenBtn.classList.remove('cora-speaking')
+          }
+          speakText.onerror = e => {
+            console.error('Oops, something went wrong!', error)
+          }
+
+          voices.forEach(voice => {
+            if (voice.name === selectedVoice) {
+              speakText.voice = voice
+            }
+          })
+
+          speakText.rate = voiceChoices[assistantSelected].rate
+          speakText.pitch = voiceChoices[assistantSelected].pitch
+          // const text = voiceChoices[assistantSelected].random_greeting
+          synth.speak(speakText)
+
+          }
+
+        })
+        }
+
+
+    // speak('1')
+
+</script>

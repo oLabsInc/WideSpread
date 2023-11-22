@@ -1,0 +1,89 @@
+<style>
+.leisure-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 90000;
+}
+.leisure-app-header {
+    position: relative;
+    z-index: 90001;
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(4px);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.leisure-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 0 2px lightskyblue);
+    opacity: 0.5;
+}
+
+.leisure-app {
+    position: relative;
+    z-index: 90002;
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(4px);
+    margin-top: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.leisure-app-page {
+    text-align: center;
+}
+.leisure-app-page h5 {
+    font-size: 1.5rem;
+    border-bottom: solid 1px #fff;
+}
+.app-body-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+.app-body-menu a {
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+</style>
+
+
+
+<div class="leisure-background" style="background-image: url('/images/system/ar/ar_golf_background_1a1a1a.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center;"></div>
+<div class="leisure-app-header">
+    <div class="page-title">
+        <h2>WideSpread</h2>
+    </div>
+
+    <div class="leisure-logo">
+        <img src="/images/system/ar/ar_golf_1a1a1a.png" alt="">
+    </div>
+
+
+
+
+</div>
+<div class="leisure-app">
+    <div class="leisure-app-page">
+        <h5>Home</h5>
+    </div>
+
+    <div class="leisure-app-body">
+        <div class="app-body-menu">
+            <% if (user) { %>
+                <a href="/ar/sports/golf/user/<%= user.id %>">Your Caddy</a>
+            <% } %>
+            <a href="/ar/sports/golf/courses">Golf Courses</a>
+        </div>
+    </div>
+</div>

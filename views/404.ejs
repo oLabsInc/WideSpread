@@ -1,0 +1,65 @@
+<style>
+    .error-container {
+        padding: 10px;
+        margin-top: 30px;
+        width: 90%;
+        margin: 0 auto;
+    }
+    .error-body {
+    }
+    .error-body p {
+        padding: 8px;
+        color: #fff;
+    }
+    .error-body a {
+        color: lightskyblue;
+        text-decoration: none;
+    }
+    .error-container form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    .error-container button {
+        background-color: rgba(255, 68, 0, 0.25);
+        box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5), 0 0 5px #fff;
+        border-radius: 8px;
+        padding: 10px;
+        font-size: 2rem;
+        border: none;
+        outline: none;
+        color: #fff;
+    }
+</style>
+
+<div class="page-title">
+    <h2>Error: 404 - Page Not Found</h2>
+</div>
+
+<div class="error-container">
+    <div class="error-body">
+        <p>Hmmmm... we weren't able to find this page.</p>
+        <p>Either this page isn't built yet, or we have ourselves a bug! Let us know if you think this error is on us by clicking "Submit Bug Report" below. You will automatically be redirected to the previous page.</p>
+        <p>You may also just return to the previous page by clicking <a href="<%= referer %>">here</a>.</p>
+        <form action="/bug-report" method="post">
+            <input type="text" name="page_url" id="pageUrl" value="" hidden>
+            <input type="text" name="refering_page" id="referingPage" value="<%= referer %>" hidden>
+            <button id="submitBtn" type="submit">Submit Bug Report</button>
+        </form>
+        <p>Thank you! We appreciate your help and your patience, we apologize for the inconvenience</p>
+    </div>
+</div>
+
+
+<script>
+    const
+        pageUrl = document.getElementById('pageUrl'),
+        referingPage = document.getElementById('referingPage'),
+        submitBtn = document.getElementById('submitBtn')
+
+    pageUrl.value = window.location.href
+
+
+</script>

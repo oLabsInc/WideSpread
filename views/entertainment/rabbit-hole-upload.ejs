@@ -1,0 +1,54 @@
+<style>
+    .add-new-video form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }
+    .add-new-video input, .add-new-video textarea {
+        background-color: rgba(0, 0, 0, 0.25);
+        border: none;
+        outline: none;
+        border-radius: 8px;
+        padding: 5px;
+
+    }
+    .add-new-video textarea {
+        resize: none;
+
+    }
+</style>
+
+<% if (user.id==='5f749fd3bd01753cb4f9677a' ) { %>
+
+    <div class="add-new-video">
+        <h5>Upload New Video</h5>
+        <form action="/entertainment/rabbit-hole/upload" method="post">
+            <input type="text" name="title" placeholder="Title" required>
+            <textarea name="description" placeholder="Description" required></textarea>
+            <input type="text" name="url_source" placeholder="Video URL (URL ends in .mp4)">
+            <input id="previewImgUrl" type="text" name="thumbnail" placeholder="Video Thumbnail URL (URL ends in .jpg or .png)">
+            <div class="thumbnail-preview">
+                <img src="" alt="" id="previewImg">
+            </div>
+            <input type="text" name="video_length" placeholder="Video Length" required>
+            <p>Tags</p>
+            <input type="text" name="tags" placeholder="Tag">
+            <input type="text" name="tags" placeholder="Tag">
+            <input type="text" name="tags" placeholder="Tag">
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+<% } %>
+
+
+<script>
+    const previewImgUrl = document.getElementById('previewImgUrl')
+    const previewImg = document.getElementById('previewImg')
+
+    previewImgUrl.addEventListener('change', e => {
+        const thumbnailImg = e.target.value
+        previewImg.setAttribute('src', thumbnailImg)
+    })
+</script>

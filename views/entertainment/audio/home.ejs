@@ -1,0 +1,258 @@
+<style>
+    .add-audio-form {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 50px;
+    }
+
+    .add-audio-form h3 {
+        font-size: 2rem;
+        border-bottom: outset 2px lightskyblue;
+        width: 90%;
+        text-align: center;
+        padding: 8px;
+        font-weight: bold;
+    }
+
+    .add-audio-form form {
+        background: rgba(255, 255, 255, 0.25);
+        border-radius: 10px;
+        border: outset 2px lightskyblue;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .custom-file-profile-audio {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        width: 90%;
+        color: #fff;
+        margin-top: 20px;
+    }
+
+    #file-chosen{
+    margin-left: 0.3rem;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: outset 1px rgba(135, 206, 250, 0.75);
+    }
+    .custom-file-profile-audio label {
+        text-align: center;
+        padding: 8px;
+        font-size: 1.3rem;
+        width: 100%;
+        color: #fff;
+        background: rgba(135, 206, 250, 0.5);
+        padding: 5px;
+        border: outset 2px rgba(135, 206, 250, 0.75);
+        margin-bottom: 8px;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    .custom-file-profile-audio input {
+        width: 100%;
+        margin-bottom: 20px;
+        padding-bottom: 8px;
+        border-bottom: outset 1px lightskyblue;
+    }
+
+    .input-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 8px;
+        width: 75%;
+    }
+
+    .input-group input {
+        width: 90%;
+        padding: 5px;
+        border-radius: 5px;
+        outline: none;
+        border: inset 1px lightskyblue;
+        color: #000;
+    }
+
+    .input-group p {
+        text-align: center;
+        font-size: 1.3rem;
+        color: #fff;
+        padding: 5px;
+    }
+
+    .tags {
+        width: 90%;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+
+    .input-group-tags {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .input-group-tags input {
+        border-radius: 5px;
+        padding: 5px;
+        outline: none;
+        border: inset 1px lightskyblue;
+    }
+
+    .tags p {
+        font-size: 1.3rem;
+        color: #fff;
+        display: block;
+        text-align: center;
+        width: 100%;
+        padding: 5px;
+    }
+
+    .custom-file-profile-audio-button {
+        width: 100px;
+        background: rgba(0, 255, 0, 0.5);
+        border: outset 2px lime;
+        outline: none;
+        padding: 8px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 1.3rem;
+        cursor: pointer;
+    }
+
+    .input-group-tags {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .input-group-tags input {
+        margin-top: 5px;
+
+    }
+
+</style>
+
+<div class="zone-title">
+    <h1>
+        <%= zone %>
+    </h1>
+</div>
+
+
+<%- include('../../partials/menus/entertainment'); %>
+
+
+    <%- include('../../partials/menus/sub/entertainment/audio'); %>
+
+        <div class="page-title">
+            <h2>
+                <%= subZonePage %>
+            </h2>
+        </div>
+
+
+        
+
+<div class="add-audio-form">
+    <form action="/upload-user-audio" method="post" enctype="multipart/form-data">
+        <h3>Add a Song</h3>
+        <div class="custom-file-profile-audio">
+            <!-- upload upload which is hidden -->
+            <input type="file" name="audio" id="upload-btn" hidden />
+            
+            <!-- our custom upload button -->
+            <label for="upload-btn">Choose Song</label>
+            
+            <!-- name of file chosen -->
+            <span id="file-chosen">No file chosen</span>
+
+        </div>
+        <div class="input-group">
+            <p>Album Name</p>
+            <input type="text" name="album" placeholder="Album">
+        </div>
+        <div class="input-group">
+            <p>Song Name</p>
+            <input type="text" name="song" placeholder="Song">
+        </div>
+        <div class="input-group">
+            <p>Artist</p>
+            <input type="text" name="artist" placeholder="Artist">
+        </div>
+        <div class="input-group">
+            <p>Genre</p>
+            <select name="genre">
+                <option value="alternative">Alternative</option>
+                <option value="anime">Anime</option>
+                <option value="blues">Blues</option>
+                <option value="childrens">Children's</option>
+                <option value="classical">Classical</option>
+                <option value="comedy">Comedy</option>
+                <option value="country">Country</option>
+                <option value="dance">Dance</option>
+                <option value="easy listening">Easy Listening</option>
+                <option value="electronic">Electronic</option>
+                <option value="enka">Enka</option>
+                <option value="french pop">French Pop</option>
+                <option value="german folk">German Folk</option>
+                <option value="german pop">German Pop</option>
+                <option value="fitness & workout">Fitness & Wokout</option>
+                <option value="hip-hop">Hip-Hop</option>
+                <option value="holiday">Holiday</option>
+                <option value="indie pop">Indie Pop</option>
+                <option value="industrial">Industrial</option>
+                <option value="christian & gospel">Christian & Gospel</option>
+                <option value="instrumental">Instrumental</option>
+                <option value="j-pop">J-Pop</option>
+                <option value="jazz">Jazz</option>
+                <option value="k-pop">K-Pop</option>
+                <option value="karaoke">Karaoke</option>
+                <option value="kayokyoku">Kayokyoku</option>
+                <option value="latin">Latin</option>
+                <option value="metal">Metal</option>
+                <option value="new age">New Age</option>
+                <option value="opera">Opera</option>
+                <option value="pop">Pop</option>
+                <option value="r&b">R&B</option>
+                <option value="rap">Rap</option>
+                <option value="reggae">Reggae</option>
+                <option value="rock">Rock</option>
+                <option value="soul">Soul</option>
+                <option value="vocal">Vocal</option>
+                <option value="world">World</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <p>Album Art</p>
+            <input type="text" name="background_photo" placeholder="URL of Album Art">
+        </div>
+        <div class="tags">
+            <p>Tags</p>
+            <div class="input-group-tags">
+                <input type="text" name="tags">
+                <input type="text" name="tags">
+                <input type="text" name="tags">
+            </div>
+        </div>
+        <button type="submit" class="custom-file-profile-audio-button">Add</button>
+    </form>
+</div>
+
+<script>
+    function getFileName() {
+        var x = document.getElementById("upload-btn").name;
+        document.getElementById("file-chosen").innerHTML = x;
+    }
+</script>

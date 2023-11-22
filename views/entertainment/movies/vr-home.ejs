@@ -1,0 +1,43 @@
+<style>
+    #coreMenu {
+        opacity: 0;
+        transition: ease-in 0.5s;
+    }
+    #coreMenu:hover {
+        opacity: 1;
+        transition: ease-in 2s;
+    }
+    #coreData {
+        opacity: 0;
+        transition: ease-in 0.5s;
+    }
+    #coreData:hover {
+        opacity: 1;
+        transition: ease-in 2s;
+    }
+    .movie-collection {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .movie-container {
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+    .movie-container img {
+        border-radius: 16px;
+    }
+</style>
+
+<div class="movie-collection">
+    <% movies.forEach(function(movie) { %>
+        <div class="movie-container">
+            <a href="/entertainment/vr/movies/<%= movie.link %>">
+                <img src="<%= movie.poster %>" alt="">
+            </a>
+            <!-- <p style="color: lime; font-size: 1.5rem;"><%= movie %></p> -->
+        </div>
+    <% }) %>
+</div>

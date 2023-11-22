@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WideSpread VR</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" href="/images/system/widespread_logo_1a1a1a.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Gruppo&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,100&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/080e00a6ec.js" crossorigin="anonymous"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-html-shader@0.2.0/dist/aframe-html-shader.min.js"></script>
+    <script src="https://unpkg.com/aframe-websurfaces@1.4.0/dist/aframe-websurfaces.umd.js"></script>
+    <script src="https://unpkg.com/aframe-layout-component@4.3.1/dist/aframe-layout-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
+    <!-- Greenscreen -->
+    <script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script>
+
+    <script src="https://rawgit.com/flysonic10/aframe-passthrough/master/dist/aframe-passthrough-component.min.js"></script>
+
+    <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
+    <link rel="stylesheet" href="/style/main.css">
+    <link rel="stylesheet" href="/style/vr.css">
+</head>
+<body>
+
+    <%- include('./partials/layout/core-menu-vr'); %>
+    <a-scene loading-screen="dotsColor: lightskyblue; backgroundColor: black">
+        <%- body %>
+
+
+<a-passthrough width="16" height="9"></a-passthrough>
+
+
+
+
+
+
+
+
+    </a-scene>
+
