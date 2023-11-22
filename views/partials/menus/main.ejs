@@ -1,0 +1,536 @@
+<style>
+
+.inner-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    padding-top: 75px;
+    height: 100%;
+
+}
+
+.battery-level-icon {
+    max-width: 50px;
+    max-height: 50px;
+}
+ 
+    #mainMenuVr {
+        display: none;
+
+    }
+    #mainMenuAr {
+        display: none;
+ 
+    }
+    #mainMenu2d {
+        display: block;
+
+
+    }
+    .reality-nav {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .reality-button {
+        cursor: pointer;
+    }
+    .reality-nav > div {
+        background: rgba(135, 206, 250, 0.25);
+        border-radius: 8px;
+        box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.25);
+        padding: 10px;
+        width: 30%;
+        text-align: center;
+    }
+    .reality-nav > .current-menu {
+        background: none;
+        padding: 3px;
+        width: 20%;
+        box-shadow: none;
+    }
+    .reality-nav > .current-menu small {
+        text-align: center;
+        color: #fff;
+    }
+    .reality-nav > .current-menu p {
+        text-align: center;
+        color: #fff;
+        font-weight: bold;
+        font-size: 2rem;
+    }
+
+    .reality-nav > div > span > p {
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: #fff;
+        transition: ease-in-out 0.25s;
+    }
+    .reality-nav > div > span > p:hover {
+        color: lightskyblue;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+    }
+    .main-menu {
+        margin-top: 10px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        font-size: 2rem;
+    }
+    .main-menu-item {
+        width: 100%;
+        text-align: center;
+        border-top: outset 1px #fff;
+        border-bottom: outset 1px #fff;
+        margin-bottom: 8px;
+        background: rgba(135, 206, 250, 0.25);
+        box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.25), 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+    .user-menu-buttons {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 90%;
+        background-color: rgba(255, 255, 255, 0.05);
+        border-top: solid 1px rgba(255, 255, 255, 0.77);
+        border-bottom: solid 1px rgba(255, 255, 255, 0.77);
+        box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.4);
+        border-radius: 12px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .menu-avatar {
+        border-radius: 50%;
+        height: 25px;
+        width: 25px;
+        overflow: hidden;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+    }
+
+    #userNotificationsBtn {
+        cursor: pointer;    
+    }
+    #notificationsModal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: calc(100vh - 52px);
+        padding-top: 52px;
+        background-color: #111;
+        z-index: 99960;
+        display: none;
+        transition: ease-in-out 0.25s;
+    }
+    .notifications-header {
+        position: relative;
+        padding: 10px;
+        text-align: center;
+    }
+    .notifications-header h5 {
+        font-size: 1.3rem;
+
+    }
+
+    #closeNotificationsBtn {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        right: 10px;
+        z-index: 99961;
+        font-size: 2rem;
+        color: #fff;
+    }
+
+
+    .notifications-data {
+        color: #fff;
+        font-size: 1.2rem;
+    }
+    .notifications-data p {
+        padding: 12px;
+        border-bottom: solid 1px lightskyblue;
+        cursor: pointer;
+    }
+    .notifications-data a {
+        font-size: 1.3rem;
+    }
+    .notifications-data span {
+        color: lightskyblue;
+    }
+    #notificationsCategoryData {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90vw;
+        height: 80vh;
+        z-index: 99962;
+        border-radius: 26px;
+        padding: 12px;
+        display: none;
+        background-color: #111;
+        box-shadow: 0 0 30px rgba(17, 17, 17, 0.6), 0 0 300px rgba(135, 206, 250, 0.5);
+        opacity: 0;
+        transition: ease-in-out 0.5s;
+    }
+    .notifications-category-title {
+        position: relative;
+        width: 100%;    
+        padding: 10px;
+    }
+    #notificationsCategoryDataTitle {
+        text-align: center;
+        color: #fff;
+        width: 100%;    
+        font-size: 1.3rem;
+    }
+
+
+    .friend-request-item {
+        color: lightskyblue;
+        margin-bottom: 10px;
+        border-bottom: solid 1px #fff;
+        padding: 5px;
+        font-size: 1.2rem;
+        /* NEED TO POPULATE REQUESTING USER DATA */
+    }
+
+    #notificationsCategoryDataCloseBtn {
+        position: absolute;
+        top: 0;
+        right: 20px;
+        font-size: 2rem;
+        color: #fff;
+
+    }
+    @media screen and (orientation : landscape) {
+        #mainMenu {
+            display: block;
+
+        }
+        .reality-nav {
+            margin: 0 auto;
+            width: 90%;
+        }
+        .reality-nav > div {
+            width: 20%;
+        }
+        .main-menu {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-evenly;
+            margin-top: 30px;
+        }
+        .main-menu-item {
+            border-radius: 6px;
+            width: 40%;
+            margin-bottom: 15px;
+        }
+
+    }
+
+
+@media screen and (min-width: 900px) {
+
+        #mainMenu {
+            padding-top: 55px;
+            padding-bottom: 0;
+            width: 100%;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        .main-menu-item {
+            border-radius: 0;
+            width: 100%;
+            margin-left: 0 auto;
+            margin-bottom: 8px;
+        }
+
+        .inner-menu {
+            padding-top: 35px;
+        
+        }
+}
+
+</style>
+
+<div id="mainMenu2d">
+    <div class="inner-menu">
+        <div class="system-information">
+            <div class="battery-level">
+                <img class="battery-level-icon" src="" alt="Battery Level Icon">
+                <span class="battery-percent"></span>
+            </div>
+        </div>
+    <div class="reality-nav">
+        <div class="reality-button" id="vrNavButton"><span onclick="openVrNav()"><p>VR</p></span></div>
+                <div class="current-menu">
+            <small>Current Menu</small>
+            <p style="color: #fff">2D</p>
+        </div>
+        <div class="reality-button" id="arNavButton"><span onclick="openArNav()"><p>AR</p></span></div>
+    </div>
+    <div class="main-menu">
+        <div class="main-menu-item"><a href="/socialspread">SocialSpread</a></div>
+        <div class="main-menu-item"><a href="/academy">Academy</a></div>
+        <div class="main-menu-item"><a href="/business">Business</a></div>
+        <div class="main-menu-item"><a href="/entertainment">Entertainment</a></div>
+        <div class="main-menu-item"><a href="/news">News</a></div>
+        <div class="main-menu-item"><a href="/wellness">Wellness</a></div>
+        <div class="main-menu-item"><a href="/things">Things</a></div>
+        <div class="main-menu-item"><a href="/spreadshield-dash">SpreadShield</a></div>
+        <div class="main-menu-item"><a href="/help">Help</a></div>
+
+        <div class="user-menu-buttons">
+            <% if (!user) { %>
+                <a href="/users/login">Login</a>
+                <i id="userNotificationsBtn" style="display: none;" class="far fa-bell"></i>
+            <% } else { %>
+                <a href="/users/logout"><i style="color: <%= user.favColor1 %>" class="fas fa-sign-out-alt"></i></a>
+                <!-- <i id="userNotificationsBtn" style="font-size: 1.5rem; color: <%= user.favColor1 %>;" class="bx bx-notification"></i> -->
+                <i id="userNotificationsBtn" style="font-size: 1.5rem; color: <%= user.favColor1 %>;" class="far fa-bell"></i>
+                <a href="/users/settings"><i style="font-size: 1.5rem; color: <%= user.favColor1 %>;" class="fas fa-user-cog"></i></a>
+                <% if (user.user_avatar) { %>
+                    <a href="/users/dashboard" class="menu-avatar" style="background-image: url('/image/<%= user.user_avatar %>');"></a>
+                <% } else { %>
+                    <a href="/users/dashboard"><i style="font-size: 1.5rem; color: <%= user.favColor1 %>;" class="far fa-user-circle"></i></a>
+                <% } %>
+            <% } %>     
+        </div>
+    </div>
+    </div>
+</div>
+
+
+<div id="mainMenuVr">
+    <div class="inner-menu">
+
+    <div class="reality-nav">
+        <div class="reality-button" id="navButton"><span onclick="open2dNav()"><p>2D</p></span></div>
+                <div class="current-menu">
+            <small>Current Menu</small>
+            <p style="color: #fff">VR</p>
+        </div>
+        <div class="reality-button" id="arNavButton"><span onclick="openArNav()"><p>AR</p></span></div>
+    </div>
+    <div class="main-menu">
+        <div class="main-menu-item"><a href="/flexfloor">FlexFloor VR</a></div>
+        <div class="main-menu-item"><a href="/socialspread">SocialSpread VR</a></div>
+        <div class="main-menu-item"><a href="/vr/academy">Academy VR</a></div>
+        <div class="main-menu-item"><a href="/vr/business">Business VR</a></div>
+        <div class="main-menu-item"><a href="/vr/leisure">Leisure VR</a></div>
+        <div class="main-menu-item"><a href="/vr/entertainment">Entertainment VR</a></div>
+        <div class="main-menu-item"><a href="/vr/news">News VR</a></div>
+        <div class="main-menu-item"><a href="/vr/wellness">Wellness VR</a></div>
+        <div class="main-menu-item"><a href="/vr/things">Things VR</a></div>
+        <div class="main-menu-item"><a href="/vr/help">Help VR</a></div>
+
+        <div class="user-menu-buttons">
+            <% if (!user) { %>
+                <a href="/users/login">Login</a>
+            <% } else { %>
+                <a href="/users/logout"><i style="color: <%= user.favColor1 %>" class="fas fa-sign-out-alt"></i></a>
+                <a href="/users/settings"><i style="font-size: 1.5rem; color: <%= user.favColor1 %>;" class="fas fa-user-cog"></i></a>
+                <a href="/vr/users/dashboard"><i style="font-size: 1.5rem; color: <%= user.favColor1 %>;" class="far fa-user-circle"></i></a>
+            <% } %>     
+        </div>
+    </div>
+    </div>
+</div>
+
+
+
+<div id="mainMenuAr">
+    <div class="inner-menu">
+    <div class="reality-nav">
+        <div class="reality-button" id="arNavButton"><span onclick="openVrNav()"><p>VR</p></span></div>
+        <div class="current-menu">
+            <small>Current Menu</small>
+            <p style="color: #fff">AR</p>
+        </div>
+        <div class="reality-button" id="navButton"><span onclick="open2dNav()"><p>2D</p></span></div>
+    </div>
+    <div class="main-menu">
+        <div class="main-menu-item"><a href="/socialspread">SocialSpread AR</a></div>
+        <div class="main-menu-item"><a href="/academy">Academy AR</a></div>
+        <div class="main-menu-item"><a href="/ar/sports/golf">Leisure AR</a></div>
+        <div class="main-menu-item"><a href="/ar/spreadshield/nearby">SpreadShield AR</a></div>
+        <div class="main-menu-item"><a href="/business">Business AR</a></div>
+        <div class="main-menu-item"><a href="/entertainment">Entertainment AR</a></div>
+        <div class="main-menu-item"><a href="/news">News AR</a></div>
+        <div class="main-menu-item"><a href="/wellness">Wellness AR</a></div>
+        <div class="main-menu-item"><a href="/things">Things AR</a></div>
+        <div class="main-menu-item"><a href="/help">Help AR</a></div>
+
+        <div class="user-menu-buttons">
+            <% if (!user) { %>
+                <a href="/users/login">Login</a>
+            <% } else { %>
+                <a href="/users/logout"><i style="color: <%= user.favColor1 %>" class="fas fa-sign-out-alt"></i></a>
+                <a href="/users/settings"><i style="font-size: 1.5rem; color: <%= user.favColor1 %>;" class="fas fa-user-cog"></i></a>
+                <a href="/users/dashboard"><i style="font-size: 1.5rem; color: <%= user.favColor1 %>;" class="far fa-user-circle"></i></a>
+            <% } %>     
+        </div>
+    </div>
+    </div>
+</div>
+
+<% if (!user) { %>
+    <span style="display: none;">
+        <div id="closeNotificationsBtn" style="display: none;"></div>
+        <div id="notificationsCategoryData">
+            <div class="notifications-category-title">
+                <div id="notificationsCategoryDataTitle"></div>
+                <div id="notificationsCategoryDataBody">
+
+                </div>
+                <div id="notificationsCategoryDataCloseBtn">x</div>
+            </div>
+            <div id="notificationsCategoryDataItems"></div>
+        </div>
+                <div class="notifications-data">
+            <p id="socialspreadNotificationsBtn"></p>
+            <p id="friendRequestsBtn"></p>
+            <p id="pendingFriendRequestsBtn"></p>
+        </div>
+    </span>
+<% } else { %>
+    <div id="notificationsModal">
+        <div class="notifications-header">
+            <h5>Notifications</h5>
+            <div id="closeNotificationsBtn">x</div>
+        </div>
+        <div class="notifications-data">
+            <p id="socialspreadNotificationsBtn"><a href="/users/notifications/type/spread">SocialSpread Alerts: <span><%= user.spread_notifications.length %></span></a></p>
+            <p id="friendRequestsBtn"><a href="/users/notifications/type/friend">Friend Requests: <span><%= user.friend_requests.length %></span></a></p>
+            <p id="pendingFriendRequestsBtn"><a href="/users/notifications/type/friend">Pending Friend Requests: <span><%= user.pending_friend_requests.length %></span></a></p>
+        </div>
+        <div id="notificationsCategoryData">
+            <div class="notifications-category-title">
+                <div id="notificationsCategoryDataTitle"></div>
+                <div id="notificationsCategoryDataBody">
+
+                </div>
+                <div id="notificationsCategoryDataCloseBtn">x</div>
+            </div>
+            <div id="notificationsCategoryDataItems"></div>
+        </div>
+    </div>
+<% } %>
+
+
+<script>
+    function openVrNav() {
+        document.getElementById("mainMenuVr").style.display = "flex";
+        document.getElementById("mainMenuAr").style.display = "none";
+        document.getElementById("mainMenu2d").style.display = "none";
+        let oldMenu = document.getElementById("mainMenu")
+        oldMenu.removeChild[0]
+        
+        console.log(`Old Menu: ${oldMenu.children}`)
+    }
+    
+    function openArNav() {
+        document.getElementById("mainMenuVr").style.display = "none";
+        document.getElementById("mainMenuAr").style.display = "flex";
+        document.getElementById("mainMenu2d").style.display = "none";
+        let oldMenu = document.getElementById("mainMenu")
+        oldMenu.removeChild[0]
+    }
+    
+    
+    function open2dNav() {
+        document.getElementById("mainMenuVr").style.display = "none";
+        document.getElementById("mainMenuAr").style.display = "none";
+        document.getElementById("mainMenu2d").style.display = "flex";
+        let oldMenu = document.getElementById("mainMenu")
+        oldMenu.removeChild[0]
+    }
+        
+    
+</script>
+
+
+<script>
+    const coreContainer = document.getElementById('coreContainer')
+
+    const userNotificationsBtn = document.getElementById('userNotificationsBtn')
+    const notificationsModal = document.getElementById('notificationsModal')
+    const closeNotificationsBtn = document.getElementById('closeNotificationsBtn')
+
+    const friendRequestsBtn = document.getElementById('friendRequestsBtn')
+    const pendingFriendRequestsBtn = document.getElementById('pendingFriendRequestsBtn')
+
+    const notificationsCategoryData = document.getElementById('notificationsCategoryData')
+    const notificationsCategoryDataCloseBtn = document.getElementById('notificationsCategoryDataCloseBtn')
+    const notificationsCategoryDataTitle = document.getElementById('notificationsCategoryDataTitle')
+    const notificationsCategoryDataItems = document.getElementById('notificationsCategoryDataItems')
+
+    userNotificationsBtn.addEventListener('click', e => {
+        notificationsModal.style.display = 'block'
+        document.body.style.overflow = 'hidden'
+        document.body.style.overflowX = 'hidden'
+        document.body.style.paddingBottom = '0'
+        coreContainer.style.overflow = 'hidden'
+        coreContainer.style.overflowX = 'hidden'
+        coreContainer.style.paddingTop = '0'
+    })
+    closeNotificationsBtn.addEventListener('click', e => {
+        notificationsModal.style.display = 'none'
+        document.body.style.overflow = 'auto'
+        document.body.style.overflowX = 'hidden'
+        document.body.style.paddingBottom = '50px'
+        coreContainer.style.overflow = 'auto'
+        coreContainer.style.overflowX = 'hidden'
+        coreContainer.style.paddingTop = '50px'
+    })
+
+    friendRequestsBtn.addEventListener('click', e => {
+        notificationsCategoryData.style.display = 'block'
+        notificationsCategoryData.style.opacity = '1'
+        notificationsCategoryDataTitle.innerText = 'Friend Requests'
+    })
+        
+    pendingFriendRequestsBtn.addEventListener('click', e => {
+        notificationsCategoryData.style.display = 'block'
+        notificationsCategoryData.style.opacity = '1'
+        notificationsCategoryDataTitle.innerText = 'Pending Friend Requests'
+        notificationsCategoryDataItems.innerHTML = `
+        <% if (!user) { %>
+            <span style="display: none;"></span>
+        <% } else { %>
+            <% user.pending_friend_requests.forEach(function(request) { %>
+                <p class="friend-request-item">USER ID: <%= request %></p>
+            <% }) %>
+        <% } %>
+        `
+    })
+    
+    
+    
+    
+    notificationsCategoryDataCloseBtn.addEventListener('click', e => {
+        notificationsCategoryData.style.display = 'none'
+        notificationsCategoryDataTitle.innerText = ''
+
+    })
+</script>

@@ -1,0 +1,60 @@
+<style>
+
+</style>
+
+<a-text position="0 3 -10" scale="3 3 3" align="center" value="FlexFloor Room <%= size %>' X <%= size %>'"></a-text>
+<a-text color="red" position="0 2 -10" scale="2 2 2" align="center" value="FlexFloor Room <%= sizeMeters %>m X <%= sizeMeters %>m"></a-text>
+
+<a-entity id="flexRoom" opacity="0.5"> 
+<!-- FLOOR -->
+    <!-- <a-box id="floor" opacity="1" position="0 0 0" scale="<%= sizeMeters %> 0.1 <%= sizeMeters %>" color="white" rotation="0 0 0" material="shader: flat; src: #oak1_Img; repeat: 1 1; metalness: 0.25; roughnessMap: #oak1_Rough; roughness: 0.8; roughnessTextureRepeat: 1 1; envMap: #oak1_Height;"></a-box> -->
+    <a-box id="floor" opacity="1" position="0 0 0" scale="<%= sizeMeters %> 0.1 <%= sizeMeters %>" color="white" rotation="0 0 0" material="src: #ply2_Img; repeat: 1 1; normalMap: #ply1_Norm; normalTextureRepeat: 1 1; metalness: 0; normalScale: 2 2; normalTextureOffset: 2 2; roughnessMap: #ply1_Rough; roughness: 0.8; roughnessTextureRepeat: 1 1;"></a-box>
+    
+    <!-- CEILING -->
+    <!-- <a-box id="ceiling" opacity="1" position="0 3 0" scale="<%= sizeMeters %> 0.1 <%= sizeMeters %>" color="white" rotation="0 0 0" material="shader: flat; src: #oak1_Img; repeat: 1 1; metalness: 0.25; roughnessMap: #oak1_Rough; roughness: 0.8; roughnessTextureRepeat: 1 1; envMap: #oak1_Height;"></a-box> -->
+    <a-box id="ceiling" opacity="1" position="0 3 0" scale="<%= sizeMeters %> 0.1 <%= sizeMeters %>" color="white" rotation="0 0 0" material="src: #ply2_Img; repeat: 1 1; normalMap: #ply1_Norm; normalTextureRepeat: 1 1; metalness: 0; normalScale: 2 2; normalTextureOffset: 2 2; roughnessMap: #ply1_Rough; roughness: 0.8; roughnessTextureRepeat: 1 1;"></a-box>
+
+
+    
+<!-- WALLS -->
+
+    <!-- EAST -->
+    <!-- <a-box id="wall1" opacity="1" position="<%= wallPosition %> 1.5 0" scale="<%= sizeMeters %> 0.1 3" color="white" rotation="90 90 0" material="src: #log1_Img; repeat: 1 1; normalMap: #log1_Norm; normalTextureRepeat: 1 1; metalness: 0.25; normalScale: 2 2; normalTextureOffset: 2 2; displacementMap: #log1_Dis; ambientOcclusionMap: #pat1_Occ; ambientOcclusionTextureRepeat: 1 1; roughnessMap: #log1_Rough; roughness: 0.8; roughnessTextureRepeat: 1 1; envMap: #log1_Height;"></a-box> -->
+    <a-box id="wall1" opacity="1" position="<%= wallPosition %> 1.5 0" scale="<%= sizeMeters %> 0.1 3" color="white" rotation="90 90 0" material="src: #drywall_Img; repeat: 1 1; normalMap: #drywall_Norm; normalTextureRepeat: 1 1; metalness: 0; normalScale: 2 2; normalTextureOffset: 2 2; roughnessMap: #drywall_Rough; roughness: 0.8; roughnessTextureRepeat: 1 1;"></a-box>
+    
+    <!-- WEST -->
+    <!-- <a-box id="wall2" opacity="1" position="-<%= wallPosition %> 1.5 0" scale="<%= sizeMeters %> 0.1 3" color="white" rotation="90 90 0" material="src: #log1_Img; repeat: 1 1; normalMap: #log1_Norm; normalTextureRepeat: 1 1; metalness: 0.25; normalScale: 2 2; normalTextureOffset: 2 2; displacementMap: #log1_Dis; ambientOcclusionMap: #pat1_Occ; ambientOcclusionTextureRepeat: 1 1; roughnessMap: #log1_Rough; roughness: 0.8; roughnessTextureRepeat: 1 1; envMap: #log1_Height;"></a-box> -->
+    <a-box id="wall2" opacity="1" position="-<%= wallPosition %> 1.5 0" scale="<%= sizeMeters %> 0.1 3" color="white" rotation="90 90 0" material="src: #drywall_Img; repeat: 1 1; normalMap: #drywall_Norm; normalTextureRepeat: 1 1; metalness: 0; normalScale: 2 2; normalTextureOffset: 2 2; roughnessMap: #drywall_Rough; roughness: 0.8; roughnessTextureRepeat: 1 1;"></a-box>
+    
+    <!-- SOUTH -->
+    <!-- <a-box id="wall3" opacity="1" position="0 1.5 <%= wallPosition %>" scale="<%= sizeMeters %> 0.1 3" color="white" rotation="90 0 0" material="src: #log1_Img; repeat: 1 1; normalMap: #log1_Norm; normalTextureRepeat: 1 1; metalness: 0.25; normalScale: 2 2; normalTextureOffset: 2 2; displacementMap: #log1_Dis; ambientOcclusionMap: #pat1_Occ; ambientOcclusionTextureRepeat: 1 1; roughnessMap: #log1_Rough; roughness: 0.8; roughnessTextureRepeat: 1 1; envMap: #log1_Height;"></a-box> -->
+    <a-box id="wall3" opacity="1" position="0 1.5 <%= wallPosition %>" scale="<%= sizeMeters %> 0.1 3" color="white" rotation="90 0 0" material="src: #drywall_Img; repeat: 1 1; normalMap: #drywall_Norm; normalTextureRepeat: 1 1; metalness: 0; normalScale: 2 2; normalTextureOffset: 2 2; roughnessMap: #drywall_Rough; roughness: 0.8; roughnessTextureRepeat: 1 1;"></a-box>
+    
+    <!-- NORTH --- Wall in View On Load -->
+    <!-- <a-box id="wall4" opacity="1" position="0 1.5 -<%= wallPosition %>" scale="<%= sizeMeters %> 0.1 3" color="white" rotation="90 0 0" material="src: #log1_Img; repeat: 1 1; normalMap: #log1_Norm; normalTextureRepeat: 1 1; metalness: 0.25; normalScale: 2 2; normalTextureOffset: 2 2; displacementMap: #log1_Dis; ambientOcclusionMap: #pat1_Occ; ambientOcclusionTextureRepeat: 1 1; roughnessMap: #log1_Rough; roughness: 0.8; roughnessTextureRepeat: 1 1; envMap: #log1_Height;"></a-box> -->
+    <a-box id="wall4" opacity="1" position="0 1.5 -<%= wallPosition %>" scale="<%= sizeMeters %> 0.1 3" color="white" rotation="90 0 0" material="src: #drywall_Img; repeat: 1 1; normalMap: #drywall_Norm; normalTextureRepeat: 1 1; metalness: 0; normalScale: 2 2; normalTextureOffset: 2 2; roughnessMap: #drywall_Rough; roughness: 0.8; roughnessTextureRepeat: 1 1;"></a-box>
+
+    <a-gui-flex-container position="0 1 -2" rotation="0 0 0" id="ffOpeningText" gui-flex-container="flexDirection: column; alignItems: center; justifyContent: center;">
+        <a-gui-label width="2.5" height="0.75" onclick="logs" font-family="/fonts/BlackOps.ttf"
+            gui-label="lineHeight: 1; backgroundColor: transparent; fontColor: orange; borderColor: lightskyblue;" material="visible: false;" font-size="0.3" value="Under Construction">
+        </a-gui-label>
+        <a-gui-label width="2.5" height="0.75" onclick="logs" font-family="/fonts/BlackOps.ttf"
+            gui-label="lineHeight: 1; backgroundColor: transparent; fontColor: black; borderColor: lightskyblue;" material="visible: false;" font-size="0.1" value="Look down then hover the cursor over the menu to customize your room.">
+        </a-gui-label>
+    </a-gui-flex-container>
+</a-entity>
+
+
+<!-- Lighting -->
+
+<!-- Wall Facing -->
+<a-entity light="type: spot; color: #ffffff; intensity: 1; angle: 50; groundColor: #ffffff; decay: 3; penumbra: 0.8; castShadow: true; target: #wall1; shadowBias: 1" position="0 3 0" rotation="-45 180 0"></a-entity>
+<a-entity light="type: spot; color: #ffffff; intensity: 1; angle: 50; groundColor: #ffffff; decay: 3; penumbra: 0.8; castShadow: true; target: #wall2; shadowBias: 1" position="0 3 0" rotation="-45 180 0"></a-entity>
+<a-entity light="type: spot; color: #ffffff; intensity: 1; angle: 50; groundColor: #ffffff; decay: 3; penumbra: 0.8; castShadow: true; target: #wall3; shadowBias: 1" position="0 3 0" rotation="-45 180 0"></a-entity>
+<a-entity light="type: spot; color: #ffffff; intensity: 1; angle: 50; groundColor: #ffffff; decay: 3; penumbra: 0.8; castShadow: true; target: #wall4; shadowBias: 1" position="0 3 0" rotation="-45 180 0"></a-entity>
+
+<!-- Overhead Floor -->
+<a-entity light="type: spot; color: #ffffff; intensity: 1; angle: 80; groundColor: #ffffff; decay: 3; penumbra: 0.8; castShadow: true; target: #floor; shadowBias: 1" position="0 3 0" rotation="-45 180 0"></a-entity>
+
+<!-- Ambient Ceiling -->
+<a-entity light="type: spot; color: #ffffff; intensity: 0.5; angle: 120; groundColor: #ffffff; decay: 3; penumbra: 0.8; castShadow: true; target: #ceiling; shadowBias: 1" position="0 0 0" rotation="-45 180 0"></a-entity>

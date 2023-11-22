@@ -1,0 +1,18 @@
+<style>
+    #workMenu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        overflow-x: auto;
+    }
+</style>
+
+
+<div id="workMenu">
+    <div class="menu-item <%= subZonePage=='Home' ? 'menu-link active' : 'menu-link' %>"><a href="/business/work/<%= company.id %>">Home</a></div>
+    <div class="menu-item <%= subZonePage=='Schedule' ? 'menu-link active' : 'menu-link' %>"><a href="/business/work/<%= company.id %>/schedule">Schedule</a></div>
+    <div class="menu-item <%= subZonePage=='Notes' ? 'menu-link active' : 'menu-link' %>"><a href="/business/work/<%= company.id %>/notes">Notes</a></div>
+    <div class="menu-item <%= subZonePage=='Projects' ? 'menu-link active' : 'menu-link' %>"><a href="/business/work/<%= company.id %>/projects">Projects</a></div>
+    <div class="menu-item <%= subZonePage=='Presentations' ? 'menu-link active' : 'menu-link' %>"><a href="/business/work/<%= company.id %>/presentations">Presentations</a></div>
+    <div class="menu-item <%= subZonePage=='Help' ? 'menu-link active' : 'menu-link' %>"><a href="/business/work/<%= company.id %>/help">Help</a></div>
+</div>

@@ -1,0 +1,21 @@
+<style>
+    #wellnessMenu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        overflow-x: auto;
+
+    }
+</style>
+
+
+
+<div id="wellnessMenu">
+    <div class="menu-item <%= subZone=='Home' ? 'menu-link active' : 'menu-link' %>"><a href="/wellness">Home</a></div>
+    <div class="menu-item <%= subZone=='Fitness' ? 'menu-link active' : 'menu-link' %>"><a href="/wellness/fitness">Fitness</a></div>
+    <div class="menu-item <%= subZone=='Yoga' ? 'menu-link active' : 'menu-link' %>"><a href="/wellness/yoga">Yoga</a></div>
+    <div class="menu-item <%= subZone=='Nutrition' ? 'menu-link active' : 'menu-link' %>"><a href="/wellness/nutrition">Nutrition</a></div>
+    <div class="menu-item <%= subZone=='Health' ? 'menu-link active' : 'menu-link' %>"><a href="/wellness/health">Health</a></div>
+    <div class="menu-item <%= subZone=='News' ? 'menu-link active' : 'menu-link' %>"><a href="/wellness/news">News</a></div>
+    <div class="menu-item <%= subZone=='Help' ? 'menu-link active' : 'menu-link' %>"><a href="/wellness/help">Help</a></div>
+</div>
