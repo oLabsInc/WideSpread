@@ -1,0 +1,237 @@
+<style>
+    .query-data {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .query-data p {
+        font-size: 1.3rem;
+        color: #fff;
+    }
+    .no-results {
+        text-align: center;
+    }
+    .no-results p {
+        color: #fff;
+    }
+    .result-group-header {
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .result-group-header h2 {
+        color: lightskyblue;
+        font-size: 2rem;
+    }
+    .result-item {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 95%;
+        margin: 0 auto;
+        margin-bottom: 40px;
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(4px);
+        border-radius: 8px;
+    }
+    .result-item p {
+        color: #fff;
+    }
+    .result-item-image {
+        width: 30%;
+        padding: 5px;
+    }
+    .result-item-image img {
+        width: 100%;
+        border-radius: 8px;
+    }
+    .result-item-data {
+        width: 70%;
+    }
+    .result-item-data-header {
+        border-bottom: solid 1px lightskyblue;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        text-align: center;
+    }
+    .result-item-data-header-name {
+        width: 100%;
+    }
+    .result-item-data-header-name h5 {
+        font-size: 1.3rem;
+    }
+    .result-item-data-header-type {
+        width: 100%;
+        margin-right: 10px;
+    }
+    .result-item-data-header-type p {
+        color: lightskyblue;
+    }
+    .result-item-data-body {
+        padding: 8px;
+    }
+</style>
+
+<div class="query-data">
+    <p>Search results for: "<%= queryString %>"</p>
+</div>
+
+
+
+<div class="results-container">
+    <% if (companies.length <= 0 && courses.length <= 0 && classes.length <= 0 && questions.length <= 0 ) { %>
+        <div class="no-results">
+            <p>Sorry, we couldn't find anything.</p>
+        </div>
+    <% } else { %>
+
+
+
+
+
+
+        <% if (companies.length > 0) { %>
+            <div class="result-group-header">
+                <h2>Businesses</h2>
+            </div>
+            <% companies.forEach(function(item) { %>
+
+                <div class="result-item">
+                    <div class="result-item-image">
+                        <img src="/image/<%= item.logo %>" alt="">
+                    </div>
+                    <div class="result-item-data">
+                        <div class="result-item-data-header">
+                            <div class="result-item-data-header-name">
+                                <h5><%= item.company_name %></h5>
+                            </div>
+                            <div class="result-item-data-header-type">
+                                <p><%= item.company_type %></p>
+                            </div>
+                        </div>
+                        <div class="result-item-data-body">
+                            <p><%= item.company_bio %></p>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <span style="display: none;"></span>
+        <% } %>
+
+
+        <% if (courses.length > 0) { %>
+            <div class="result-group-header">
+                <h2>Courses</h2>
+            </div>
+            <% courses.forEach(function(item) { %>
+
+                <div class="result-item">
+                    <div class="result-item-image">
+                        <img src="/image/<%= item.background_image %>" alt="">
+                    </div>
+                    <div class="result-item-data">
+                        <div class="result-item-data-header">
+                            <div class="result-item-data-header-name">
+                                <h5><%= item.course %></h5>
+                            </div>
+                            <div class="result-item-data-header-type">
+                                <p><%= item.subject %></p>
+                            </div>
+                        </div>
+                        <div class="result-item-data-body">
+                            <% if (item.classes.length > 0) { %>
+                                <% item.classes.forEach(function(className) { %>
+                                    <p><%= className.name %></p>
+                                <% }) %>
+                            <% } else { %>
+                                <p style="text-align: center;">No classes yet.</p>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <span style="display: none;"></span>
+        <% } %>
+
+
+
+
+        <% if (classes.length > 0) { %>
+            <div class="result-group-header">
+                <h2>Classes</h2>
+            </div>
+            <% classes.forEach(function(item) { %>
+
+                <div class="result-item">
+                    <div class="result-item-image">
+                        <img src="/image/<%= item.in_course.background_image %>" alt="">
+                    </div>
+                    <div class="result-item-data">
+                        <div class="result-item-data-header">
+                            <div class="result-item-data-header-name">
+                                <h5><%= item.name %></h5>
+                            </div>
+                            <div class="result-item-data-header-type">
+                                <p><%= item.in_course.course %></p>
+                            </div>
+                        </div>
+                        <div class="result-item-data-body">
+                            <p><%= item.description %></p>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <span style="display: none;"></span>
+        <% } %>
+
+
+
+        <% if (questions.length > 0) { %>
+            <div class="result-group-header">
+                <h2>Questions</h2>
+            </div>
+            <% questions.forEach(function(item) { %>
+
+                <div class="result-item">
+                    <div class="result-item-image">
+                        <img src="/images/system/question-mark_1a1a1a.png" alt="">
+                    </div>
+                    <div class="result-item-data">
+                        <div class="result-item-data-header">
+                            <div class="result-item-data-header-name">
+                                <h5><%= item.question_body %></h5>
+                            </div>
+                            <div class="result-item-data-header-type">
+                                <p><%= item.category %></p>
+                            </div>
+                        </div>
+                        <div class="result-item-data-body">
+                            <% if (item.answers > 0) { %>
+                                <% item.answers.forEach(function(answer) { %>
+                                    <p><%= answer.answer_body %></p>
+                                <% }) %>
+                            <% } else { %>
+                                <p>This question hasn't been answered yet.</p>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <span style="display: none;"></span>
+        <% } %>
+
+
+
+
+
+
+    <% } %>
+</div>

@@ -1,0 +1,785 @@
+<style>
+            .spead-info-container {
+            background-color: transparent;
+            width: calc(90% - 2rem);
+            margin-inline: auto;
+            padding: 1rem;
+            backdrop-filter: blur(10px);
+            border-radius: 26px;
+            border: solid 3px lightskyblue;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+    
+        .spead-info-container h2 {
+            color: lightskyblue;
+            font-size: 1.3rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    
+        .spead-info-container p {
+            color: #fff;
+            padding-bottom: 10px;
+        }
+        .tab button {
+            padding: 8px;
+        }
+    @media screen and (max-width: 500px) {
+        .page-title h1 {
+            text-align: center;
+        }
+
+
+        .spead-info-container {
+            background-color: transparent;
+            width: calc(90% - 2rem);
+            margin-inline: auto;
+            padding: 1rem;
+            backdrop-filter: blur(10px);
+            border-radius: 26px;
+            border: solid 3px lightskyblue;
+        }
+    
+        .spead-info-container h2 {
+            color: lightskyblue;
+            font-size: 1.3rem;
+            text-align: center;
+        }
+    
+        .spead-info-container p {
+            color: #fff;
+        }
+        .main-header-page-menu-container {
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+            margin-bottom: 20px;
+        }
+
+        .main-header-page-menu-container p {
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.76);
+            text-align: center;
+            font-size: 0.6rem;
+            color: lightskyblue;
+        }
+
+        .main-header-page-menu-inner a {
+            border-top: groove 2px lightskyblue;
+            border-bottom: groove 2px lightskyblue;
+            text-align: center;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        #mainHeaderPageMenu {
+            background: rgba(0, 0, 0, 0.3);
+            width: 100%;
+            position: relative;
+            border-radius: 8px;
+        }
+
+        .main-header-page-menu-inner {
+            display: inline-flex;
+            max-width: 100%;
+            min-width: 100%;
+            overflow-x: auto;
+            width: 100%;
+        }
+
+        .main-header-page-menu-inner a {
+            position: relative;
+            padding: 10px;
+            width: 150px;
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-bottom: 10px;
+            text-align: center;
+            border-radius: 8px;
+            color: #fff;
+        }
+
+        .spread-break hr {
+            background: lightskyblue;
+            box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.534);
+            width: 80%;
+            margin-left: 10%;
+            border-radius: 50%;
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+
+        .back-home {
+            padding: 10px;
+            width: fit-content;
+            margin-inline: auto;
+        }
+
+        .back-home h5 {
+    text-align: center;
+    margin-top: 8px;
+    width: fit-content;
+    background: rgb(0 0 0 / 10%);
+    padding: 8px;
+    border: solid 2px #5555555e;
+    margin-inline: auto;
+    border-radius: 8px;
+        }
+
+        .back-home a {
+            text-decoration: none;
+        }
+        .back-home i {
+            border-bottom: solid 1px #ffffff70;
+            background: #87cefa3b;
+            padding: 8px;
+            border-radius: 6px;
+            margin-right: 8px;
+            border-bottom: solid 1px #ffffff70;
+            /* border-left: none; */
+            /* border-right: none; */
+            box-shadow: inset 0 -1px 2px #b4e0fb80, inset 0 1px 2px #87cefaa3;
+        }
+        .shopping-container {
+            width: 100%;
+        }
+
+        .shopping-container h5 {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .tab {
+            width: 95%;
+            margin-inline: auto;
+            border: solid 1px rgba(255, 255, 255, 0.25);
+            background-color: rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(2px);
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            overflow-x: auto;
+            border-radius: 10px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+        .tab button {
+            background-color: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            color: lightskyblue;
+            outline: none;
+            border: none;
+            font-size: 1rem;
+            border-radius: 4px;
+        }
+
+        .tab .active {
+            background-color: rgba(135, 206, 250, 0.25);
+            backdrop-filter: blur(10px);
+            color: #fff;
+        }
+        .tabcontent {
+            padding-bottom: 0;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            width: 90%;
+            margin-inline: auto;
+            border-bottom: solid 2px lightskyblue;
+
+        }
+
+        .tabcontent h5 {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .session {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem;
+            margin-top: 10px;
+        }
+        .session form {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .session button {
+            text-align: center;
+            padding: 10px;
+            border: none;
+            width: 90%;
+            color: lightskyblue;
+            margin-bottom: 15px;
+            border-top: groove 2px lightskyblue;
+            border-bottom: groove 2px lightskyblue;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            margin-inline: auto;
+            background: #87cefa24;
+        }
+
+        .session h2 {
+        }
+        .session p {
+            text-align: center;
+            padding: 10px;
+            width: calc(90% - 20px);
+            border-top: groove 2px lightskyblue;
+            border-bottom: groove 2px lightskyblue;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            margin-inline: auto;
+            backdrop-filter: blur(10px);
+            background: #87cefa24;
+        }
+
+        .session a {
+            color: lightskyblue;
+            text-decoration: none;
+        }
+
+        .tabcontent button {
+            width: 60%;
+            margin-left: 20%;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            background: rgba(0, 128, 0, 0.3);
+            border: groove 2px green;
+            border-bottom: none;
+            outline: none;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .exercise {
+            width: 100%;
+            display: inline-flex;
+            padding: 10px;
+        }
+
+        .exercise input {
+            width: 10%;
+        }
+
+        .exercise h6 {
+            width: 90%;
+        }
+
+        .exercise-list {
+            max-height: 500px;
+            overflow: hidden;
+            overflow-y: scroll;
+            width: 80%;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            border-top: groove 2px lightskyblue;
+            border-bottom: groove 2px lightskyblue;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            padding-top: 10px;
+            padding-bottom: 10px;
+            backdrop-filter: blur(10px);
+            margin-inline: auto;
+        }
+
+        .current-exercises {
+            margin-top: 30px;
+            padding: 8px;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            width: calc(100% - 16px);
+            border: solid 1px rgba(135, 206, 250, 0.25);
+            max-width: 100%;
+            border-top: groove 3px rgba(135, 206, 250, 1);
+            border-bottom: groove 3px lightskyblue;
+            box-shadow: inset 0 0 10px rgba(135, 206, 250, 0.4);
+        }
+
+        .current-exercises p {
+            color: #fff;
+            padding: 5px;
+            margin-right: 5px;
+
+        }
+
+        .current-exercise {
+            display: inline-flex;
+            border-top: groove 2px lightskyblue;
+            border-bottom: groove 2px lightskyblue;
+            padding: 5px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            box-shadow: inset 0 0 5px rgba(135, 206, 250, 0.5);
+        }
+
+        .current-exercise p {
+            margin-bottom: 0;
+            min-width: fit-content;
+            margin-bottom: 0;
+
+        }
+
+        .current-exercise button {
+            background: transparent;
+            line-height: 31px;
+            border: none;
+            outline: none;
+            padding: 0;
+            color: red;
+            font-size: 1.2rem;
+        }
+
+        .remove {
+            width: auto;
+            line-height: 40px;
+        }
+
+        .remove button {
+            width: 20px;
+            background: none;
+            border: none;
+            outline: none;
+            color: red;
+            margin: 0;
+            padding: 0;
+            font-size: 1.2rem;
+
+        }
+
+        .add-new-exercise {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 10px;
+            padding-bottom: 0;
+            box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .add-new-exercise h5 {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .add-new-exercise input {
+            width: 90%;
+            border-radius: 8px;
+            padding: 5px;
+            margin-left: 5%;
+            margin-bottom: 20px;
+        }
+
+        .add-new-exercise button {
+            width: 80%;
+            margin-left: 10%;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            background: rgba(0, 128, 0, 0.3);
+            border: groove 2px green;
+            border-bottom: none;
+            outline: none;
+            color: #fff;
+            padding: 10px;
+        }
+    }
+    #spreadCoreMenu {
+        background-color: transparent;
+        backdrop-filter: blur(2px);
+    }
+    
+    #spreadCoreMenu > div:first-of-type .menu-item a {
+        padding: 3px;
+        border: none;
+        box-shadow: none;
+    }
+    
+
+
+    #spreadCoreMenu .spread-link {
+        border: none;
+    }
+    
+</style>
+
+
+<div class="spread-container-core">
+
+
+    <div id="spreadCoreMenu">
+        <%- include('../../partials/menus/wellness'); %>
+        <%- include('../../partials/menus/sub/wellness/fitness'); %>
+    </div>
+
+
+    <div class="back-home">
+        <a href="/wellness">
+            <h5><i class="fas fa-less-than"></i> Go Back</h5>
+        </a>
+    </div>
+
+    <% if (!user) { %>
+        <p>SORRY 1 SECOND</p>
+    <% } else { %>
+    
+
+
+
+    <div class="spead-info-container">
+
+
+        <h2>
+            Workout Schedule
+        </h2>
+
+
+    <!-- EDI THIS TEXT -->
+        <p>
+            Click on a day you'd like to populate with exercises, then add the exercises.
+            Once you have finished with 1 day, do the same for the next day you want to work out. Repeat until you're happy
+            with your workout schedule.
+        </p>
+
+    </div>
+
+
+    <div class="session">
+    
+        <p><a href="/wellness/your-plans/history">Workout History</a></p>
+    </div>
+
+    <div class="spread-heading">
+        <h3>Schedule</h3>
+    </div>
+    <div class="tab">
+        <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'sundayAdd')">Sunday</button>
+        <button class="tablinks" onclick="openCity(event, 'mondayAdd')">Monday</button>
+        <button class="tablinks" onclick="openCity(event, 'tuesdayAdd')">Tuesday</button>
+        <button class="tablinks" onclick="openCity(event, 'wednesdayAdd')">Wednesday</button>
+        <button class="tablinks" onclick="openCity(event, 'thursdayAdd')">Thursday</button>
+        <button class="tablinks" onclick="openCity(event, 'fridayAdd')">Friday</button>
+        <button class="tablinks" onclick="openCity(event, 'saturdayAdd')">Saturday</button>
+    </div>
+
+    <div id="sundayAdd" class="tabcontent">
+        <div class="session">
+            <p><a href="/wellness/your-plans/session/sunday">Start Session</a></p>
+        </div>
+        <div class="current-exercises">
+            <% if (workoutSchedule) { %>
+                <% workoutSchedule.sunday.forEach(function(exercise) { %>
+                    <div class="current-exercise">
+                        <p>
+                            <%= exercise.exercise %>
+                                <!-- <span><form action="/wellness/your-plans/sunday/remove?_method=PATCH" method="post"><input type="text" name="exercise" value="<%= exercise.id %>" hidden><button type="submit"><i class="far fa-times-circle"></i></button></form></span> -->
+                        </p>
+                    </div>
+                    <% }) %>
+                        <% } else { %>
+                            <span></span>
+                            <% } %>
+        </div>
+        <div class="spread-break">
+            <hr>
+        </div>
+        <form action="/wellness/your-plans/add/sunday?_method=PATCH" method="post">
+            <div class="exercise-list">
+                <% workouts.forEach(function(workout){ %>
+                    <div class="exercise">
+                        <input type="checkbox" name="sunday" value="<%= workout.id %>">
+                        <h6>
+                            <%= workout.exercise %>
+                        </h6>
+                    </div>
+                    <% }); %>
+            </div>
+            <button type="submit">Update Workout</button>
+        </form>
+    </div>
+
+    <div id="mondayAdd" class="tabcontent">
+        <h5>Monday</h5>
+        <div class="session">
+            <p><a href="/wellness/your-plans/session/monday">Start Session</a></p>
+        </div>
+        <div class="current-exercises">
+            <% if (workoutSchedule) { %>
+                <% workoutSchedule.monday.forEach(function(exercise) { %>
+                    <div class="current-exercise">
+                        <p>
+                            <%= exercise.exercise %>
+                        </p>
+                    </div>
+                    <% }) %>
+                        <% } else { %>
+                            <span></span>
+                            <% } %>
+        </div>
+        <div class="spread-break">
+            <hr>
+        </div>
+        <form action="/wellness/your-plans/add/monday?_method=PATCH" method="post">
+            <div class="exercise-list">
+                <% workouts.forEach(function(workout){ %>
+                    <div class="exercise">
+                        <input type="checkbox" name="monday" value="<%= workout.id %>">
+                        <h6>
+                            <%= workout.exercise %>
+                        </h6>
+                    </div>
+                    <% }); %>
+            </div>
+            <button type="submit">Update Workout</button>
+        </form>
+    </div>
+
+    <div id="tuesdayAdd" class="tabcontent">
+        <h5>Tuesday</h5>
+        <div class="session">
+            <p><a href="/wellness/your-plans/session/tuesday">Start Session</a></p>
+        </div>
+        <div class="current-exercises">
+            <% if (workoutSchedule) { %>
+                <% workoutSchedule.tuesday.forEach(function(exercise) { %>
+                    <div class="current-exercise">
+                        <p>
+                            <%= exercise.exercise %>
+                        </p>
+                    </div>
+                    <% }) %>
+                        <% } else { %>
+                            <span></span>
+                            <% } %>
+        </div>
+        <div class="spread-break">
+            <hr>
+        </div>
+        <form action="/wellness/your-plans/add/tuesday?_method=PATCH" method="post">
+            <div class="exercise-list">
+                <% workouts.forEach(function(workout){ %>
+                    <div class="exercise">
+                        <input type="checkbox" name="tuesday" value="<%= workout.id %>">
+                        <h6>
+                            <%= workout.exercise %>
+                        </h6>
+                    </div>
+                    <% }); %>
+            </div>
+            <button type="submit">Update Workout</button>
+        </form>
+    </div>
+
+    <div id="wednesdayAdd" class="tabcontent">
+        <h5>Wednesday</h5>
+        <div class="session">
+            <p><a href="/wellness/your-plans/session/wednesday">Start Session</a></p>
+        </div>
+        <div class="current-exercises">
+            <% if (workoutSchedule) { %>
+                <% workoutSchedule.wednesday.forEach(function(exercise) { %>
+                    <div class="current-exercise">
+                        <p>
+                            <%= exercise.exercise %>
+                        </p>
+                    </div>
+                    <% }) %>
+                        <% } else { %>
+                            <span></span>
+                            <% } %>
+        </div>
+        <div class="spread-break">
+            <hr>
+        </div>
+        <form action="/wellness/your-plans/add/wednesday?_method=PATCH" method="post">
+            <div class="exercise-list">
+                <% workouts.forEach(function(workout){ %>
+                    <div class="exercise">
+                        <input type="checkbox" name="wednesday" value="<%= workout.id %>">
+                        <h6>
+                            <%= workout.exercise %>
+                        </h6>
+                    </div>
+                    <% }); %>
+            </div>
+            <button type="submit">Update Workout</button>
+        </form>
+    </div>
+
+    <div id="thursdayAdd" class="tabcontent">
+        <h5>Thursday</h5>
+        <div class="session">
+            <p><a href="/wellness/your-plans/session/thursday">Start Session</a></p>
+        </div>
+        <div class="current-exercises">
+            <% if (workoutSchedule) { %>
+                <% workoutSchedule.thursday.forEach(function(exercise) { %>
+                    <div class="current-exercise">
+                        <p>
+                            <%= exercise.exercise %>
+                        </p>
+                    </div>
+                    <% }) %>
+                        <% } else { %>
+                            <span></span>
+                            <% } %>
+        </div>
+        <div class="spread-break">
+            <hr>
+        </div>
+        <form action="/wellness/your-plans/add/thursday?_method=PATCH" method="post">
+            <div class="exercise-list">
+                <% workouts.forEach(function(workout){ %>
+                    <div class="exercise">
+                        <input type="checkbox" name="thursday" value="<%= workout.id %>">
+                        <h6>
+                            <%= workout.exercise %>
+                        </h6>
+                    </div>
+                    <% }); %>
+            </div>
+            <button type="submit">Update Workout</button>
+        </form>
+    </div>
+
+    <div id="fridayAdd" class="tabcontent">
+        <h5>Friday</h5>
+        <div class="session">
+            <p><a href="/wellness/your-plans/session/friday">Start Session</a></p>
+        </div>
+        <div class="current-exercises">
+            <% if (workoutSchedule) { %>
+                <% workoutSchedule.friday.forEach(function(exercise) { %>
+                    <div class="current-exercise">
+                        <p>
+                            <%= exercise.exercise %>
+                        </p>
+                    </div>
+                    <% }) %>
+                        <% } else { %>
+                            <span></span>
+                            <% } %>
+        </div>
+        <div class="spread-break">
+            <hr>
+        </div>
+        <form action="/wellness/your-plans/add/friday?_method=PATCH" method="post">
+            <div class="exercise-list">
+                <% workouts.forEach(function(workout){ %>
+                    <div class="exercise">
+                        <input type="checkbox" name="friday" value="<%= workout.id %>">
+                        <h6>
+                            <%= workout.exercise %>
+                        </h6>
+                    </div>
+                    <% }); %>
+            </div>
+            <button type="submit">Update Workout</button>
+        </form>
+    </div>
+
+    <div id="saturdayAdd" class="tabcontent">
+        <h5>Saturday</h5>
+        <div class="session">
+            <p><a href="/wellness/your-plans/session/saturday">Start Session</a></p>
+        </div>
+        <div class="current-exercises">
+            <% if (workoutSchedule) { %>
+                <% workoutSchedule.saturday.forEach(function(exercise) { %>
+                    <div class="current-exercise">
+                        <p>
+                            <%= exercise.exercise %>
+                        </p>
+                    </div>
+                    <% }) %>
+                        <% } else { %>
+                            <span></span>
+                            <% } %>
+        </div>
+        <div class="spread-break">
+            <hr>
+        </div>
+        <form action="/wellness/your-plans/add/saturday?_method=PATCH" method="post">
+            <div class="exercise-list">
+                <% workouts.forEach(function(workout){ %>
+                    <div class="exercise">
+                        <input type="checkbox" name="saturday" value="<%= workout.id %>">
+                        <h6>
+                            <%= workout.exercise %>
+                        </h6>
+                    </div>
+                    <% }); %>
+            </div>
+            <button type="submit">Update Workout</button>
+        </form>
+    </div>
+
+
+    <div class="spread-break">
+        <hr>
+    </div>
+
+
+
+<!-- 
+
+        TO DO:
+            [] - ADD SHOW/HIDE TO TOGGLE "Add a New Exercise" FORM
+            [] - 
+
+
+ -->
+
+    <div class="add-new-exercise">
+        <h5>Add a New Exercise</h5>
+        <form action="/wellness/your-plans/exercise" method="post">
+            <input required type="text" name="exercise" placeholder="Exercise name...">
+            <input required type="text" name="category" placeholder="Exercise category...">
+            <button type="submit">Add Exercise</button>
+        </form>
+    </div>
+
+    <% } %>
+
+    <!-- SPREAD CONTAINER BACKEND CONNECTIONS OPEN HERE -->
+
+    <!-- 
+
+        SPREAD CORE COMMUNICATIONS CONTAINER
+
+
+     -->
+
+    <!-- SPREAD CONTAINER BACKEND CONNECTIONS CLOSE HERE -->
+
+
+<!-- SPREAD CONTAINER CORE CLOSE HERE -->
+</div>
+    
+    <script>
+        document.getElementById("defaultOpen").click();
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>

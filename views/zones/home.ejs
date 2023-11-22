@@ -1,0 +1,80 @@
+<style>
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    input {
+        background-color: #000;
+        padding: 5px;
+        border-radius: 4px;
+        color: #fff;
+        margin-bottom: 10px;
+        border: none;
+        outline: none;
+
+    }
+    input::placeholder {
+        color: lightskyblue;
+    }
+    textarea {
+        background-color: #000;
+        padding: 5px;
+        border-radius: 4px;
+        color: #fff;
+        margin-bottom: 10px;
+        border: none;
+        outline: none;
+    }
+    textarea::placeholder {
+        color: lightskyblue;
+    }
+    button {
+        padding: 10px;
+        font-size: 1.5rem;
+        color: #fff;
+        background-color: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(5px);
+        border: none;
+        outline: none;
+        box-shadow: 0 0 10px #fff;
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+    .page-section-header {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    .page-section-header:first-of-type {
+        margin-top: 30px;
+    }
+    .page-section-header h4 {
+        color: lightskyblue;
+        font-size: 2rem;
+    }
+</style>
+
+<div class="page-section-header">
+    <h4>All Zones</h4>
+</div>
+<div class="all-zones">
+    <% zones.forEach(function(zone) { %>
+        <div class="zone">
+            <a href="/zones/id/<%= zone.id %>">
+                <p style="color: lightskyblue; font-size: 1.2rem;"><%= zone %></p>
+            </a>
+        </div>
+    <% }) %>
+</div>
+<div class="page-section-header">
+    <h4>Create New Zone</h4>
+</div>
+<div class="create-zone">
+    <form action="/zones/create" method="post">
+        <input type="text" name="name" placeholder="Zone Name" required>
+        <input type="number" name="code" placeholder="Zone Code (e.g. 1.#.#)" required>
+        <input type="text" name="route" placeholder="Route" required>
+        <button type="submit">Add Zone</button>
+    </form>
+</div>

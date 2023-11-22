@@ -1,0 +1,236 @@
+<style>
+    .background-image {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -99999;
+    }
+    
+    .user-avatar {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+    .user-avatar img {
+        max-width: 100%;
+        border-radius: 16px;
+        max-height: 70vh;
+
+    }
+    .user-profile {
+        background-color: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(4px);
+        width: 90%;
+        margin: 0 auto;
+        border-radius: 16px;
+        padding: 10px;
+    }
+    .user-profile h5 {
+        text-align: center;
+        color: lightskyblue;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+    }
+    .user-profile h5:first-of-type {
+        margin-top: 0;
+    }
+    .user-bio {
+        color: #fff;
+    }
+
+    .social-tree {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    .social-tree a {
+        color: #fff;
+        text-decoration: none;
+        margin-bottom: 10px;
+    }
+    .social-tree i {
+        margin-right: 8px;
+        color: lightskyblue;
+    }
+    .user-posts {
+        background-color: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(4px);
+        border-radius: 16px;
+        padding: 10px;
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 30px;
+    }
+    .user-posts h5 {
+        text-align: center;
+        color: lightskyblue;
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+    }
+    .post {
+        background-color: rgba(0, 0, 0, 0.5);
+        border-top: outset 2px lightskyblue;
+        border-bottom: outset 2px lightskyblue;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .post-author-image {
+        width: 20%;
+        margin-bottom: 10px;
+    }
+    .post-author-image img {
+        width: 100%;
+        border-bottom-right-radius: 8px;
+    }
+    .post-data {
+        display: flex;
+        flex-direction: column;
+        width: 75%;
+    }
+    .post-author-name {
+        text-align: center;
+    }
+    .post-author-name p {
+        font-size: 1.2rem;
+        padding: 8px;
+        text-shadow: 0 0 2px #fff;
+    }
+    .post-body {
+        padding: 8px;
+        margin-bottom: 10px;
+    }
+    .post-body p {
+        word-break: break-word;
+        color: #fff;
+    }
+
+
+@media screen and (orientation : landscape) {
+
+
+}
+</style>
+<% if (!user.user_background_image) { %>
+    <span style="display: none;"></span>
+<% } else { %>
+    <div class="background-image" style="background-image: url('<%= user.user_background_image %>'); background-size: cover; background-repeat: no-repeat;">
+<% } %>    
+
+</div>
+<div class="page-title">
+    <h2 style="color: <%= user.favColor1 %>"><%= user.fname %> <%= user.lname %></h2>
+</div>
+<div class="user-avatar">
+    <% if (!user.user_avatar) { %>
+        <img src="/images/system/default-user-avatar_1a1a1a.png" alt="">
+    <% } else { %>
+        <img style="box-shadow: 0 0 10px <%= user.favColor1 %>;" src="/image/<%= user.user_avatar %>" alt="">
+    <% } %>
+</div>
+
+<div class="user-profile">
+    <h5 style="color: <%= user.favColor1 %>">Bio</h5>
+    <div class="user-bio">
+        <p><%= user.about %></p>
+    </div>
+
+    <h5 style="color: <%= user.favColor1 %>">Social</h5>
+
+    <div class="social-tree">
+        <% if (!user.social.github) { %>
+            <span style="display: none;"></span>
+        <% } else { %>
+            <a target="_blank" href="<%= user.social.github %>"><i style="color: <%= user.favColor1 %>" class="fab fa-github"></i> <%= user.social.github %></a>
+        <% } %>
+
+        <% if (!user.social.linkedin) { %>
+            <span style="display: none;"></span>
+        <% } else { %>
+            <a target="_blank" href="<%= user.social.linkedin %>"><i style="color: <%= user.favColor1 %>" class="fab fa-linkedin-in"></i> <%= user.social.linkedin %></a>
+        <% } %>
+
+        <% if (!user.social.facebook) { %>
+            <span style="display: none;"></span>
+        <% } else { %>
+            <a target="_blank" href="<%= user.social.facebook %>"><i style="color: <%= user.favColor1 %>" class="fab fa-facebook"></i> <%= user.social.facebook %></a>
+        <% } %>
+
+        <% if (!user.social.twitter) { %>
+            <span style="display: none;"></span>
+        <% } else { %>
+            <a target="_blank" href="<%= user.social.twitter %>"><i style="color: <%= user.favColor1 %>" class="fab fa-twitter"></i> <%= user.social.twitter %></a>
+        <% } %>
+
+        <% if (!user.social.pinterest) { %>
+            <span style="display: none;"></span>
+        <% } else { %>
+            <a target="_blank" href="<%= user.social.pinterest %>"><i style="color: <%= user.favColor1 %>" class="fab fa-pinterest"></i> <%= user.social.pinterest %></a>
+        <% } %>
+
+        <% if (!user.social.youtube) { %>
+            <span style="display: none;"></span>
+        <% } else { %>
+            <a target="_blank" href="<%= user.social.youtube %>"><i style="color: <%= user.favColor1 %>" class="fab fa-youtube"></i> <%= user.social.youtube %></a>
+        <% } %>
+
+        <% if (!user.social.gab) { %>
+            <span style="display: none;"></span>
+        <% } else { %>
+            <a target="_blank" href="<%= user.social.gab %>"><%= user.social.gab %></a>
+        <% } %>
+
+        <% if (!user.social.rumble) { %>
+            <span style="display: none;"></span>
+        <% } else { %>
+            <a target="_blank" href="<%= user.social.rumble %>"><%= user.social.rumble %></a>
+        <% } %>
+
+
+    </div>
+
+    
+</div>
+    
+<div class="user-posts">
+    <h5><%= user.fname %>'s Posts</h5>
+    <% posts.forEach(function(post) { %>
+        <% if (!post.postBody) { %>
+            <span style="display: none;"></span>
+        <% } else { %>
+            <div class="post" style="border-bottom: outset 2px <%= post.author.favColor1 %>; border-top: outset 2px <%= post.author.favColor1 %>;">
+                <div class="post-author-image">
+                    <% if (!post.author.user_avatar) { %>
+                        <img src="/images/system/default-user-avatar_1a1a1a.png" alt="">
+                    <% } else { %>
+                        <img style="border-bottom: solid 1px <%= post.author.favColor1 %>; border-right: solid 1px <%= post.author.favColor1 %>;" src="/image/<%= post.author.user_avatar %>" alt="">
+                    <% } %>
+                </div>
+                <div class="post-data">
+                    
+                    <div class="post-author-name">
+                        <p style="color: <%= post.author.favColor1 %>"><%= post.author.fname %> <%= post.author.lname %></p>
+                    </div>
+                    <div class="post-body">
+                        <p><%= post.postBody %></p>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    <% }) %>
+</div>
+
+
+<div class="user-images-container">
+    <% user.user_images.forEach(function(image) { %>
+    <% }) %>
+</div>

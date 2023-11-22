@@ -1,0 +1,39 @@
+<a-text value="<%= currentClass.name %>" scale="2 2 1" text="align: center; color: lightskyblue" position="0 6 -6"></a-text>
+
+
+<a-entity layout="type: box; columns: 4; margin: 4" position="-6 0 -6">
+        <% learningPoints.forEach(function(learningPoint) { %>
+            <a-gui-flex-container flex-direction="column" justify-content="center" align-items="center" component-padding="0.25"
+                opacity="0.85" width="3" height="2.5" panel-color="lightskyblue" rounded="width: 3;  height: 2.5; radius: 0.5; depthWrite: false; polygonOffset: true; polygonOffsetFactor: 1; opacity: 0.7;"
+                rotation="0 0 0">
+            
+                <a-gui-label value="<%= learningPoint.section_header %>"
+                    width="2.5" 
+                    gui-label="fontColor: #fff; lineHeight: 1.75; backgroundColor: transparent; "
+                    geometry="width: 2.5; primitive: plane;"
+                    material="opacity: 0; visible: false;"
+                ></a-gui-label>
+
+                <a-gui-icon-button position="0 -0.75 0" height="0.75" onclick="showLearningPoint('<%= learningPoint.id %>')" key-code="32" icon="f13a"
+                    icon-font="/fonts/fa-solid-900.ttf" icon-font-size="0.6" margin="0 0 0.05 0"
+                    gui-icon-button="backgroundColor: lightskyblue; borderColor: lightblue; fontColor: lightblue; hoverColor: #fff; activeColor: lime;"
+                    >
+                </a-gui-icon-button>
+            </a-gui-flex-container>
+        <% }) %>
+</a-entity>
+
+
+
+<a-light type="point" position="0 2.5 0"></a-light>
+<a-sky src="/images/system/vr/academy_1a1a1a.png" rotation="0 90 0"></a-sky>
+
+
+<!-- Camera + cursor. -->
+<a-entity id="cameraRig" position="0 1.6 0">
+    <a-camera look-controls wasd-controls position="0 0 0">
+        <a-gui-cursor id="cursor" raycaster="objects: [gui-interactable]" fuse="true" fuse-timeout="2000" design="ring"
+            gui-cursor="activeColor: lightskyblue">
+        </a-gui-cursor> <!-- /cursor -->
+    </a-camera> <!-- /camera -->
+</a-entity>

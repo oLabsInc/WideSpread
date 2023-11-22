@@ -1,0 +1,826 @@
+<style>
+    .spread-info-container {
+
+    }
+
+
+
+    .tab button {
+        padding: 8px;
+    }
+
+    @media screen and (max-width: 500px) {
+        .page-title h1 {
+            text-align: center;
+        }
+
+
+
+        .main-header-page-menu-container {
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+            margin-bottom: 20px;
+        }
+
+        .main-header-page-menu-container p {
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.76);
+            text-align: center;
+            font-size: 0.6rem;
+            color: lightskyblue;
+        }
+
+        .main-header-page-menu-inner a {
+            border-top: groove 2px lightskyblue;
+            border-bottom: groove 2px lightskyblue;
+            text-align: center;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        #mainHeaderPageMenu {
+            background: rgba(0, 0, 0, 0.3);
+            width: 100%;
+            position: relative;
+            border-radius: 8px;
+        }
+
+        .main-header-page-menu-inner {
+            display: inline-flex;
+            max-width: 100%;
+            min-width: 100%;
+            overflow-x: auto;
+            width: 100%;
+        }
+
+        .main-header-page-menu-inner a {
+            position: relative;
+            padding: 10px;
+            width: 150px;
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-bottom: 10px;
+            text-align: center;
+            border-radius: 8px;
+            color: #fff;
+        }
+
+        .spread-break hr {
+            background: lightskyblue;
+            box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.534);
+            width: 80%;
+            margin-left: 10%;
+            border-radius: 50%;
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .back-home {
+            width: fit-content;
+        }
+        
+        .back-home h5 {
+            background-color: rgba(135, 206, 250, 0.15);
+            text-align: center;
+            width: fit-content;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            border-bottom: solid 1px rgba(158, 218, 255, 0.5);
+            border-right: solid 1px rgba(202, 235, 255, 0.5);
+            box-shadow: inset -2px -2px 22px #b4e0fb41, inset 0 -1px 6px #87cefaa3;
+            margin-inline: auto;
+            backdrop-filter: blur(10px);
+            border-bottom-right-radius: 8px;
+            font-size: 1.2rem;
+            line-height: 1.2rem;
+        }
+        
+        .back-home a {
+            font-size: 1.1rem;
+            line-height: 1.1rem;
+            text-decoration: none;
+        }
+        
+        .back-home i {
+            font-size: 1.1rem;
+            line-height: 1.1rem;
+            margin-right: 8px;
+            color: rgba(135, 206, 250, 0.5);
+            text-shadow: 0 0 3px rgba(255, 255, 255, 0.75);
+        }
+
+        .shopping-container {
+            width: 100%;
+        }
+
+        .shopping-container h5 {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .tab {
+            width: calc(100% - 16px);
+            border-top: solid 1px #fff;
+            border-bottom: solid 1px #fff;
+            background-color: rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(2px);
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 1rem;
+            overflow-x: auto;
+            border-radius: 1px;
+            padding: 8px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .tab button {
+    border: inset 1px #fff;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    font-size: 1.3rem;
+    color: lightskyblue;
+    outline: none;
+    border: none;
+    box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.5), 0 0 2px rgba(135, 206, 250, 0.25);
+    /* font-size: 1rem; */
+    border-radius: 4px;
+        }
+
+        .tab .active {
+            background-color: rgba(135, 206, 250, 0.25);
+            backdrop-filter: blur(10px);
+            color: #fff;
+        }
+
+        .tabcontent {
+            padding-bottom: 10px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            width: 90%;
+            margin-inline: auto;
+            border-bottom: solid 1px lightskyblue;
+            background-color: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.15);
+        }
+
+        .tabcontent h5 {
+            text-align: center;
+            padding: 10px;
+            font-size: 2rem;
+        }
+
+        .session {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly;
+            gap: 1rem;
+            padding: 1rem;
+            margin-top: 10px;
+            flex-wrap: wrap;    
+        }
+        .session p {
+            margin-bottom: 10px;
+        }
+        .session form {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .session button {
+            text-align: center;
+            padding: 10px;
+            border: none;
+            width: 90%;
+            color: lightskyblue;
+            margin-bottom: 15px;
+            border-top: groove 2px lightskyblue;
+            border-bottom: groove 2px lightskyblue;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            margin-inline: auto;
+            background: #87cefa24;
+        }
+
+        .session-icons {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly;
+            gap: 0.5rem;
+
+            display: none;
+        }
+
+        .session-icons i {
+            text-align: center;
+            padding: 10px;
+            width: calc(90% - 20px);
+            border-top: groove 2px lightskyblue;
+            border-bottom: groove 2px lightskyblue;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            margin-inline: auto;
+            backdrop-filter: blur(10px);
+            background: #87cefa24;
+            width: 45px;
+        }
+
+        .session a {
+            color: #fff;
+            text-decoration: none;
+            border: solid 1px #fff;
+            border-radius: 4px;
+            padding: 8px;
+            background: #87cefa61;
+            box-shadow: inset 0 0 25px #8181817d;
+            font-size: 1.3rem;
+        }
+
+        .session-schedule {
+        }
+
+
+        .tabcontent button {
+            width: 60%;
+            margin-left: 20%;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            background: rgba(0, 128, 0, 0.3);
+            border: groove 2px green;
+            border-bottom: none;
+            outline: none;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .exercise {
+            width: 100%;
+            display: inline-flex;
+            padding: 10px;
+        }
+
+        .exercise input {
+            width: 10%;
+        }
+
+        .exercise h6 {
+            width: 90%;
+        }
+
+        .exercise-list {
+            max-height: 500px;
+            overflow: hidden;
+            overflow-y: scroll;
+            width: 80%;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            border-top: groove 2px lightskyblue;
+            border-bottom: groove 2px lightskyblue;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            padding-top: 10px;
+            padding-bottom: 10px;
+            backdrop-filter: blur(10px);
+            margin-inline: auto;
+            /* display: none; */
+        }
+
+        .current-exercises {
+            margin-top: 10px;
+            padding: 1rem;
+            padding-top: 1rem;
+            /* padding-bottom: 1rem; */
+            /* background: rgba(0, 0, 0, 0.05); */
+            border-radius: 12px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            width: calc(95% - 2rem);
+            max-width: calc(95% - 2rem);
+            border: solid 1px rgba(135, 206, 250, 0.25);
+            border-top: groove 2px rgba(135, 206, 250, 1);
+            border-bottom: groove 2px lightskyblue;
+            box-shadow: inset 0 0 10px rgb(135 206 250 / 40%);
+            margin-inline: auto;
+        }
+
+
+
+        .current-exercises p {
+            color: #fff;
+            padding: 5px;
+            margin-right: 5px;
+
+        }
+
+        .current-exercises  caption {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .current-exercises table {
+            padding: 5px;
+            width: calc(90% - 10px);
+            max-width: calc(90% - 10px);
+            margin-inline: auto;
+            text-align: center;
+        }
+        .current-exercises th {
+            color: lightskyblue;
+            font-weight: bold;
+            border-bottom: solid 1px #fff;
+            padding: 3px;
+        }
+        .current-exercises td {
+            color: #fff;
+            font-size: 1.4rem;
+            padding: 3px;
+            border-right: solid 1px #fff;
+        }
+        .current-exercises td:last-of-type {
+            border-right: none;
+        }
+        .current-exercise {
+            display: inline-flex;
+            border-top: groove 1px lightskyblue;
+            border-bottom: groove 1px lightskyblue;
+            padding: 2px;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            box-shadow: inset 0 0 10px rgb(135 206 250 / 50%);
+        }
+
+        .current-exercise p {
+            margin-bottom: 0;
+            min-width: fit-content;
+            margin-bottom: 0;
+
+        }
+
+        .current-exercise button {
+            background: transparent;
+            line-height: 31px;
+            border: none;
+            outline: none;
+            padding: 0;
+            color: red;
+            font-size: 1.2rem;
+        }
+
+        .remove {
+            width: auto;
+            line-height: 40px;
+        }
+
+        .remove button {
+            width: 20px;
+            background: none;
+            border: none;
+            outline: none;
+            color: red;
+            margin: 0;
+            padding: 0;
+            font-size: 1.2rem;
+
+        }
+
+        .add-new-exercise {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 10px;
+            padding-bottom: 0;
+            box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .add-new-exercise h5 {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .add-new-exercise input {
+            width: 90%;
+            border-radius: 8px;
+            padding: 5px;
+            margin-left: 5%;
+            margin-bottom: 20px;
+        }
+
+        .add-new-exercise button {
+            width: 80%;
+            margin-left: 10%;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            background: rgba(0, 128, 0, 0.3);
+            border: groove 2px green;
+            border-bottom: none;
+            outline: none;
+            color: #fff;
+            padding: 10px;
+        }
+    }
+
+    #spreadCoreMenu {
+        background-color: transparent;
+        backdrop-filter: blur(2px);
+    }
+
+    #spreadCoreMenu>div:first-of-type .menu-item a {
+        padding: 3px;
+        border: none;
+        box-shadow: none;
+    }
+
+
+
+    #spreadCoreMenu .spread-link {
+        border: none;
+    }
+
+    #defaultOpen i {
+        font-size: 1rem;
+        color: #fff;
+    }
+</style>
+
+    <div class="spread-container-core">
+    
+    
+        <div id="spreadCoreMenu">
+            <%- include('../../partials/menus/wellness'); %>
+            <%- include('../../partials/menus/sub/wellness/fitness'); %>
+        </div>
+    
+    
+        <div class="back-home">
+            <a href="/wellness">
+                <h5><i class="fas fa-less-than"></i><span>Go Back</span></h5>
+            </a>
+        </div>
+    
+    
+        <div class="spread-info-container">
+    
+    
+            <h2>
+                Workout Schedule
+            </h2>
+    
+    
+            <!-- EDI THIS TEXT -->
+            <p>
+                Click on a day you'd like to populate with exercises, then add the exercises.
+                Once you have finished with 1 day, do the same for the next day you want to work out. Repeat until
+                you're happy
+                with your workout schedule.
+            </p>
+    
+        </div>
+    
+    
+        <div class="session-icons">
+    
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-dumbbell"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-dots-vertical-rounded"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-plus-circle"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-stop-circle"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-heart-circle"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-help-circle"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-x-circle"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-sort"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-sort-a-z"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-sort-z-a"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-sort-up"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-sort-down"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-spa"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-stats"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-stopwatch"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-timer"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-trip"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-trophy"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-toggle-left"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-toggle-right"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-trending-up"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-trending-down"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-swim"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-walk"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-run"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-cycling"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-table"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-usb"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-droplet"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-cog"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-closet"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-chevrons-down"></i></a></p>
+            <p><a href="/wellness/your-plans/history"><i class="bx bx-chevrons-up"></i></a></p>
+        </div>
+    
+
+
+        <% if (!workoutSchedule) { %>
+            <div class="spread-info-container">
+                <h2>Setup Your Workouts</h2>
+                <p>Click the button below to start adding exercises to your daily workouts.</p>
+                <div class="spread-button-new">
+                    <form action="/wellness/fitness/plans/add-schedule" method="post">
+                        <button type="submit">Add Exercises</button>
+                    </form>
+                </div>
+            </div>
+        <% } else { %>
+        
+            <div class="session-schedule">
+
+
+                <div class="spread-heading">
+                    <h3>Schedule</h3>
+                </div>
+                <div class="tab">
+                    <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'showNoneday')"><i class="bx bx-table"></i></button>
+                    <button class="tablinks" id="defaultOpen1" onclick="openCity(event, 'sundayAdd')">Sunday</button>
+                    <button class="tablinks" onclick="openCity(event, 'mondayAdd')">Monday</button>
+                    <button class="tablinks" onclick="openCity(event, 'tuesdayAdd')">Tuesday</button>
+                    <button class="tablinks" onclick="openCity(event, 'wednesdayAdd')">Wednesday</button>
+                    <button class="tablinks" onclick="openCity(event, 'thursdayAdd')">Thursday</button>
+                    <button class="tablinks" onclick="openCity(event, 'fridayAdd')">Friday</button>
+                    <button class="tablinks" onclick="openCity(event, 'saturdayAdd')">Saturday</button>
+                </div>
+        
+                <div id="showNoneday" class="tabcontent">
+                    <h5>All</h5>
+                    <div class="session">
+                        <p><a href="/wellness/fitness/workout/schedule/view/full" class="disabled">View All Sessions</a></p>
+                    </div>
+                    <div class="current-exercises">
+                        <% if (workoutSchedule) { %>
+                            <table>
+                                <caption>Total Exercises Weekly</caption>
+                                <thead>
+                                    <tr>
+                                        <th class="tablinks" onclick="openCity(event, 'sundayAdd')">Sun</th>
+                                        <th class="tablinks" onclick="openCity(event, 'mondayAdd')">Mon</th>
+                                        <th class="tablinks" onclick="openCity(event, 'tuesdayAdd')">Tues</th>
+                                        <th class="tablinks" onclick="openCity(event, 'wednesdayAdd')">Wed</th>
+                                        <th class="tablinks" onclick="openCity(event, 'thursdayAdd')">Thurs</th>
+                                        <th class="tablinks" onclick="openCity(event, 'fridayAdd')">Fri</th>
+                                        <th class="tablinks" onclick="openCity(event, 'saturdayAdd')">Sat</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><%= workoutSchedule.sunday.length %></td>
+                                        <td><%= workoutSchedule.monday.length %></td>
+                                        <td><%= workoutSchedule.tuesday.length %></td>
+                                        <td><%= workoutSchedule.wednesday.length %></td>
+                                        <td><%= workoutSchedule.thursday.length %></td>
+                                        <td><%= workoutSchedule.friday.length %></td>
+                                        <td><%= workoutSchedule.saturday.length %></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        <% } else { %>
+                            <span></span>
+                        <% } %>
+                    </div>
+
+
+
+
+                </div>
+
+
+
+                <div id="sundayAdd" class="tabcontent">
+                    <h5>Sunday</h5>
+                    <div class="session">
+                        <p><a href="/wellness/fitness/plan/session/day/sunday">Start Session</a></p>
+                        <p><a href="/wellness/fitness/plan/session/day/sunday/edit">Edit Session</a></p>
+                    </div>
+                    <div class="current-exercises">
+                        <% if (workoutSchedule.sunday.length >= 1) { %>
+                            <% workoutSchedule.sunday.forEach(function(exercise) { %>
+                                <div class="current-exercise">
+                                    <p><%= exercise.exercise %></p>
+                                </div>
+                            <% }) %>
+                        <% } else { %>
+                            <span></span>
+                        <% } %>
+                    </div>
+
+
+                </div>
+            
+                <div id="mondayAdd" class="tabcontent">
+                    <h5>Monday</h5>
+                    <div class="session">
+                        <p><a href="/wellness/fitness/plan/session/day/monday">Start Session</a></p>
+                        <p><a href="/wellness/fitness/plan/session/day/monday/edit">Edit Session</a></p>
+
+                    </div>
+                    <div class="current-exercises">
+                        <% if (workoutSchedule) { %>
+                            <% workoutSchedule.monday.forEach(function(exercise) { %>
+                                <div class="current-exercise">
+                                    <p>
+                                        <%= exercise.exercise %>
+                                    </p>
+                                </div>
+                                <% }) %>
+                                    <% } else { %>
+                                        <span></span>
+                                        <% } %>
+                    </div>
+
+
+                </div>
+            
+                <div id="tuesdayAdd" class="tabcontent">
+                    <h5>Tuesday</h5>
+                    <div class="session">
+                        <p><a href="/wellness/fitness/plan/session/day/tuesday">Start Session</a></p>
+                        <p><a href="/wellness/fitness/plan/session/day/tuesday/edit">Edit Session</a></p>
+                    </div>
+                    <div class="current-exercises">
+                        <% if (workoutSchedule) { %>
+                            <% workoutSchedule.tuesday.forEach(function(exercise) { %>
+                                <div class="current-exercise">
+                                    <p>
+                                        <%= exercise.exercise %>
+                                    </p>
+                                </div>
+                                <% }) %>
+                                    <% } else { %>
+                                        <span></span>
+                                        <% } %>
+                    </div>
+
+                </div>
+            
+                <div id="wednesdayAdd" class="tabcontent">
+                    <h5>Wednesday</h5>
+                    <div class="session">
+                        <p><a href="/wellness/fitness/plan/session/day/wednesday">Start Session</a></p>
+                        <p><a href="/wellness/fitness/plan/session/day/wednesday/edit">Edit Session</a></p>
+
+                    </div>
+                    <div class="current-exercises">
+                        <% if (workoutSchedule) { %>
+                            <% workoutSchedule.wednesday.forEach(function(exercise) { %>
+                                <div class="current-exercise">
+                                    <p>
+                                        <%= exercise.exercise %>
+                                    </p>
+                                </div>
+                                <% }) %>
+                                    <% } else { %>
+                                        <span></span>
+                                        <% } %>
+                    </div>
+
+
+                </div>
+            
+                <div id="thursdayAdd" class="tabcontent">
+                    <h5>Thursday</h5>
+                    <div class="session">
+                        <p><a href="/wellness/fitness/plan/session/day/thursday">Start Session</a></p>
+                        <p><a href="/wellness/fitness/plan/session/day/thursday/edit">Edit Session</a></p>
+                    </div>
+                    <div class="current-exercises">
+                        <% if (workoutSchedule) { %>
+                            <% workoutSchedule.thursday.forEach(function(exercise) { %>
+                                <div class="current-exercise">
+                                    <p>
+                                        <%= exercise.exercise %>
+                                    </p>
+                                </div>
+                                <% }) %>
+                                    <% } else { %>
+                                        <span></span>
+                                        <% } %>
+                    </div>
+
+                </div>
+            
+                <div id="fridayAdd" class="tabcontent">
+                    <h5>Friday</h5>
+                    <div class="session">
+                        <p><a href="/wellness/fitness/plan/session/day/friday">Start Session</a></p>
+                        <p><a href="/wellness/fitness/plan/session/day/friday/edit">Edit Session</a></p>
+                    </div>
+                    <div class="current-exercises">
+                        <% if (workoutSchedule) { %>
+                            <% workoutSchedule.friday.forEach(function(exercise) { %>
+                                <div class="current-exercise">
+                                    <p>
+                                        <%= exercise.exercise %>
+                                    </p>
+                                </div>
+                                <% }) %>
+                                    <% } else { %>
+                                        <span></span>
+                                        <% } %>
+                    </div>
+
+
+                </div>
+            
+                <div id="saturdayAdd" class="tabcontent">
+                    <h5>Saturday</h5>
+                    <div class="session">
+                        <p><a href="/wellness/fitness/plan/session/day/saturday">Start Session</a></p>
+                        <p><a href="/wellness/fitness/plan/session/day/saturday/edit">Edit Session</a></p>
+                    </div>
+                    <div class="current-exercises">
+                        <% if (workoutSchedule) { %>
+                            <% workoutSchedule.saturday.forEach(function(exerciseEl) { %>
+                                <div class="current-exercise">
+                                    <p>
+                                        <%= exerciseEl.exercise %>
+                                    </p>
+                                </div>
+                                <% }) %>
+                                    <% } else { %>
+                                        <span></span>
+                                        <% } %>
+                    </div>
+
+
+                </div>
+        
+        
+
+        
+        <!-- ADD CLOSE TAG FOR CONTAINER HERE -->
+            </div>
+
+        <% } %>
+
+
+
+
+
+
+
+        <!-- 
+    
+            TO DO:
+                [] - ADD SHOW/HIDE TO TOGGLE "Add a New Exercise" FORM
+                [] - 
+    
+    
+     -->
+
+    
+        <!-- SPREAD CONTAINER BACKEND CONNECTIONS OPEN HERE -->
+    
+        <!-- 
+    
+            SPREAD CORE COMMUNICATIONS CONTAINER
+    
+    
+         -->
+    
+        <!-- SPREAD CONTAINER BACKEND CONNECTIONS CLOSE HERE -->
+    
+    
+        <!-- SPREAD CONTAINER CORE CLOSE HERE -->
+    </div>
+    
+    <script>
+        document.getElementById("defaultOpen").click();
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                if (tablinks[i].className == 'tr-th') {
+                    console.log('tablinks[i]: ', tablinks[i])
+                }
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>

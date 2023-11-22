@@ -1,0 +1,185 @@
+<style>
+    @media screen and (min-width: 300px) {
+        .friend-container {
+            background: #000;
+            backdrop-filter: blur(4px);
+            border-radius: 16px;
+            box-shadow: 0 0 30px #fff;
+            color: #333;
+            font-size: 48px
+        }
+
+        .friend-container h5 {
+            color: #fff;
+            text-shadow: 0 0 20px lightskyblue;
+            font-size: 5rem;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .friends-list {
+            padding: 30px;
+            border: outset 5px lightskyblue;
+            border-radius: 50px;
+            box-shadow: 0 0 40px #fff;
+        }
+
+        .friend {
+            margin-bottom: 20px;
+            text-align: center;
+            color: rgb(255, 255, 255);
+        }
+
+        .friend p {
+            font-family: 'Gruppo', cursive;
+            font-size: 2.5rem;
+            text-shadow: 0 0 15px lightskyblue;
+        }
+
+        .friend a {
+            text-decoration: none;
+            color: lightblue;
+            font-family: 'Gruppo', cursive;
+            font-size: 2.5rem;
+        }
+
+    }
+
+    @media screen and (min-width: 900px) {
+        .friend-container {
+            background: #000;
+            backdrop-filter: blur(4px);
+            border-radius: 16px;
+            box-shadow: 0 0 30px #fff;
+            color: #333;
+            font-size: 48px
+        }
+
+        .friend-container h5 {
+            color: #fff;
+            text-shadow: 0 0 20px lightskyblue;
+            font-size: 15rem;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .friends-list {
+            padding: 30px;
+            border: outset 5px lightskyblue;
+            border-radius: 50px;
+            box-shadow: 0 0 40px #fff;
+        }
+
+        .friend {
+            margin-bottom: 20px;
+            text-align: center;
+            color: rgb(255, 255, 255);
+        }
+
+        .friend p {
+            font-family: 'Gruppo', cursive;
+            font-size: 5rem;
+            text-shadow: 0 0 15px lightskyblue;
+        }
+
+        .friend a {
+            text-decoration: none;
+            color: lightblue;
+            font-family: 'Gruppo', cursive;
+            font-size: 4rem;
+        }
+    }
+</style>
+<a-assets>
+    <img id="ground" src="/images/system/vr/floor_1a2a1a.jpg" alt="">
+    <img id="floorImg" src="/images/system/vr/floors/metal-treadplate_1/img.png" alt="">
+    <img id="foorMap" src="/images/system/vr/floors/metal-treadplate_1/map.png" alt="">
+    <img id="foor2" src="/images/system/vr/floors/metal-treadplate_2.png" alt="">
+    <img id="brushedMetal" src="/images/system/vr/metal/brushed-metal_1.png" alt="">
+</a-assets>
+
+<a-text value="Things" color="lightskyblue" position="0 3.75 -3" align="center" scale="2.5 2.5 2.5"
+    text="opacity: 0.5"></a-text>
+
+
+<!-- STATIC SCENE -->
+
+
+
+<!-- FLOOR -->
+
+
+<a-circle geometry="segments: 100; "
+    material="src: #floorImg; repeat: 25 25; normal-map: #floorMap; normal-texture-repeat: 25 25 metalness: 0.5"
+    rotation="-90 0 0" scale="10 10 1"></a-circle>
+<a-box scale="10 0.5 10"
+    material="src: #floorImg; repeat: 20 20; normal-map: #floorMap; normal-texture-repeat: 20 20 metalness: 0.5">
+</a-box>
+<a-cylinder scale="10 1 10" color="cyan" material="color: #6bffff; side: double; opacity: 0.5; metalness: 0.5"
+    open-ended="true" rotation="" geometry="segmentsHeight: 100; segmentsRadial: 100" position="0 0.4 0"></a-cylinder>
+<a-torus rotation="90 0 0" arc="360" radius="5" radius-tubular="0.1"
+    material="src: #brushedMetal; metalness: 0.25; roughness: 0.5"
+    geometry="radius: 10; radiusTubular: 0.02; segmentsRadial: 100; segmentsTubular: 100" scale="1 1 1"
+    position="0 0.89 0"></a-torus>
+
+
+<!-- Lighting -->
+
+<!-- Ambient -->
+
+<a-entity light="color: #f0fdff" position="-10 10 0"></a-entity>
+<a-entity light="color: #f0fdff" position="10 10 0"></a-entity>
+
+
+<!-- Spot Lights -->
+
+<!-- Friend List -->
+
+
+
+
+<!-- DYNAMIC SCENE -->
+
+
+<!-- FRIENDS -->
+
+
+
+<div
+    style="width: 100%; height: 100%; position: fixed; left: 0; top: 0; z-index: -1; overflow: hidden; background: #000;">
+</div>
+<script>
+
+    AFRAME.registerComponent('log', {
+        init: function () {
+            console.log('Hello, World!');
+        }
+    });
+
+
+
+
+    const postContainer = document.getElementById('postContainer')
+    const allPosts = postContainer.querySelectorAll('.post-container')
+    allPosts.forEach(postEl => {
+
+        console.log(postEl)
+        postEl.addEventListener('click', function (e) {
+            const postData = postEl.querySelector('a-text')
+            const postColor = postEl.getAttribute('material')
+            const backgroundColor = postColor["color"]
+            console.log(backgroundColor)
+            if (backgroundColor == "lightskyblue") {
+                postEl.setAttribute('material', 'color', 'black');
+            } else {
+                postEl.setAttribute('material', 'color', 'lightskyblue');
+            }
+            console.log(postColor)
+        })
+    })
+</script>
+
+<script>
+    const htmlEl = document.getElementById('htmlElement')
+    console.log(htmlEl)
+</script>

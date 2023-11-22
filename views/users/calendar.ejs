@@ -1,0 +1,823 @@
+ <style>
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.container {
+  width: 95%;
+  margin-inline: auto;
+  color: #eee;
+
+}
+
+.calendar {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.month {
+  width: 100%;
+  height: 12rem;
+  background-color: rgba(135, 206, 250, 0.15);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  text-align: center;
+  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.month i {
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.month h1 {
+  font-size: 3rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+.month p {
+  font-size: 1.6rem;
+}
+
+.weekdays {
+  width: 100%;
+  height: 5rem;
+  padding: 0 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.weekdays div {
+  font-size: 1.5rem;
+  font-weight: 400;
+  width: calc(100% / 7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.days {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0.4rem;
+  
+}
+
+.days > div {
+  font-size: 1.4rem;
+  width: calc(100% / 7);
+  height: 5rem;
+  /* padding: 0.2rem; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+  transition: background-color 0.2s;
+  position: relative;
+  scale: 0.95;
+}
+
+.days div:hover:not(.today) {
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(5px);
+  border-radius: 4px;
+  border: 0.2rem solid lightskyblue;
+  cursor: pointer;
+}
+
+.prev-date,
+.next-date {
+  opacity: 0.5;
+}
+
+.today {
+  background-color: rgba(135, 206, 250, 0.15);
+  backdrop-filter: blur(5px);
+  border-radius: 4px;
+  border: solid 1px #fff;
+}
+
+.hidden {
+    display: none;
+}
+
+#modalContainer {
+position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100vh;
+    max-height: 100vh;
+    width: 100%;
+    max-width: 100vw;
+    background: #00000075;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    z-index: 99998;
+
+}
+#modalContainerInner {
+    position: relative;
+    background-color: lime;
+}
+.add-event-modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    padding-bottom: 30px;
+    border-top: solid 1px #000;
+    border-bottom: solid 1px #000;
+    box-shadow: 0 0 20px lightskyblue;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.close-modal-button {
+    position: absolute;
+    top: -12px;
+    right: 12px;
+    color: #fff;
+    font-size: 2rem;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    background-color: orangered;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-header {
+    text-align: center;
+    border-bottom: solid 1px lightskyblue;
+    margin-bottom: 20px;
+    padding-top: 10px;
+}
+.modal-header h5 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}    
+.modal-header p {
+    color: #fff;
+    font-size: 1.5rem;
+    padding-bottom: 8px;
+}
+.calendar-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.calendar-form input {
+    outline: none;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 5px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 9000;
+}
+.calendar-form input::placeholder {
+    color: lightskyblue;
+}
+.calendar-form input[type="checkbox"] {
+    margin-bottom: 0;
+    margin-left: 20px;
+}
+.calendar-form button {
+    padding: 10px;
+    background-color: rgba(135, 206, 250, 0.15);
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    box-shadow: 0 0 10px #fff;
+    margin-top: 20px;
+}
+.all-day-input {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+}
+.all-day-input label {
+    font-size: 1.5rem;
+    color: #fff;
+}
+#eventStart, #eventEnd {
+    width: 250px;
+    padding-left: 50px;
+    
+}
+#eventStart::before {
+    content: 'Start: ';
+    position: absolute;
+    left: 5px;
+    color: #fff;
+    z-index: 9010;
+    font-size: 1.5rem;
+    
+    
+}
+#eventEnd::before {
+    content: 'End: ';
+    position: absolute;
+    left: 5px;
+    color: #fff;
+    z-index: 9020;
+    font-size: 1.5rem;
+}
+
+.event-item {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(135, 206, 250, 0.5);
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+}
+
+
+.selected-date-events-list {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 5000;
+    position: absolute;
+    height: 130px;
+    transform: translateY(150%);
+    bottom: calc(57% - 130px);
+    max-height: 130px;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    border-bottom: solid 1px lightskyblue;
+    padding: 8px;
+}
+.selected-date-events-list p {
+    font-size: 1.75rem;
+    text-shadow: 0 0 3px #000;
+    border-bottom: solid 1px lightskyblue;
+}
+
+
+
+
+.calendar-item {
+    background-color: #000;
+    color: lightskyblue;
+    padding: 0.5rem;
+    border-radius: 1rem;
+}
+.edit-selected-calendar-item {
+    background-color: red;
+
+}
+
+.edit-selected-calendar-item-el {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(135, 206, 250, 0.75);
+    backdrop-filter: blur(10px);
+    z-index: 99901;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overscroll-behavior: none;
+}
+.close-edit-selected-calendar-item-el {
+    position: relative;
+    z-index: 99998;
+    width: 100%;
+    height: 40px;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.close-edit-selected-calendar-item {
+    color: orangered;
+}
+</style>
+
+<%- include('../partials/menus/user'); %>
+
+<%- include('../partials/menus/sub/user/calendar'); %>
+
+
+    <% if (!user.user_background_image) { %>
+        <span style="display: none;"></span>
+    <% } else { %>
+        <div class="user-background-image" style="background:url('<%= user.user_background_image %>') 50% 50% no-repeat; background-size:cover;"></div>
+    <% } %>
+<div class="page-title">
+    <h2>Calendar</h2>
+</div>
+<div class="container">
+    <div class="calendar">
+        <div class="month">
+            <i class="fas fa-angle-left prev"></i>
+            <div class="date">
+                <h1></h1>
+                <p></p>
+            </div>
+            <i class="fas fa-angle-right next"></i>
+        </div>
+        <div class="weekdays">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+        </div>
+        <div class="days"></div>
+    </div>
+</div>
+
+<div id="modalContainer" class="hidden">
+    <div id="modalContainerInner"></div>
+</div>
+
+
+
+<div id="userEvents">
+    <% if (userCalendar.length <= 0) { %>
+        <span>No Events</span>
+    <% } else { %>
+        <% userCalendar.forEach(function(event) { %>
+            <span class="event-item-element" style="display: none;" data-start-date="<%= event.schedule.start %>"data-end-date="<%= event.schedule.end %>" data-event-name="<%= event.name %>"><%= event.name %></span>
+        <% }) %>
+    <% } %>
+</div>
+<script>
+    const date = new Date();
+
+    const renderCalendar = () => {
+        date.setDate(1);
+
+        const monthDays = document.querySelector(".days");
+
+        const lastDay = new Date(
+            date.getFullYear(),
+            date.getMonth() + 1,
+            0
+        ).getDate();
+
+        const prevLastDay = new Date(
+            date.getFullYear(),
+            date.getMonth(),
+            0
+        ).getDate();
+
+        const firstDayIndex = date.getDay();
+
+        const lastDayIndex = new Date(
+            date.getFullYear(),
+            date.getMonth() + 1,
+            0
+        ).getDay();
+
+        const nextDays = 7 - lastDayIndex - 1;
+
+        const months = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+        ];
+
+        document.querySelector(".date h1").innerHTML = months[date.getMonth()];
+
+        document.querySelector(".date p").innerHTML = new Date().toDateString();
+
+        let days = "";
+
+        for (let x = firstDayIndex; x > 0; x--) {
+            // days += `<div class="prev-date day">${prevLastDay - x + 1}</div>`;
+            days += `<div class="prev-date day" data-day="${prevLastDay - x + 1}" data-month="${date.getMonth() + 1 - 1}" data-year="${date.getFullYear()}">${prevLastDay - x + 1}</div>`;
+
+        }
+
+        for (let i = 1; i <= lastDay; i++) {
+            if (
+                i === new Date().getDate() &&
+                date.getMonth() === new Date().getMonth()
+            ) {
+                days += `<div class="today day" data-day="${i}" data-month="${date.getMonth() + 1}" data-year="${date.getFullYear()}">${i}</div>`;
+            } else {
+                days += `<div class="day" data-day="${i}" data-month="${date.getMonth() + 1}" data-year="${date.getFullYear()}">${i}</div>`;
+            }
+        }
+
+        for (let j = 1; j <= nextDays; j++) {
+            // days += `<div class="next-date day">${j}</div>`;
+            days += `<div class="prev-date day" data-day="${j}" data-month="${date.getMonth() + 1 + 1}" data-year="${date.getFullYear()}">${j}</div>`;
+
+            monthDays.innerHTML = days;
+        }
+
+
+
+
+/* Creating/Saving New Event to Database */
+
+        const 
+            closeModalContainer = document.getElementById('closeModalContainer'),
+            modalContainer = document.getElementById('modalContainer'),
+            modalContainerInner = document.getElementById('modalContainerInner')
+
+        const allDays = document.querySelectorAll('.day')
+         allDays.forEach(day => {
+            day.addEventListener('click', e => {
+                const selectedDay = e.target
+                console.log('selectedDay: ', selectedDay)
+                const dataDay = day.getAttribute('data-day')
+                const dataMonth = day.getAttribute('data-month')
+                const dataYear = day.getAttribute('data-year')
+                const date = new Date(dataYear, dataMonth - 1, dataDay)
+                console.log('date: ', date)
+                console.log('dataDay: ', dataDay)
+
+                
+                        let addEventModal = document.createElement('div')
+                        addEventModal.classList.add('add-event-modal')
+                        addEventModal.setAttribute('id', 'addEventModal')
+
+                        let closeModalContainerEl = document.createElement('span')
+                        closeModalContainerEl.classList.add('close-modal-button')
+                        closeModalContainerEl.setAttribute('id', 'closeModalButton')
+                        closeModalContainerEl.innerText = 'X'
+                        addEventModal.appendChild(closeModalContainerEl)
+
+                        let modalHeaderEl = document.createElement('div')
+                        modalHeaderEl.classList.add('modal-header')
+                
+                        let modalHeader = document.createElement('h5')
+                        modalHeader.innerText = 'Add Event'
+                
+                        let modalSubHeader = document.createElement('p')
+                        modalSubHeader.innerText = date.toDateString()
+                
+                        modalHeaderEl.appendChild(modalHeader)
+                        modalHeaderEl.appendChild(modalSubHeader)
+                
+                
+                        let modalForm = document.createElement('form')
+                        modalForm.setAttribute('action', '/users/calendar/event/save')
+                        modalForm.setAttribute('method', 'POST')
+                        modalForm.setAttribute('class', 'calendar-form')
+                
+                        let eventNameEl = document.createElement('input')
+                        eventNameEl.setAttribute('type', 'text')
+                        eventNameEl.setAttribute('name', 'name')
+                        eventNameEl.setAttribute('placeholder', 'Title')
+                        eventNameEl.setAttribute('required', true)
+                
+                        modalForm.appendChild(eventNameEl)
+                        
+
+
+                        
+                        let yearEl = document.createElement('input')
+                        yearEl.setAttribute('type', 'hidden')
+                        yearEl.setAttribute('name', 'year')
+                        yearEl.setAttribute('value', dataYear)
+                        modalForm.appendChild(yearEl)
+                        
+                        let monthEl = document.createElement('input')
+                        monthEl.setAttribute('type', 'hidden')
+                        monthEl.setAttribute('name', 'month')
+                        monthEl.setAttribute('value', dataMonth)
+                        modalForm.appendChild(monthEl)
+                        
+                        
+                        let dayEl = document.createElement('input')
+                        dayEl.setAttribute('type', 'hidden')
+                        dayEl.setAttribute('name', 'day')
+                        dayEl.setAttribute('value', dataDay)
+                        modalForm.appendChild(dayEl)
+
+                        let allDayEl = document.createElement('div')
+                        allDayEl.classList.add('all-day-input')
+
+                        let scheduleAllDayLabelEl = document.createElement('label')
+                        scheduleAllDayLabelEl.setAttribute('for', 'allDay')
+                        scheduleAllDayLabelEl.innerText = 'All Day'
+
+                        // allDayEl.appendChild(scheduleAllDayLabelEl)
+
+                        let scheduleAllDayEl = document.createElement('input')
+                        scheduleAllDayEl.setAttribute('id', 'allDay')
+                        scheduleAllDayEl.setAttribute('type', 'checkbox')
+                        scheduleAllDayEl.setAttribute('name', 'all_day')
+                
+                        // allDayEl.appendChild(scheduleAllDayEl)
+                        
+                        // modalForm.appendChild(allDayEl)
+
+                        let scheduleStartEl = document.createElement('input')
+                        scheduleStartEl.setAttribute('type', 'time')
+                        scheduleStartEl.setAttribute('id', 'eventStart')
+                        scheduleStartEl.setAttribute('name', 'start')
+                        modalForm.appendChild(scheduleStartEl)
+                        
+                        let scheduleEndEl = document.createElement('input')
+                        scheduleEndEl.setAttribute('type', 'time')
+                        scheduleEndEl.setAttribute('id', 'eventEnd')
+                        scheduleEndEl.setAttribute('name', 'end')
+                        modalForm.appendChild(scheduleEndEl)
+                        
+                        
+                        let scheduleButtonEl = document.createElement('button')
+                        scheduleButtonEl.setAttribute('type', 'submit')
+                        scheduleButtonEl.innerText = 'Add'
+                        modalForm.appendChild(scheduleButtonEl)
+                        
+                
+                
+                        addEventModal.appendChild(modalHeaderEl)
+                        addEventModal.appendChild(modalForm)
+
+                        modalContainer.appendChild(addEventModal)
+
+
+                        let selectedDateEventsListEl = document.createElement('div')
+                        selectedDateEventsListEl.classList.add('selected-date-events-list')
+                        selectedDateEventsListEl.setAttribute('id', 'dateEvents')
+                        modalContainer.appendChild(selectedDateEventsListEl)
+                        
+                        
+                        let listEl = document.getElementById('dateEvents')
+                        const allRenderedEvents = document.querySelectorAll('.event-item')
+
+                        allRenderedEvents.forEach(eventItem => {
+
+                                let eventTextEl = eventItem.querySelector('.event-item-modal')
+                                // eventTextEl.classList.remove('hidden')
+                                let eventText = eventTextEl.querySelector('p').innerText
+                                console.log('eventText: ', eventText)
+                                console.log('clicked event: ', eventItem)
+                                let eventEl = document.createElement('p')
+                                eventEl.classList.add('calendar-item')
+                                eventEl.innerText = eventText
+                                // listEl.appendChild(eventEl)
+                                console.log('listEl: ', listEl)
+                        })
+
+
+                        modalContainer.classList.toggle('hidden')
+                        // modalContainerInner.classList.toggle('hidden')
+                        
+                        const addEventModalEl = document.getElementById('addEventModal')
+                        
+                         const closeModal = document.getElementById('closeModalButton')
+                        closeModal.addEventListener('click', e => {
+                            modalContainer.removeChild(addEventModal)
+                            modalContainer.classList.toggle('hidden')
+                        })
+
+
+            })
+        })
+ 
+
+        
+        const userEvents = document.getElementById('userEvents').querySelectorAll('span')
+
+        const allDaysRendered = document.querySelectorAll('.day')
+
+
+        userEvents.forEach((event, index) => {
+            console.log(event)
+
+
+/* Event Start Date/Time */
+
+            const startTime = event.getAttribute('data-start-date')
+            console.log('startTime: ', startTime)
+
+            const startDate = new Date(startTime);
+
+            let startMonthData = months[startDate.getMonth()]
+            console.log('startMonthData: ', startMonthData)
+
+            const matchMonthString = months.indexOf(startMonthData.toString())
+            console.log('matchMonthString: ', matchMonthString)
+
+            const startMonth = parseInt(matchMonthString) + 1
+            console.log('startMonth: ', startMonth)
+
+            const startYear = startDate.getFullYear()
+            console.log('startYear: ', startYear)
+
+            const startDayDate = new Date(startTime);
+            let startDay = startDayDate.getDate();
+            console.log('startDay: ', startDay)
+
+
+            allDaysRendered.forEach(dayElem => {
+                console.log('dayELem: ', dayElem)
+                const renderedDataDay = dayElem.getAttribute('data-day')
+                const renderedDataMonth = dayElem.getAttribute('data-month')
+                const renderedDataYear = dayElem.getAttribute('data-year')
+
+                if (startDay == renderedDataDay && startMonth == renderedDataMonth && startYear == renderedDataYear) {
+                    console.log('\n\n\nMATCH', dayElem)
+                    let eventItem = document.createElement('span')
+                    eventItem.classList.add('event-item')
+
+                    let eventItemModal = document.createElement('div')
+                    eventItemModal.classList.add('event-item-modal')
+                    eventItemModal.classList.add('hidden')
+
+                    let eventModalData = document.createElement('p')
+                    eventModalData.classList.add('event-modal-data')
+                    eventModalData.innerText = event.innerText
+                    eventItemModal.appendChild(eventModalData)
+                    eventItem.appendChild(eventItemModal)
+
+                    dayElem.appendChild(eventItem)
+                    dayElem.addEventListener('click', e => {
+                        const dateEvents = document.getElementById('dateEvents')
+                        let dayEventData = dayElem.querySelectorAll('.event-item-modal')
+                        dayEventData.forEach(data => {
+
+                            let dayEventDataEl = document.createElement('p')
+                            dayEventDataEl.classList.add('calendar-item')
+
+                            
+                            dayEventDataEl.addEventListener('click', e => editCalendarItem(dayEventDataEl))
+                            
+                            dayEventDataEl.innerText = data.innerText
+                            dateEvents.appendChild(dayEventDataEl)
+                            console.log('dateEvents: ', dateEvents)
+                            console.log('dayElem: ', dayElem)
+
+                            const closeModal = document.getElementById('closeModalButton')
+                            closeModal.addEventListener('click', e => {
+                                const allCurrentItems = document.querySelectorAll('.calendar-item')
+                                let addEventModal = document.getElementById('addEventModal')
+                                allCurrentItems.forEach(item => {
+                                    console.log('item: ', item)
+                                    dateEvents.remove(item)
+                                })
+                                addEventModal.classList.toggle('hidden')
+                                modalContainer.classList.toggle('hidden')
+                            })
+                        })
+
+                    })
+                } else {
+                    if (closeModalContainer) {
+
+                        document.querySelector('#closeModalButton').addEventListener('click', e => {
+                            modalContainer.removeChild(addEventModal)
+                            modalContainer.classList.toggle('hidden')       
+                        })
+                    }
+                }
+                
+                
+
+            })
+
+            
+            function editCalendarItem(selectedItem) {
+                console.log('selectedItem: ', selectedItem)
+                console.log('modalContainerInner: ', modalContainerInner)
+                const
+                    editSelectedItemEl = document.createElement('div'),
+                    editSelectedItemElForm = document.createElement('form'),
+                    editSelectedItemElInput = document.createElement('input'),
+                    editSelectedItemElTextarea = document.createElement('textarea'),
+                    editSelectedItemElBtn = document.createElement('button'),
+                    closeEditSelectedItemEl = document.createElement('div'),
+                    closeEditSelectedItemElBtn = document.createElement('i')
+                    
+                editSelectedItemEl.classList.add('edit-selected-calendar-item-el')
+                modalContainer.style.overflow = 'hidden'
+                selectedItem.classList.add('edit-selected-calendar-item')
+
+                closeEditSelectedItemElBtn.classList.add('bx')
+                closeEditSelectedItemElBtn.classList.add('bx-x-circle')
+                closeEditSelectedItemElBtn.classList.add('close-edit-selected-calendar-item')
+                
+                closeEditSelectedItemEl.appendChild(closeEditSelectedItemElBtn)
+
+                closeEditSelectedItemEl.classList.add('close-edit-selected-calendar-item-el')
+                modalContainerInner.appendChild(closeEditSelectedItemEl)
+
+                
+                editSelectedItemEl.appendChild(closeEditSelectedItemEl)
+
+                // APPENDCHILD REST OF EL'S INTO editSelectedItemEl
+
+
+
+
+
+
+
+
+
+                modalContainerInner.appendChild(editSelectedItemEl)
+
+
+                console.log('selectedItem.parentNode: ', selectedItem.parentNode)
+
+                closeEditSelectedItemElBtn.addEventListener('click', e => {
+                    modalContainerInner.removeChild(editSelectedItemEl)
+                    selectedItem.classList.remove('edit-selected-calendar-item')
+
+                })
+            }
+
+/* Event End Date/Time */
+
+            const endTime = event.getAttribute('data-end-date')
+            console.log('endTime: ', endTime)
+
+            const endDate = new Date(endTime);
+
+            let endMonthData = months[endDate.getMonth()]
+            console.log('endMonthData: ', endMonthData)
+
+            const matchEndMonthString = months.indexOf(endMonthData.toString())
+            console.log('matchEndMonthString: ', matchEndMonthString)
+
+            const endMonth = parseInt(matchEndMonthString) + 1
+            console.log('endMonth: ', endMonth)
+
+            const endYear = endDate.getFullYear()
+            console.log('endYear: ', endYear)
+
+            const endDayDate = new Date(endTime);
+            let endDay = endDayDate.getDate();
+            console.log('endDay: ', endDay)
+
+
+
+
+
+        })
+
+
+    };
+/* END OF renderCalendar() */
+
+    document.querySelector(".prev").addEventListener("click", () => {
+        date.setMonth(date.getMonth() - 1);
+        renderCalendar();
+    });
+
+    document.querySelector(".next").addEventListener("click", () => {
+        date.setMonth(date.getMonth() + 1);
+        renderCalendar();
+    });
+
+    renderCalendar();
+</script>
+

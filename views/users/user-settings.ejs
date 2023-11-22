@@ -1,0 +1,17 @@
+<style>
+
+</style>
+
+<%- include('../partials/menus/user'); %>
+
+<%- include('../partials/menus/sub/user/settings'); %>
+
+
+    <% if (!user.user_background_image) { %>
+        <span style="display: none;"></span>
+    <% } else { %>
+        <div class="user-background-image" style="background:url('<%= user.user_background_image %>') 50% 50% no-repeat; background-size:cover;"></div>
+    <% } %>
+<div class="page-title">
+    <h2>Settings</h2>
+</div>
