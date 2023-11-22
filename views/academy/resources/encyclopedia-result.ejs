@@ -1,0 +1,124 @@
+<style>
+    .page-title {
+        text-align: center;
+    }
+    .page-title h1 {
+        color: #fff;
+    }
+    .logo h1 {
+        border-bottom: none;
+
+    }
+    .search {
+        margin-bottom: 30px;
+    }
+    .image-results {
+        display: inline-flex;
+        width: 100%;
+        overflow-x: scroll;
+    }
+    .image-result {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        border-top: groove 2px lightskyblue;
+        border-bottom: groove 2px lightskyblue;
+        padding: 10px;
+        margin-bottom: 10px;
+        text-align: center;
+        width: 100%;
+        max-width: 100%;
+        margin-right: 20px;
+        padding-left: 20px;
+    }
+    .image-result img {
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+    .image-result p {
+        color: #fff;
+    }
+    .result {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        border-top: groove 2px lightskyblue;
+        border-bottom: groove 2px lightskyblue;
+        padding: 10px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .result img {
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+    .result p {
+        color: #fff;
+    }
+    .page-result {
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        overflow-x: scroll;
+    }
+    .page-result h2 {
+        color: #fff;
+        text-shadow: 0 0 2px lightskyblue;
+        text-align: center;
+    }
+    .page-result h3 {
+        color: #ccc;
+        text-shadow: 0 0 2px lightskyblue;
+        text-align: center;
+    }
+    .page-result a {
+        color: lightskyblue;
+        text-decoration: none;
+    }
+    
+    table {
+        max-width: 100%;
+        width: 100%;
+        overflow: scroll;
+        border-radius: 8px;
+        display: block;
+        margin: 0 0;
+    }
+    .ambox-content {
+        border-left: groove 10px lightskyblue;
+        box-shadow: 0 0 5px lightskyblue;
+        border-radius: 8px;
+        padding-left: 2px;
+    }
+    .ambox {
+        width: 90%;
+        display: block;
+        background-color: #000;
+        border: groove 2px lightskyblue;
+    }
+</style>
+
+<div class="page-title">
+    <h1>Encyclopedia</h1>
+</div>
+<div class="search">
+    <form action="/academy/resources/encyclopedia/search" method="post">
+        <input type="text" name="search" placeholder="Search Encyclopedia...">
+        <button type="submit">Search</button>
+    </form>
+</div>
+<% if (returnedData.files) { %>
+<div class="image-results">
+    <% returnedData.files.forEach(function(file) { %>
+        <div class="image-result">
+            <img src="https:<%= file.preferred.url %>"  width="300px" height="300px" alt="">
+            <p><small><%= file.title %></small></p>
+        </div>
+        <% }) %>
+    </div>
+
+<% } else { %>
+    <div class="page-result">
+        <%- returnedData %>
+        
+    </div>
+
+    <% } %>

@@ -1,0 +1,1010 @@
+<style>
+    .no-requests {
+        width: calc(90% - 40px);
+        margin: 0 auto;
+        margin-top: 10px;
+        background-color: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+        border-radius: 16px;
+        padding: 10px;
+    }
+    .no-requests p {
+        font-size: 1.2rem;
+        color: #fff;
+    }
+
+
+    .current-user-weather {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+    }
+
+    .core-weather-data {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .location-data {
+        padding-left: 15px;
+    }
+
+    .location-data h5 {
+        font-size: 2rem;
+        font-weight: bold;
+        padding: 8px;
+        padding-left: 0;
+    }
+    .location-data h6 {
+        font-size: 1.5rem;
+    }
+    .current-temp h4 {
+        font-size: 1.5rem;
+        color: lightskyblue;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 10px;
+    }
+    .weather-data {
+        padding: 8px;
+    }
+
+    #currentWeatherIcon img {
+        filter: drop-shadow(0 0 8px lightskyblue);
+    }
+    #weatherDesc {
+        color: lightskyblue;
+        text-align: center;
+    }
+
+    .page-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .page-header a {
+        color: lightskyblue;
+        text-align: center;
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 15px;
+        text-decoration: none;
+    }
+    .page-header-user {
+        position: relative;
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 30px;
+        max-width: 300px;
+        border-radius: 16px;
+        min-height: 300px;
+        overflow: hidden;
+        padding: 0;
+    }
+    .page-header-user img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .page-header-user h4 {
+        background-color: #000;
+        backdrop-filter: blur(4px);
+        text-align: center;
+        padding: 8px;
+
+    }
+    .add-user-avatar {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .add-user-avatar a {
+        font-size: 1.3rem;
+        color: #fff;
+        text-decoration: none;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 5px;
+        border-radius: 8px;
+        backdrop-filter: blur(4px);
+    }
+    .user-avatar {
+        position: absolute;
+        top: 0;
+        width: 90%;
+        max-width: 400px;
+        margin: 0 auto;    
+    }
+    .user-avatar img {
+        width: 100%;
+        border-radius: 16px;    
+    }
+    .full-user-data {
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(4px);
+        width: 90%;
+        margin: 0 auto;
+        padding: 10px;
+        overflow-x: hidden;
+        border-radius: 6px;
+        border: outset 2px lightskyblue;
+    }
+    .full-user-data p {
+        color: #fff;
+        font-size: 1.2rem;
+        word-wrap: break-word;
+    }
+
+    .video-selection {
+        width: 90%;
+        margin: 0 auto;
+        background: rgba(135, 206, 250, 0.25);
+        border-top: outset 1px #fff;
+        border-bottom: outset 1px #fff;
+        margin-top: 30px;
+        margin-bottom: 50px;
+        border-radius: 16px;
+        padding-bottom: 15px;
+        box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(4px);
+    }
+    .movie-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        gap: 10px;
+        width: 95%;
+        margin: auto;
+        overflow: hidden;
+    }
+    .video-thumb {
+        max-width: 100px;
+        height: 150px;
+        box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
+        border-radius: 6px;
+    }
+    .video-thumb img {
+        border-radius: 6px;
+        width: 100%;
+        min-height: 100%;
+        max-height: 100%;
+    }
+    .section-header {
+        margin-top: 30px;
+    }
+    .section-header h5 {
+        text-align: center;
+        font-size: 1.5rem;
+        color: lightskyblue;
+        margin-bottom: 20px;
+    }
+    .section-part {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+        border-bottom: solid 1px lightskyblue;
+    }
+    .section-part-header {
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+    .section-part-header h6 {
+        color: lightskyblue;
+
+    }
+    .user-friends {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-left: 10px;
+    }
+    .user-container {
+        margin-bottom: 10px;
+        margin-right: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        min-height: 350px;
+        text-decoration: none;
+        color: lightskyblue;
+        background-color: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(4px);
+        border-radius: 8px;
+        padding-top: 10px;
+        backdrop-filter: blur(4px);
+    }
+    .user-container-name {
+        margin-top: 15px;
+        border-top: outset 1px lightskyblue;
+        border-bottom: outset 1px lightskyblue;
+        background-color: rgba(0, 0, 0, 0.5);
+        width: calc(100% - 10px);
+        padding: 5px;
+    }
+    .user-container p {
+        font-size: 1.5rem;
+    }
+    .user-container-options {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .user-container-option-item a {
+        color: lightskyblue;
+        font-size: 2rem;
+        text-decoration: none;
+        cursor: pointer;
+        text-shadow: 0 0 4px #fff;
+    }
+
+
+    .friend-container a {
+        position: relative;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 230px;
+        text-decoration: none;
+        color: lightskyblue;
+        width: 150px;
+        background-position: center;
+        background-color: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(4px);
+        border-radius: 8px;
+        padding-top: 10px;
+        
+    }
+    .friend-avatar {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        width: 150px;
+    }
+    .friend-avatar img {
+        max-width: 100%;
+        max-height: 180px;
+        border-radius: 8px;
+        filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.6));
+    }
+    .friend-container p {
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        margin-bottom: 5px;
+        font-size: 1.3rem;
+        text-align: center;
+        text-shadow: 0 0 2px #fff;
+        color: #fff;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding: 5px;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+        width: calc(100% - 10px);
+        
+    }
+    .user-notifications {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        right: 0;
+        width: calc(100% - 10px);
+        padding: 5px;
+        padding-bottom: 10px;
+
+
+    }
+    .notification-item a {
+        text-decoration: none;
+        width: 100%;
+        text-align: center;
+    }
+    .notification-item {
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.25);
+        border: outset 1px lightskyblue;
+        backdrop-filter: blur(4px);
+        display: flex;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(135, 206, 250, 0.5);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+
+    }
+
+    .notification-item i {
+        font-size: 2rem;
+        color: lightskyblue;
+        width: 100%;
+        text-align: center;
+    }
+    .notification-item p {
+        font-size: 1.5rem;
+        color: #fff;
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+        font-weight: bold;
+
+    }
+
+    .section-button button {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 10px;
+        font-size: 1.5rem;
+        color: #fff;
+        background-color: rgba(135, 206, 250, 0.5);
+        outline: none;
+        border: none;
+        border-radius: 8px;
+    }
+
+
+    .cam-container {
+        background-color: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(5px);
+        text-align: center;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .cam-container h6 {
+        margin-bottom: 8px;
+
+    }
+    .cam-container img {
+        width: 95%;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    }
+    .cam-container > div {
+        color: lightskyblue;
+        margin-top: 10px;
+    }
+
+    #bigImgEl {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 99999;
+        background-color: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(5px);
+        box-shadow: inset 0 0 50px #000;
+        align-items: center;
+        justify-content: center;
+    }
+    #bigImgEl img {
+        max-width: 100vw;
+        max-height: 100vh;
+        border-radius: 8px;
+        box-shadow: 0 0 30px #000;
+        width: 100%;
+    }
+
+    #nearbyAddresses {
+        color: #fff;
+        list-style:circle;
+        margin-left: 30px;
+    }
+    #nearbyAddresses li::marker {
+        color: lightskyblue;
+        font-weight: bold;
+    }
+    .hidden {
+        display: none;
+    }
+        #currentTemp {
+            font-size: 3rem;
+        }
+
+    @media screen and (min-width: 762px) {
+        .current-user-weather {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(4px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+            width: 50vw;
+            margin-inline: auto;
+            border-radius: 16px;
+        }
+
+        .core-weather-data {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+    }
+
+</style>
+
+<%- include('../partials/menus/user'); %>
+    <h4 style="text-align: center; font-size: 1.5rem; margin-top: 20px;">Welcome <%= user.fname %></h4>
+    <div class="user-notifications">
+        <% if (user.friend_requests.length > 0) { %>
+            <div class="notification-item">
+                <a href="/users/notifications/type/friend">
+                    <!-- <i class="fas fa-user-plus"></i> -->
+                    <svg fill="#00ffff" width="64px" height="64px" viewBox="0 0 256 256" id="Flat" xmlns="http://www.w3.org/2000/svg" stroke="#00ffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M172,56a4.0002,4.0002,0,0,1,4-4h20V32a4,4,0,0,1,8,0V52h20a4,4,0,0,1,0,8H204V80a4,4,0,0,1-8,0V60H176A4.0002,4.0002,0,0,1,172,56Zm54.76318,56.23145A101.03921,101.03921,0,0,1,228,128a99.76346,99.76346,0,0,1-32.71167,73.91113,3.97148,3.97148,0,0,1-.83813.74756,99.79345,99.79345,0,0,1-132.89795.00195,3.97186,3.97186,0,0,1-.84229-.751A99.95588,99.95588,0,0,1,128,28a101.06719,101.06719,0,0,1,15.76855,1.23682,4,4,0,1,1-1.25195,7.90136A93.04738,93.04738,0,0,0,128,36,91.95438,91.95438,0,0,0,62.82861,192.87158a75.6171,75.6171,0,0,1,44.50782-34.04,44,44,0,1,1,41.32714,0,75.616,75.616,0,0,1,44.50782,34.04053A91.70971,91.70971,0,0,0,220,128a93.00839,93.00839,0,0,0-1.13818-14.51611,4,4,0,0,1,7.90136-1.25244ZM128,156a36,36,0,1,0-36-36A36.04061,36.04061,0,0,0,128,156Zm0,64a91.58351,91.58351,0,0,0,59.135-21.583,68.01136,68.01136,0,0,0-118.27026,0A91.58413,91.58413,0,0,0,128,220Z"></path> </g></svg>
+                    <p><%= user.friend_requests.length %></p>
+                </a>
+            </div>
+        <% } else { %>
+            <div class="no-requests">
+                <p>You have no notifications.</p>
+            </div>
+        <% } %>
+
+
+    </div>
+
+
+    
+    <div class="current-user-weather">
+        <div class="core-weather-data">
+            <div class="location-data">
+                <h5 id="currentCity"></h5>
+                <h6><span id="currentState"></span><span id="currentCountry"></span></h6>
+                <div class="current-temp">
+                    <h4 id="currentTemp"></h4>
+                </div>
+            </div>
+            <div class="weather-data">
+                
+                <div id="currentWeatherIcon"></div>
+                <div id="weatherDesc"></div>
+            </div>
+        </div>
+
+        <div id="weatherAlerts"></div>
+    </div>
+
+    <div class="spread-link" style="display: flex; align-items: center; justify-content: center; width: 100%;">
+        <a href="/users/<%= user.id %>">Your Public Profile</a>
+    </div>
+
+    <% if (!user.user_avatar) { %>
+        <div class="page-header-user" style="box-shadow: inset 0 0 50px lightskyblue, 0 0 10px lightskyblue; background:url('/images/system/default-user-avatar_1a1a1a.png') 50% 50% no-repeat; background-size:cover;">
+    <% } else { %>
+        <div class="page-header-user" style="box-shadow: 0 0 10px <%= user.favColor1 %>; background:url('/image/<%= user.user_avatar %>') 50% 50% no-repeat; background-size:cover;">
+            <img src="/image/<%= user.user_avatar %>" alt="">
+    <% } %>
+        
+        <div class="page-header-data">
+
+            <% if (!user.user_avatar) { %>
+                <div class="add-user-avatar">
+                    <a href="/users/settings/update-profile">Add Profile Image</a>
+                </div>
+                    <div class="user-profile-image-form">
+                        <form action="/upload-avatar?_method=PATCH" method="POST" enctype="multipart/form-data">
+                            <input type="text" name="imageOwner" id="imageOwner" style="display: none;" value="<%= user.id %>">
+                            <div class="custom-file-profile-image">
+                                <input type="file" name="user_profile_image" id="userProfileImage">
+                                <label for="userProfileImage" class="custom-file-label-choose-profile-image">Choose Profile Picture</label>
+                            </div>
+                            <div>
+                                <button type="submit" class="custom-file-profile-image-button">Change</button>
+                            </div>
+                        </form>
+                    </div>
+            <% } else { %>
+
+                <span style="display: none;"></span>
+            <% } %>
+
+
+        </div>
+    </div>
+
+<main>
+    <% if (!user.user_background_image) { %>
+        <span style="display: none;"></span>
+    <% } else { %>
+        <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -9998; background-color: rgba(0, 0, 0, 0.25); backdrop-filter: blur(2px);"></div>
+        <div class="user-background-image" style="background:url('<%= user.user_background_image %>') 50% 50% no-repeat; background-size:cover;"></div>
+    <% } %>
+    
+
+
+
+        <div class="section-header">
+            <h5>Your Friends</h5>
+        </div>
+        <section class="user-friends">
+            <% user.friends.forEach(function(friend) { %>
+                <div class="friend-container">
+                    <% if (!friend.user_avatar) { %>
+                        <a href="/users/<%= friend.id %>"style="background-image: url('/images/system/default-user-avatar_1a1a1a.png'); background-size: contain; background-repeat: no-repeat">
+                            <p style="color: <%= friend.favColor1 %>"><%= friend.fname %> <%= friend.lname %></p>
+                        </a>
+                    <% } else { %>
+                        <a href="/users/<%= friend.id %>"style="background-image: url('/image/<%= friend.user_avatar %>'); background-size: cover;">
+                            <p style="color: <%= friend.favColor1 %>;"><%= friend.fname %> <%= friend.lname %></p>
+                        </a>
+                    <% } %>
+                </div>
+                
+            <% }) %>
+
+        </section>
+
+
+
+
+        <div class="section-header">
+            <h5>All Users</h5>
+        </div>
+
+        <section class="user-list">
+            <% allUsers.forEach(function(singleUser) { %>
+
+                <% if (singleUser.id !== user.id) { %>
+
+                    <!-- <div class="user-container-small">
+                        <div class="user-container-small-data">
+                            <% if (!singleUser.user_avatar) { %>
+                                <div class="small-avatar">
+                                    <img src="/images/system/default-user-avatar_1a1a1a.png" alt="">
+                                </div>
+                            <% } else { %>
+                                <div class="small-avatar">
+                                    <img src="/image/<%= singleUser.user_avatar %>" alt="">
+
+                                </div>
+                            <% } %>
+                            <div class="user-container-small-name">
+                                <p style="color: <%= singleUser.favColor1 %>"><%= singleUser.fname %> <%= singleUser.lname %></p>
+                            </div>
+                        </div>
+
+                        <div class="user-container-small-options">
+                            <div class="user-container-small-option-item"><a href="/users/<%= singleUser.id %>"><i class="far fa-user-circle"></i></a></div>
+                            <div class="user-container-small-option-item"><a href="/users/friend-request/<%= user.id %>/<%= singleUser.id %>"><i class="fas fa-user-plus"></i></a></div>
+                        </div>
+                    </div> -->
+
+                    <div class="user-container-small-container">
+                        <div class="user-container-small">
+                            <% if (!singleUser.user_avatar) { %>
+                                <div class="small-avatar">
+                                    <img src="/images/system/default-user-avatar_1a1a1a.png" alt="">
+                                </div>
+                            <% } else { %>
+                                <div class="small-avatar">
+                                    <img src="/image/<%= singleUser.user_avatar %>" alt="">
+                                    <!-- <img src="/images/system/default-user-avatar_1a1a1a.png" alt=""> -->
+
+                                </div>
+                            <% } %>
+                            <div class="user-container-small-data">
+
+                                <div class="user-container-small-name">
+                                    <p style="color: <%= singleUser.favColor1 %>"><%= singleUser.fname %> <%= singleUser.lname %></p>
+                                </div>
+
+                                <div class="user-container-small-body">
+                                    <div class="user-container-small-location">
+                                        <% if (singleUser.town && singleUser.state) { %>
+                                            <p><%= singleUser.town %>, <%= singleUser.state %></p>
+                                        <% } %>
+                                        <% if (!singleUser.town && singleUser.state) { %>
+                                            <p>Somewhere in <%= singleUser.state %></p>
+                                        <% } %>
+                                        <% if (singleUser.town && !singleUser.state) { %>
+                                            <p>The city of <%= singleUser.town %></p>
+                                        <% } %>
+                                        <% if (!singleUser.town && !singleUser.state) { %>
+                                            <p>Location Unknown</p>
+                                        <% } %>
+                                        
+                                    </div>
+                                    <div class="user-container-small-options">
+                                        <div class="user-container-small-option-item"><a href="/users/friend-request/<%= user.id %>/<%= singleUser.id %>">
+                                            <!-- <i class="fas fa-user-plus"></i> -->
+                                            <svg fill="#00abe5" width="64px" height="64px" viewBox="0 0 256 256" id="Flat" xmlns="http://www.w3.org/2000/svg" stroke="#00abe5"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M172,56a4.0002,4.0002,0,0,1,4-4h20V32a4,4,0,0,1,8,0V52h20a4,4,0,0,1,0,8H204V80a4,4,0,0,1-8,0V60H176A4.0002,4.0002,0,0,1,172,56Zm54.76318,56.23145A101.03921,101.03921,0,0,1,228,128a99.76346,99.76346,0,0,1-32.71167,73.91113,3.97148,3.97148,0,0,1-.83813.74756,99.79345,99.79345,0,0,1-132.89795.00195,3.97186,3.97186,0,0,1-.84229-.751A99.95588,99.95588,0,0,1,128,28a101.06719,101.06719,0,0,1,15.76855,1.23682,4,4,0,1,1-1.25195,7.90136A93.04738,93.04738,0,0,0,128,36,91.95438,91.95438,0,0,0,62.82861,192.87158a75.6171,75.6171,0,0,1,44.50782-34.04,44,44,0,1,1,41.32714,0,75.616,75.616,0,0,1,44.50782,34.04053A91.70971,91.70971,0,0,0,220,128a93.00839,93.00839,0,0,0-1.13818-14.51611,4,4,0,0,1,7.90136-1.25244ZM128,156a36,36,0,1,0-36-36A36.04061,36.04061,0,0,0,128,156Zm0,64a91.58351,91.58351,0,0,0,59.135-21.583,68.01136,68.01136,0,0,0-118.27026,0A91.58413,91.58413,0,0,0,128,220Z"></path> </g></svg>
+                                        </a></div>
+                                        <div class="user-container-small-option-item"><a href="/users/private/<%= singleUser.id %>">
+                                            <svg fill="#00abe5" width="64px" height="64px" viewBox="0 0 256 256" id="Flat" xmlns="http://www.w3.org/2000/svg" stroke="#00abe5"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M228,128A100,100,0,1,0,60.71,201.90967a3.97048,3.97048,0,0,0,.842.751,99.79378,99.79378,0,0,0,132.8982-.00195,3.96558,3.96558,0,0,0,.83813-.74756A99.76267,99.76267,0,0,0,228,128ZM36,128a92,92,0,1,1,157.17139,64.87207,75.616,75.616,0,0,0-44.50782-34.04053,44,44,0,1,0-41.32714,0,75.61784,75.61784,0,0,0-44.50782,34.04A91.70755,91.70755,0,0,1,36,128Zm92,28a36,36,0,1,1,36-36A36.04061,36.04061,0,0,1,128,156ZM68.86475,198.417a68.01092,68.01092,0,0,1,118.27.00049,91.80393,91.80393,0,0,1-118.27-.00049Z"></path> </g></svg>
+                                        </a></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                <% } %>
+            <% }) %>
+
+        </section>
+
+
+
+
+        <section class="video-selection">
+            <div class="page-header">
+                <h4>Your Saved Shows</h4>
+                <a href="/entertainment/tv">Find Shows</a>
+            </div>
+            <% if (user.show_list.length <=0) { %>
+                <div class="spread-guide-no-items">
+                    <p>You don't have any shows saved yet.</p>
+                    <p>Add shows to your list <a href="/entertainment/tv">here</a>.</p>
+                </div>
+            <% } else { %>
+            <div class="slider">
+                <div class="movie-list">
+                    <% user.show_list.forEach(function(show) { %>
+                        <div class="video-thumb">
+                            <a href="/entertainment/tv/show/<%= show.show_link %>">
+                                <img src="https://image.tmdb.org/t/p/w500<%= show.show_poster %>" alt="">
+                            </a>
+                        </div>
+                        <% }) %>
+                </div>
+            </div>
+            <% } %>
+        </section>
+    
+        <section class="video-selection">
+            <div class="page-header">
+                <h4>Your Saved Movies</h4>
+                <a href="/entertainment/movies">Find Movies</a>
+
+            </div>
+            <% if (user.movie_list.length <=0) { %>
+                <div class="spread-guide-no-items">
+                    <p>You don't have any movies saved yet.</p>
+                    <p>Add movies to your list <a href="/entertainment/movies">here</a>.</p>
+                </div>
+            <% } else { %>
+            <div class="slider">
+                <div class="movie-list">
+                    <% user.movie_list.forEach(function(video) { %>
+                        <div class="video-thumb">
+                            <a href="/entertainment/movies/title/<%= video.movie_link %>">
+                                <img src="<%= video.movie_poster %>" alt="">
+                            </a>
+                            
+                        </div>
+                        <% }) %>
+                </div>
+            </div>
+            <% } %>
+        </section>
+
+
+        <section>
+            <div class="page-header">
+                <h4>Nearby Activities</h4>
+            </div>
+            <div class="section-button"><button type="button" id="getLocation">What's Near Me?</button></div>
+
+            <div class="section-part">
+                <div class="section-part-header">
+                    <h6>Nearby Addresses</h6>
+                </div>
+                <ul id="nearbyAddresses"></ul>
+            </div>
+
+            <iframe src="https://www.mapillary.com/embed?image_key=550092599700936&style=photo" height="480" width="640"
+                frameborder="0">
+            </iframe>
+
+            <div class="section-part">
+                <div class="section-part-header">
+                    <h6>Public Cameras</h6>
+                </div>
+                <div id="nearbyCams" class="nearby-cameras"></div>
+            </div>
+
+
+        </section>
+    </main>
+
+    <div id="bigImgEl" class="hidden"></div>
+<%- include('../partials/layout/core-data-2'); %>
+
+
+
+<script>
+        const nearbyCams = document.getElementById('nearbyCams')
+        const getLocation = document.getElementById('getLocation')
+        getLocation.addEventListener('click', e => {
+            navigator.geolocation.getCurrentPosition(getLatLon);
+            getLocation.innerText = 'Current Location Added'
+        })
+
+        function getLatLon(position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            console.log("Latitude is " + latitude);
+            console.log("Longitude is " + longitude);
+                const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Host': 'webcamstravel.p.rapidapi.com',
+                    'X-RapidAPI-Key': '0f915bd732mshdc9ec693ec7695fp19c4d9jsn7900273e18b6'
+                }
+            };
+
+            fetch(`https://webcamstravel.p.rapidapi.com/webcams/list/nearby=${latitude},${longitude},100?lang=en&show=webcams%3Aimage%2Clocation`, options)
+                .then(response => response.json())
+                .then(response => {
+                    console.log(response.result.webcams)
+                    const webCams = response.result.webcams
+                    console.table(webCams)
+                    webCams.forEach((cam, index) => {
+                        const camTitle = cam.title
+                        const camImg = cam.image.current.preview
+                        const camCity = cam.location.city
+                        const camState = cam.location.region
+
+                        let camEl = document.createElement('div')
+                        camEl.classList.add('cam-container')
+
+                        let camTitleEl = document.createElement('h6')
+                        camTitleEl.innerText = camTitle
+
+                        let camImgEl = document.createElement('img')
+                        camImgEl.setAttribute('src', camImg)
+                        camImgEl.classList.add('cam-image-el')
+
+
+                        let camLocationEl = document.createElement('div')
+                        camLocationEl.innerText = `${camCity}, ${camState}`
+
+                        camEl.appendChild(camTitleEl)
+                        camEl.appendChild(camImgEl)
+                        camEl.appendChild(camLocationEl)
+                        nearbyCams.appendChild(camEl)
+                    })
+
+
+
+                        const bigImgEl = document.getElementById('bigImgEl')
+                        const allCamImgs = document.querySelectorAll('.cam-image-el')
+                        allCamImgs.forEach(camImg => {
+                            console.log(camImg)
+                            camImg.addEventListener('click', e => {
+                                console.log('Clicked on: ', e.target)
+                                const camImgSrc = e.target.getAttribute('src')
+                                let bigImg = document.createElement('img')
+                                bigImg.setAttribute('src', camImgSrc)
+                                bigImg.classList.add('big-image')
+                                bigImgEl.appendChild(bigImg)
+                                bigImgEl.classList.toggle('hidden')
+                                bigImgEl.style.display = 'flex'
+                            })
+                        })
+                        const removeBigImg = document.getElementById('bigImgEl')
+                        removeBigImg.addEventListener('click', e => {
+                            let imageToRemove = removeBigImg.querySelector('img')
+                            bigImgEl.removeChild(imageToRemove)
+                            bigImgEl.classList.toggle('hidden')
+                            bigImgEl.style.display = 'none'
+
+                        })
+
+                })
+                .catch(err => console.error(err));
+
+
+            const reverseGeoOptions = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Host': 'trueway-geocoding.p.rapidapi.com',
+                    'X-RapidAPI-Key': '0f915bd732mshdc9ec693ec7695fp19c4d9jsn7900273e18b6'
+                }
+            };
+
+            const nearbyAddresses = document.getElementById('nearbyAddresses')
+
+            fetch(`https://trueway-geocoding.p.rapidapi.com/ReverseGeocode?location=${latitude}%2C${longitude}&language=en`, reverseGeoOptions)
+                .then(response => response.json())
+                .then(response => {
+                    const nearbyAddressesRes = response.results
+                    nearbyAddressesRes.forEach(place => {
+                        if (place.type == 'route' || place.type == 'street_address') {
+                            console.log('Place: ', place.address)
+                            let addressEl = document.createElement('li')
+                            addressEl.classList.add('nearby-address')
+                            addressEl.innerText = place.address
+
+                            nearbyAddresses.appendChild(addressEl)
+                        }
+
+                        // console.log('\n\n\nALL PLACES')
+                        // console.log('Place: ', place)
+                    })
+                })
+                .catch(err => console.error(err));
+
+
+
+
+
+
+/* MAPILLARY */
+            const encodedParams = new URLSearchParams();
+            encodedParams.append("clientId", "5858286627519501");
+
+            const mapOptions = {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/x-www-form-urlencoded',
+                    'X-RapidAPI-Host': 'Mapillarystefan-skliarovV1.p.rapidapi.com',
+                    'X-RapidAPI-Key': '0f915bd732mshdc9ec693ec7695fp19c4d9jsn7900273e18b6'
+                },
+                body: encodedParams
+            };
+// Client Secret: MLY|5858286627519501|187d2358ecfd9a4b3e01068d1810baa9
+            // fetch('https://mapillarystefan-skliarovv1.p.rapidapi.com/searchImages', mapOptions)
+            fetch(`https://www.mapillary.com/connect?client_id=5858286627519501`, mapOptions)
+                .then(response => response.json())
+                .then(response => console.log(response))
+                .catch(err => console.error(err));
+
+    
+
+        }
+
+
+
+
+</script>
+
+
+
+
+<script>
+
+
+
+/* 
+    const IpOptions = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Host': 'iplegit.p.rapidapi.com',
+            'X-RapidAPI-Key': '0f915bd732mshdc9ec693ec7695fp19c4d9jsn7900273e18b6'
+        }
+    };
+
+    fetch('https://a.mapillary.com/v3/images?client_id=5858286627519501&closeto=-0.1624,51.5114&radius=500&start_time=2019-07-01&end_time=2019-07-31&per_page=1000&pano=true', IpOptions)
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(err => console.error(err)); */
+
+
+
+    (function () {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            const LAT = position.coords.latitude
+            const LONG = position.coords.longitude
+            // console.log(position.coords.latitude)
+            // console.log(position.coords.longitude)
+
+            const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': '7e45ec5e4fmsh4f3dac417f9eaa7p179a33jsnbfe4cb2e4c79',
+                    'X-RapidAPI-Host': 'weatherbit-v1-mashape.p.rapidapi.com'
+                }
+            };
+            // fetch(`https://weatherbit-v1-mashape.p.rapidapi.com/forecast/3hourly?lat=${LAT}&lon=${LONG}`, options)
+            //     .then(response => response.json())
+            //     .then(response => console.log(response))
+            //     .catch(err => console.error(err));
+            fetch(`https://weatherbit-v1-mashape.p.rapidapi.com/current?lat=${LAT}&lon=${LONG}`, options)
+                .then(response => response.json())
+                .then(response => {
+                    // console.log(response)
+                    response.data.forEach(resData => {
+                        // console.log(resData)
+                        
+                        const CITY_NAME = resData.city_name
+                        // console.log('CITY_NAME: ', CITY_NAME)
+                        const cityNameEl = document.querySelector('#currentCity')
+                        cityNameEl.innerText = CITY_NAME
+                        
+                        
+                        const STATE_CODE = resData.state_code
+                        // console.log('STATE_CODE: ', STATE_CODE)
+                        const stateEl = document.querySelector('#currentState')
+                        stateEl.innerText = `${STATE_CODE}, `
+                        
+                        const COUNTRY_CODE = resData.country_code
+                        // console.log('COUNTRY_CODE: ', COUNTRY_CODE)
+                        const countryEl = document.querySelector('#currentCountry')
+                        countryEl.innerText = COUNTRY_CODE
+
+//               °F = (°C × 9/5) + 32
+                        const CURRENT_TEMP_C = resData.temp
+                        const CURRENT_TEMP_F = Math.round((CURRENT_TEMP_C * 1.8) + 32)
+                        // console.log(`CURRENT C: ${CURRENT_TEMP_C} --- CURRENT F: ${CURRENT_TEMP_F}`)
+
+                        const currentTempEl = document.querySelector('#currentTemp')
+                        currentTempEl.innerText = `${CURRENT_TEMP_F} \u2109`
+
+
+                        const WEATHER_ICON = resData.weather.icon
+                        const currentWeatherIconEl = document.querySelector('#currentWeatherIcon')
+                        let currentWeatherIconImg = document.createElement('img')
+                        currentWeatherIconImg.setAttribute('src', `/images/system/weather/${WEATHER_ICON}.png`)
+                        currentWeatherIconImg.classList.add('current-weather-icon-image')
+                        currentWeatherIconEl.appendChild(currentWeatherIconImg)
+
+                        // Weather Description
+                        const WEATHER_DESC = resData.weather.description
+                        // console.log('WEATHER DESC: ', WEATHER_DESC)
+                        const descriptionEl = document.querySelector('#weatherDesc')
+                        descriptionEl.innerText = WEATHER_DESC
+
+
+                    })
+                })
+                .catch(err => console.error(err));
+            // fetch(`https://weatherbit-v1-mashape.p.rapidapi.com/alerts?lat=${LAT}&lon=${LONG}`, options)
+            //     .then(response => response.json())
+            //     .then(response => {
+            //         console.log(response)
+            //         console.log(response.alerts.length)
+
+            //         const ALERT_LENGTH = response.alerts.length
+            //         if (ALERT_LENGTH <= 0) {
+            //             console.log('NO ALERTS')
+            //         } else {
+            //             console.log('NUMBER OF ALERTS: ', ALERT_LENGTH)
+
+            //         }
+            //     })
+                // .catch(err => console.error(err));
+        },
+            function (error) {
+                console.log("The Locator was denied. :(")
+            })
+    })();
+</script>
+

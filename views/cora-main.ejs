@@ -1,0 +1,241 @@
+<style>
+      #personalAssistantContainer {
+        margin-top: 15px;
+        background-color: rgba(255, 68, 0, 0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 26px;
+        padding: 10px;
+        box-shadow: 0 0 20px rgba(255, 68, 0, 0.25), inset 0 0 40px rgba(255, 255, 255, 0.25);
+        width: calc(90vw - 20px);
+        margin-inline: auto;
+      }
+      #assistantListenBtn {
+        background-color: rgba(135, 206, 250, 0.25);
+        width: 50vw;
+        max-width: 300px;
+        margin-inline: auto;
+        padding: 10px;
+        border-radius: 16px;
+        transition: ease-in-out 0.2s;
+    }
+    .cora-listening {
+        animation-name: cora-listening;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-timing-function: ease-in-out;
+        animation-play-state: running;
+        
+      }
+      #assistantListenBtn p {
+        color: #fff;
+        font-size: 2rem;
+        text-align: center;
+      }
+      .assistant-label {
+        color: #fff;
+        font-size: 1.2rem;
+        text-align: center;
+        max-width: 90vw;
+        margin-inline: auto;
+        padding: 8px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+      }
+      .hints-container {
+        margin-top: 10px;
+        margin-inline: auto;
+        border: solid 1px lightskyblue;
+        border-radius: 26px;
+        width: calc(80vw - 20px);
+        padding: 10px;
+      }
+      .hints {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-height: 300px;
+        padding: 10px;
+        overflow-y: auto;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 10px;
+
+      }
+      .color-option {
+        padding: 5px;
+        margin-right: 5px;
+        margin-left: 5px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        font-size: 1.2rem;
+        background-color: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(10px);
+        text-shadow: 0 0 2px #fff;
+        box-shadow: 0 0 5px rgba(135, 206, 250, 0.5);
+      }
+    @keyframes cora-listening {
+        0%   {background-color: rgba(135, 206, 250, 0.25)}
+        25%  {background-color: rgba(255, 255, 255, 0.75);}
+        50%  {background-color: rgba(135, 206, 250, 0.25);}
+        100% {background-color: rgba(255, 255, 255, 0.75);}
+    }
+</style>
+
+    <h3 style="color: orangered; font-size: 2rem; text-align: center;">Virtual Assistant Testing</h3>
+    <div id="personalAssistantContainer">
+        <div class="assistant-label">
+            <p>Tap the 'Listen' button below to talk to Cora with voice commands. The color you say will appear below the
+                options, click 'Listen' again to change to another color. (very basic function, but more functionality will
+                be continuously throughout WideSpread. You can now also choose from 4 different virtual assistants if you
+                have an account under Settings then under Preferences (Works on Windows 100%, I haven't tested on other
+                devices yet).</p>
+        </div>
+        <div id="assistantListenBtn">
+            <p>Listen</p>
+        </div>
+        <div class="assistant-label">
+            <p>Command Choices</p>
+        </div>
+        <div class="hints-container">
+            <div class="hints"></div>
+        </div>
+        <div class="output"></div>
+    </div>
+
+
+
+
+<!-- <script>
+  const grammar = '#JSGF V1.0; grammar colors; public <color> = aqua | azure | beige | bisque | black | blue | brown | chocolate | coral | crimson | cyan | fuchsia | ghostwhite | gold | goldenrod | gray | green | indigo | ivory | khaki | lavender | lime | linen | magenta | maroon | moccasin | navy | olive | orange | orchid | peru | pink | plum | purple | red | salmon | sienna | silver | snow | tan | teal | thistle | tomato | turquoise | violet | white | yellow ;'
+    const voiceRecognition = window.speechSynthesis
+    const recognition = new SpeechRecognition();
+    const speechRecognitionList = new SpeechGrammarList();
+    speechRecognitionList.addFromString(grammar, 1);
+    recognition.grammars = speechRecognitionList;
+    recognition.continuous = false;
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    const diagnostic = document.querySelector('.output');
+    const bg = document.querySelector('html');
+
+    console.log('Clicked')
+    document.body.onclick = () => {
+      recognition.start();
+      console.log('Ready to receive a color command.');
+    }
+
+    recognition.onresult = (event) => {
+      const color = event.results[0][0].transcript;
+      diagnostic.textContent = `Result received: ${color}`;
+      bg.style.backgroundColor = color;
+    }
+</script> -->
+    
+
+<script>
+  var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
+    var SpeechGrammarList = SpeechGrammarList || window.webkitSpeechGrammarList
+    var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
+
+    const colors = ['aqua', 'azure', 'beige', 'bisque', 'black', 'blue', 'brown', 'chocolate', 'coral', 'crimson', 'cyan', 'fuchsia', 'ghostwhite', 'gold', 'goldenrod', 'gray', 'green', 'indigo', 'ivory', 'khaki', 'lavender', 'lime', 'linen', 'magenta', 'maroon', 'moccasin', 'navy', 'olive', 'orange', 'orchid', 'peru', 'pink', 'plum', 'purple', 'red', 'salmon', 'sienna', 'silver', 'snow', 'tan', 'teal', 'thistle', 'tomato', 'turquoise', 'violet', 'white', 'yellow'];
+    
+    var recognition = new SpeechRecognition();
+    if (SpeechGrammarList) {
+      // SpeechGrammarList is not currently available in Safari, and does not have any effect in any other browser.
+      // This code is provided as a demonstration of possible capability. You may choose not to use it.
+      var speechRecognitionList = new SpeechGrammarList();
+
+
+      // Self-Identifying Header (#JSGF version char-encoding locale;)
+      var grammar = '#JSGF V1.0; grammar colors; public <color> = ' + colors.join(' | ') + ' ;'
+      speechRecognitionList.addFromString(grammar, 1);
+      recognition.grammars = speechRecognitionList;
+    }
+    recognition.continuous = false;
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    var diagnostic = document.querySelector('.output');
+    var bg = document.querySelector('html');
+    var hints = document.querySelector('.hints');
+    const assistantListenBtn = document.getElementById('assistantListenBtn')
+    var colorHTML = '';
+    colors.forEach(function (v, i, a) {
+      console.log(v, i);
+      colorHTML += '<span class="color-option" style="color:' + v + ';"> ' + v + ' </span>';
+    });
+    hints.innerHTML = colorHTML;
+
+    assistantListenBtn.addEventListener('click', listenToUser)
+
+    function listenToUser() {
+      recognition.start();
+      assistantListenBtn.classList.add('cora-listening')
+    //   assistantListenBtn.style.backgroundColor = 'lightskyblue'
+    //   assistantListenBtn.style.animationPlayState = "running"
+      console.log('Listening...');
+    }
+    
+    
+    recognition.onresult = function (event) {
+        assistantListenBtn.classList.remove('cora-listening')
+        // assistantListenBtn.style.backgroundColor = 'rgba(135, 206, 250, 0.25)'
+        // assistantListenBtn.style.animationPlayState = "paused"
+      // The SpeechRecognitionEvent results property returns a SpeechRecognitionResultList object
+      // The SpeechRecognitionResultList object contains SpeechRecognitionResult objects.
+      // It has a getter so it can be accessed like an array
+      // The first [0] returns the SpeechRecognitionResult at the last position.
+      // Each SpeechRecognitionResult object contains SpeechRecognitionAlternative objects that contain individual results.
+      // These also have getters so they can be accessed like arrays.
+      // The second [0] returns the SpeechRecognitionAlternative at position 0.
+      // We then return the transcript property of the SpeechRecognitionAlternative object
+      var color = event.results[0][0].transcript;
+      const colorOnly = color.slice(0, -1)
+      const lowercaseColor = colorOnly.toLowerCase()
+      diagnostic.innerHTML = `<div class=".output" style="width: 90%; height: 150px; margin-inline: auto; border-radius: 26px; background-color: ${lowercaseColor}; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 4rem; margin-top: 15px;">${colorOnly}</div>`;
+      console.log(event)
+      hints.style.backgroundColor = color
+      bg.style.backgroundColor = color;
+      console.log('Confidence: ' + event.results[0][0].confidence);
+    }
+
+    recognition.onspeechend = function () {
+      recognition.stop();
+    }
+
+    recognition.onnomatch = function (event) {
+      diagnostic.textContent = "I didn't recognise that color.";
+    }
+
+    recognition.onerror = function (event) {
+        assistantListenBtn.classList.remove('cora-listening')
+        const err = event.error
+        recognition.stop();
+        if (err === 'no-speech') {
+            diagnostic.textContent = `Sorry, I didn't hear you. Could you please repeat that?`;
+        }
+        if (err === 'aborted') {
+            diagnostic.textContent = `Aborted`;
+        }
+        if (err === 'audio-capture') {
+            diagnostic.textContent = `audio-capture`;
+        }
+        if (err === 'network') {
+            diagnostic.textContent = `network`;
+        }
+        if (err === 'not-allowed') {
+            diagnostic.textContent = `Sorry, I'm not allowed to listen to you due to security reasons.`;
+        }
+        if (err === 'service-not-allowed') {
+            diagnostic.textContent = `Sorry, I'm not allowed to listen to you... if you'd like me to listen, please change permissions in your browser settings.`;
+        }
+        if (err === 'language-not-supported') {
+            diagnostic.textContent = `Sorry, I don't know your language yet.`;
+        }
+
+    }
+</script>

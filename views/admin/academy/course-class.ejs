@@ -1,0 +1,754 @@
+<style>
+    .class-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        border-radius: 16px;
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+    }
+    .class-section-header {
+        margin-bottom: 10px;
+    }
+    .class-section-header h5 {
+        font-size: 2rem;
+    }
+
+    .class-section form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        border-radius: 16px;
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+    }
+
+    #learningPointBody {
+        width: 100%;
+        text-align: left;
+    }
+    .form-input {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 90%;
+        min-width: 90%;
+        margin: 0 auto;
+        margin-bottom: 15px;
+    }
+    .form-input label {
+        color: #fff;
+        max-width: 25%;
+    }
+    .form-input input {
+        max-width: 75%;
+        padding: 5px;
+        border-radius: 6px;
+        color: #fff;
+        background: rgba(135, 206, 250, 0.25);
+        outline: none;
+        border: none;
+        box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.25), 0 0 5px rgba(255, 255, 255, 0.25), 0 0 2px lightskyblue;
+    }
+    .form-input textarea {
+        resize: none;
+        max-width: 75%;
+        padding: 5px;
+        border-radius: 6px;
+        min-height: 200px;
+        color: #fff;
+        background: rgba(135, 206, 250, 0.25);
+        outline: none;
+        border: none;
+        box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.25), 0 0 5px rgba(255, 255, 255, 0.25), 0 0 2px lightskyblue;
+
+    }
+    .class-section button {
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+        border-radius: 6px;
+        box-shadow: 0 0 6px rgba(255, 255, 255, 0.25), 0 0 2px lightskyblue;
+        text-align: center;
+        color: #fff;
+        margin-top: 20px;
+        padding: 10px;
+        outline: none;
+        border: none;
+        font-size: 1.5rem;
+    }
+    .radio-group {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 12px;
+        color: #fff;
+    }
+    .radio-group-header {
+        text-align: center;
+        font-size: 1.2rem;
+        margin-bottom: 4px;
+    }
+    .radio-group-body {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .radio-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 8px;
+    }
+    .radio-item label {
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: 5px;
+        color: lightskyblue;
+    }
+    .container {
+  display: block;
+  position: relative;
+  margin-bottom: 60px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #fff;
+  width: 50px;
+  text-align: center;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+  box-shadow: 0 0 10px #fff;
+  border-radius: 50%;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.container label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+}
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #fff;
+
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: lightskyblue;
+
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 7px;
+	left: 7px;
+	width: 11px;
+	height: 11px;
+	border-radius: 50%;
+	background: #fff;
+    box-shadow: inset 0 0 2px  lightskyblue;
+}
+
+.special-characters-container {
+    display: none;
+}
+.special-characters-container ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 10px;
+    border-bottom: solid 1px lightskyblue;
+}
+
+.special-character-option {
+    color: lightskyblue;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+.hide-close-btn {
+    color: lightskyblue;
+    cursor: pointer;
+}
+</style>
+
+<div class="page-title">
+    <h2>Edit Class</h2>
+    <h2><%= className.name %></h2>
+</div>
+
+<div class="class-section">
+    <div class="class-section-header">
+        <h5>Learning Points</h5>
+    </div>
+    <div class="hide-close-btn" id="openSpecialChars">Show Special Characters</div>
+    <div id="specialChars" class="special-characters-container">
+        <div class="hide-close-btn" id="closeSpecialChars">Hide Special Characters</div>
+        <ul>
+            <li class="special-character-option" title="Not Equal">≠</li>
+            <li class="special-character-option" title="Approximately">≈</li>
+            <li class="special-character-option" title="Similarity">~</li>
+            <li class="special-character-option" title="">∽</li>
+            <li class="special-character-option" title="Greater Than or Equal">≥</li>
+            <li class="special-character-option" title="Less Than or Equal">≤</li>
+            <li class="special-character-option" title="Plus Minus">±</li>
+            <li class="special-character-option" title="Minus Plus">∓</li>
+            <li class="special-character-option" title="">∔</li>
+            <li class="special-character-option" title="Multiply/And">⋅</li>
+            <li class="special-character-option" title="Square Root">√</li>
+            <li class="special-character-option" title="Cube Root">∛</li>
+            <li class="special-character-option" title="Fourth Root">∜</li>
+            <li class="special-character-option" title="Per-mille">‰</li>
+            <li class="special-character-option" title="Angle">∠</li>
+            <li class="special-character-option" title="Measure Angle">∡</li>
+            <li class="special-character-option" title="Spherical Angle">∢</li>
+            <li class="special-character-option" title="Right Angle">∟</li>
+            <li class="special-character-option" title="Degree">°</li>
+            <li class="special-character-option" title="Perpendicular">⊥</li>
+            <li class="special-character-option" title="Parallel">∥</li>
+            <li class="special-character-option" title="">∤</li>
+            <li class="special-character-option" title="">∦</li>
+            <li class="special-character-option" title="Congruent To">≅</li>
+            <li class="special-character-option" title="Equivalence">≡</li>
+            <li class="special-character-option" title="Equal by Definition">≜</li>
+
+            <li class="special-character-option" title="">≀</li>
+            <li class="special-character-option" title="">≁</li>
+            <li class="special-character-option" title="">≂</li>
+            <li class="special-character-option" title="">≃</li>
+            <li class="special-character-option" title="">≄</li>
+            <li class="special-character-option" title="">≅</li>
+            <li class="special-character-option" title="">≆</li>
+            <li class="special-character-option" title="">≇</li>
+            <li class="special-character-option" title="">≈</li>
+            <li class="special-character-option" title="">≊</li>
+            <li class="special-character-option" title="">≋</li>
+            <li class="special-character-option" title="">≌</li>
+            <li class="special-character-option" title="">≍</li>
+            <li class="special-character-option" title="">≎</li>
+            <li class="special-character-option" title="">≏</li>
+            <li class="special-character-option" title="">≐</li>
+            <li class="special-character-option" title="">≑</li>
+            <li class="special-character-option" title="">≒</li>
+            <li class="special-character-option" title="">≓</li>
+            <li class="special-character-option" title="">≔</li>
+            <li class="special-character-option" title="">≕</li>
+            <li class="special-character-option" title="">≖</li>
+            <li class="special-character-option" title="">≗</li>
+            <li class="special-character-option" title="">≘</li>
+            <li class="special-character-option" title="">≙</li>
+            <li class="special-character-option" title="">≚</li>
+            <li class="special-character-option" title="">≛</li>
+            <li class="special-character-option" title="">≝</li>
+            <li class="special-character-option" title="">≞</li>
+            <li class="special-character-option" title="">≟</li>
+            <li class="special-character-option" title="">≣</li>
+            <li class="special-character-option" title="">≦</li>
+            <li class="special-character-option" title="">≧</li>
+            <li class="special-character-option" title="">≨</li>
+            <li class="special-character-option" title="">≩</li>
+            <li class="special-character-option" title="">≬</li>
+            <li class="special-character-option" title="">≭</li>
+            <li class="special-character-option" title="">≲</li>
+            <li class="special-character-option" title="">≳</li>
+            <li class="special-character-option" title="">≴</li>
+            <li class="special-character-option" title="">≵</li>
+            <li class="special-character-option" title="">≶</li>
+            <li class="special-character-option" title="">≷</li>
+            <li class="special-character-option" title="">≸</li>
+            <li class="special-character-option" title="">≹</li>
+            <li class="special-character-option" title="">≺</li>
+            <li class="special-character-option" title="">≻</li>
+            <li class="special-character-option" title="">≼</li>
+            <li class="special-character-option" title="">≽</li>
+            <li class="special-character-option" title="">≾</li>
+            <li class="special-character-option" title="">≿</li>
+
+
+
+            <li class="special-character-option" title="">∁</li>
+            <li class="special-character-option" title="">∂</li>
+            <li class="special-character-option" title="">∎</li>
+            <li class="special-character-option" title="">∐</li>
+
+
+
+            <li class="special-character-option" title="Proportional To">∝</li>
+            <li class="special-character-option" title="Lemniscate">∞</li>
+            <li class="special-character-option" title="">∾</li>
+            <li class="special-character-option" title="Much Less Than">≪</li>
+            <li class="special-character-option" title="Much Greater Than">≫</li>
+            <li class="special-character-option" title="Floor Brackets">⌊x⌋</li>
+            <li class="special-character-option" title="Ceiling Brackets">⌈x⌉</li>
+            <li class="special-character-option" title="Function Composition">∘</li>
+            <li class="special-character-option" title="Multiply/Vector Product/Cartesian Product">×</li>
+            
+            <li class="special-character-option" title="Alpha Lower">α</li>
+            <li class="special-character-option" title="Beta Lower">β</li>
+            <li class="special-character-option" title="Gamma Upper">Γ</li>
+            <li class="special-character-option" title="Gamma Lower">γ</li>
+            <li class="special-character-option" title="Delta">Δ</li>
+            <li class="special-character-option" title="Epsilon Lower">ε</li>
+            <li class="special-character-option" title="Zeta Lower">ζ</li>
+            <li class="special-character-option" title="Eta Lower">η</li>
+            <li class="special-character-option" title="Theta Upper">Θ</li>
+            <li class="special-character-option" title="Theta Lower">θ</li>
+            <li class="special-character-option" title="Lota Lower">ι</li>
+            <li class="special-character-option" title="Kappa Lower">κ</li>
+            <li class="special-character-option" title="Lambda Upper">Λ</li>
+            <li class="special-character-option" title="Lambda Lower">λ</li>
+            <li class="special-character-option" title="Mu Lower/Population Mean">μ</li>
+            <li class="special-character-option" title="Xi Upper">Ξ</li>
+            <li class="special-character-option" title="Xi Lower">ξ</li>
+            <li class="special-character-option" title="Capital Pi">∏</li>
+            <li class="special-character-option" title="Pi Lower/Pi Constant">π</li>
+            <li class="special-character-option" title="Rho Lower/Correlation">ρ</li>
+            <li class="special-character-option" title="Sigma Upper">∑</li>
+            <li class="special-character-option" title="Sigma Lower/Variance">σ</li>
+            <li class="special-character-option" title="Tau Lower">τ</li>
+            <li class="special-character-option" title="Upsilon Lower">υ</li>
+
+            <li class="special-character-option" title="Phi Upper">Φ</li>
+            <li class="special-character-option" title="Phi Lower">φ</li>
+            <li class="special-character-option" title="Chi Lower">χ</li>
+            <li class="special-character-option" title="Psi Upper">Ψ</li>
+            <li class="special-character-option" title="Psi Lower">ψ</li>
+            <li class="special-character-option" title="Omega Upper">Ω</li>
+            <li class="special-character-option" title="Omega Lower">ω</li>
+
+            <li class="special-character-option" title="Nabla/Del">∇</li>
+            <li class="special-character-option" title="Golden Ratio">φ</li>
+            <li class="special-character-option" title="Tensor Product">⊗</li>
+            <li class="special-character-option" title="Hermitian Matrix">A†</li>
+            <li class="special-character-option" title="Probability of Events Intersection">⋂</li>
+            <li class="special-character-option" title="Probability of Events Union">⋃</li>
+            <li class="special-character-option" title="Subset">⊆</li>
+            <li class="special-character-option" title="Proper/Strict Subset">⊂</li>
+            <li class="special-character-option" title="Superset">⊇</li>
+            <li class="special-character-option" title="Proper/Strict Superset">⊃</li>
+            <li class="special-character-option" title="Not Superset">⊅</li>
+            <li class="special-character-option" title="Not Subset">⊄</li>
+            <li class="special-character-option" title="Symmetric Difference">⊖</li>
+            <li class="special-character-option" title="Element Of">∈</li>
+            <li class="special-character-option" title="Not Element Of">∉</li>
+            <li class="special-character-option" title="">∊</li>
+            <li class="special-character-option" title="">∍</li>
+            <li class="special-character-option" title="Empty Set">Ø</li>
+            <li class="special-character-option" title="Not">¬</li>
+            <li class="special-character-option" title="Implies">⇒</li>
+            <li class="special-character-option" title="Equivalent">⇔</li>
+            <li class="special-character-option" title="Equivalent">↔</li>
+            <li class="special-character-option" title="For All">∀</li>
+            <li class="special-character-option" title="There Exists">∃</li>
+            <li class="special-character-option" title="There Does Not Exist">∄</li>
+            <li class="special-character-option" title="Therefore">∴</li>
+            <li class="special-character-option" title="Because/Since">∵</li>
+            <li class="special-character-option" title="">∷</li>
+            <li class="special-character-option" title="">∸</li>
+            <li class="special-character-option" title="">∹</li>
+            <li class="special-character-option" title="">∺</li>
+            <li class="special-character-option" title="">∻</li>
+            <li class="special-character-option" title="Integral">∫</li>
+            <li class="special-character-option" title="Double Integral">∫∫</li>
+            <li class="special-character-option" title="Triple Integral">∫∫∫</li>
+            <li class="special-character-option" title="Closed Contour/Line Integral">∮</li>
+            <li class="special-character-option" title="Closed Surface Integral">∯</li>
+            <li class="special-character-option" title="Closed Volume Integral">∰</li>
+            <li class="special-character-option" title="">∱</li>
+            <li class="special-character-option" title="">∲</li>
+            <li class="special-character-option" title="">∳</li>
+            <li class="special-character-option" title="Delta Function">δ</li>
+
+
+        </ul>
+
+<!-- 
+SYMBOLS TO ADD:
+
+
+⊀	⊁	⊂	⊃	⊄	⊅	⊆	⊇	⊈	⊉	⊊	⊋	⊌	⊍	⊎	⊏
+⊐	⊑	⊒	⊓	⊔	⊕	⊖	⊗	⊘	⊙	⊚	⊛	⊜	⊝	⊞	⊟
+⊠	⊡	⊢	⊣	⊤	⊥	⊦	⊧	⊨	⊩	⊪	⊫	⊬	⊭	⊮	⊯
+⊰	⊱	⊲	⊳	⊴	⊵	⊶	⊷	⊸	⊹	⊺	⊻	⊼	⊽	⊾	⊿
+⋀	⋁	⋂	⋃	⋄	⋅	⋆	⋇	⋈	⋉	⋊	⋋	⋌	⋍	⋎	⋏
+⋐	⋑	⋒	⋓	⋔	⋕	⋖	⋗	⋘	⋙	⋚	⋛	⋜	⋝	⋞	⋟
+⋠	⋡	⋢	⋣	⋤	⋥	⋦	⋧	⋨	⋩	⋪	⋫	⋬	⋭	⋮	⋯
+⋰	⋱	⋲	⋳	⋴	⋵	⋶	⋷	⋸	⋹	⋺	⋻	⋼	⋽	⋾	⋿
+
+⌀	⌁	⌂	⌃	⌄	⌅	⌆	⌇	⌈	⌉	⌊	⌋	⌌	⌍	⌎	⌏
+⌐	⌑	⌒	⌓	⌔	⌕	⌖	⌗	⌘	⌙	⌜	⌝	⌞	⌟
+⌠	⌡	⌢	⌣	⌤	⌥	⌦	⌧	⌨	〈	〉	⌫	⌬	⌭	⌮	⌯
+⌰	⌱	⌲	⌳	⌴	⌵	⌶	⌷	⌸	⌹	⌺	⌻	⌼	⌽	⌾	⌿
+⍀	⍁	⍂	⍃	⍄	⍅	⍆	⍇	⍈	⍉	⍊	⍋	⍌	⍍	⍎	⍏
+⍐	⍑	⍒	⍓	⍔	⍕	⍖	⍗	⍘	⍙	⍚	⍛	⍜	⍝	⍞	⍟
+⍠	⍡	⍢	⍣	⍤	⍥	⍦	⍧	⍨	⍩	⍪	⍫	⍬	⍭	⍮	⍯
+⍰	⍱	⍲	⍳	⍴	⍵	⍶	⍷	⍸	⍹	⍺	⍻	⍼	⍽	⍾	⍿
+⎀	⎁	⎂	⎃	⎄	⎅	⎆	⎇	⎈	⎉	⎊	⎋	⎌	⎍	⎎	⎏
+⎐	⎑	⎒	⎓	⎔	⎕	⎖	⎗	⎘	⎙	⎚	⎛	⎜	⎝	⎞	⎟
+⎠	⎡	⎢	⎣	⎤	⎥	⎦	⎧	⎨	⎩	⎪	⎫	⎬	⎭	⎮	⎯
+⎰	⎱	⎲	⎳	⎴	⎵	⎶	⎷	⎸	⎹	⎺	⎻	⎼	⎽	⎾	⎿
+⏀	⏁	⏂	⏃	⏄	⏅	⏆	⏇	⏈	⏉	⏊	⏋	⏌	⏍	⏎	⏏
+⏐	⏑	⏒	⏓	⏔	⏕	⏖	⏗	⏘	⏙	⏚	⏛	⏜	⏝	⏞	⏟
+⏠	⏡	⏢	⏣	⏤	⏥	⏦	⏧ ␢	␣	␤	␥	␦ ⑀	⑁	⑂	⑃	⑄	⑅	⑆	⑇	⑈	⑉	⑊
+⚺	⚻	⚼ ⟁	⟂	⟃	⟄	⟅	⟆	⟇	⟈	⟉	⟊	⟋	⟌	⟍	⟎	⟏
+⟐	⟑	⟒	⟓	⟔	⟕	⟖	⟗	⟘	⟙	⟚	⟛	⟜	⟝	⟞	⟟
+⟠	⟡	⟢	⟣	⟤	⟥	⟦	⟧	⟨	⟩	⟪	⟫	⟬	⟭	⟮	⟯
+⟰	⟱	⟲	⟳	⟴	⟵	⟶	⟷	⟸	⟹	⟺	⟻	⟼	⟽	⟾	⟿
+⤀	⤁	⤂	⤃	⤄	⤅	⤆	⤇	⤈	⤉	⤊	⤋	⤌	⤍	⤎	⤏
+⤐	⤑	⤒	⤓	⤔	⤕	⤖	⤗	⤘	⤙	⤚	⤛	⤜	⤝	⤞	⤟
+⤠	⤡	⤢	⤣	⤤	⤥	⤦	⤧	⤨	⤩	⤪	⤫	⤬	⤭	⤮	⤯
+⤰	⤱	⤲	⤳	⤴	⤵	⤶	⤷	⤸	⤹	⤺	⤻	⤼	⤽	⤾	⤿
+⥀	⥁	⥂	⥃	⥄	⥅	⥆	⥇	⥈	⥉	⥊	⥋	⥌	⥍	⥎	⥏
+⥐	⥑	⥒	⥓	⥔	⥕	⥖	⥗	⥘	⥙	⥚	⥛	⥜	⥝	⥞	⥟
+⥠	⥡	⥢	⥣	⥤	⥥	⥦	⥧	⥨	⥩	⥪	⥫	⥬	⥭	⥮	⥯
+⥰	⥱	⥲	⥳	⥴	⥵	⥶	⥷	⥸	⥹	⥺	⥻	⥼	⥽	⥾	⥿
+⦀	⦁	⦂	⦃	⦄	⦅	⦆	⦇	⦈	⦉	⦊	⦋	⦌	⦍	⦎	⦏
+⦐	⦑	⦒	⦓	⦔	⦕	⦖	⦗	⦘	⦙	⦚	⦛	⦜	⦝	⦞	⦟
+⦠	⦡	⦢	⦣	⦤	⦥	⦦	⦧	⦨	⦩	⦪	⦫	⦬	⦭	⦮	⦯
+⦰	⦱	⦲	⦳	⦴	⦵	⦶	⦷	⦸	⦹	⦺	⦻	⦼	⦽	⦾	⦿
+⧀	⧁	⧂	⧃	⧄	⧅	⧆	⧇	⧈	⧉	⧊	⧋	⧌	⧍	⧎	⧏
+⧐	⧑	⧒	⧓	⧔	⧕	⧖	⧗	⧘	⧙	⧚	⧛	⧜	⧝	⧞	⧟
+⧠	⧡	⧢	⧣	⧤	⧥	⧦	⧧	⧨	⧩	⧪	⧫	⧬	⧭	⧮	⧯
+⧰	⧱	⧲	⧳	⧴	⧵	⧶	⧷	⧸	⧹	⧺	⧻	⧼	⧽	⧾	⧿
+⨀	⨁	⨂	⨃	⨄	⨅	⨆	⨇	⨈	⨉	⨊	⨋	⨌	⨍	⨎	⨏
+⨐	⨑	⨒	⨓	⨔	⨕	⨖	⨗	⨘	⨙	⨚	⨛	⨜	⨝	⨞	⨟
+⨠	⨡	⨢	⨣	⨤	⨥	⨦	⨧	⨨	⨩	⨪	⨫	⨬	⨭	⨮	⨯
+⨰	⨱	⨲	⨳	⨴	⨵	⨶	⨷	⨸	⨹	⨺	⨻	⨼	⨽	⨾	⨿
+⩀	⩁	⩂	⩃	⩄	⩅	⩆	⩇	⩈	⩉	⩊	⩋	⩌	⩍	⩎	⩏
+⩐	⩑	⩒	⩓	⩔	⩕	⩖	⩗	⩘	⩙	⩚	⩛	⩜	⩝	⩞	⩟
+⩠	⩡	⩢	⩣	⩤	⩥	⩦	⩧	⩨	⩩	⩪	⩫	⩬	⩭	⩮	⩯
+⩰	⩱	⩲	⩳	⩴	⩵	⩶	⩷	⩸	⩹	⩺	⩻	⩼	⩽	⩾	⩿
+⪀	⪁	⪂	⪃	⪄	⪅	⪆	⪇	⪈	⪉	⪊	⪋	⪌	⪍	⪎	⪏
+⪐	⪑	⪒	⪓	⪔	⪕	⪖	⪗	⪘	⪙	⪚	⪛	⪜	⪝	⪞	⪟
+⪠	⪡	⪢	⪣	⪤	⪥	⪦	⪧	⪨	⪩	⪪	⪫	⪬	⪭	⪮	⪯
+⪰	⪱	⪲	⪳	⪴	⪵	⪶	⪷	⪸	⪹	⪺	⪻	⪼	⪽	⪾	⪿
+⫀	⫁	⫂	⫃	⫄	⫅	⫆	⫇	⫈	⫉	⫊	⫋	⫌	⫍	⫎	⫏
+⫐	⫑	⫒	⫓	⫔	⫕	⫖	⫗	⫘	⫙	⫚	⫛	⫝̸	⫝	⫞	⫟
+⫠	⫡	⫢	⫣	⫤	⫥	⫦	⫧	⫨	⫩	⫪	⫫	⫬	⫭	⫮	⫯
+⫰	⫱	⫲	⫳	⫴	⫵	⫶	⫷	⫸	⫹	⫺	⫻	⫼	⫽	⫾	⫿
+⬰	⬱	⬲	⬳	⬴	⬵	⬶	⬷	⬸	⬹	⬺	⬻	⬼	⬽	⬾	⬿
+⭀	⭁	⭂	⭃	⭄	⭅	⭆	⭇	⭈	⭉	⭊	⭋	⭌	⭍	⭎	⭏
+⭖	⭗	⭘	⭙	⭚	⭛	⭜	⭝	⭞	⭟
+⭠	⭡	⭢	⭣	⭤	⭥	⭦	⭧	⭨	⭩	⭪	⭫	⭬	⭭	⭮	⭯
+⮀	⮁	⮂	⮃	⮄	⮅	⮆	⮇	⮈	⮉	⮊	⮋	⮌	⮍	⮎	⮏
+⮐	⮑	⮒	⮓	⮔ Ⲽ	ⲽ	Ⲿ	ⲿ 
+
+
+
+
+Braille
+⠁	⠂	⠃	⠄	⠅	⠆	⠇	⠈	⠉	⠊	⠋	⠌	⠍	⠎	⠏
+⠐	⠑	⠒	⠓	⠔	⠕	⠖	⠗	⠘	⠙	⠚	⠛	⠜	⠝	⠞	⠟
+⠠	⠡	⠢	⠣	⠤	⠥	⠦	⠧	⠨	⠩	⠪	⠫	⠬	⠭	⠮	⠯
+⠰	⠱	⠲	⠳	⠴	⠵	⠶	⠷	⠸	⠹	⠺	⠻	⠼	⠽	⠾	⠿
+⡀	⡁	⡂	⡃	⡄	⡅	⡆	⡇	⡈	⡉	⡊	⡋	⡌	⡍	⡎	⡏
+⡐	⡑	⡒	⡓	⡔	⡕	⡖	⡗	⡘	⡙	⡚	⡛	⡜	⡝	⡞	⡟
+⡠	⡡	⡢	⡣	⡤	⡥	⡦	⡧	⡨	⡩	⡪	⡫	⡬	⡭	⡮	⡯
+⡰	⡱	⡲	⡳	⡴	⡵	⡶	⡷	⡸	⡹	⡺	⡻	⡼	⡽	⡾	⡿
+
+⢀	⢁	⢂	⢃	⢄	⢅	⢆	⢇	⢈	⢉	⢊	⢋	⢌	⢍	⢎	⢏
+⢐	⢑	⢒	⢓	⢔	⢕	⢖	⢗	⢘	⢙	⢚	⢛	⢜	⢝	⢞	⢟
+⢠	⢡	⢢	⢣	⢤	⢥	⢦	⢧	⢨	⢩	⢪	⢫	⢬	⢭	⢮	⢯
+⢰	⢱	⢲	⢳	⢴	⢵	⢶	⢷	⢸	⢹	⢺	⢻	⢼	⢽	⢾	⢿
+⣀	⣁	⣂	⣃	⣄	⣅	⣆	⣇	⣈	⣉	⣊	⣋	⣌	⣍	⣎	⣏
+⣐	⣑	⣒	⣓	⣔	⣕	⣖	⣗	⣘	⣙	⣚	⣛	⣜	⣝	⣞	⣟
+⣠	⣡	⣢	⣣	⣤	⣥	⣦	⣧	⣨	⣩	⣪	⣫	⣬	⣭	⣮	⣯
+⣰	⣱	⣲	⣳	⣴	⣵	⣶	⣷	⣸	⣹	⣺	⣻	⣼	⣽	⣾	⣿
+
+
+
+
+①	②	③	④	⑤	⑥	⑦	⑧	⑨	⑩	⑪	⑫	⑬	⑭	⑮	⑯
+⑰	⑱	⑲	⑳
+
+Ⓐ	Ⓑ	Ⓒ	Ⓓ	Ⓔ	Ⓕ	Ⓖ	Ⓗ	Ⓘ	Ⓙ
+Ⓚ	Ⓛ	Ⓜ	Ⓝ	Ⓞ	Ⓟ	Ⓠ	Ⓡ	Ⓢ	Ⓣ	Ⓤ	Ⓥ	Ⓦ	Ⓧ	Ⓨ	Ⓩ
+ⓐ	ⓑ	ⓒ	ⓓ	ⓔ	ⓕ	ⓖ	ⓗ	ⓘ	ⓙ	ⓚ	ⓛ	ⓜ	ⓝ	ⓞ	ⓟ
+ⓠ	ⓡ	ⓢ	ⓣ	ⓤ	ⓥ	ⓦ	ⓧ	ⓨ	ⓩ
+
+♩	♪	♫	♬	♭	♮	♯
+
+
+
+℀	℁	ℂ	℃	℄	℅	℆	ℇ	℈	℉	ℊ	ℋ	ℌ	ℍ	ℎ	ℏ
+ℐ	ℑ	ℒ	ℓ	℔	ℕ	№	℗	℘	ℙ	ℚ	ℛ	ℜ	ℝ	℞	℟
+℠	℡	™	℣	ℤ	℥	Ω	℧	ℨ	℩	K	Å	ℬ	ℭ	℮	ℯ
+ℰ	ℱ	Ⅎ	ℳ	ℴ	ℵ	ℶ	ℷ	ℸ	ℹ	℺	℻	ℼ	ℽ	ℾ	ℿ
+⅀	⅁	⅂	⅃	⅄	ⅅ	ⅆ	ⅇ	ⅈ	ⅉ	⅊	⅋	⅌	⅍	ⅎ	⅏
+⅐	⅑	⅒	⅓	⅔	⅕	⅖	⅗	⅘	⅙	⅚	⅛	⅜	⅝	⅞	⅟
+
+
+
+
+─	━	│	┃	┄	┅	┆	┇	┈	┉	┊	┋	┌	┍	┎	┏
+┐	┑	┒	┓	└	┕	┖	┗	┘	┙	┚	┛	├	┝	┞	┟
+┠	┡	┢	┣	┤	┥	┦	┧	┨	┩	┪	┫	┬	┭	┮	┯
+┰	┱	┲	┳	┴	┵	┶	┷	┸	┹	┺	┻	┼	┽	┾	┿
+╀	╁	╂	╃	╄	╅	╆	╇	╈	╉	╊	╋	╌	╍	╎	╏
+═	║	╒	╓	╔	╕	╖	╗	╘	╙	╚	╛	╜	╝	╞	╟
+╠	╡	╢	╣	╤	╥	╦	╧	╨	╩	╪	╫	╬	╭	╮	╯
+╰	╱	╲	╳	╴	╵	╶	╷	╸	╹	╺	╻	╼	╽	╾	╿
+▀	▁	▂	▃	▄	▅	▆	▇	█	▉	▊	▋	▌	▍	▎	▏
+▐	░	▒	▓	▔	▕	▖	▗	▘	▙	▚	▛	▜	▝	▞	▟
+■	□	▢	▣	▤	▥	▦	▧	▨	▩	▪	▫	▬	▭	▮	▯
+▰	▱	▲	△	▴	▵	▶	▷	▸	▹	►	▻	▼	▽	▾	▿
+◀	◁	◂	◃	◄	◅	◆	◇	◈	◉	◊	○	◌	◍	◎	●
+◐	◑	◒	◓	◔	◕	◖	◗	◘	◙	◚	◛	◜	◝	◞	◟
+◠	◡	◢	◣	◤	◥	◦	◧	◨	◩	◪	◫	◬	◭	◮	◯
+◰	◱	◲	◳	◴	◵	◶	◷	◸	◹	◺	◻	◼	◽	◾	◿
+
+
+
+℀	℁	ℂ	℃	℄	℅	℆	ℇ	℈	℉	ℊ	ℋ	ℌ	ℍ	ℎ	ℏ
+ℐ	ℑ	ℒ	ℓ	℔	ℕ	№	℗	℘	ℙ	ℚ	ℛ	ℜ	ℝ	℞	℟
+℠	℡	™	℣	ℤ	℥	Ω	℧	ℨ	℩	K	Å	ℬ	ℭ	℮	ℯ
+ℰ	ℱ	Ⅎ	ℳ	ℴ	ℵ	ℶ	ℷ	ℸ	ℹ	℺	℻	ℼ	ℽ	ℾ	ℿ
+⅀	⅁	⅂	⅃	⅄	ⅅ	ⅆ	ⅇ	ⅈ	ⅉ	⅊	⅋	⅌	⅍	ⅎ	⅏
+⅐	⅑	⅒	⅓	⅔	⅕	⅖	⅗	⅘	⅙	⅚	⅛	⅜	⅝	⅞	⅟
+
+
+₠	₡	₢	₣	₤	₥	₦	₧	₨	₩	₪	₫	€	₭	₮	₯
+₰	₱	₲	₳	₴	₵	₶	₷	₸	₹	₺	₻	₼	₽	₾	₿
+⃐	⃑	⃒	⃓	⃔	⃕	⃖	⃗	⃘	⃙	⃚	⃛	⃜	⃝	⃞	⃟
+⃠	⃡	⃢	⃣	⃤	⃥	⃦	⃧	⃨	⃩	⃪	⃫	⃬	⃭	⃮	⃯
+
+
+
+
+
+Ϊ	Ϋ	ά	έ	ή	ί
+ΰ	α	β	γ	δ	ε	ζ	η	θ	ι	κ	λ	μ	ν	ξ	ο
+π	ρ	ς	σ	τ	υ	φ	χ	ψ	ω	ϊ	ϋ	ό	ύ	ώ	Ϗ
+ϐ	ϑ	ϒ	ϓ	ϔ	ϕ	ϖ	ϗ	Ϙ	ϙ	Ϛ	ϛ	Ϝ	ϝ	Ϟ	ϟ
+Ϡ	ϡ	Ϣ	ϣ	Ϥ	ϥ	Ϧ	ϧ	Ϩ	ϩ	Ϫ	ϫ	Ϭ	ϭ	Ϯ	ϯ
+ϰ	ϱ	ϲ	ϳ	ϴ	ϵ	϶	Ϸ	ϸ	Ϲ	Ϻ	ϻ	ϼ	Ͻ	Ͼ	Ͽ
+
+
+
+
+
+ -->
+    </div>
+        <div class="form-input">
+            <label for="header">Section Header</label>
+            <input id="learningPointHeader" type="text" name="section_header" placeholder="Learning Point Header" id="header" required>
+        </div>
+        <div id="learningPointBody"></div>
+        <button id="addLearningPointButton" type="submit">Add Learning Point</button>
+</div>
+
+<div class="class-section">
+    <div class="class-section-header">
+        <h5>Flashcards</h5>
+    </div>
+    <form action="/admin/academy/course/<%= course.id %>/class/<%= className.id %>/action/add-flashcard" method="post">
+        <div class="form-input">
+            <label for="question">Question</label>
+            <input id="question" type="text" name="question" placeholder="Question" required>
+        </div>
+        <div class="form-input">
+            <label for="answer">Answer</label>
+            <input id="answer" type="text" name="answer" placeholder="Answer" required>
+        </div>
+
+        <div class="radio-group">
+            <div class="radio-group-header">
+                <p>Course Difficulty</p>
+            </div>
+            <div class="radio-group-body">
+                <label class="container">1
+                    <input type="radio" checked="checked" name="difficulty" value="1">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">2
+                    <input type="radio" name="difficulty" value="2">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">3
+                    <input type="radio" name="difficulty" value="3">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">4
+                    <input type="radio" name="difficulty" value="4">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">5
+                    <input type="radio" name="difficulty" value="5">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+        </div>
+        <button id="addFlashcardButton" type="submit">Add Learning Point</button>
+    </form>
+</div>
+
+<% flashcards.forEach(function(flashcard) { %>
+    <p style="color: lime;"><%= flashcard %></p>
+<% }) %>
+<% learningPoints.forEach(function(learningPoint) { %>
+    <p style="color: #fff; font-size: 1.2rem; padding: 10px;"><%= learningPoint %></p>
+<% }) %>
+
+
+
+
+<script>
+
+    const spreader = new EditorJS({
+        holder: 'learningPointBody',
+        tools: {
+            header: {
+                class: Header,
+                shortcut: 'CMD+SHIFT+H',
+                inlineToolbar: ['link']
+            },
+            list: {
+                class: List,
+                inlineToolbar: true
+            },
+            image: SimpleImage,
+            checklist: Checklist,
+            quote: Quote,
+            embed: Embed,
+            table: Table,
+            raw: {
+                class: RawTool,
+                placeholder: 'Enter code...'
+            }
+        },
+        autofocus: true,
+        placeholder: 'Add you lesson here...'
+    })
+
+    spreader.isReady
+        .then(() => {
+            console.log('Editor.js is ready to work!')
+            /** Do anything you need after editor initialization */
+        })
+        .catch((reason) => {
+            console.log(`Editor.js initialization failed because of ${reason}`)
+        });
+
+
+
+        const spreadSaveBtn = document.getElementById('addLearningPointButton')
+        spreadSaveBtn.addEventListener("click", (e) => {
+        const learningPointHeader = document.getElementById('learningPointHeader')
+        const learningPointHeaderData = learningPointHeader.value
+        console.log(learningPointHeaderData)
+
+
+        spreader.save().then((outputData) => {
+
+            console.log('Article data: ', outputData.blocks)
+
+            const url = "https://www.widespread.world/admin/academy/course/<%= course.id %>/class/<%= className.id %>/add-learning-point"
+            // const url = "http://localhost:5000/admin/academy/course/<%= course.id %>/class/<%= className.id %>/add-learning-point"
+            let spreadData = outputData.blocks
+
+            // event.preventDefault();
+            console.log(event);
+
+            console.log('spreadData: ', spreadData);
+            const spreadObject = { 
+                section_header: learningPointHeaderData,
+                section_body: spreadData
+            }
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(spreadObject)
+
+            }).then(response => response.json()).then((data) => {
+                console.log(data)
+                // Create a render function to add the todo to the DOM
+
+            }).catch(e => console.log(`Error is ${e}`))
+        })
+        location.reload()
+
+
+    })
+
+</script>
+
+
+<script>
+    const openSpecialChars = document.getElementById('openSpecialChars')
+    const closeSpecialChars = document.getElementById('closeSpecialChars')
+    const specialChars = document.getElementById('specialChars')
+
+    openSpecialChars.addEventListener('click', e => {
+        specialChars.style.display = 'block'
+        openSpecialChars.style.display = 'none'
+        closeSpecialChars.style.display = 'block'
+    })
+    closeSpecialChars.addEventListener('click', e => {
+        specialChars.style.display = 'none'
+        openSpecialChars.style.display = 'block'
+        closeSpecialChars.style.display = 'none'
+    })
+</script>

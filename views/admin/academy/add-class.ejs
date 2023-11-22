@@ -1,0 +1,209 @@
+<style>
+    .add-new-class-form {
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 30px;
+        background-color: rgba(255, 255, 255, 0.25);
+        border-radius: 16px;
+        backdrop-filter: blur(4px);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .form-header {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    .add-new-class-form form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+
+    }
+    .add-new-class-form p {
+        color: #fff;
+        font-size: 1.2rem;
+    }
+    .add-new-class-form input[type=text] {
+        background-color: #000;
+        border-radius: 4px;
+        padding: 5px;
+        outline: none;
+        border: none;
+        margin-bottom: 8px;
+    }
+    
+    .add-new-class-form textarea {
+        background-color: #000;
+        border-radius: 4px;
+        padding: 5px;
+        outline: none;
+        border: none;
+        margin-bottom: 8px;
+        min-height: 150px;
+        resize: none;
+        overflow-y: auto;
+
+    }
+    .color-picker {
+        margin-top: 10px;
+    }
+    .checkbox-group {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+
+    }
+    .checkbox-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+/* The container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 50px;
+}
+
+
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px lightskyblue, inset 0 0 5px lightskyblue;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #fff;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: lightskyblue;
+
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+    button {
+        padding: 10px;
+        border: none;
+        outline: none;
+        border-radius: 8px;
+        background-color: rgba(135, 206, 250, 0.5);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        margin-top: 15px;
+        margin-bottom: 15px;
+        color: #fff;
+        font-size: 1.5rem;
+    }
+    i {
+        font-size: 2rem;
+        color: lightskyblue;
+    }
+</style>
+
+<div class="page-title">
+    <h2>Add a New Class</h2>
+    <p style="color: #fff; text-align: center;">for</p>
+    <h3><%= course.name %></h3>
+</div>
+
+
+<div class="add-new-class-form">
+    <div class="form-header">
+        <h5>New Class Information</h5>
+    </div>
+    <form action="/academy/course/<%= course.id %>/action/class/add" method="post">
+        <input type="text" name="name" placeholder="Class Name" required>
+        <textarea name="description" placeholder="Class description..." required></textarea>
+
+        <p>Select Tools</p>
+        <div class="checkbox-group">
+            <div class="checkbox-item">
+                <label class="container"><i class="bx bx-code-block"></i>
+                    <input type="checkbox" name="toolbox" value="code-editor">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <div class="checkbox-item">
+                <label class="container"><i class="fas fa-chalkboard-teacher"></i></i>
+                    <input type="checkbox" name="toolbox" value="whiteboard">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <div class="checkbox-item">
+                <label class="container"><i class="bx bx-calculator"></i>
+                    <input type="checkbox" name="toolbox" value="calculator">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+         
+        </div>
+        <div class="color-picker">
+            <%- include('../../partials/forms/colors.ejs'); %>
+        </div>
+        
+        <button type="submit">Add Class</button>
+    </form>
+</div>

@@ -1,0 +1,20 @@
+<style>
+    #academyMenu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        overflow-x: auto;
+        background-color: transparent;
+        background: transparent;
+    }
+</style>
+
+<div id="academyMenu">
+    <div class="menu-item <%= subZone=='Home' ? 'menu-link active' : 'menu-link' %>"><a href="/academy">Home</a></div>
+    <div class="menu-item <%= subZone=='Courses' ? 'menu-link active' : 'menu-link' %>"><a href="/academy/all-courses">Courses</a></div>
+    <div class="menu-item <%= subZone=='Resources' ? 'menu-link active' : 'menu-link' %>"><a href="/academy/resources">Resources</a></div>
+    <div class="menu-item <%= subZone=='Homework' ? 'menu-link active' : 'menu-link' %>"><a href="/academy/homework">Homework</a></div>
+    <div class="menu-item <%= subZone=='Tests' ? 'menu-link active' : 'menu-link' %>"><a href="/academy/tests">Tests</a></div>
+    <div class="menu-item <%= subZone=='Study' ? 'menu-link active' : 'menu-link' %>"><a href="/academy/study">Study</a></div>
+    <div class="menu-item <%= subZone=='Help' ? 'menu-link active' : 'menu-link' %>"><a href="/academy/help">Help</a></div>
+</div>

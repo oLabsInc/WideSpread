@@ -1,0 +1,307 @@
+<style>
+    .inner-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        padding-top: 100px;
+        height: 100%;
+
+    }
+
+    #mainMenuVr {
+        display: block;
+
+    }
+
+    #mainMenuAr {
+        display: none;
+
+    }
+
+    #mainMenu2d {
+        display: none;
+
+
+    }
+
+    .reality-nav {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .reality-button {
+        cursor: pointer;
+    }
+
+    .reality-nav>div {
+        background: rgba(135, 206, 250, 0.25);
+        border-radius: 8px;
+        box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.25);
+        padding: 10px;
+        width: 30%;
+        text-align: center;
+    }
+
+    .reality-nav>.current-menu {
+        background: none;
+        padding: 3px;
+        width: 20%;
+        box-shadow: none;
+    }
+
+    .reality-nav>.current-menu small {
+        text-align: center;
+        color: #fff;
+    }
+
+    .reality-nav>.current-menu p {
+        text-align: center;
+        color: #fff;
+        font-weight: bold;
+        font-size: 2rem;
+    }
+
+    .reality-nav>div>span>p {
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: #fff;
+    }
+
+    .main-menu {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .main-menu-item {
+        width: 100%;
+        text-align: center;
+        border-top: outset 1px #fff;
+        border-bottom: outset 1px #fff;
+        margin-bottom: 8px;
+        background: rgba(135, 206, 250, 0.25);
+        box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.25), 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .user-menu-buttons {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    @media screen and (orientation : landscape) {
+        #mainMenuVr {
+            display: block;
+
+        }
+
+        .reality-nav {
+            margin: 0 auto;
+            width: 90%;
+        }
+
+        .reality-nav>div {
+            width: 20%;
+        }
+
+        .main-menu {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-evenly;
+            margin-top: 30px;
+        }
+
+        .main-menu-item {
+            border-radius: 6px;
+            width: 40%;
+            margin-bottom: 15px;
+        }
+
+    }
+
+    @media screen and (min-width: 900px) {
+
+        #mainMenuVr {
+            padding-top: 55px;
+            padding-bottom: 0;
+            width: 100%;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .main-menu-item {
+            border-radius: 0;
+            width: 100%;
+            margin-left: 0 auto;
+            margin-bottom: 8px;
+        }
+
+    }
+</style>
+
+<div id="mainMenu2d">
+    <div class="inner-menu">
+        <div class="reality-nav">
+            <div class="reality-button" id="vrNavButton"><span onclick="openVrNav()">
+                    <p>VR</p>
+                </span></div>
+            <div class="current-menu">
+                <small>Current Menu</small>
+                <p style="color: #fff">2D</p>
+            </div>
+            <div class="reality-button" id="arNavButton"><span onclick="openArNav()">
+                    <p>AR</p>
+                </span></div>
+        </div>
+        <div class="main-menu">
+            <div class="main-menu-item"><a href="/socialspread">SocialSpread</a></div>
+            <div class="main-menu-item"><a href="/academy">Academy</a></div>
+            <div class="main-menu-item"><a href="/business">Business</a></div>
+            <div class="main-menu-item"><a href="/entertainment">Entertainment</a></div>
+            <div class="main-menu-item"><a href="/news">News</a></div>
+            <div class="main-menu-item"><a href="/wellness">Wellness</a></div>
+            <div class="main-menu-item"><a href="/things">Things</a></div>
+            <div class="main-menu-item"><a href="/spreadshield-dash">SpreadShield</a></div>
+            <div class="main-menu-item"><a href="/help">Help</a></div>
+
+            <div class="user-menu-buttons">
+                <% if (!user) { %>
+                    <a href="/users/login">Login</a>
+                    <% } else { %>
+                <a href="/users/logout" style="color: <%= user.favColor1 %>">Logout</a>
+                <a href="/users/settings"><i style="font-size: 1.5rem; color: <%= user.favColor1 %>;" class="fas fa-user-cog"></i></a>
+                <a href="/users/dashboard"><i style="font-size: 1.5rem; color: <%= user.favColor1 %>;" class="far fa-user-circle"></i></a>
+                        <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="mainMenuVr">
+    <div class="inner-menu">
+
+        <div class="reality-nav">
+            <div class="reality-button" id="navButton"><span onclick="open2dNav()">
+                    <p>2D</p>
+                </span></div>
+            <div class="current-menu">
+                <small>Current Menu</small>
+                <p style="color: #fff">VR</p>
+            </div>
+            <div class="reality-button" id="arNavButton"><span onclick="openArNav()">
+                    <p>AR</p>
+                </span></div>
+        </div>
+        <div class="main-menu">
+            <div class="main-menu-item"><a href="/flexfloor">FlexFloor VR</a></div>
+            <div class="main-menu-item"><a href="/socialspread">SocialSpread VR</a></div>
+            <div class="main-menu-item"><a href="/vr/academy">Academy VR</a></div>
+            <div class="main-menu-item"><a href="/vr/business">Business VR</a></div>
+            <div class="main-menu-item"><a href="/vr/entertainment">Entertainment VR</a></div>
+            <div class="main-menu-item"><a href="/vr/news">News VR</a></div>
+            <div class="main-menu-item"><a href="/vr/wellness">Wellness VR</a></div>
+            <div class="main-menu-item"><a href="/vr/things">Things VR</a></div>
+            <div class="main-menu-item"><a href="/vr/help">Help VR</a></div>
+
+            <div class="user-menu-buttons">
+                <% if (!user) { %>
+                    <a href="/users/login">Login</a>
+                    <% } else { %>
+                        <a href="/users/logout" style="color: <%= user.favColor1 %>">Logout</a>
+                        <a href="/users/settings"><i style="font-size: 1.5rem; color: <%= user.favColor1 %>;" class="fas fa-user-cog"></i></a>
+                        <a href="/vr/users/dashboard"><i style="font-size: 1.5rem; color: <%= user.favColor1 %>;" class="far fa-user-circle"></i></a>
+                        <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="mainMenuAr">
+    <div class="inner-menu">
+        <div class="reality-nav">
+            <div class="reality-button" id="arNavButton"><span onclick="openVrNav()">
+                    <p>VR</p>
+                </span></div>
+            <div class="current-menu">
+                <small>Current Menu</small>
+                <p style="color: #fff">AR</p>
+            </div>
+            <div class="reality-button" id="navButton"><span onclick="open2dNav()">
+                    <p>2D</p>
+                </span></div>
+        </div>
+        <div class="main-menu">
+            <div class="main-menu-item"><a href="/socialspread">SocialSpread AR</a></div>
+            <div class="main-menu-item"><a href="/academy">Academy AR</a></div>
+            <div class="main-menu-item"><a href="/ar/sports/golf">Leisure AR</a></div>
+            <div class="main-menu-item"><a href="/ar/spreadshield/nearby">SpreadShield AR</a></div>
+            <div class="main-menu-item"><a href="/business">Business AR</a></div>
+            <div class="main-menu-item"><a href="/entertainment">Entertainment AR</a></div>
+            <div class="main-menu-item"><a href="/news">News AR</a></div>
+            <div class="main-menu-item"><a href="/wellness">Wellness AR</a></div>
+            <div class="main-menu-item"><a href="/things">Things AR</a></div>
+            <div class="main-menu-item"><a href="/help">Help AR</a></div>
+
+            <div class="user-menu-buttons">
+                <% if (!user) { %>
+                    <a href="/users/login">Login</a>
+                    <% } else { %>
+                <a href="/users/logout" style="color: <%= user.favColor1 %>">Logout</a>
+                <a href="/users/settings"><i style="font-size: 1.5rem; color: <%= user.favColor1 %>;" class="fas fa-user-cog"></i></a>
+                <a href="/users/dashboard"><i style="font-size: 1.5rem; color: <%= user.favColor1 %>;" class="far fa-user-circle"></i></a>
+                        <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function openVrNav() {
+        document.getElementById("mainMenuVr").style.display = "flex";
+        document.getElementById("mainMenuAr").style.display = "none";
+        document.getElementById("mainMenu2d").style.display = "none";
+        let oldMenu = document.getElementById("mainMenuVr")
+        oldMenu.removeChild[0]
+
+        console.log(`Old Menu: ${oldMenu.children}`)
+    }
+
+    function openArNav() {
+        document.getElementById("mainMenuVr").style.display = "none";
+        document.getElementById("mainMenuAr").style.display = "flex";
+        document.getElementById("mainMenu2d").style.display = "none";
+        let oldMenu = document.getElementById("mainMenuVr")
+        oldMenu.removeChild[0]
+    }
+
+
+    function open2dNav() {
+        document.getElementById("mainMenuVr").style.display = "none";
+        document.getElementById("mainMenuAr").style.display = "none";
+        document.getElementById("mainMenu2d").style.display = "flex";
+        let oldMenu = document.getElementById("mainMenuVr")
+        oldMenu.removeChild[0]
+    }
+
+
+</script>

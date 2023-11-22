@@ -1,0 +1,36 @@
+# Blender MTL File: 'couch.blend'
+# Material Count: 3
+
+newmtl CouchClothGreyMaterial.001
+Ns 16.735535
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump -bm 0.800000 D:\\Projects\\BlenderByt\\cgtrader2\\materials\\Fabric039_2K-JPG\\Fabric039_2K_Normal.jpg
+map_Kd D:\\Projects\\BlenderByt\\cgtrader2\\materials\\Fabric039_2K-JPG\\Fabric039_2K_Color.jpg
+
+newmtl CouchFootMaterial
+Ns 229.477528
+Ka 1.000000 1.000000 1.000000
+Kd 0.004896 0.004896 0.004896
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl PillowMaterial
+Ns 17.869831
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump D:\\Projects\\BlenderByt\\cgtrader2\\materials\\Fabric035_2K-JPG\\Fabric035_2K_Normal.jpg
+map_Kd D:\\Projects\\BlenderByt\\cgtrader2\\materials\\Fabric035_2K-JPG\\Fabric035_2K_Color.jpg

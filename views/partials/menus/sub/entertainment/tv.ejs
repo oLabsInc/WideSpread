@@ -1,0 +1,18 @@
+<style>
+    #tvMenu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        overflow-x: auto;
+    }
+</style>
+
+
+<div id="tvMenu">
+    <div class="menu-item <%= subZonePage=='Home' ? 'menu-link active' : 'menu-link' %>"><a href="/entertainment/tv">Home</a></div>
+    <div class="menu-item <%= subZonePage=='New' ? 'menu-link active' : 'menu-link' %>"><a href="/entertainment/tv/new">New</a></div>
+    <div class="menu-item <%= subZonePage=='Popular' ? 'menu-link active' : 'menu-link' %>"><a href="/entertainment/tv/popular">Popular</a></div>
+    <div class="menu-item <%= subZonePage=='Saved' ? 'menu-link active' : 'menu-link' %>"><a href="/entertainment/tv/saved">Saved</a></div>
+    <div class="menu-item <%= subZonePage=='History' ? 'menu-link active' : 'menu-link' %>"><a href="/entertainment/tv/history">History</a></div>
+    <div class="menu-item <%= subZonePage=='Help' ? 'menu-link active' : 'menu-link' %>"><a href="/entertainment/tv/help">Help</a></div>
+</div>

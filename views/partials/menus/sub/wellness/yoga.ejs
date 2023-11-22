@@ -1,0 +1,18 @@
+<style>
+    #yogaMenu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        overflow-x: auto;
+    }
+</style>
+
+
+<div id="yogaMenu">
+    <div class="menu-item <%= subZonePage=='Home' ? 'menu-link active' : 'menu-link' %>"><a href="/wellness/yoga">Home</a></div>
+    <div class="menu-item <%= subZonePage=='Learn' ? 'menu-link active' : 'menu-link' %>"><a href="/wellness/yoga/learn">Learn</a></div>
+    <div class="menu-item <%= subZonePage=='Classes' ? 'menu-link active' : 'menu-link' %>"><a href="/wellness/yoga/classes">Classes</a></div>
+    <div class="menu-item <%= subZonePage=='News' ? 'menu-link active' : 'menu-link' %>"><a href="/wellness/yoga/news">News</a></div>
+    <div class="menu-item <%= subZonePage=='History' ? 'menu-link active' : 'menu-link' %>"><a href="/wellness/yoga/history">History</a></div>
+    <div class="menu-item <%= subZonePage=='Help' ? 'menu-link active' : 'menu-link' %>"><a href="/wellness/yoga/help">Help</a></div>
+</div>

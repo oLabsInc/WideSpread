@@ -1,0 +1,1163 @@
+<!-- 
+    
+    
+    
+-------------------------             STYLE             -------------------------
+
+
+
+-->
+
+<style>
+    body {
+        overscroll-behavior: contain;
+    }
+    @media screen and (min-width: 299px) {
+        #coreData {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 40px;
+            max-height: 40px;
+            padding: 5px;
+            border-top: outset 1px rgba(255, 255, 255, 0.75);
+            background: transparent;
+            backdrop-filter: blur(4px);
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: flex-start;
+            box-shadow: 0 -8px 10px rgba(0, 0, 0, 0.5);
+            z-index: 99900;
+        }
+
+        #spreadChatContainer {
+            position: relative;
+        }
+        #spreadChatNewConversationButton {
+            transform: rotate(0deg);
+            font-size: 2rem;
+            position: fixed;
+            bottom: 8px;
+            left: 8px;
+        }
+
+        .spread-chat-window-open-btn p {
+            color: orangered;
+            transform: rotate(45deg);
+        }
+        .spread-chat-window-close-btn {
+
+        }
+
+        #spreadChatNewConversationUserList {
+        }
+        .spread-chat-new-conversation-list {
+            background-color: rgba(0, 0, 0, 0.5);
+            /* backdrop-filter: blur(4px); */
+            position: absolute;
+            bottom: 25px;
+            left: -5px;
+            max-height: calc(100vh - 110px);
+            overscroll-behavior: contain;
+
+        }
+        .spread-chat-friend-list-container {
+            overscroll-behavior: contain;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            width: 100vw;
+            max-height: calc(100vh - 110px);
+            height: calc(100vh - 110px);
+            padding-top: 5px;
+            border-top: outset 2px lightskyblue;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.6);
+            scroll-behavior: smooth;
+            overscroll-behavior: contain;
+            
+            backdrop-filter: blur(10px);
+        }
+
+        
+        .spread-chat-friend-container {
+            background-color: rgba(0, 0, 0, 0.25);
+            /* backdrop-filter: blur(4px); */
+            margin-bottom: 4px;
+            height: 60px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+            justify-content: flex-start;
+            width: calc(100% - 15px);
+            padding: 5px;
+            padding-left: 0;
+            border-top: outset 1px lightskyblue;
+            border-bottom: outset 1px lightskyblue;
+            border-right: solid 10px lightskyblue;
+            transition: ease-in 0.2s;
+        }
+        .spread-chat-friend-container:hover {
+            background-color: rgba(0, 0, 0, 0.75);
+            transition: ease-in 0.2s;
+        }
+
+        .spread-chat-friend-container-image {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .spread-chat-friend-container-image img {
+            max-height: 60px;
+            max-width: 60px;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            border: outset 1px lightskyblue;
+            border-left: none;
+        }
+        .spread-chat-friend-container-data  {
+            margin-left: 10px;
+
+        }
+        .spread-chat-friend-container-header p {
+            font-size: 1.3rem;
+            color: #fff;
+            text-shadow: 0 0 4px #000;
+        }
+        .spread-chat-friend-container-options {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+            justify-content: space-evenly;
+        }
+        .spread-chat-friend-container-option-item {
+
+        }
+        .spread-chat-friend-container-option-item i {
+            color: lightskyblue;
+            font-size: 1.5rem;
+            padding: 8px;
+            margin-right: 10px;
+            transition: ease-in 0.2s;
+            text-shadow: 0 0 2px #fff;
+        }
+        .spread-chat-friend-container-option-item i:hover {
+            color: #fff;
+            transition: ease-in 0.2s;
+        }
+        .green {
+            color: yellowgreen;
+        }
+        .closed {
+            display: none;
+        }
+        .open {
+            display: flex;
+        }
+        .no-scroll {
+            overflow: hidden;
+            overscroll-behavior: contain;
+        }
+
+
+
+
+
+
+
+
+        /* SPREADCHAT */
+        .spread-chat-friend-list-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-end;
+            position: relative;
+            z-index: 80000;
+            /* backdrop-filter: blur(4px);     */
+        }
+        .no-users-in-list {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* backdrop-filter: blur(4px); */
+        }
+        .no-users-in-list p {
+            padding: 10px;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+        .spread-chat-user-core-container {
+            width: 100%;
+            height: 80px;
+            margin-bottom: 5px;
+            background-color: rgba(0, 0, 0, 0.25);
+            /* backdrop-filter: blur(4px); */
+            border-top: solid 1px lightskyblue;
+            border-bottom: solid 1px lightskyblue;
+            overscroll-behavior: contain;
+        }
+        .spread-chat-user-access-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .spread-chat-user-access-avatar {
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
+        }
+        .spread-chat-user-access-avatar img {
+            max-width: 60px;
+            max-height: 60px;
+            border: outset 1px lightskyblue;
+            border-left: none;
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 6px;
+            box-shadow: 0 0 8px rgba(135, 206, 250, 0.5);
+
+        }
+
+        .spread-chat-user-access-data {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            width: 100%;
+        }
+        .spread-chat-user-access-header {
+            width: 100%;
+            border-bottom: solid 1px lightskyblue;
+        }
+        .spread-chat-user-access-header p {
+            color: #fff;
+            text-shadow: 0 0 4px #fff;
+            font-size: 1.5rem;
+            padding: 5px;
+            font-weight: bold;
+        }
+        .spread-chat-user-access-options {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+
+
+
+
+        .spread-chat-message-user-container-header {
+            border-top: outset 2px lightskyblue;
+        }
+        .spread-chat-message-user-data {
+            background-color: rgba(0, 0, 0, 0.75);
+            /* backdrop-filter: blur(14px); */
+            box-shadow: inset 0 0 30px rgba(135, 206, 250, 0.5);
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .spread-chat-message-user-avatar {
+            width: 80px;
+            height: 80px;
+        }
+        
+        .spread-chat-message-user-avatar img {
+            max-width: 80px;
+            max-height: 80px;
+        }
+        .spread-chat-message-user-name {
+            width: 100%;
+            font-size: 1.5rem;
+        }
+        .spread-chat-message-user-container-options {
+            position: relative;
+        }
+        .closeChatWindowButton {
+            position: absolute;
+            top: 22px;
+            text-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            right: 20px;
+            font-size: 2rem;
+            color: orangered;
+            z-index: 90000;
+        } 
+        .spreadContainerMessages {
+            position: fixed;
+            top: calc(-100vh + 102px);
+            height: calc(50vh - 100px);
+            left: -5px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding-top: 10px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(4px);
+        }
+        .message-item {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+            justify-content: flex-start;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-bottom: solid 1px #fff;
+            width: 100%;
+            position: relative;
+        }
+
+
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+        }
+        .message-avatar img {
+            max-width: 40px;
+            max-height: 40px;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            border: outset 1px lightskyblue;
+            box-shadow: 0 0 5px lightskyblue;
+            border-left: none;
+        }
+
+        .message-data {
+            padding-left: 8px;
+            width: 95%;
+        }
+        .message-header {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: solid 1px lightskyblue;
+            width: 100%;
+        }
+        .message-user {
+            width: 60%;
+        }
+        .message-user p {
+            font-size: 1.5rem;
+            color: lightskyblue;
+            width: 100%;
+        }
+        .message-time {
+            width: 40%;
+            padding-right: 25px;
+        }
+        .message-time-other {
+            width: 40%;
+            padding-right: 5px;
+        }
+        .message-time p {
+            font-size: 1rem;
+            color: lightskyblue;
+            width: 100%;
+            text-align: right;
+        }
+        .message-time-other p {
+            font-size: 1rem;
+            color: lightskyblue;
+            width: 100%;
+            text-align: right;
+        }
+        .message-body {
+            padding: 5px;
+            width: 100%;
+        }
+        .message-body p {
+            color: #fff;
+            width: 100%;
+            font-size: 1.2rem;
+        }
+
+        .sent-by-other-user-container {
+            width: 20px;
+            min-width: 20px;
+            height: 55px;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border: outset 1px #fff;
+            border-right: none;
+            z-index: 99991;
+            background-color: rgba(135, 206, 250, 0.5);
+        }
+        .sent-by-other-user-menu {
+            position: absolute;
+            z-index: 99990;
+
+        }
+        .sent-by-other-user-menu i {
+            color: lightskyblue;
+            position: relative;
+            z-index: 99989;
+
+        }
+        
+        .reactions-container {
+            display: block;
+            position: absolute;
+            bottom: 0;
+            right: 20px;
+            width: 100%;
+            background-color: rgba(135, 206, 250, 0.5);
+            padding: 5px;
+            border-top-left-radius: 4px;
+            border: outset 1px #fff;
+            border-bottom: none;
+            border-right: none;
+
+        }
+
+        .reactions {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .reactions i {
+            margin-left: 5px;
+        }
+        .spread-chat-user-messaging-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            min-height: calc(50vh - 110px);
+            z-index: 85000;
+        }
+        .spread-chat-user-messaging-container textarea {
+            width: 100%;
+            position: relative;
+            min-height: calc(50vh - 110px);
+            background-color: rgba(0, 0, 0, 0.75);
+            /* backdrop-filter: blur(10px); */
+            z-index: 85001;
+            padding: 8px;
+            font-size: 1.2rem;
+            overscroll-behavior: contain;
+            border: none;
+            border-top: outset 2px lightskyblue;
+            box-shadow: -4px 0 8px rgba(135, 206, 250, 0.5);
+            outline: none;
+        }
+        .spread-chat-user-messaging-container button {
+            width: 100%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size: 2rem;
+            color: #fff;
+            background-color: rgba(135, 206, 250, 0.75);
+            box-shadow: inset 0 0 10px #fff;
+            border: none;
+            outline: none;
+            text-shadow: 0 0 4px #fff;
+            font-weight: bold;
+        }
+        .hidden {
+            display: none;
+        }
+
+        .move-out {
+            z-index: -80000;
+            position: absolute;
+            left: 100vw;
+        }
+
+    }
+
+
+    @media screen and (min-width: 762px) {
+        #coreData {}
+    }
+
+    @media screen and (min-width: 992px) {
+        #coreData {}
+    }
+
+    @media screen and (min-width: 1199px) {
+        #coreData {}
+
+        #spreadChatNewConversationUserList {
+            bottom: calc(100vh - 30px);
+            right: 0;
+            width: 100vw;
+            position: absolute;
+
+        }
+        .spread-chat-friend-list-container {
+            width: 350px;
+            position: absolute;
+            left: 0;
+            top: 50px;
+            height: calc(100vh - 100px);
+            background-color: rgba(255, 255, 255, 0.25);
+            /* backdrop-filter: blur(10px); */
+            border-right: outset 2px lightskyblue;
+            box-shadow: 15px 0 15px rgba(0, 0, 0, 0.6);
+
+        }
+        #spreadChatNewConversationButton {
+            color: yellowgreen;
+            transform: rotate(0deg);
+            font-size: 2rem;
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            cursor: pointer;
+        }
+    }
+</style>
+
+
+<!-- 
+    
+    
+    
+-------------------------             VIEW             -------------------------
+
+
+
+-->
+
+<% if (user) { %>
+    <div style="display: none;" class="user-message-layout">
+        <div id="userAvatar">
+            <% if (user.user_avatar) { %>
+                <img src="/image/<%= user.user_avatar %>" alt="">
+            <% } else { %>
+                <img src="/images/system/default-user-avatar_1a1a1a.png" alt="">
+            <% } %>
+        </div>
+        <div id="userName" data-user-fname="<%= user.fname %>"></div>
+    </div>
+    <div id="coreData">
+
+    <!-- CREATE MESSAGING CONTAINER -->
+
+        <!-- #spreadChatContainer -->
+        <div id="spreadChatContainer">
+
+    <!-- CREATE BUTTON TO OPEN LIST OF ALL CURRENT FRIENDS WITH NO SPREADCHAT SESSION -->
+            <!-- #spreadChatNewConversationButton -->
+            <div id="spreadChatNewConversationButton">
+                <p><i id="openChatBtn" class="fas fa-plus green"></i></p>
+            </div>
+    <!-- CREATE ADD NEW CHAT MESSAGE (LIST OF FRIENDS THAT DON'T HAVE A CHAT SESSION/WINDOW YET)  -->
+                <div id="spreadChatNewConversationUserList" class="spread-chat-new-conversation-list closed">
+
+                    <div class="spread-chat-friend-list-container">
+
+
+                        <% if (userSpreadChats.length <= 0) { %>
+                            <div class="no-users-in-list">
+                                <p>You haven't added any friends yet.</p>
+                                <p>Add friends to chat with them.</p>
+                            </div>
+                        <% } else { %>
+                        <% userSpreadChats.forEach(function(spreadChat) { %>
+                            <% spreadChat.user_list.forEach(function(chatUser) { %>
+                                <% if (chatUser.id != user.id) { %>
+
+                                    <div class="spread-chat-user-core-container">
+                                        <div class="spread-chat-user-access-container">
+                                            <div class="spread-chat-user-access-avatar">
+                                                <% if (chatUser.user_avatar) { %>
+                                                    <img src="/image/<%= spreadChat.user_avatar %>" alt="">
+                                                <% } else { %>
+                                                    <img src="/images/system/default-user-avatar_1a1a1a.png" alt="">
+                                                <% } %>
+                                            </div>
+                                            <div class="spread-chat-user-access-data">
+                                                <div class="spread-chat-user-access-header">
+                                                    <p><%= chatUser.fname %> <%= chatUser.lname %></p>
+                                                </div>
+                                                <div class="spread-chat-user-access-options">
+                                                    <div class="spread-chat-friend-container-option-item">
+                                                        <i data-spread-chat-session="<%= spreadChat.chat_session %>" data-spread-chat-id="<%= spreadChat.id %>" class="comment-btn far fa-comment-alt"></i>
+                                                    </div>
+                                                    <div class="spread-chat-friend-container-option-item">
+                                                        <i data-spread-chat-session="<%= spreadChat.chat_session %>" data-spread-chat-id="<%= spreadChat.id %>" class="phone-btn fas fa-phone"></i>
+                                                    </div>
+                                                    <div class="spread-chat-friend-container-option-item">
+                                                        <a href="/chat/video/<%= spreadChat.id %>/<%= spreadChat.chat_session %>/<%= user.id %>/<%= chatUser.id %>">
+                                                            <i data-spread-chat-session="<%= spreadChat.chat_session %>" data-spread-chat-id="<%= spreadChat.id %>" class="video-btn fas fa-video"></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="spread-chat-friend-container-option-item">
+                                                        <i data-spread-chat-session="<%= spreadChat.chat_session %>" data-spread-chat-id="<%= spreadChat.id %>" class="share-btn fas fa-share-alt"></i>
+                                                    </div>
+                                                    <div class="spread-chat-friend-container-option-item">
+                                                        <i data-spread-chat-session="<%= spreadChat.chat_session %>" data-spread-chat-id="<%= spreadChat.id %>" class="flexfloor-btn fas fa-vr-cardboard"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        
+
+                                        
+                                    </div>
+
+                                <% } %>
+                            <% }) %>
+
+                        <% }) %>
+                        <% } %>
+
+                    </div>
+
+
+<!--                     <div class="spread-chat-friend-list-container">
+                        <% user.friends.forEach(function(friend) { %>
+                            
+                            <% if (friend.favColor1) { %>
+                                <div class="spread-chat-friend-container" style="border-top: outset 1px <%= friend.favColor1 %>; border-bottom: outset 1px <%= friend.favColor1 %>; border-right: solid 10px <%= friend.favColor1 %>; box-shadow: inset 0 0 10px <%= friend.favColor1 %>">
+                            <% } else { %>
+                                <div class="spread-chat-friend-container">            
+                            <% } %>
+                                <div class="spread-chat-friend-container-image">
+                                    <a href="/users/<%= friend.id %>">
+                                        <% if (friend.user_avatar) { %>
+                                            <img style="border: outset 1px <%= friend.favColor1 %>; border-left: none;" src="/image/<%= friend.user_avatar %>" alt="">
+                                        <% } else { %>
+                                            <img style="border: outset 1px <%= friend.favColor1 %>; border-left: none;" src="/images/system/default-user-avatar_1a1a1a.png" alt="">
+                                        <% } %>
+                                    </a>
+                                </div>
+                                <div class="spread-chat-friend-container-data">
+                                    <div class="spread-chat-friend-container-header">
+                                        <p><%= friend.fname %> <%= friend.lname %></p>
+                                    </div>
+                                    <div class="spread-chat-friend-container-options">
+                                        <div class="spread-chat-friend-container-option-item">
+                                            <a href=""><i class="far fa-comment-alt"></i></a>    
+                                        </div>
+                                        <div class="spread-chat-friend-container-option-item">
+                                            <a href=""><i class="fas fa-phone"></i></a>    
+                                        </div>
+                                        <div class="spread-chat-friend-container-option-item">
+                                            <a href=""><i class="fas fa-video"></i></a>    
+                                        </div>
+                                        <div class="spread-chat-friend-container-option-item">
+                                            <a href=""><i class="fas fa-share-alt"></i></a>    
+                                        </div>
+                                        <div class="spread-chat-friend-container-option-item">
+                                            <a href=""><i class="fas fa-vr-cardboard"></i></a>    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }) %>
+                    </div>
+                </div> -->
+    <!-- CREATE LIST OF ALL CURRENT CHAT'S AVAILABLE (LIST OF FRIENDS THAT DO HAVE A CHAT SESSION/WINDOW)   -->
+    
+    <!-- CREATE A CHAT WINDOW THAT TAKES IN THE SPREADCHAT.ID AS AN ARGUMENT AND SWAPS BETWEEN DIFFERENT SPREADCHAT OBJECTS DEPENDING ON ID  -->
+
+    <!-- CREATE A SPREADCHAT FORM THAT SENDS USER TO DATA TO CORRECT SPREADCHAT.ID DEPENDING ON WHICH SPREADCHAT WINDOW IS CURRENTLY SHOWING (ID COMES FROM CURRENT WINDOW LOADED BY ID)  -->
+
+
+
+        <!-- End of #spreadChatContainer -->
+        </div>
+
+                        <% userSpreadChats.forEach(function(spreadChat) { %>
+                            <% spreadChat.user_list.forEach(function(chatUser) { %>
+                                <% if (chatUser.id != user.id) { %>
+                                    <div class="spread-chat-user-messaging-container hidden" data-spread-chat-session="<%= spreadChat.chat_session %>" data-spread-chat-id="<%= spreadChat.id %>">
+                                        <div class="spread-chat-message-user-container-header">
+                                            <div class="spread-chat-message-user-container-options">
+                                                <div class="closeChatWindowButton" data-spread-chat-session="<%= spreadChat.chat_session %>" data-spread-chat-id="<%= spreadChat.id %>"><i class="far fa-times-circle"></i></div>
+                                            </div>
+                                            <div class="spread-chat-message-user-data">
+                                                <div class="spread-chat-message-user-avatar">
+                                                    <% if (chatUser.user_avatar) { %>
+                                                            <img src="/image/<%= spreadChat.user_avatar %>" alt="">
+                                                        <% } else { %>
+                                                            <img src="/images/system/default-user-avatar_1a1a1a.png" alt="">
+                                                        <% } %>
+                                                </div>
+                                                <div class="spread-chat-message-user-name">
+                                                    <h6><%= chatUser.fname %> <%= chatUser.lname %></h6>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <textarea name="conversation" class="messageInput" placeholder="Message <%= chatUser.fname %>..." data-spread-chat-session="<%= spreadChat.chat_session %>" data-spread-chat-id="<%= spreadChat.id %>" data-from-user-id="<%= user.id %>"></textarea>
+                                        <button type="submit" class="sendMessageButton"data-spread-chat-session="<%= spreadChat.chat_session %>" data-spread-chat-id="<%= spreadChat.id %>">Send</button>
+                                    </div>
+                                    <div class="spreadContainerMessages hidden" data-spread-chat-session="<%= spreadChat.chat_session %>" data-spread-chat-id="<%= spreadChat.id %>">
+                                        <% if (spreadChat.conversation.length <= 0) { %>
+                                            <p style="color: #fff; font-size: 1.2rem; text-align: center;">Boring! Let's get this conversation started!</p>
+                                        <% } else { %>
+
+                                            <div class="messages-list">
+                                                <% spreadChat.conversation.forEach(function(message) { %>
+                                                    <% if (message.sent_by.id === user.id) { %>
+                                                        <div class="message-item">
+                                                            <div class="message-avatar">
+                                                                <% if (message.sent_by.user_avatar) { %>
+                                                                    <img src="/image/<%= message.sent_by.user_avatar %>" alt="">
+                                                                <% } else { %>
+                                                                    <img src="/images/system/default-user-avatar_1a1a1a.png" alt="">
+                                                                <% } %>
+                                                            </div>
+                                                            <div class="message-data">
+                                                                <div class="message-header">
+                                                                    <div class="message-user">
+                                                                        <% if (message.sent_by.id === user.id) { %>
+                                                                            <p>You</p>
+                                                                        <% } else { %>
+                                                                            <p><%= message.sent_by.fname %></p>
+                                                                        <% } %>
+                                                                    </div>
+                                                                    <div class="message-time">
+                                                                        <p><%= message.sent_at.toLocaleDateString(undefined, { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' }) %> <%= message.sent_at.toLocaleTimeString("en-US", {timeZone:"Canada/Eastern", hour12 : true, hour:  "numeric", minute: "numeric",seconds:"numeric"}) %> </p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="message-body">
+                                                                    <p><%= message.message %></p>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                        </div>
+
+                                                    <% } else { %>
+                                                        <div class="message-item">
+                                                            <div class="message-avatar">
+                                                                <% if (message.sent_by.user_avatar) { %>
+                                                                    <img src="/image/<%= message.sent_by.user_avatar %>" alt="">
+                                                                <% } else { %>
+                                                                    <img src="/images/system/default-user-avatar_1a1a1a.png" alt="">
+                                                                <% } %>
+                                                            </div>
+                                                            <div class="message-data">
+                                                                <div class="message-header">
+                                                                    <div class="message-user">
+                                                                        <% if (message.sent_by.id === user.id) { %>
+                                                                            <p>You</p>
+                                                                        <% } else { %>
+                                                                            <p><%= message.sent_by.fname %></p>
+                                                                        <% } %>
+                                                                    </div>
+                                                                    <div class="message-time-other">
+                                                                        <p><%= message.sent_at.toLocaleDateString(undefined, { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' }) %> <%= message.sent_at.toLocaleTimeString("en-US", {timeZone:"Canada/Eastern", hour12 : true, hour:  "numeric", minute: "numeric",seconds:"numeric"}) %> </p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="message-body">
+                                                                    <p><%= message.message %></p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sent-by-other-user-container">
+
+                                                                <div class="reactions-container hidden">
+                                                                    <div class="reactions">
+                                                                        <i class="far fa-heart"></i>
+                                                                        <i class="fas fa-share-alt"></i>
+                                                                        <i class="far fa-grin"></i>
+                                                                        <i class="far fa-angry"></i>
+                                                                        <i class="far fa-frown"></i>
+                                                                        <i class="far fa-grin-squint-tears"></i>
+                                                                        <i class="far fa-grin-tongue-squint"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    <% } %>
+                                                <% }) %>
+                                            </div>
+                                        <% } %>
+                                    </div>
+
+                                <% } %>
+                            <% }) %>
+                        <% }) %>
+
+    </div>
+    
+<!-- 
+    
+
+    
+-------------------------             LOGIC             -------------------------
+
+
+
+-->
+
+<!-- 
+
+    -------------------------             SOCKETS             -------------------------
+    
+-->
+    <script src="/socket.io/socket.io.js"></script>
+
+
+    <script>
+
+        /* DOM ELEMENTS */
+        const socket = io()
+
+
+        const dom = document;
+
+        const coreDataEl = dom.getElementById('coreData')
+        const spreadChatContainerEl = dom.getElementById('spreadChatContainer')
+        const spreadChatNewConversationButtonEl = dom.getElementById('spreadChatNewConversationButton')
+        const spreadChatNewConversationUserListEl = dom.getElementById('spreadChatNewConversationUserList')
+        const openChatBtn = dom.getElementById('openChatBtn')
+        const allCommentBtns = dom.querySelectorAll('.comment-btn')
+        const allPhoneBtns = dom.querySelectorAll('.phone-btn')
+        const allVideoChatBtns = dom.querySelectorAll('.video-btn')
+        const allShareBtns = dom.querySelectorAll('.share-btn')
+        const allFlexFloorBtns = dom.querySelectorAll('.flexfloor-btn')
+        const allSpreadChatInputEls = dom.querySelectorAll('.spread-chat-user-messaging-container')
+        const allCloseChatWindowButtonEls = dom.querySelectorAll('.closeChatWindowButton')
+        
+        
+        const messageInput = dom.querySelectorAll('.messageInput')
+        const sendMessageBtn = dom.querySelectorAll('.sendMessageButton')
+        const spreadContainerMessages = dom.querySelectorAll('.spreadContainerMessages')
+
+
+        // console.log('#coreData: ', coreDataEl)
+        // console.log('#spreadChatContainer: ', spreadChatContainerEl)
+        // console.log('#spreadChatNewConversationButton: ', spreadChatNewConversationButtonEl)
+        // console.log('#spreadChatNewConversationUserList: ', spreadChatNewConversationUserListEl)
+
+        /* Open/Close SpreadChat */
+        spreadChatNewConversationButtonEl.addEventListener('click', e => {
+            console.log('click', e)
+            spreadChatNewConversationButtonEl.classList.toggle("spread-chat-window-open-btn");  
+            spreadChatNewConversationUserListEl.classList.toggle("closed")
+            openChatBtn.classList.toggle('green')
+            document.body.classList.toggle("no-scroll")
+
+        })
+
+
+        /* Text Messaging */
+        allCommentBtns.forEach(commentBtn => {
+            commentBtn.addEventListener('click', e => {
+                // console.log(e.target)
+                const commentBtnEl = e.target
+                const commentBtnChatId = commentBtnEl.getAttribute('data-spread-chat-id')
+                const commentBtnChatSession = commentBtnEl.getAttribute('data-spread-chat-session')
+                // console.log(commentBtnChatId)
+                // console.log(commentBtnChatSession)
+                allSpreadChatInputEls.forEach(inputEl => {
+                    // console.log(inputEl)
+                    const inputChatId = inputEl.getAttribute('data-spread-chat-id')
+                    const inputChatSession = inputEl.getAttribute('data-spread-chat-session')
+
+                    if (inputChatId === commentBtnChatId) {
+                        console.log('MATCH')
+                        console.log(inputEl)
+                        const targetedEl = inputEl
+                        targetedEl.classList.toggle('hidden')
+                        spreadChatNewConversationUserListEl.classList.toggle('move-out')
+                    }
+                    // console.log(inputChatId)
+                    // console.log(inputChatSession)
+                    
+                })
+                spreadContainerMessages.forEach(spreadContainerData => {
+                    console.log('spreadContainerData: ', spreadContainerData)
+                    const spreadChatContainerElem = spreadContainerData
+                    const chatIdSpreadContainer = spreadContainerData.getAttribute('data-spread-chat-id')
+                    const chatSessionSpreadContainer = spreadContainerData.getAttribute('data-spread-chat-session')
+                    if (commentBtnChatId === chatIdSpreadContainer) {
+                        const messageListId = spreadContainerData.getAttribute('data-spread-chat-id')
+                        console.log('MESSAGE LIST ID: ', messageListId)
+                        if (messageListId === chatIdSpreadContainer) {
+
+                            const messageList = spreadContainerData.querySelector('.messages-list')
+                            console.log('MESSAGE LIST: ', messageList)
+                            console.log('MESSAGE LIST HEIGHT: ', messageList.scrollHeight)
+                            messageList.scrollTop = messageList.scrollHeight;
+                        }
+                            console.log('THIS IS THE CORRECT MESSAGES CONTAINER ON CLICK TO TOGGLE STYLE OPEN: ')
+                            console.log(spreadChatContainerElem)
+                        spreadChatContainerElem.classList.toggle('hidden')
+                    }
+                })
+                // allSpreadChatInputEls.classList.toggle('hidden')
+            })
+        })
+
+
+
+    allCloseChatWindowButtonEls.forEach(button => {
+        button.addEventListener('click', e => {
+            console.log(e.target)
+            const targetedExitBtn = e.target
+            const targetedExitParent = targetedExitBtn.parentNode
+            const targetedExitGrandParent = targetedExitParent.parentNode
+            const targetedExitGreatGrandParent = targetedExitGrandParent.parentNode
+            const targetedExitGreatGreatGrandParent = targetedExitGreatGrandParent.parentNode
+            console.log('GREAT GREATGRANDPARENT', targetedExitGreatGrandParent.parentNode)
+            const exitBtnChatId = button.getAttribute('data-spread-chat-id')
+            const exitBtnChatSession = button.getAttribute('data-spread-chat-session')
+            allSpreadChatInputEls.forEach(inputEl => {
+                const inputChatId = inputEl.getAttribute('data-spread-chat-id')
+                const inputChatSession = inputEl.getAttribute('data-spread-chat-session')
+                if (exitBtnChatId === inputChatId) {
+                    spreadChatNewConversationUserListEl.classList.toggle('move-out')
+                    targetedExitGreatGreatGrandParent.classList.toggle('hidden')
+                }
+            })
+            spreadContainerMessages.forEach(spreadContainerData => {
+                const spreadChatContainerElem = spreadContainerData
+                const chatIdSpreadContainer = spreadContainerData.getAttribute('data-spread-chat-id')
+                const chatSessionSpreadContainer = spreadContainerData.getAttribute('data-spread-chat-session')
+
+                if (exitBtnChatId === chatIdSpreadContainer) {
+                    console.log('THIS IS THE CORRECT MESSAGES CONTAINER ON CLICK TO TOGGLE STYLE OPEN: ')
+                    console.log(spreadChatContainerElem)
+                    spreadChatContainerElem.classList.toggle('hidden')
+                }
+            })
+        })
+    })
+
+
+    // .messageInput
+    // .sendMessageBtn
+    // .spreadContainer
+
+sendMessageBtn.forEach(sendButton => {
+    // console.log(sendButton)
+    sendButton.addEventListener('click', e => {
+        console.log(e.target)
+        const chatBtnEl = e.target
+        const chatIdToAddMessage = chatBtnEl.getAttribute('data-spread-chat-id')
+        const chatSession = chatBtnEl.getAttribute('data-spread-chat-session')
+
+        messageInput.forEach(chatForm => {
+
+            const chatIdForm = chatForm.getAttribute('data-spread-chat-id')
+            const chatSessionForm = chatForm.getAttribute('data-spread-chat-session')
+            if (chatIdForm === chatIdToAddMessage) {
+
+                /* FORMS AND BUTTONS ARE ALL MATCHED BY SPREADCHAT ID HERE */
+
+                console.log('MATCH')
+                console.log('Chat ID: ', chatIdForm)
+                console.log('Chat Session: ', chatSessionForm)
+
+
+                /* ADD FUNCTION TO SEND MESSAGE TO SOCKET & DB */
+                // GET CHAT FORM VALUE
+                 const message = chatForm.value;
+                 console.log('Message: ', message)
+
+                // GET SENDING USER DATA
+                const sendingUserId = chatForm.getAttribute('data-from-user-id')
+                console.log('Sent By: ', sendingUserId)
+                // CALL sendMessage(userData, message)
+
+                //sendMessage(sendingUserId, message)
+                socket.emit('new message', {chatIdForm, sendingUserId, message})
+                console.log(spreadContainerMessages)
+
+
+                /* MESSAGE-ITEM */
+                const newMessageEl = document.createElement('div')
+                newMessageEl.classList.add('message-item')
+                
+                /* AVATAR */
+                const getUserAvatarContainer = document.getElementById('userAvatar')
+                const getUserAvatarEl = getUserAvatarContainer.querySelector('img')
+                const getUserAvatarSrc = getUserAvatarEl.getAttribute('src')
+                const newMessageAvatar = document.createElement('div')
+                newMessageAvatar.classList.add('message-avatar')
+                const newMessageAvatarImg = document.createElement('img')
+                newMessageAvatarImg.setAttribute('src', getUserAvatarSrc)
+
+                newMessageAvatar.appendChild(newMessageAvatarImg)
+
+
+
+                /* MESSAGE-DATA */
+                const messageDataEl = document.createElement('div')
+                messageDataEl.classList.add('message-data')
+
+                /* MESSAGE-HEADER */
+                const messageHeaderContainer = document.createElement('div')
+                messageHeaderContainer.classList.add('message-header')
+
+
+                const messageUserEl = document.createElement('div')
+                messageUserEl.classList.add('message-user')
+                const messageUserPara = document.createElement('p')
+                messageUserPara.innerText = 'You'
+
+                messageUserEl.appendChild(messageUserPara)
+                messageHeaderContainer.appendChild(messageUserEl)
+
+                
+
+                /* MESSAGE-TIME */
+                const messageTimeContainer = document.createElement('div')
+                messageTimeContainer.classList.add('message-time')
+                const messageTimePara = document.createElement('p')
+                let currentDate = new Date();
+                let time = currentDate.toLocaleTimeString("en-US", { timeZone: "Canada/Eastern", hour12: true, hour: "numeric", minute: "numeric", seconds: "numeric" })
+                messageTimePara.innerText = time
+
+                messageTimeContainer.appendChild(messageTimePara)
+                messageHeaderContainer.appendChild(messageTimeContainer)
+
+
+                messageDataEl.appendChild(messageHeaderContainer)
+                /* MESSAGE-BODY */
+                const messageBodyEl = document.createElement('div')
+                messageBodyEl.classList.add('message-body')
+
+                const messageBodyPara = document.createElement('p')
+                messageBodyPara.innerText = message
+
+                messageBodyEl.appendChild(messageBodyPara)
+                messageDataEl.appendChild(messageBodyEl)
+
+
+
+                newMessageEl.appendChild(newMessageAvatar)
+                newMessageEl.appendChild(messageDataEl)
+                spreadContainerMessages.forEach(messageList => {
+                    const spreadChatId = messageList.getAttribute('data-spread-chat-id')
+                    console.log('SPREADCHAT ID: ', spreadChatId)
+                    if (spreadChatId === chatIdForm) {
+                        console.log('messageList', messageList)
+                        const currentMessagesList = messageList.querySelector('.messages-list')
+                         currentMessagesList.appendChild(newMessageEl)
+                         console.log(messageList.scrollHeight)
+                         messageList.scrollTop = messageList.scrollHeight;
+
+                    }
+                })
+                // const spreadChatMessagesListEl = spreadChatContainerEl.querySelector('.messages-list')
+
+
+
+
+
+
+                chatForm.value = ''
+
+                spreadContainerMessages.forEach(spreadContainerData => {
+                    const chatIdSpreadContainer = spreadContainerData.getAttribute('data-spread-chat-id')
+                    const chatSessionSpreadContainer = spreadContainerData.getAttribute('data-spread-chat-session')
+                    console.log(chatIdSpreadContainer)
+                    console.log(chatSessionSpreadContainer)
+
+                    if (chatIdSpreadContainer === chatIdForm) {
+                    /* FORMS AND SENT MESSAGES ARE MATCHED FROM HERE */
+                        console.log('THE spreadContainerMessages MATCHES spreadChatId')
+                        console.log(spreadContainerData)
+                        
+                        /* ADD FUNCTION TO SEND SENT MESSAGE TO MESSAGE CONTAINER FOR THIS SPREADCHAT ID */
+
+                    }
+                    
+                })
+
+
+            }
+        })
+    })
+})
+
+              // Sends a chat message
+        const sendMessage = (sendingUserId, message) => {
+            
+            // Prevent markup from being injected into the message
+            message = cleanInput(message);
+            // if there is a non-empty message and a socket connection
+            if (message && connected) {
+            $inputMessage.val('');
+            addChatMessage({ username, message });
+            // tell server to execute 'new message' and send along one parameter
+            socket.emit('new message', message);
+            }
+        }
+
+         const addMessageElement = (el, options) => {
+                const $el = $(el);
+                // Setup default options
+                if (!options) {
+                    options = {};
+                }
+                if (typeof options.fade === 'undefined') {
+                    options.fade = true;
+                }
+                if (typeof options.prepend === 'undefined') {
+                    options.prepend = false;
+                }
+
+                // Apply options
+                if (options.fade) {
+                    $el.hide().fadeIn(FADE_TIME);
+                }
+                if (options.prepend) {
+                    $messages.prepend($el);
+                } else {
+                    $messages.append($el);
+                }
+
+                $messages[0].scrollTop = $messages[0].scrollHeight;
+            }
+
+            const sentByOtherUser = document.querySelectorAll('.sent-by-other-user-container')
+            sentByOtherUser.forEach(otherUserMsg => {
+                otherUserMsg.addEventListener('click', e => {
+                    console.log(e.target)
+                    const targetedUserMsg = e.target
+
+                    console.log(targetedUserMsg)
+                    const reactionsContainer = targetedUserMsg.querySelector('.reactions-container') 
+                    console.log(reactionsContainer)
+
+                    reactionsContainer.classList.toggle('hidden')
+                    reactionsContainer.style.width = '200px'
+                    reactionsContainer.style.fontSize = '1.5rem'
+                    reactionsContainer.style.color = '#fff'
+                })
+            })
+    </script>
+    
+
+
+
+    <% } %>

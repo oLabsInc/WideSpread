@@ -1,0 +1,146 @@
+<style>
+    .toolbar {
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(5px);
+    }
+    .toolbar-item {
+        padding: 15px;
+    }
+    .tool-label {
+        display: block;
+        color: #fff;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    .tool-input {
+        width: 100%;
+    }
+
+
+
+
+    .image-area {
+        width: calc(100% - 2px);
+        background-color: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(5px);
+        border: solid 1px lightskyblue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #canvas {
+        max-width: 100vw;
+        max-height: 100vh;
+    }
+</style>
+
+
+<div class="editor">
+    <div class="toolbar">
+        <div class="toolbar-item">
+            <input type="file" id="imageFileInput">
+        </div>
+        <div class="toolbar-item">
+            <label class="tool-label" for="brightness">Brightness</label>
+            <input class="tool-input" type="range" id="brightness" min="0" max="200">
+        </div>
+        <div class="toolbar-item">
+            <label class="tool-label" for="saturation">Saturation</label>
+            <input class="tool-input" type="range" id="saturation" min="0" max="200">
+        </div>
+        <div class="toolbar-item">
+            <label class="tool-label" for="blur">Blur</label>
+            <input class="tool-input" type="range" id="blur" min="0" max="25">
+        </div>
+        <div class="toolbar-item">
+            <label class="tool-label" for="inversion">Inversion</label>
+            <input class="tool-input" type="range" id="inversion" min="0" max="100">
+        </div>
+
+    </div>
+    <div class="image-area">
+        <canvas id="canvas" height="500" width="500"></canvas>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<script>
+   const fileInput = document.querySelector("#imageFileInput");
+    const canvas = document.querySelector("#canvas");
+    const canvasCtx = canvas.getContext("2d");
+    const brightnessInput = document.querySelector("#brightness");
+    const saturationInput = document.querySelector("#saturation");
+    const blurInput = document.querySelector("#blur");
+    const inversionInput = document.querySelector("#inversion");
+
+    const settings = {};
+    let image = null;
+
+    function resetSettings() {
+        settings.brightness = "100";
+        settings.saturation = "100";
+        settings.blur = "0";
+        settings.inversion = "0";
+
+        brightnessInput.value = settings.brightness;
+        saturationInput.value = settings.saturation;
+        blurInput.value = settings.blur;
+        inversionInput.value = settings.inversion;
+    }
+
+    function updateSetting(key, value) {
+        if (!image) return;
+
+        settings[key] = value;
+        renderImage();
+    }
+
+    function generateFilter() {
+        const { brightness, saturation, blur, inversion } = settings;
+
+        return `brightness(${brightness}%) saturate(${saturation}%) blur(${blur}px) invert(${inversion}%)`;
+    }
+
+    function renderImage() {
+        canvas.width = image.width;
+        canvas.height = image.height;
+
+        canvasCtx.filter = generateFilter();
+        canvasCtx.drawImage(image, 0, 0);
+    }
+
+    brightnessInput.addEventListener("change", () =>
+        updateSetting("brightness", brightnessInput.value)
+    );
+    saturationInput.addEventListener("change", () =>
+        updateSetting("saturation", saturationInput.value)
+    );
+    blurInput.addEventListener("change", () =>
+        updateSetting("blur", blurInput.value)
+    );
+    inversionInput.addEventListener("change", () =>
+        updateSetting("inversion", inversionInput.value)
+    );
+
+    fileInput.addEventListener("change", () => {
+        image = new Image();
+
+        image.addEventListener("load", () => {
+            resetSettings();
+            renderImage();
+        });
+
+        image.src = URL.createObjectURL(fileInput.files[0]);
+    });
+
+    resetSettings();
+
+
+</script>

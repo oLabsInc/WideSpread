@@ -1,0 +1,17 @@
+.a-dialog {
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(4px);
+    border-radius: 16px;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue, inset 0 0 20px rgba(255, 255, 255, 0.25);
+}
+
+.a-dialog-ok-button {
+    background: rgba(135, 206, 250, 0.25);
+    backdrop-filter: blur(4px);
+    color: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue;
+    border-radius: 8px;
+}
+
+

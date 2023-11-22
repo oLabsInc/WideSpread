@@ -1,0 +1,795 @@
+<style>
+    h5 {
+        padding: 10px;
+    }
+    .movie-poster {
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        opacity: 0.7;
+        z-index: -50;
+    }
+
+    .show-container {
+        margin-top: 30px;
+        
+    }
+
+    .show-time {
+        background: rgba(0, 0, 0, 0.9);
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100vw;
+        min-height: 100vh;
+    }
+
+    #bright {
+        display: none;
+        box-shadow: inset 0 0 10px rgba(85, 85, 85, 0.75);
+        color: #888;
+        border: outset 1px rgba(135, 206, 250, 0.5);
+        border-top: none;
+        transition: ease-out 0.5s;
+    }
+
+    #bright:hover {
+        box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.25), 0 3px 5px rgba(0, 0, 0, 0.6);
+        color: #fff;
+        border: outset 1px rgba(135, 206, 250, 0.5);
+        border-top: none;
+        transition: ease-in 0.5s;
+    }
+
+
+
+
+
+
+
+
+    .add-to-list {
+        width: 75%;
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    .add-to-list button {
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+        outline: none;
+        border: none;
+        border-radius: 8px;
+        padding: 10px;
+        width: 200px;
+        margin-bottom: 40px;
+        color: #fff;
+        font-size: 1.5rem;
+        box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.005), 0 0 10px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue, 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+    .add-to-list p {
+        margin-bottom: 50px;
+    }
+        .add-to-list a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2rem;
+            background: rgba(135, 206, 250, 0.25);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.005), 0 0 10px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue, 0 4px 8px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+        }
+
+
+
+
+
+
+
+    .previous-page-nav-container {
+        background: rgba(135, 206, 250, 0.25);
+        box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.005), 0 0 10px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue, 0 4px 8px rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(4px);
+        text-align: center;
+        width: 90%;
+        margin: 0 auto;
+        border-radius: 8px;
+        padding: 5px;
+
+    }
+
+    .previous-page-nav-container a {
+        width: 100%;
+        min-width: 100%;
+        display: block;
+        padding: 3px;
+        text-decoration: none;
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.75);
+        text-shadow: 0 0 1px rgba(255, 255, 255, 0.75);
+
+    }
+
+
+    .movie-title {
+        text-align: center;
+        padding: 5px;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+    .movie-title h5 {
+        font-size: 2rem;
+    }
+
+    .video-stream {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+
+    .spreadshield-link {
+        background: blue;
+    }
+
+    .viewing-options-menu-container {
+        margin-bottom: 20px;
+    }
+
+    .viewing-options-menu {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .link-item {
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.005), 0 0 10px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue, 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .link-item a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.3rem;
+    }
+
+
+    .movie-plot {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        border-top: outset 1px #888;
+        border-bottom: outset 1px #888;
+        padding: 5px;
+        font-size: 1.3rem;
+        line-height: 1.6rem;
+    }
+
+    .movie-plot h5 {
+        font-size: 1.8rem;
+        color: rgba(135, 206, 250, 0.5);
+        border-bottom: outset 1px rgba(135, 206, 250, 0.3);
+    }
+
+    .movie-plot p {
+        padding: 3px;
+        color: #fff;
+        font-size: 1.2rem;
+    }
+
+
+    .movie-ratings {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        border-top: outset 1px #888;
+        border-bottom: outset 1px #888;
+        padding: 5px;
+        font-size: 1.3rem;
+        line-height: 1.6rem;
+    }
+
+    .movie-ratings h5 {
+        font-size: 1.8rem;
+        color: rgba(135, 206, 250, 0.5);
+        border-bottom: outset 1px rgba(135, 206, 250, 0.3);
+    }
+
+    .movie-ratings p {
+        padding: 3px;
+        color: #fff;
+        font-size: 1.2rem;
+    }
+
+    .movie-crew {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        border-top: outset 1px #888;
+        border-bottom: outset 1px #888;
+        padding: 5px;
+        font-size: 1.3rem;
+        line-height: 1.6rem;
+    }
+
+    .movie-crew h5 {
+        font-size: 1.8rem;
+        color: rgba(135, 206, 250, 0.5);
+        border-bottom: outset 1px rgba(135, 206, 250, 0.3);
+    }
+
+    .movie-crew p {
+        padding: 3px;
+        color: #fff;
+        font-size: 1.2rem;
+    }
+
+    .movie-stats {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        border-top: outset 1px #888;
+        border-bottom: outset 1px #888;
+        padding: 5px;
+        font-size: 1.3rem;
+        line-height: 1.6rem;
+    }
+
+    .movie-stats h5 {
+        font-size: 1.5rem;
+        color: rgba(135, 206, 250, 0.5);
+        border-bottom: outset 1px rgba(135, 206, 250, 0.3);
+    }
+
+    .movie-stats p {
+        padding: 3px;
+        color: #fff;
+        font-size: 1.2rem;
+    }
+
+
+    .add-to-recommended {
+    }
+
+    .add-to-recommended button {
+        background: rgba(0, 128, 0, 0.3);
+        backdrop-filter: blur(4px);
+        border: none;
+        outline: none;
+        width: 100%;
+        border-top: outset 1px green;
+        border-right: outset 1px green;
+        color: #fff;
+        padding: 10px;
+        font-size: 1.1rem;
+        margin-top: 10px;
+    }
+
+    .movie-search {
+        border-top: outset 1px lightskyblue;
+        border-bottom: outset 1px lightskyblue;
+        padding: 10px;
+        padding-left: 0;
+        padding-bottom: 0;
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 15px;
+        border-radius: 8px;
+    }
+
+    .movie-search input {
+        width: calc(100% - 2px);
+        outline: none;
+        border: none;
+        margin-left: 0;
+        padding: 5px;
+        background: rgba(135, 206, 250, 0.25);
+        border-left: inset 1px rgba(255, 255, 255, 0.5);
+        border-right: inset 1px rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(4px);
+        color: #fff;
+        box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.25);
+    }
+
+    .movie-search input::placeholder {
+        color: #fff;
+    }
+
+    .movie-search button {
+        width: 50%;
+        margin-left: 25%;
+        background: rgba(0, 128, 0, 0.25);
+        border: outset 1px green;
+        border-bottom: none;
+        margin-bottom: 0;
+        color: #fff;
+        margin-top: 10px;
+        border-radius: none;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+
+
+
+
+
+
+
+
+
+    pubdate, video_title, trailer_id, release_date {
+        display: none;
+    }
+
+    #trailerContainer {
+        max-height: 250px;
+        min-height: 250px;
+        overflow: hidden;
+        background-color: #000;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+
+    } 
+    embed_standard {
+        max-height: 250px;
+    }
+
+    #trailerContainer p {
+        color: transparent;
+    }
+    .top-bar {
+        display: none;
+    }
+    .mobile-nav {
+        display: none;
+    }
+    .outer-embed-ta {
+        min-height: 300px;
+
+        width: 100vw;
+    }
+    .outer-embed-ta iframe {
+        min-height: 250px;
+    }
+
+    .brid-touch-overlay {
+        display: none;
+    }
+
+
+
+    @media screen and (min-width: 299px) {
+        .show-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 100vw;
+            min-height: 100vh;
+            z-index: -50;
+        }
+
+
+        .video-stream {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .video-stream iframe {
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue, 0 6px 12px rgba(0, 0, 0, 0.6);
+            border-radius: 6px;
+            height: 100%;
+
+            width: 90%;
+
+        }
+
+        .video-stream button {
+            cursor: pointer;
+            outline: none;
+            border: outset 1px lightskyblue;
+            border-top: none;
+            background: rgba(135, 206, 250, 0.25);
+            box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.25), 0 3px 5px rgba(0, 0, 0, 0.6);
+            color: #fff;
+            font-size: 1.3rem;
+            padding: 10px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .add-to-recommended {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            z-index: 99998;
+        }
+        
+        .add-to-recommended button {
+            width: 50px;
+            max-width: 50px;
+            height: 50px;
+            position: relative;
+            z-index: 99999;
+            background: rgba(0, 128, 0, 0.3);
+            backdrop-filter: blur(4px);
+            border: none;
+            outline: none;
+            border-top: outset 1px green;
+            border-left: outset 1px green;
+            border-top-left-radius: 30px;
+            color: rgba(255, 255, 255, 0.75);
+            padding: 10px;
+            text-align: center;
+            font-size: 1.1rem;
+            margin-top: 10px;
+            box-shadow: -2px -2px 8px rgba(0, 255, 0, 0.5);
+            text-shadow: 0 0 2px rgba(0, 255, 0, 0.5);
+        }
+
+        .share-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            width: 100%;
+            height: 50px;
+        }
+        .share-button button {
+            background-color: rgba(135, 206, 250, 0.5);
+            backdrop-filter: blur(4px);
+            padding: 10px;
+            border-radius: 8px;
+            outline: none;
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+        }
+
+    }
+
+
+
+    @media (orientation: landscape) {
+        .video-stream {
+            min-height: calc(100vh - 100px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .video-stream iframe {
+            min-height: calc(100vh - 100px);
+            border-radius: 6px;    
+            height: 100%;
+            width: 90%;
+
+        }
+        .video-stream iframe:fullscreen {
+            border-radius: 0;
+        }
+
+        #trailerContainer {
+            max-height: 100vh;
+            min-height: 100vh;
+            overflow: hidden;
+            background-color: #000;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+            
+        } 
+        embed_standard {
+            max-height: 100vh;
+            min-height: 100vh;
+            max-width: 60vw;
+        }
+        .outer-embed-ta {
+            min-height: 100vh;
+
+            width: 100vw;
+        }
+        .outer-embed-ta iframe {
+            min-height: 100vh;
+        }
+        
+
+
+
+
+    }
+    @media screen and (min-width: 499) {
+
+    }
+
+    @media screen and (min-width: 900px) {
+
+        .video-stream {
+            min-height: calc(100vh - 100px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .video-stream iframe {
+            min-height: calc(100vh - 100px);
+            border-radius: 6px;    
+            height: 100%;
+            width: 90%;
+        }
+
+    }
+
+
+
+</style>
+
+
+<%- include('../../partials/menus/entertainment'); %>
+
+<%- include('../../partials/menus/sub/entertainment/movies'); %>
+
+
+<div class="sub-zone-page-title">
+    <h2><%= subZonePage %></h2>
+</div>
+
+<!-- BACKGROUND IMAGE -->
+<div class="movie-poster" style="background:url('<%= returnedData.Poster %>') 50% 50% no-repeat; background-size:cover;">
+</div>
+
+
+    <div class="movie-search">
+        <form action="/entertainment/movies/search" method="POST">
+            <input type="text" name="movie" id="movie" placeholder="Search for movies...">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+
+    <div class="previous-page-nav-container">
+        <a href="/entertainment/movies">Back to All Movies</a>
+    </div>
+
+    <div class="movie-container">
+
+        <div class="movie-title">
+            <h5>
+                <%= returnedData.Title %>
+            </h5>
+        </div>
+
+
+        <div class="share-button">
+            <p id="genresEl" style="display: none;">
+
+                <%= returnedData.Genre %>
+            </p>
+            <p id="castEl" style="display: none;">
+
+                <%= returnedData.Actors %>
+            </p>
+            <form action="/socialspread/movies/share" method="post">
+                <input type="text" name="title" value="<%= returnedData.Title %>" hidden>
+                <div id="genreInputs"></div>
+                <input type="text" name="director" value="<%= returnedData.Director %>" hidden>
+                <div id="actorInputs"></div>
+                <input type="text" name="rated" value="<%= returnedData.Rated %>" hidden>
+                <input type="text" name="plot" value="<%= returnedData.Plot %>" hidden>
+                <input type="text" name="year" value="<%= returnedData.Year %>" hidden>
+                <input type="text" name="runtime" value="<%= returnedData.Runtime %>" hidden>
+                <input type="text" name="poster" value="<%= returnedData.Poster %>" hidden>
+                <input type="text" name="imdb_id" value="<%= returnedData.imdbID %>" hidden>
+                <button><i class="fas fa-share-alt"></i></button>
+            </form>
+        </div>
+
+
+        <div class="show-container">
+            <div class="video-stream" id="theater">
+            <!-- <iframe src="<%=videoUrl %>" frameborder=”0 scrolling=no” allowfullscreen=allowfullscreen”></iframe> -->
+            <p style="color: #fff; font-size: 1rem; text-align: center; font-weight: bold; padding: 1rem;">Sorry, Movies & Shows is not currently connected. Please come back later to watch <%= returnedData.title %>.</p>
+                <iframe src="" frameborder="0" style="background-color: #00000083;"></iframe>
+
+                <button id="dim">Dim the Lights</button>
+                <button id="bright">Turn on the Lights</button>
+            </div>
+        </div>
+
+
+        <div class="viewing-options-menu-container">
+            <div class="viewing-options-menu">
+                <div class="link-item">
+                    <a href="/entertainment/vr/movies/<%= movie %>">VR</a>
+                </div>
+                <div class="link-item">
+                    <a href="/entertainment/movies/<%= movie %>/spreadshield">SpreadShield</a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="movie-data">
+            <div class="add-to-list">
+                <form action="/entertainment/movies/save" method="post">
+                    <input type="text" name="movie_name" value="<%= returnedData.Title %>" hidden>
+                    <input type="text" name="movie_title" value="<%= movie %>" hidden>
+                    <input type="text" name="movie_poster" value="<%= returnedData.Poster %>" hidden>
+                    <button>Add to List</button>
+                </form>
+                <p><a href="/users/entertainment/movies">See Your List</a></p>
+                <p><a href="/entertainment/photos/movies/<%= returnedData.imdbID %>">See Movie Photos</a></p>
+            </div>
+
+
+
+            <div class="movie-plot">
+                <h5>Plot</h5>
+                <p>
+                    <%= returnedData.Plot %>
+                </p>
+            </div>
+
+
+
+            <div class="movie-ratings">
+                <h5>Ratings</h5>
+                <% returnedData.Ratings.forEach(function(rating) { %>
+                    <p>
+                        <%= rating.Source %>: <%= rating.Value %>
+                    </p>
+                    <% }) %>
+            </div>
+
+            <div class="movie-crew">
+                <h5>Cast & Crew</h5>
+                <p>Director: <%= returnedData.Director %>
+                </p>
+                <p>Writer: <%= returnedData.Writer %>
+                </p>
+                <p>Cast: <%= returnedData.Actors %>
+                </p>
+            </div>
+        </div>
+
+        <div class="movie-stats">
+            <h5>More Info</h5>
+            <p>Rated: <%= returnedData.Rated %>
+            </p>
+            <p>Released: <%= returnedData.Released %>
+            </p>
+            <p>Runtime: <%= returnedData.Runtime %>
+            </p>
+            <p>Genre: <%= returnedData.Genre %>
+            </p>
+            <p>Box Office: <%= returnedData.BoxOffice %>
+            </p>
+            <p>Production Company: <%= returnedData.Production %>
+            </p>
+            <p>Awards: <%= returnedData.Awards %>
+            </p>
+            <p>Language: <%= returnedData.Language %>
+            </p>
+        </div>
+
+
+    </div>
+
+    <% if (!userId) { %>
+        <span style="display: none;"></span>
+    <% } else { %>
+            <div class="add-to-recommended">
+                <form action="/entertainment/movies/add-to-recommended" method="post">
+                    <input type="text" name="name" value="<%= returnedData.Title %>" hidden>
+                    <input type="text" name="link" value="<%= movie %>" hidden>
+                    <input type="text" name="poster" value="<%= returnedData.Poster %>" hidden>
+                    <input type="text" name="genre" value="<%= returnedData.Genre %>" hidden>
+                    <input type="text" name="rated" value="<%= returnedData.Rated %>" hidden>
+                    <input type="checkbox" name="for_kids" value="true" hidden>
+                    <button type="submit"><i class="fas fa-plus"></i></button>
+                </form>
+            </div>
+    <% } %>
+
+
+
+
+
+
+    <script>
+        const theater = document.getElementById('theater')
+        document.getElementById("dim").onclick = function () { dimTheater() };
+        document.getElementById("bright").onclick = function () { brightenTheater() };
+
+        function dimTheater() {
+            theater.classList.toggle("show-time");
+            document.getElementById("theater").style.minHeight = "100vh";
+            document.getElementById("theater").style.position = "fixed";
+            document.getElementById("theater").style.zIndex = "99999";
+            document.getElementById("theater").style.top = "0";
+            document.getElementById("theater").style.left = "0";
+            document.getElementById("coreData").style.display = "none";
+            document.getElementById("coreMenu").style.width = "50px";
+            document.getElementById("searchForm").style.display = "none";
+            document.getElementById("dim").style.display = "none";
+            document.getElementById("bright").style.display = "block";
+        }
+
+        function brightenTheater() {
+            theater.classList.toggle("show-time");
+            document.getElementById("theater").style.minHeight = "auto";
+            document.getElementById("theater").style.position = "relative";
+            document.getElementById("theater").style.zIndex = "50";
+            document.getElementById("theater").style.removeProperty = "top";
+            document.getElementById("theater").style.removeProperty = "left";
+            document.getElementById("coreData").style.display = "none";
+            document.getElementById("coreMenu").style.width = "100vw";
+            document.getElementById("searchForm").style.display = "block";
+            document.getElementById("dim").style.display = "block";
+            document.getElementById("bright").style.display = "none";
+        }
+    </script>
+
+
+<script>
+    const genresEl = document.getElementById('genresEl').innerText
+    const castEl = document.getElementById('castEl').innerText
+    const genreInputs = document.getElementById('genreInputs')
+    const actorInputs = document.getElementById('actorInputs')
+
+
+
+
+    let genresArray = []
+    const splitGenres = genresEl.split(', ')
+    splitGenres.forEach(genre => {
+        let genreInput = document.createElement('input')
+        genreInput.value = genre
+        genreInput.setAttribute('hidden', 'true')
+        genreInput.setAttribute('name', 'genres')
+        genreInputs.appendChild(genreInput)
+    })
+    console.log('splitGenres: ', splitGenres)
+
+
+    const splitCast = castEl.split(', ')
+    splitCast.forEach(actor => {
+        let actorInput = document.createElement('input')
+        actorInput.value = actor
+        actorInput.setAttribute('hidden', 'true')
+        actorInput.setAttribute('name', 'cast')
+        actorInputs.appendChild(actorInput)
+    })
+    console.log('splitCast: ', splitCast)
+
+</script>

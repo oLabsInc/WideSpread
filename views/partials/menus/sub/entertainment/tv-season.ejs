@@ -1,0 +1,19 @@
+<style>
+    #tvSeasonMenu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        overflow-x: auto;
+    }
+</style>
+
+
+<div id="tvSeasonMenu">
+    <% episodeList.forEach(function(episode) { %>
+        <% if (!episodeNumber) { %>
+            <div class="menu-item <%= episode.episode_number== episodeNumber? 'menu-link active' : 'menu-link' %>"><a href="/entertainment/tv/show/<%= showId %>/<%= season.season_number %>/<%= episode.episode_number %>"><%= episode.episode_number %></a></div>
+        <% } else { %>
+            <div class="menu-item <%= episode.episode_number== episodeNumber? 'menu-link active' : 'menu-link' %>"><a href="/entertainment/tv/show/<%= showId %>/<%= season.season_number %>/<%= episode.episode_number %>"><%= episode.episode_number %></a></div>
+        <% } %>
+    <% }) %>
+</div>

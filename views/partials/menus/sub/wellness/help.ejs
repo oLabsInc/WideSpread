@@ -1,0 +1,13 @@
+<style>
+    #wellnessHelpMenu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        overflow-x: auto;
+    }
+</style>
+
+<div id="wellnessHelpMenu">
+    <div class="menu-item <%= subZonePage=='Categories' ? 'menu-link active' : 'menu-link' %>"><a href="/wellness/help">Categories</a></div>
+    <div class="menu-item <%= subZonePage=='Contact Us' ? 'menu-link active' : 'menu-link' %>"><a href="/wellness/help/request">Contact Us</a></div>
+</div>

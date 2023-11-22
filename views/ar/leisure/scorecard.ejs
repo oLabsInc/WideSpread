@@ -1,0 +1,382 @@
+<style>
+    .leisure-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 90000;
+    }
+
+    .leisure-app-header {
+        position: relative;
+        z-index: 90001;
+        background-color: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .leisure-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        filter: drop-shadow(0 0 2px lightskyblue);
+        opacity: 0.5;
+    }
+
+    .leisure-app {
+        position: relative;
+        z-index: 90002;
+        background-color: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        margin-top: 30px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .leisure-app-page {
+        text-align: center;
+    }
+
+    .leisure-app-page h5 {
+        font-size: 1.5rem;
+        border-bottom: solid 1px #fff;
+    }
+
+    .app-body-menu {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        margin-top: 20px;
+    }
+
+    .app-body-menu a {
+        color: rgb(18, 168, 18);
+        text-shadow: 0 0 1px rgba(0, 0, 0, 0.75);
+        background-color: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(4px);
+        border-radius: 4px;
+        font-size: 1.5rem;
+        text-decoration: none;
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+
+
+    .golf-course-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 50px;
+    }
+
+    .golf-course-list h5 {
+        font-size: 2rem;
+        padding: 10px;
+    }
+
+    .course-link {
+        text-align: center;
+    }
+
+    .course-link a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.5rem;
+    }
+
+    .add-golf-course input {
+        background-color: #000;
+        border: none;
+        outline: none;
+        border-radius: 4px;
+        padding: 5px;
+        margin-bottom: 5px;
+    }
+    .add-golf-course button {
+        margin-top: 10px;
+        padding: 8px;
+        border: none;
+        outline: none;
+        border-radius: 8px;
+        background-color: lightskyblue;
+        color: #fff;
+        font-size: 1.2rem;
+    }
+    .play-hole {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    .play-hole a {
+        font-size: 1.5rem;
+        color: #fff;
+        background-color: green;
+        padding: 10px;
+        border-radius: 8px;
+        text-decoration: none;
+    }
+    .delete-score {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
+        margin-top: 40px;
+    }
+    .delete-score a {
+        font-size: 1.5rem;
+        color: #fff;
+        background-color: red;
+        padding: 10px;
+        border-radius: 8px;
+        text-decoration: none;
+    }
+    .scorecard {
+        background-color: #fff;
+        min-width: 100vw;
+        overflow-x: auto;
+        margin-bottom: 30px;
+
+    }
+    .scorecard table {
+        width: 100%;
+    }
+    .scorecard td {
+        width: 100px;
+        border: solid 1px #000;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .scorecard td:first-of-type {
+        min-width: 100px;
+        max-width: 200px;
+        font-weight: bold;
+    }
+    #total {    
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+</style>
+
+<div class="leisure-background"
+    style="background-image: url('/images/system/ar/ar_golf_background_1a1a1a.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+</div>
+<div class="leisure-app-header">
+    <div class="page-title">
+        <h2>WideSpread</h2>
+    </div>
+
+    <div class="leisure-logo">
+        <img src="/images/system/ar/ar_golf_1a1a1a.png" alt="">
+    </div>
+
+
+
+
+</div>
+<div class="leisure-app">
+    <div class="leisure-app-page">
+        <h5><%= course.name %></h5>
+    </div>
+
+    <div class="leisure-app-body">
+        <div class="app-body-menu">
+            <% if (user) { %>
+                <a href="/ar/sports/golf/user/<%= user.id %>">Your Caddy</a>
+            <% } %>
+        </div>
+
+        <div class="scorecard">
+            <table>
+                <thead>
+                <tr>
+                    <td>Hole</td>
+                    <% holes.forEach(function(hole) { %>
+                        <td style="font-weight: bold;"><%= hole.hole_number %></td>
+                    <% }) %>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td>Par</td>
+                        <% holes.forEach(function(hole) { %>
+                            <td class="par"><%= hole.par %></td>
+                        <% }) %>
+                    </tr>
+                    <% if (holes[0].tees[0]) { %>
+                    <tr>
+                            <td><%= holes[0].tees[0].color %></td>
+                    <% holes.forEach(function(hole) { %>
+                        <% if (hole.tees[0]) { %>
+
+                                <% if (hole.tees[0].color === 'White') { %>
+                                    <td style="color: #000; background-color: <%= hole.tees[0].color %>"><%= hole.tees[0].distance %></td>
+                                <% } else { %>
+                                    <td style="color: #fff; background-color: <%= hole.tees[0].color %>"><%= hole.tees[0].distance %></td>
+                                <% } %>
+
+                                <% } %>
+                                
+                                <% }) %>
+                     </tr>
+                        <% } %>
+
+                    <% if (holes[0].tees[1]) { %>
+                    <tr>
+                            <td><%= holes[0].tees[1].color %></td>
+                    <% holes.forEach(function(hole) { %>
+                        <% if (hole.tees[1]) { %>
+
+                                <% if (hole.tees[1].color === 'White') { %>
+                                    <td style="color: #000; background-color: <%= hole.tees[1].color %>"><%= hole.tees[1].distance %></td>
+                                <% } else { %>
+                                    <td style="color: #fff; background-color: <%= hole.tees[1].color %>"><%= hole.tees[1].distance %></td>
+                                <% } %>
+                                <% } %>
+                                
+                                <% }) %>
+                     </tr>
+                     <% } %>
+                    <% if (holes[0].tees[2]) { %>
+                    <tr>
+                            <td><%= holes[0].tees[2].color %></td>
+                    <% holes.forEach(function(hole) { %>
+                        <% if (hole.tees[2]) { %>
+
+                                <% if (hole.tees[2].color === 'White') { %>
+                                    <td style="color: #000; background-color: <%= hole.tees[2].color %>"><%= hole.tees[2].distance %></td>
+                                <% } else { %>
+                                    <td style="color: #fff; background-color: <%= hole.tees[2].color %>"><%= hole.tees[2].distance %></td>
+                                <% } %>
+
+                                <% } %>
+                                
+                                <% }) %>
+                     </tr>
+                     <% } %>
+                    <% if (holes[0].tees[3]) { %>
+                    <tr>
+                            <td><%= holes[0].tees[3].color %></td>
+                    <% holes.forEach(function(hole) { %>
+                        <% if (hole.tees[3]) { %>
+                                <% if (hole.tees[3].color === 'White') { %>
+                                    <td style="color: #000; background-color: <%= hole.tees[3].color %>"><%= hole.tees[3].distance %></td>
+                                <% } else { %>
+                                    <td style="color: #fff; background-color: <%= hole.tees[3].color %>"><%= hole.tees[3].distance %></td>
+                                <% } %>
+
+                                <% } %>
+                                
+                                <% }) %>
+                     </tr>
+                     <% } %>
+
+                    <% if (holes[0].tees[4]) { %>
+                    <tr>
+                            <td><%= holes[0].tees[4].color %></td>
+                    <% holes.forEach(function(hole) { %>
+                        <% if (hole.tees[4]) { %>
+                            <td><%= hole.tees[4].color %></td>
+                        <% } %>
+                    <% }) %>
+                    <% holes.forEach(function(hole) { %>
+                        <% if (hole.tees[4]) { %>
+
+                                <% if (hole.tees[4].color === 'White') { %>
+                                    <td style="color: #000; background-color: <%= hole.tees[4].color %>"><%= hole.tees[4].distance %></td>
+                                <% } else { %>
+                                    <td style="color: #fff; background-color: <%= hole.tees[4].color %>"><%= hole.tees[4].distance %></td>
+                                <% } %>
+                                <% } %>
+                                
+                                <% }) %>
+                     </tr>
+                     <% } %>
+
+                <tr>
+                    <td><%= scoreCard.player_name %></td>
+                    <% scoreCard.holes.forEach(function(holeScore) { %>
+                        <td class="strokes"><%= holeScore.strokes %></td>
+                    <% }) %>
+                </tr>
+            </tbody>
+            </table>
+        
+        </div>
+
+            <div class="score">
+                <% if (scoreCard.holes.length == holes.length) { %>
+                    <h3 id="total"></h3>
+                <% } %>
+            </div>
+
+        
+        <% if (holes.length <= 9) { %>
+        <div class="play-hole">
+            <a href="/ar/sports/golf/courses/view/<%= course.id %>">Play Again</a>
+        </div>
+        <% } %>
+        <% if (holes.length > 9) { %>
+            <div class="play-hole">
+                <a href="/ar/sports/golf/courses/view/<%= course.id %>">Play Front 9 Again</a>
+                <a href="/ar/sports/golf/courses/view/<%= course.id %>">Play Back 9 Again</a>
+            </div>
+            <% } %>
+
+
+            <div class="delete-score">
+                <% if (scoreCard.holes.length == holes.length) { %>
+                    <a href="/ar/sports/golf/courses/view/<%= course.id %>/round/<%= scoreCard.id %>/delete">Clear Card</a>            
+                <% } %>
+            </div>
+    </div>
+</div>
+
+
+<script>
+            let totalStrokes = []
+            let totalPar = []
+
+            const parElems = document.querySelectorAll('.par')
+            parElems.forEach(par => {
+                const parNumber = parseInt(par.innerText)
+                totalPar.push(parNumber)
+            })
+
+            console.table(totalPar)
+        const strokeElems = document.querySelectorAll('.strokes')
+        strokeElems.forEach(stroke => {
+            const strokeNumber = parseInt(stroke.innerText)
+            totalStrokes.push(strokeNumber)
+        })
+        const totalParCount = totalPar.reduce((total, par) => {
+            return total + par
+        }, 0)
+        console.log(totalParCount)
+        const totalScore = totalStrokes.reduce((total, stroke) => {
+            return total + stroke
+        }, 0)
+
+        const parScore = totalParCount - totalScore
+        console.log('Par: ', parScore)
+
+
+        console.log(totalScore)
+        const totalScoreEl = document.getElementById('total')
+
+        if (parScore > 0) {
+            totalScoreEl.innerText = ('You finished -' + parScore + ' under par!')
+        } else if (parScore < 0) {
+            totalScoreEl.innerText = ('You finished ' + Math.abs(parScore) + ' over par.')
+        } else {
+            totalScoreEl.innerText = ('You parred the course!')
+        }
+
+</script>

@@ -1,0 +1,487 @@
+<style>
+@media screen and (min-width: 299px) {
+        .card-list {
+            backdrop-filter: blur(4px);
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            padding-top: 10px;
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.25);
+            position: relative;
+            width: 90%;
+            min-width: 350px;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            min-height: 350px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            border-radius: 16px;
+            overflow: hidden;
+
+
+        }
+
+        .card-background {
+            width: 100%;
+            min-height: 350px;
+            height: 350px;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+        }
+
+        .card-background img {
+            min-width: 100%;
+        }
+
+        .card-data {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: 285px;
+        }
+
+        .card-data-header {
+            width: 100%;
+            min-width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            border-top: outset 1px rgba(255, 255, 255, 1);
+            border-bottom: outset 1px rgba(255, 255, 255, 1);
+            backdrop-filter: blur(4px);
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+            margin-top: 12px;
+            padding: 8px;
+        }
+
+        .card-data-header h4 {
+            font-size: 1.3rem;
+            text-align: center;
+        }
+
+        .card-data-header a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .card-data-header p {
+            text-align: center;
+            color: #fff;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .card-data-header small {
+            text-transform: capitalize;
+        }
+        .card-data-header h5  {
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        .prerequisites-header {
+            text-align: center;
+            width: 100%;
+            color: #fff;
+            font-size: 1.2rem;
+        }
+        .prerequisites {
+            width: 90%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        .prerequisites a {
+            text-decoration: none;
+            font-weight: bold;
+            color: lightskyblue;
+            text-shadow: 0 0 10px #000;
+        }
+        .prerequisites a:hover {
+            color: #000;
+            text-shadow: 0 0 10px #fff;
+        }
+        .card-data-body {
+            margin-top: 8px;
+            width: 100%;
+            min-width: 100%;
+            max-height: 150px;
+            min-height: 150px;
+            background: rgba(0, 0, 0, 0.5);
+            border-top: outset 1px rgba(255, 255, 255, 1);
+            border-bottom: outset 1px rgba(255, 255, 255, 1);
+            backdrop-filter: blur(4px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+
+        }
+        .course-description {
+            min-height: 150px;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+        .course-description h5 {
+            color: #fff;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .course-description p {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 8px;
+            text-indent: 8px;
+            color: #fff;
+            font-size: 1.1rem;
+        }
+        .class-list {
+            padding: 8px;
+            width: 100%;
+            max-height: 100px;
+            min-height: 100px;
+            overflow-y: auto;
+
+        }
+
+        .class-list-item a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding-top: 12px;
+        }
+
+        .course-info {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: space-between;
+            border-top: solid 1px rgba(135, 206, 250, 0.75);
+        }
+
+        .course-info-item {
+            width: 50%;
+            color: #fff;
+            padding: 8px;
+        }
+
+        .course-info-item:last-of-type {
+            text-align: right;
+        }
+
+        .card-data-actions {
+            background: rgba(135, 206, 250, 0.5);
+            backdrop-filter: blur(4px);
+            border-top: outset 1px rgba(255, 255, 255, 1);
+            border-bottom: outset 1px rgba(255, 255, 255, 1);
+            width: 50%;
+            text-align: center;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.4);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            transform: translateX(50%);
+        }
+
+        .card-data-actions a {
+            line-height: 2rem;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.3rem;
+        }
+
+        .card-share-button {
+            position: absolute;
+            bottom: 5px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+        }
+        .card-share-button i {
+            color: lightskyblue;
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+            
+        }
+        .share-result {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 75%;
+            text-align: center;
+            transform: translate(-50%, -50%);
+            color: #000;
+            text-shadow: 0 0 5px #fff;
+            z-index: 99955;
+            height: 50px;
+            border-radius: 8px;
+            background-color: rgba(135, 206, 250, 0.75);
+            backdrop-filter: blur(4px);
+            display: flex;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        .hidden {
+            display: none;
+        }
+    .zone-main-vertical-menu {
+        width: 90%;
+        margin: 0 auto;
+        border-radius: 16px;
+        background: rgba(135, 206, 250, 0.5);
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .zone-main-vertical-menu-header h2 {
+        font-size: 2rem;
+    }
+    .zone-main-vertical-item {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 10px;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 8px;
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .zone-main-vertical-item a {
+        padding: 10px;
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.5rem;
+    }
+    
+
+    }
+
+@media screen and (min-width: 762px) {
+
+    .card-list {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        width: 98%;
+        margin-inline: auto;
+    }
+    .card {
+        max-width: 300px;
+        border-radius: 16px;
+        margin: 0;
+        margin-right: 20px;
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+
+
+
+}
+
+</style>
+
+<%- include('../../partials/menus/academy'); %>
+
+<div class="page-title">
+    <h2>Courses</h2>
+</div>
+
+<div class="zone-main-vertical-menu">
+
+    <div class="zone-main-vertical-item">
+        <a href="/academy">Your Courses</a>
+    </div>
+
+
+</div>
+<div class="card-list">
+
+    <% courses.forEach(function(course) { %>
+        <div class="card">
+            <div class="card-background" style="background-color: <%= course.course_colors.main %>;">
+                <% if (course.background_image) { %>
+                <img src="/image/<%= course.background_image %>" alt="">
+                <% } else { %>
+                    <span style="display: none;"></span>
+                <% } %>
+            </div>
+
+
+
+            <div class="card-data">
+
+                <div class="card-data-header">
+                    <h4><a href="/academy/course/<%= course.id %>"><%= course.name %></a></h4>
+                    <p><small><%= course.subject %></small></p>
+                </div>
+
+                <div class="prerequisites-header">
+                    <p>Prerequisites</p>
+                </div>
+                <% if (course.prerequisites.length <= 0) { %>
+                    <p style="color: #fff; padding-top: 10px; padding: 0; margin: 0;">None</p>
+                <% } else { %>
+                    <div class="prerequisites">
+                        <% course.prerequisites.forEach(function(prerequisite) { %>
+                            <span><a href="/academy/course/<%= prerequisite.id %>"><%= prerequisite.name %></a></span>
+                        <% }) %>
+                
+                    </div>
+                <% } %>
+
+                <div class="card-data-body">
+                    <div class="course-description">
+                        <h5>Description</h5>
+                        <p><%= course.description %></p>
+                    </div>
+                    <!-- 
+                    <div class="class-list">
+                        <% course.classes.forEach(function(classId) { %>
+                            <div class="class-list-item">
+                                <p><a href="/academy/course/<%= course.id %>/class/<%= classId.id %>"><%= classId.name %></a></p>
+                            </div>
+                        <% }) %>
+                    </div>
+ -->
+                    <div class="course-info">
+                        <div class="course-info-item"><span>Difficulty: <%= course.difficulty %></span></div>
+                        <div class="course-info-item"><span>Credits: <%= course.credit_value %></span></div>
+                    </div>
+                </div>
+
+                
+            </div>
+            
+
+            <div class="card-data-actions">
+                <a style="padding: 10px;" href="/academy/explore/course/<%= course.id %>">Explore Course</a>
+            </div>
+            
+            <div class="card-share-button" data-course-id="<%= course.id %>" data-course-name="<%= course.name %>">
+                <i class="bx bx-share-alt"></i>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+    <div class="share-result hidden"></div>
+
+            <% var userData = user %>
+
+            <p style="color: lime; font-size: 1.5rem; display: none;" id="userDataEl"><%= userData.fname %> <%= userData.lname %></p>
+
+
+<script>
+    const
+        shareBtns = document.querySelectorAll('.card-share-button'),
+        courseCards = document.querySelectorAll('.card'),
+        userData = document.getElementById('userDataEl').innerText
+
+        console.log('userDataEl')
+        console.log(userData)
+
+
+
+    shareBtns.forEach(shareBtn => {
+        // console.log(shareBtn)
+        const
+            courseId = shareBtn.getAttribute('data-course-id'),
+            courseName = shareBtn.getAttribute('data-course-name'),
+            courseLink = `https://www.widespread.world/academy/explore/course/${courseId}`
+        console.log('courseId: ', courseId)
+        console.log('courseName: ', courseName)
+        console.log('courseLink: ', courseLink)
+        
+            const shareData = {
+                    title: `${userData} Spread the ${courseName} course to you!`,
+                    text: `Check out ${courseName} on WideSpread Academy!`,
+                    url: courseLink
+                }
+        
+                const shareResult = document.querySelector('.share-result');
+                
+        
+                // Share must be triggered by "user activation"
+                shareBtn.addEventListener('click', async () => {
+                    try {
+                        const filesArray = []
+                        let myHeaders = new Headers({
+                            'Content-Type': 'image/png'
+                        });
+                        console.log(myHeaders)
+                        const myRequest = await new Request('images/system/widespread_logo_1a1a1a.png', {
+                            method: 'GET',
+                            headers: myHeaders,
+                            mode: 'no-cors',
+                            cache: 'default',
+                        });
+
+                        fetch(myRequest)
+                            .then(response => response.blob())
+                            .then(myBlob => {
+                                console.log('myBlob')
+                                console.log(myBlob)
+                                let myImage = URL.createObjectURL(myBlob);
+                                filesArray.push(myImage)
+                                console.table(filesArray)
+                            });
+                        if (navigator.canShare && navigator.canShare({ files: filesArray })) {
+                            navigator.share({
+                                files: filesArray,
+                                title: 'WideSpread Photos',
+                                text: 'WideSpread System Photos',
+                            })
+                                .then(() => console.log('Share was successful.'))
+                                .catch((error) => console.log('Sharing failed', error));
+                        } else {
+                            shareResult.textContent = `Your device doesn't support sharing files.`
+                            console.log(`Your system doesn't support sharing files.`);
+                        }
+                        await navigator.share(shareData)
+                        shareResult.classList.remove('hidden')
+                        shareResult.textContent = `Sharing ${courseName}...`
+                        
+                        function removeShareResult() {
+                            shareResult.classList.add('hidden')
+                            console.log("message disappeared");
+                        }
+                        setTimeout(removeShareResult, 5000);
+                    } catch (err) {
+                        shareResult.textContent = 'Error: ' + err
+                    }
+                });
+    })
+
+</script>

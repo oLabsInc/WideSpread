@@ -1,0 +1,285 @@
+<style>
+
+    .company-background-image {
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100vw;
+        min-height: 100vh;
+        z-index: -50;
+    }
+    .company-background-image-filter {
+        position: fixed;
+        background: rgba(0, 0, 0, 0.5);
+        box-shadow: inset 0 0 100px #000;
+        top: 0;
+        left: 0;
+        min-width: 100vw;
+        min-height: 100vh;
+        z-index: -40;
+
+    }
+
+
+    .company-pages-nav {
+        width: 100%;
+        background: rgba(0, 0, 0, 0.25);
+        margin-top: 20px;
+        backdrop-filter: blur(4px);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+    }
+    
+    .company-nav-item {
+        width: fit-content;
+        min-width: 100px;
+        padding: 8px;
+        text-align: center;
+    }
+    .company-nav-item a {
+        color: #fff;
+        text-decoration: none;
+    }
+    .subpage-active a {
+        color: lightskyblue;
+    }
+    .company-container {
+        width: 100vw;
+        margin: 0 auto;
+    }
+    .company-header {
+        margin-top: 20px;
+    }
+    .company-name {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        color: #fff;
+    }
+    .company-name h2 {
+        font-size: 1.8rem;
+    }
+    .company-name p {
+        font-size: 0.8rem;
+        margin-top: 10px;
+    }
+    .company-logo {
+        width: 90%;
+        max-width: 300px;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+    .company-logo img {
+        width: 100%;
+        border-radius: 16px;
+    }
+
+
+
+    .company-body {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        padding: 12px;
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        border-top: outset 1px #888;
+        border-bottom: outset 1px #888;
+    }
+    .company-body p {
+        font-size: 1.3rem;
+        line-height: 1.6rem;
+        color: #fff;
+    }
+    .company-contact {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        padding: 12px;
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        border-top: outset 1px #888;
+        border-bottom: outset 1px #888;
+    }
+    .company-contact i {
+        color: rgba(255, 255, 255, 0.5);
+        padding: 8px;
+    }
+    .company-address {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin-bottom: 15px;
+    }
+    .company-address p {
+        color: #fff;
+    }
+    .company-contact-item {
+        padding: 8px;
+    }
+    .company-contact-item p {
+        color: #fff;
+        text-shadow: 0 0 2px lightskyblue;
+    }
+    .company-contact-item a {
+        text-decoration: none;
+        color: #fff;
+        text-shadow: 0 0 2px lightskyblue;
+    }
+
+    .company-employee-portal {
+        margin: 0 auto;
+        margin-bottom: 100px;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        width: 90%;
+        border-radius: 8px;
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        position: relative;
+        z-index: 10;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 10px;
+    }
+    .company-employee-portal a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.3rem;
+    }
+</style>
+
+<%- include('../../partials/menus/business'); %>
+
+<div class="company-background-image" style="background:url('/image/<%= company.background_image %>') 50% 50% no-repeat; background-size:cover;"></div>
+<div class="company-background-image-filter"></div>
+<div class="company-pages-nav">
+    <div class="company-nav-item <%= subZonePage=='Home' ? 'company-nav-item subpage-active' : 'company-nav-item' %>">
+        <a href="/business/company/<%= company.id %>">Home</a>
+    </div>
+    <% pages.forEach(function(page) { %>
+        <div class="company-nav-item <%= subZonePage==page.page_name ? 'company-nav-item subpage-active' : 'company-nav-item' %>">
+            <a href="/business/company/<%= company.id %>/page/<%= page.id %>"><%= page.page_name %></a>
+        </div>
+    <% }) %>
+</div>
+<div class="company-container">
+    <div class="company-header">
+        <div class="company-name">
+            <h2><%= company.company_name %></h2>
+            <p><%= company.company_type %></p>
+        </div>
+        <div class="company-logo">
+            <% if (!company.logo) { %>
+                <span style="display: none;"></span>
+            <% } else { %>
+                <img style="filter: drop-shadow(0 0 1px <%= company.colors.main %>);" src="/image/<%= company.logo %>" alt="">
+            <% } %>
+        </div>
+    </div>
+    <div class="company-body">
+        <p><%= company.company_bio %></p>
+    </div>
+    <div class="company-contact">
+        <div class="company-address">
+            <div class="company-address-icon">
+                <% if (!company.company_street_1 && !company.company_street_2 && !company.company_suite_number && !company.company_state && !company.company_country) { %>
+                    <span style="display: none;"></span>
+                <% } else { %>
+                    <i style="filter: drop-shadow(0 0 0.5px <%= company.colors.main %>);" class="fas fa-map-marked-alt"></i>
+                <% } %>
+            </div>
+            <div class="company-address-data">
+                <% if (!company.company_street_1) { %>
+                    <span></span>
+                <% } else { %>
+                    <div class="company-contact-item">
+                        <p><%= company.company_street_1 %></p>
+                    </div>
+                <% } %>
+
+                <% if (!company.company_street_2) { %>
+                    <span></span>
+                <% } else { %>
+                    <div class="company-contact-item">
+                        <p><%= company.company_street_2 %></p>
+                    </div>
+                <% } %>
+                
+                <% if (!company.company_suite_number) { %>
+                    <span></span>
+                <% } else { %>
+                    <div class="company-contact-item">
+                        <p><%= company.company_suite_number %></p>
+                    </div>
+                <% } %>
+
+                <% if (!company.company_state) { %>
+                    <span></span>
+                <% } else { %>
+                    <div class="company-contact-item">
+                        <p><%= company.company_state %></p>
+                    </div>
+                <% } %>
+
+                <% if (!company.company_country) { %>
+                    <span></span>
+                <% } else { %>
+                    <div class="company-contact-item">
+                        <p><%= company.company_country %></p>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+        <% if (!company.company_phone) { %>
+            <span></span>
+        <% } else { %>
+            <div class="company-contact-item">
+                <p><i style="filter: drop-shadow(0 0 0.5px <%= company.colors.main %>);" class="fa-solid fa-phone"></i> <a href="tel:<%= company.company_phone %>"><%= company.company_phone %></a></p>
+            </div>
+        <% } %>
+
+        <% if (!company.company_fax) { %>
+            <span></span>
+        <% } else { %>
+            <div class="company-contact-item">
+                <p><i style="filter: drop-shadow(0 0 0.5px <%= company.colors.main %>);" class="fa-solid fa-fax"></i> <%= company.company_fax %></p>
+            </div>
+        <% } %>
+
+        <% if (!company.company_main_email) { %>
+            <span></span>
+        <% } else { %>
+            <div class="company-contact-item">
+                <p><i style="filter: drop-shadow(0 0 0.5px <%= company.colors.main %>);" class="fa-solid fa-at"></i> <a href="mailto:<%= company.company_main_email %>"><%= company.company_main_email %></a></p>
+            </div>
+        <% } %>
+
+    </div>
+
+
+    <div class="company-employee-portal">
+        <a href="/business/employee/<%= company.id %>">Employee Portal</a>
+        <% if (company.companyOwner.id == user.id) { %>
+            <a href="/business/admin/<%= company.id %>">Admin Portal</a>
+        <% } %>
+    </div>
+</div>

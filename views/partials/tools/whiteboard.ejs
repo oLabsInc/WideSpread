@@ -1,0 +1,359 @@
+<style>
+    body {
+        overflow: hidden;
+    }
+    .whiteboard-container {
+        background-color: #fff;
+        border-radius: 16px;
+        border: outset 3px #ddd;
+        position: fixed;
+        top: 0px;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+
+    }
+
+.whiteboard {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+
+
+
+    .colors {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 10px;
+        z-index: 10000;
+    }
+
+    .color {
+        height: 48px;
+        width: 48px;
+        min-width: 48px;
+        max-width: 48px;
+        min-height: 48px;
+        max-height: 48px;
+        margin-right: 8px;
+        border-radius: 50%;
+        border: solid 2px #000;
+        box-shadow: 0 0 5px lightskyblue;
+    }
+
+    .color.black { background-color: black; }
+    .color.red { background-color: red; }
+    .color.green { background-color: rgb(33, 119, 33); }
+    .color.blue { background-color: rgb(54, 54, 143); }
+    .color.purple { background-color: purple; }
+    .color.pink { background-color: hotpink; }
+    .whiteboard-options {
+
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .chosenPenWidthContainer {
+        position: absolute;
+        top: 75px;
+        left: 10px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    .chosenPenWidthContainer select {
+        font-size: 2rem;
+        border-radius: 8px;
+        background-color: #fff;
+    }
+    .chosenPenWidthContainer option {
+        text-align: center;
+        padding: 5px;
+    }
+    .chosenPenWidthContainer p {
+        color: lightskyblue;
+        font-size: 2rem;
+        padding-right: 10px;
+    }
+    .eraser {
+        position: absolute;
+        top: 80px;
+        left: 20px;
+        font-size: 1.5rem;
+        color: orangered;
+    }
+    #closeWhiteboardButton {
+        position: absolute;
+        top: -40px;
+        right: 20px;
+    }
+</style>
+
+
+<div class="whiteboard-container">
+    <canvas id="canvas" class="whiteboard"></canvas>
+
+    <div class="whiteboard-options">
+        <div class="colors">
+            <div class="color black"></div>
+            <div class="color red"></div>
+            <div class="color green"></div>
+            <div class="color blue"></div>
+            <div class="color pink"></div>
+            <div class="color purple"></div>
+
+        </div>
+        <div id="eraser" class="eraser">
+            <i class="fas fa-eraser"></i>
+        </div>
+        <div id="closeWhiteboardButton"><i style="color: red; font-size: 2rem;" class="far fa-times-circle"></i></div>
+    </div>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    'use strict';
+
+        (function () {
+
+            var socket = io();
+            var canvas = document.getElementsByClassName('whiteboard')[0];
+            var colors = document.getElementsByClassName('color');
+            var context = canvas.getContext('2d');
+
+            var current = {
+                color: 'black'
+            };
+            var drawing = false;
+
+            canvas.addEventListener('mousedown', onMouseDown, false);
+            canvas.addEventListener('mouseup', onMouseUp, false);
+            canvas.addEventListener('mouseout', onMouseUp, false);
+            canvas.addEventListener('mousemove', throttle(onMouseMove, 10), false);
+
+            //Touch support for mobile devices
+            canvas.addEventListener('touchstart', onMouseDown, false);
+            canvas.addEventListener('touchend', onMouseUp, false);
+            canvas.addEventListener('touchcancel', onMouseUp, false);
+            canvas.addEventListener('touchmove', throttle(onMouseMove, 10), false);
+
+            for (var i = 0; i < colors.length; i++) {
+                colors[i].addEventListener('click', onColorUpdate, false);
+            }
+
+            socket.on('drawing', onDrawingEvent);
+
+            window.addEventListener('resize', onResize, false);
+            onResize();
+/* 
+            const eraser = document.getElementById('eraser')
+            
+            eraser.addEventListener('click', e => {
+                // canvas related variables
+                var canvas = document.getElementById("canvas");
+                var ctx = canvas.getContext("2d");
+                var cw = canvas.width;
+                var ch = canvas.height;
+                function reOffset() {
+                    var BB = canvas.getBoundingClientRect();
+                    offsetX = BB.left;
+                    offsetY = BB.top;
+                }
+                var offsetX, offsetY;
+                reOffset();
+                window.onscroll = function (e) { reOffset(); }
+
+
+                ctx.lineWidth = 2;
+
+                // linear interpolation -- needed in setClosestLine()
+                var lerp = function (a, b, x) { return (a + x * (b - a)); };
+
+                // vars to track which line is closest to the mouse
+                var closestLineIndex = -1;
+                var closestX, closestY;
+
+
+                document.getElementById("#canvas").addEventListener('mousedown', (function (e) { handleMouseDown(e); }));
+                document.getElementById("#canvas").addEventListener('mousemove', (function (e) { handleMouseMove(e); }));
+
+
+                //////////////////////////////
+                // functions
+
+                // Find the index of the line closest to mx,my
+                function setClosestLine(mx, my) {
+                    //
+                    closestLineIndex = -1;
+                    var minDistanceSquared = 100000000;
+                    //
+                    // examine each line & 
+                    // determine which line is closest to the mouse (mx,my)
+                    for (var i = 0; i < lines.length; i++) {
+                        var line = lines[i];
+                        var dx = line.x1 - line.x0;
+                        var dy = line.y1 - line.y0;
+                        var t = ((mx - line.x0) * line.dx + (my - line.y0) * line.dy) / line.dx2dy2;
+                        var x = lerp(line.x0, line.x1, t);
+                        var y = lerp(line.y0, line.y1, t);
+                        var dx1 = mx - x;
+                        var dy1 = my - y;
+                        var distSquared = dx1 * dx1 + dy1 * dy1;
+                        if (distSquared < minDistanceSquared) {
+                            minDistanceSquared = distSquared;
+                            closestLineIndex = i;
+                            closestX = x;
+                            closestY = y;
+                        }
+                    }
+                };
+
+                // clear & redraw all lines
+                function redraw() {
+
+                    // clear the canvas
+                    ctx.clearRect(0, 0, cw, ch);
+
+                    // draw all lines
+                    ctx.strokeStyle = 'black';
+                    for (var i = 0; i < lines.length; i++) {
+                        var line = lines[i];
+                        ctx.beginPath();
+                        ctx.moveTo(line.x0, line.y0);
+                        ctx.lineTo(line.x1, line.y1);
+                        ctx.stroke();
+                    }
+
+                    // draw the line closest to the mouse in red
+                    if (closestLineIndex < 0) { return; }
+                    var line = lines[closestLineIndex];
+                    ctx.strokeStyle = 'red';
+                    ctx.beginPath();
+                    ctx.moveTo(line.x0, line.y0);
+                    ctx.lineTo(line.x1, line.y1);
+                    ctx.stroke();
+                }
+
+                // On mousemove, find line closest to mouse
+                function handleMouseMove(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    mouseX = parseInt(e.clientX - offsetX);
+                    mouseY = parseInt(e.clientY - offsetY);
+
+                    setClosestLine(mouseX, mouseY);
+
+                    redraw();
+
+                }
+
+                // On mousedown, remove line that was closest to mouse
+                function handleMouseDown(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    if (closestLineIndex >= 0) {
+                        lines.splice(closestLineIndex, 1);
+                        redraw();
+                    }
+                }
+                console.log(e.target);
+            });
+ */
+
+            function drawLine(x0, y0, x1, y1, color, emit) {
+                context.beginPath();
+                context.moveTo(x0, y0);
+                context.lineTo(x1, y1);
+                context.strokeStyle = color;
+                context.lineWidth = 2;
+                context.stroke();
+                context.closePath();
+
+                if (!emit) { return; }
+                var w = canvas.width;
+                var h = canvas.height;
+
+                socket.emit('drawing', {
+                    x0: x0 / w,
+                    y0: y0 / h,
+                    x1: x1 / w,
+                    y1: y1 / h,
+                    color: color
+                });
+            }
+
+            function onMouseDown(e) {
+                drawing = true;
+                current.x = e.clientX || e.touches[0].clientX;
+                current.y = e.clientY || e.touches[0].clientY;
+            }
+
+            function onMouseUp(e) {
+                if (!drawing) { return; }
+                drawing = false;
+                drawLine(current.x, current.y, e.clientX || e.touches[0].clientX, e.clientY || e.touches[0].clientY, current.color, true);
+            }
+
+            function onMouseMove(e) {
+                if (!drawing) { return; }
+                drawLine(current.x, current.y, e.clientX || e.touches[0].clientX, e.clientY || e.touches[0].clientY, current.color, true);
+                current.x = e.clientX || e.touches[0].clientX;
+                current.y = e.clientY || e.touches[0].clientY;
+            }
+
+            function onColorUpdate(e) {
+                current.color = e.target.className.split(' ')[1];
+            }
+
+            // limit the number of events per second
+            function throttle(callback, delay) {
+                var previousCall = new Date().getTime();
+                return function () {
+                    var time = new Date().getTime();
+
+                    if ((time - previousCall) >= delay) {
+                        previousCall = time;
+                        callback.apply(null, arguments);
+                    }
+                };
+            }
+
+            function onDrawingEvent(data) {
+                var w = canvas.width;
+                var h = canvas.height;
+                drawLine(data.x0 * w, data.y0 * h, data.x1 * w, data.y1 * h, data.color);
+            }
+
+            // make the canvas fill its parent
+            function onResize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+
+        })();
+
+</script>
+

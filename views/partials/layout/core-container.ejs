@@ -1,0 +1,93 @@
+<style>
+    #coreContainer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding-top: 50px;
+        z-index: 0;
+        min-height: 100vh;
+        position: relative;
+        overflow: auto;
+    }
+    .site-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -999999;
+    }
+    .site-background-logo-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        background: #111;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .site-background-logo-border {
+        width: 300px;
+        max-width: 90vw;
+        max-height: 90vw;
+        height: 300px;
+        box-shadow: inset -3px -3px 8px #222, inset 3px 3px 8px #000;
+        border-radius: 50%;
+
+    }
+    .site-background-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+    }
+    .site-background-logo img {
+        width: 70%;
+        opacity: 0.125;
+        filter: drop-shadow(0 3px 1px rgba(135, 206, 250, 0.5));
+        animation-name: pulse;
+        animation-duration: 6s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-timing-function:ease-out;
+        animation-delay: 0.25ms;
+    }
+
+    @keyframes pulse {
+        0% {
+            opacity: 0.125;
+        }
+        20% {
+            opacity: 0.15;
+        }
+        80% {
+            opacity: 0.25;
+        }
+        100% {
+            opacity: 0.25;
+        }
+    }
+</style>
+
+<div id="coreContainer">
+    <div id="coreBackdrop" class="site-background">
+        <div class="site-background-logo-container">
+            <div class="site-background-logo-border">
+                <div class="site-background-logo">
+                    <img src="/images/system/logo_2a1a1a.png" alt="WideSpread Logo">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+
+    <%- body %>
+</div>
+
+
+

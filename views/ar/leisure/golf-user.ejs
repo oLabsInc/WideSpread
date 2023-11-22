@@ -1,0 +1,102 @@
+<style>
+    .back-button {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .back-button a {
+        color: lightskyblue;
+        font-size: 2rem;
+        text-decoration: none;
+    }
+    .all-scorecards {
+        margin-top: 30px;
+    }
+    .scorecard {
+        margin-bottom: 30px;
+        background-color: rgba(0, 255, 0, 0.25);
+    }
+    .scorecard-course {
+        text-align: center;
+        position: relative;
+    }
+    .scorecard-course h5 {
+        font-size: 1.5rem;
+        padding: 5px;
+    }
+    .scorecard-course p {
+        color: #fff;
+        padding: 3px;
+    }
+    .scorecard-delete {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .scorecard-delete a {
+        color: #fff;
+        font-size: 1.2rem;
+        text-decoration: none;
+    }
+    .scorecard tr {
+        border-bottom: solid 1px #000;
+    }
+    .scorecard td {
+        text-align: center;
+        border-left: solid 1px #000;
+    }
+    .scorecard td:first-of-type {
+        font-weight: bold;
+        text-align: left;
+        border-left: none;
+    }
+    .scorecard td {
+        padding: 3px;
+    }
+</style>
+<div class="page-title">
+    <h2><%= user.fname %>'s Scorecards</h2>
+</div>
+
+<div class="back-button"><a href="/ar/sports/golf">Back to Golf Home</a></div>
+<div class="all-scorecards">
+    <% allScoreCards.forEach(function(scorecard) { %>
+        <div class="scorecard">
+            <div class="scorecard-course">
+                <h5><%= scorecard.golf_course.name %></h5>
+                <p><%= scorecard.date_played.toLocaleDateString() %></p>
+                <div class="scorecard-delete"><a href="/ar/sports/golf/user/<%= user.id %>/scorecard/<%= scorecard.id %>/delete">X</a></div>
+            </div>
+            <table style="background-color: #fff; width: 100%;">
+                <thead>
+                    <tr>
+                        <td>Hole</td>
+                        <% scorecard.holes.forEach(function(hole) { %>
+                            <td><%= hole.hole_id.hole_number %></td>
+                        <% }) %>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Par</td>
+                        <% scorecard.holes.forEach(function(holePar) { %>
+                            <td><%= holePar.hole_id.par %></td>
+                        <% }) %>
+                    </tr>
+                    <tr>
+                        <td><%= user.fname %> <%= user.lname %></td>
+                        <% scorecard.holes.forEach(function(holeScore) { %>
+                            <td><%= holeScore.strokes %></td>
+                        <% }) %>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    <% }) %>
+</div>

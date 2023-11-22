@@ -1,0 +1,15 @@
+<style>
+    #courseMenu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        overflow-x: auto;
+    }
+</style>
+
+<div id="courseMenu">
+    <div class="menu-item menu-link <%= currentPage=='Home' ? 'menu-link active' : 'menu-link' %>"><a href="/academy/course/<%= course.id %>"><%= course.course %> Home</a></div>
+    <% classes.forEach(function(classId) { %>
+        <div class="menu-item <%= currentPage==classId.name ? 'menu-link active' : 'menu-link' %>"><a href="/academy/course/<%= course.id %>/class/<%= classId.id %>"><%= classId.name %></a></div>
+    <% }) %>
+</div>

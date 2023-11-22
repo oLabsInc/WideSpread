@@ -1,0 +1,518 @@
+<style>
+    .exercise {
+        width: 95%;
+        margin-bottom: 20px;
+        margin-inline: auto;
+        border-top: groove 2px lightskyblue;
+        border-bottom: groove 2px lightskyblue;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 8px;
+    }
+
+    .exercise-header {
+        text-align: center;
+        padding: 10px;
+        padding-bottom: 0;
+        border-bottom: groove 2px lightskyblue;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        background: rgba(255, 255, 255, 0.3);
+        margin-bottom: 0;
+    }
+
+    .exercise-header h5 {
+        margin-bottom: 0;
+    }
+
+    .exercise-header p {
+        margin-bottom: 0;
+    }
+
+    .exercise-header small {
+        color: lightskyblue;
+        text-shadow: 0 0 1px #000;
+    }
+
+    .exercise-table {
+        width: 100%;
+        display: inline-flex;
+        width: 100%;
+    }
+
+    .exercise table {
+        width: 80%;
+    }
+
+    .exercise th {
+        text-align: center;
+        color: lightskyblue;
+    }
+
+    .exercise td {
+        max-width: 18%;
+        margin-left: 1%;
+
+    }
+
+    .exercise input {
+        width: 90%;
+        margin-left: 5%;
+        border-radius: 4px;
+        outline: none;
+        border: none;
+        margin-bottom: 5px;
+
+    }
+
+    .exercise button {
+        width: 15%;
+        margin-left: 5%;
+        outline: none;
+        border: none;
+        border-left: groove 2px green;
+        background: rgba(0, 128, 0, 0.3);
+        color: #fff;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+
+    }
+    .back-home {
+        width: fit-content;
+    }
+        
+        .back-home h5 {
+            background-color: rgba(135, 206, 250, 0.15);
+            text-align: center;
+            width: fit-content;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            border-bottom: solid 1px rgba(158, 218, 255, 0.5);
+            border-right: solid 1px rgba(202, 235, 255, 0.5);
+            box-shadow: inset -2px -2px 22px #b4e0fb41, inset 0 -1px 6px #87cefaa3;
+            margin-inline: auto;
+            backdrop-filter: blur(10px);
+            border-bottom-right-radius: 8px;
+            font-size: 1.2rem;
+            line-height: 1.2rem;
+        }
+        
+        .back-home a {
+            font-size: 1.1rem;
+            line-height: 1.1rem;
+            text-decoration: none;
+        }
+        
+        .back-home i {
+            font-size: 1.1rem;
+            line-height: 1.1rem;
+            margin-right: 8px;
+            color: rgba(135, 206, 250, 0.5);
+            text-shadow: 0 0 3px rgba(255, 255, 255, 0.75);
+        }
+
+    .session-header {
+        text-align: center;
+        padding: 10px;
+        font-size: 1.6rem;
+        color: #fff;
+    }
+</style>
+
+<% if (user) { %>
+    <div class="spread-container-core">
+    
+    
+        <div id="spreadCoreMenu">
+            <%- include('../../partials/menus/wellness'); %>
+            <%- include('../../partials/menus/sub/wellness/fitness'); %>
+        </div>
+    
+    
+        <div class="back-home">
+            <a href="/wellness">
+                <h5><i class="fas fa-less-than"></i><span>Go Back</span></h5>
+            </a>
+        </div>
+
+        <h1 class="session-header">
+            <%= day %>
+        </h1>
+
+
+
+<div id="workoutSession" class="workout-session" data-workout-day="<%= day.toLowerCase() %>">
+<% var currentDay = day.toLowerCase() %>
+<p><%= currentDay %></p>
+
+
+<% if (currentDay == 'sunday') { %>
+    <% workout.sunday.forEach(function(exercise) { %>
+        <div class="exercise">
+            <div class="exercise-header">
+                <h5> <%= exercise.exercise %></h5>
+                <p><small><%= exercise.category %></small></p>
+            </div>
+            <form action="/wellness/fitness/plan/session/day/sunday/update/<%= exercise.id %>" method="post">
+                <div class="exercise-table">
+                <table>
+                    <tr>
+                        <th>Set 1</th>
+                        <th>Set 2</th>
+                        <th>Set 3</th>
+                        <th>Set 4</th>
+                        <th>Set 5</th>
+                    </tr>
+                    <tr>
+                        <td><input required type="number" name="weight1" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight2" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight3" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight4" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight5" placeholder="Lbs."></td>
+                    </tr>
+                    <tr>
+                        <td><input required type="number" name="reps1" placeholder="Reps"></td>
+                        <td><input type="number" name="reps2" placeholder="Reps"></td>
+                        <td><input type="number" name="reps3" placeholder="Reps"></td>
+                        <td><input type="number" name="reps4" placeholder="Reps"></td>
+                        <td><input type="number" name="reps5" placeholder="Reps"></td>
+                    </tr>
+                </table>
+                <input type="text" name="exercise" value="<%= exercise.exercise %>" hidden>
+                <input type="text" name="id" value="<%= exercise.id %>" hidden>
+                <button type="submit">Add</button>
+            </div>
+            </form>
+        </div>
+    <% }) %>
+<% } %>
+
+
+<% if (currentDay == 'monday') { %>
+    <% workout.monday.forEach(function(exercise) { %>
+        <div class="exercise">
+            <div class="exercise-header">
+                <h5> <%= exercise.exercise %></h5>
+                <p><small><%= exercise.category %></small></p>
+            </div>
+            <form action="/wellness/fitness/plan/session/day/monday/update/<%= exercise.id %>" method="post">
+                <div class="exercise-table">
+                <table>
+                    <tr>
+                        <th>Set 1</th>
+                        <th>Set 2</th>
+                        <th>Set 3</th>
+                        <th>Set 4</th>
+                        <th>Set 5</th>
+                    </tr>
+                    <tr>
+                        <td><input required type="number" name="weight1" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight2" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight3" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight4" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight5" placeholder="Lbs."></td>
+                    </tr>
+                    <tr>
+                        <td><input required type="number" name="reps1" placeholder="Reps"></td>
+                        <td><input type="number" name="reps2" placeholder="Reps"></td>
+                        <td><input type="number" name="reps3" placeholder="Reps"></td>
+                        <td><input type="number" name="reps4" placeholder="Reps"></td>
+                        <td><input type="number" name="reps5" placeholder="Reps"></td>
+                    </tr>
+                </table>
+                <input type="text" name="exercise" value="<%= exercise.exercise %>" hidden>
+                <input type="text" name="id" value="<%= exercise.id %>" hidden>
+                <button type="submit">Add</button>
+            </div>
+            </form>
+        </div>
+    <% }) %>
+<% } %>
+
+
+<% if (currentDay == 'tuesday') { %>
+    <% workout.tuesday.forEach(function(exercise) { %>
+        <div class="exercise">
+            <div class="exercise-header">
+                <h5> <%= exercise.exercise %></h5>
+                <p><small><%= exercise.category %></small></p>
+            </div>
+            <form action="/wellness/fitness/plan/session/day/tuesday/update/<%= exercise.id %>" method="post">
+                <div class="exercise-table">
+                <table>
+                    <tr>
+                        <th>Set 1</th>
+                        <th>Set 2</th>
+                        <th>Set 3</th>
+                        <th>Set 4</th>
+                        <th>Set 5</th>
+                    </tr>
+                    <tr>
+                        <td><input required type="number" name="weight1" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight2" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight3" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight4" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight5" placeholder="Lbs."></td>
+                    </tr>
+                    <tr>
+                        <td><input required type="number" name="reps1" placeholder="Reps"></td>
+                        <td><input type="number" name="reps2" placeholder="Reps"></td>
+                        <td><input type="number" name="reps3" placeholder="Reps"></td>
+                        <td><input type="number" name="reps4" placeholder="Reps"></td>
+                        <td><input type="number" name="reps5" placeholder="Reps"></td>
+                    </tr>
+                </table>
+                <input type="text" name="exercise" value="<%= exercise.exercise %>" hidden>
+                <input type="text" name="id" value="<%= exercise.id %>" hidden>
+                <button type="submit">Add</button>
+            </div>
+            </form>
+        </div>
+    <% }) %>
+<% } %>
+
+
+<% if (currentDay == 'wednesday') { %>
+    <% workout.wednesday.forEach(function(exercise) { %>
+        <div class="exercise">
+            <div class="exercise-header">
+                <h5> <%= exercise.exercise %></h5>
+                <p><small><%= exercise.category %></small></p>
+            </div>
+            <form action="/wellness/fitness/plan/session/day/wednesday/update/<%= exercise.id %>" method="post">
+                <div class="exercise-table">
+                <table>
+                    <tr>
+                        <th>Set 1</th>
+                        <th>Set 2</th>
+                        <th>Set 3</th>
+                        <th>Set 4</th>
+                        <th>Set 5</th>
+                    </tr>
+                    <tr>
+                        <td><input required type="number" name="weight1" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight2" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight3" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight4" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight5" placeholder="Lbs."></td>
+                    </tr>
+                    <tr>
+                        <td><input required type="number" name="reps1" placeholder="Reps"></td>
+                        <td><input type="number" name="reps2" placeholder="Reps"></td>
+                        <td><input type="number" name="reps3" placeholder="Reps"></td>
+                        <td><input type="number" name="reps4" placeholder="Reps"></td>
+                        <td><input type="number" name="reps5" placeholder="Reps"></td>
+                    </tr>
+                </table>
+                <input type="text" name="exercise" value="<%= exercise.exercise %>" hidden>
+                <input type="text" name="id" value="<%= exercise.id %>" hidden>
+                <button type="submit">Add</button>
+            </div>
+            </form>
+        </div>
+    <% }) %>
+<% } %>
+
+
+<% if (currentDay == 'thursday') { %>
+    <% workout.thursday.forEach(function(exercise) { %>
+        <div class="exercise">
+            <div class="exercise-header">
+                <h5> <%= exercise.exercise %></h5>
+                <p><small><%= exercise.category %></small></p>
+            </div>
+            <form action="/wellness/fitness/plan/session/day/thursday/update/<%= exercise.id %>" method="post">
+                <div class="exercise-table">
+                <table>
+                    <tr>
+                        <th>Set 1</th>
+                        <th>Set 2</th>
+                        <th>Set 3</th>
+                        <th>Set 4</th>
+                        <th>Set 5</th>
+                    </tr>
+                    <tr>
+                        <td><input required type="number" name="weight1" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight2" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight3" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight4" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight5" placeholder="Lbs."></td>
+                    </tr>
+                    <tr>
+                        <td><input required type="number" name="reps1" placeholder="Reps"></td>
+                        <td><input type="number" name="reps2" placeholder="Reps"></td>
+                        <td><input type="number" name="reps3" placeholder="Reps"></td>
+                        <td><input type="number" name="reps4" placeholder="Reps"></td>
+                        <td><input type="number" name="reps5" placeholder="Reps"></td>
+                    </tr>
+                </table>
+                <input type="text" name="exercise" value="<%= exercise.exercise %>" hidden>
+                <input type="text" name="id" value="<%= exercise.id %>" hidden>
+                <button type="submit">Add</button>
+            </div>
+            </form>
+        </div>
+    <% }) %>
+<% } %>
+
+
+<% if (currentDay == 'friday') { %>
+    <% workout.friday.forEach(function(exercise) { %>
+        <div class="exercise">
+            <div class="exercise-header">
+                <h5> <%= exercise.exercise %></h5>
+                <p><small><%= exercise.category %></small></p>
+            </div>
+            <form action="/wellness/fitness/plan/session/day/friday/update/<%= exercise.id %>" method="post">
+                <div class="exercise-table">
+                <table>
+                    <tr>
+                        <th>Set 1</th>
+                        <th>Set 2</th>
+                        <th>Set 3</th>
+                        <th>Set 4</th>
+                        <th>Set 5</th>
+                    </tr>
+                    <tr>
+                        <td><input required type="number" name="weight1" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight2" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight3" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight4" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight5" placeholder="Lbs."></td>
+                    </tr>
+                    <tr>
+                        <td><input required type="number" name="reps1" placeholder="Reps"></td>
+                        <td><input type="number" name="reps2" placeholder="Reps"></td>
+                        <td><input type="number" name="reps3" placeholder="Reps"></td>
+                        <td><input type="number" name="reps4" placeholder="Reps"></td>
+                        <td><input type="number" name="reps5" placeholder="Reps"></td>
+                    </tr>
+                </table>
+                <input type="text" name="exercise" value="<%= exercise.exercise %>" hidden>
+                <input type="text" name="id" value="<%= exercise.id %>" hidden>
+                <button type="submit">Add</button>
+            </div>
+            </form>
+        </div>
+    <% }) %>
+<% } %>
+
+
+<% if (currentDay == 'saturday') { %>
+    <% workout.saturday.forEach(function(exercise) { %>
+        <div class="exercise">
+            <div class="exercise-header">
+                <h5> <%= exercise.exercise %></h5>
+                <p><small><%= exercise.category %></small></p>
+            </div>
+            <form action="/wellness/fitness/plan/session/day/saturday/update/<%= exercise.id %>" method="post">
+                <div class="exercise-table">
+                <table>
+                    <tr>
+                        <th>Set 1</th>
+                        <th>Set 2</th>
+                        <th>Set 3</th>
+                        <th>Set 4</th>
+                        <th>Set 5</th>
+                    </tr>
+                    <tr>
+                        <td><input required type="number" name="weight1" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight2" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight3" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight4" placeholder="Lbs."></td>
+                        <td><input type="number" name="weight5" placeholder="Lbs."></td>
+                    </tr>
+                    <tr>
+                        <td><input required type="number" name="reps1" placeholder="Reps"></td>
+                        <td><input type="number" name="reps2" placeholder="Reps"></td>
+                        <td><input type="number" name="reps3" placeholder="Reps"></td>
+                        <td><input type="number" name="reps4" placeholder="Reps"></td>
+                        <td><input type="number" name="reps5" placeholder="Reps"></td>
+                    </tr>
+                </table>
+                <input type="text" name="exercise" value="<%= exercise.exercise %>" hidden>
+                <input type="text" name="id" value="<%= exercise.id %>" hidden>
+                <button type="submit">Add</button>
+            </div>
+            </form>
+        </div>
+    <% }) %>
+<% } %>
+
+
+
+
+    <br>
+
+</div>
+    </div>
+
+
+<script>
+    const workoutSession = document.getElementById('workoutSession')
+    const workoutDay = workoutSession.getAttribute('data-workout-day')
+    
+
+    function getCharCodes(s) {
+        let charCodeArr = [];
+
+        for (let i = 0; i < s.length; i++) {
+            let code = s.charCodeAt(i);
+            charCodeArr.push(code);
+        }
+        const codeString = String.fromCharCode(charCodeArr)
+        console.log(codeString)
+        console.log(charCodeArr)
+        return charCodeArr;
+    }
+    const string = 'workout.' + workoutDay
+    getCharCodes(string)
+
+</script>
+
+<% } else { %>
+        <div class="spread-user-security-overlay-container">
+
+        <div class="spread-user-security-overlay-header">
+            <h1>Not Logged In</h1>
+        </div>
+        
+        
+        <div class="spread-user-security-overlay-body">
+            <div class="mini-spread-user-login">
+                <form action="/users/login" method="post">
+
+                    <div class="spread-glass-container">
+
+                        
+                        <div class="mini-spread-user-input-text">
+                            <label for="miniLogin1"><i class="bx bx-user"></i></label>
+                            <input type="email" id="miniLogin1"  name="email" placeholder="Email">
+                        </div>
+                        <div class="mini-spread-user-input-text">
+                            <label for="miniLoginKey1"><i class="bx bx-key"></i></label>
+                            <input type="password" id="miniLoginKey1"  name="password" placeholder="Password">
+                        </div>
+                    </div>
+
+
+
+
+                    <button type="submit">Login</button>
+
+
+
+                </form>
+            </div>
+        </div>
+
+
+
+    </div>
+
+<% } %>

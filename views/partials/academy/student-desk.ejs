@@ -1,0 +1,282 @@
+<style>
+    #studentDesk {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        height: 50px;
+        width: 50px;
+    }
+    #openDeskButtonEl {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 10px lightskyblue;
+        border-top-right-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+    }
+    #openDeskButtonEl i {
+        font-size: 40px;
+        border-top-right-radius: 50%;
+        padding-right: 5px;
+        padding-top: 5px;
+    }
+    #studentDeskMenu {
+        position: absolute;
+        top: calc(-60vh + 50px);
+        height: 60vh;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        border-top: outset 1px lightskyblue;
+        box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.6);
+
+    }
+
+    .student-desk-header {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        text-align: center;
+        font-size: 2rem;
+        color: #fff;
+        height: 50px;
+        background-color: rgba(135, 206, 250, 0.25);
+        border-bottom: outset 1px lightskyblue;
+    }
+    #closeDeskButton {
+        text-align: right;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    #closeDeskButton i {
+        padding: 8px;
+        font-size: 2rem;
+        color: orangered;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+    }
+
+    .hidden {
+        display: none;
+    }
+
+
+
+
+
+
+    .toolbox-header {
+        margin: 0 auto;
+        text-align: center;
+        border-top: solid 1px #fff;
+        width: 95%;
+        margin-top: 20px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .toolbox-header h5 {
+        padding-top: 8px;
+        font-size: 1.2rem;
+        width: 50%;
+        border-bottom: solid 1px lightskyblue;
+        margin: 0 auto;
+        padding-bottom: 4px;
+    }
+    .toolbox {
+        background-color: rgba(0, 0, 0, 0.5);
+        border-bottom: solid 1px #fff;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        padding-bottom: 10px;
+        width: 95%;
+        margin: 0 auto;
+        padding-top: 10px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .toolbox-item-container {
+        min-width: 50px;
+        padding: 5px;
+    }
+    .toolbox-item {
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+        border-radius: 6px;
+        box-shadow: 0 0 6px rgba(255, 255, 255, 0.25), 0 0 2px lightskyblue;
+        text-align: center;
+    }
+    .toolbox-item i {
+        color: #fff;
+        padding: 5px;
+        font-size: 2rem;
+    }
+
+
+    .learning-point-index {
+        padding: 12px;    
+        max-width: 90vw;
+        margin-inline: auto;
+    }
+
+    .learning-point-index-header {
+        padding: 8px;
+        border-bottom: solid 1px #fff;
+    }
+
+    .learning-point-index-header h5 {
+        text-align: center;
+        font-size: 2rem;
+    }
+    .learning-point-index-list a {
+        text-decoration: none;
+    }
+    .learning-point-index-list li {
+        list-style: decimal;
+        color: #fff;
+        font-size: 2rem;
+        margin-left: 20px;
+        padding: 8px;
+    }
+</style>
+
+<div id="studentDesk">
+    <div id="openDeskButtonEl">
+        <i id="openDeskButton" class="bx bx-user-circle"></i>
+    </div>
+    
+    <div id="studentDeskMenu" class="hidden">
+
+        <div class="student-desk-header">
+            <div id="closeDeskButton">
+                <i class="bx bx-x-circle"></i>
+            </div>
+            <p>Your Desk</p>
+        </div>
+        
+
+        <div class="toolbox-header">
+            <h5>Class Tools</h5>
+        </div>
+        <div class="toolbox">
+            <div class="toolbox-item-container">
+                <div class="toolbox-item">
+                    <p id="flashcardsButton"><i class="bx bx-layer"></i></p>
+                </div>
+            </div>
+            <% if (!notebookSection) { %>
+                <i class="bx bx-block"></i>
+            <% } else { %>
+                <div class="toolbox-item-container">
+                    <div class="toolbox-item">
+                        <p id="newNoteButton"><i class="bx bx-note"></i></p>
+                    </div>
+                </div>
+            <% } %>
+            <% if (className.toolbox.length <= 0) { %>
+                <span style="display: none;"></span>
+            <% } else { %>
+                <% className.toolbox.forEach(function(tool) { %>
+                    <% if (tool === 'whiteboard') { %>
+
+                        <div class="toolbox-item-container">
+                            <div class="toolbox-item">
+                                <p id="chalkboardToolButton"><i class="fas fa-chalkboard-teacher"></i></p>
+                            </div>
+                        </div>
+                    <% } %>
+                    <% if (tool === 'code-editor') { %>
+                        <div class="toolbox-item-container">
+                            <div class="toolbox-item">
+                                <div id="codeEditorButton" class="academy-user-menu-item"><i class="bx bx-code-block"></i></div>
+                            </div>
+                        </div>
+                    <% } %>
+                    
+                    <% if (tool === 'calculator') { %>
+                        <div class="toolbox-item-container">
+                            <div class="toolbox-item">
+                                <div class="academy-user-menu-item"><i id="calculatorButton" class="bx bx-calculator"></i></div>
+                            </div>
+                        </div>
+                    <% } %>
+                <% }) %>
+            <% } %>
+        </div>
+
+
+        <div class="learning-point-index">
+            <div class="learning-point-index-header">
+                <h5>Class Index</h5>
+            </div>
+            <div class="learning-point-index-list">
+                <ol>
+                    <% learningPoints.forEach(function(point) { %>
+                        <li>
+                            <a href="#<%= point.id %>">
+                                <h6 style="color: orangered; font-size: 2rem;"><%= point.section_header %></h6>
+                            </a>
+                        </li>
+                    <% }) %>
+                </ol>
+
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const studentDesk = document.getElementById('studentDesk')
+        const openDeskButtonEl = document.getElementById('openDeskButtonEl')
+        const openDeskButton = document.getElementById('openDeskButton')
+        const closeDeskButton = document.getElementById('closeDeskButton')
+        const studentDeskMenu = document.getElementById('studentDeskMenu')
+
+
+        openDeskButton.addEventListener('click', e => {
+            console.log('clicked openDeskButton')
+            studentDeskMenu.classList.remove('hidden')
+            openDeskButton.classList.add('hidden')
+            openDeskButtonEl.style.boxShadow = 'none'
+            openDeskButtonEl.style.backgroundColor = 'transparent'
+            openDeskButtonEl.style.backdropFilter = 'none'
+        })
+        
+        closeDeskButton.addEventListener('click', e => {
+            studentDeskMenu.classList.add('hidden')
+            openDeskButton.classList.remove('hidden')
+            openDeskButtonEl.style.boxShadow = '0 0 10px lightskyblue'
+            openDeskButtonEl.style.backgroundColor = 'rgba(0, 0, 0, 0.25);'
+            openDeskButtonEl.style.backdropFilter = 'blur(4px)'
+        })
+        
+
+        const newNoteButton = document.getElementById('newNoteButton')
+        const newNoteEl = document.getElementById('newNoteEl')
+
+        newNoteButton.addEventListener('click', e => {
+            console.log(e.target)
+            console.log(e)
+            console.log('clicked NEW NOTE')
+            newNoteEl.classList.remove('hide')
+
+        })
+    });
+
+</script>

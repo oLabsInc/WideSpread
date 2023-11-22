@@ -1,0 +1,214 @@
+<style>
+    h6 {
+        text-align: center;
+    }
+    .item {
+        border-radius: 16px;
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        width: 90%;
+    }
+    .item-header {
+        border-bottom: solid 1px  lightskyblue;
+        text-align: center;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 50px;
+    }
+    .item-header h3 {
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+    }
+    .item-header h5 {
+        font-size: 1.2rem;
+    }
+    .item-header p {
+        color: #888;
+        margin-top: 10px;
+        font-size: 1rem;
+    }
+    .item-description {
+        margin: 0 auto;
+        margin-top: 10px;
+        padding: 8px;
+        padding-bottom: 15px;
+        border-bottom: solid 1px lightskyblue;
+        width: 90%;
+        margin-bottom: 20px;
+    }
+    .item-description h6 {
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+        color: lightskyblue;
+    }
+    .item-description p {
+        color: #fff;
+        padding: 10px;
+    }
+    .item-details {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+    .item-details-section {
+        margin-bottom: 30px;
+        background: rgba(0, 0, 0, 0.25);
+        border-top: outset 1px #fff;
+        border-bottom: outset 1px #fff;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-radius: 8px;
+        backdrop-filter: blur(4px);
+    }
+    .item-details-header {
+        text-align: center;
+        font-size: 1.2rem;
+        color: lightskyblue;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .item-details-body {
+        padding: 8px;
+        text-align: center;
+    }
+    .item-details-body p {
+        color: #fff;
+        text-align: left;
+    }
+    .supplier-link {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .supplier-link p {
+        margin-bottom: 5px;
+    }
+    .supplier-link a {
+        color: lightskyblue;
+        word-wrap: break-word;    
+    }
+    .edit-item {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .edit-item a {
+        font-size: 1.5rem;
+        color: #fff;
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.25);
+        box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.26), 0 0 10px rgba(255, 255, 255, 0.26), 0 0 3px lightskyblue;
+        padding: 10px;
+        border-radius: 8px;
+        
+    }
+</style>
+
+
+<div class="page-title">
+    <h2>Manage Store Item</h2>
+</div>
+
+
+
+<div class="item">
+    <div class="item-header">
+        <h3><%= storeItem.name %></h3>
+        <h5><%= storeItem.make %></h5>
+        <p><%= storeItem.model %></p>
+        <p><%= storeItem.sku %></p>
+        <p><%= storeItem.category %></p>
+    </div>
+
+    <div class="item-details">
+        <div class="item-details-section">
+            <div class="item-details-header">
+                <p>Description</p>
+            </div>
+            <div class="item-details-body">
+                <% if (storeItem.description) { %>
+                    <p><%= storeItem.description %></p>
+                <% } else { %>
+                    <p style="text-align: center;">No description for this item.</p>
+                <% } %>
+            </div>
+        </div>
+        <div class="item-details-section">
+            <div class="item-details-header">
+                <p>Price</p>
+            </div>
+            <div class="item-details-body">
+                <p>$<%= storeItem.price %>.00</p>
+            </div>
+        </div>
+
+        <div class="item-details-section">
+            <div class="item-details-header">
+                <p>Dimensions</p>
+            </div>
+            <div class="item-details-body">
+                <p>Width: <%= storeItem.dimensions.width %> <%= storeItem.dimensions.units %></p>
+                <p>Height: <%= storeItem.dimensions.height %> <%= storeItem.dimensions.units %></p>
+                <p>Depth: <%= storeItem.dimensions.depth %> <%= storeItem.dimensions.units %></p>
+            </div>
+        </div>
+
+        <div class="item-details-section">
+            <div class="item-details-header">
+                <p>Weight</p>
+            </div>
+            <div class="item-details-body">
+                <p>Total Weight: <%= storeItem.weight.value %> <%= storeItem.weight.units %></p>
+            </div>
+        </div>
+
+        <div class="item-details-section">
+            <div class="item-details-header">
+                <p>Supplier Details</p>
+            </div>
+            <div class="item-details-body">
+                <div class="supplier-link">
+                    <p>Supplier Website</p>
+                    <a href="<%= storeItem.supplier_website %>" target="_blank"><%= storeItem.supplier_website %></a>
+                </div>
+                <div class="supplier-link">
+                    <p>Product Website</p>
+                    <a href="<%= storeItem.product_webpage %>" target="_blank"><%= storeItem.product_webpage %></a>
+                </div>
+                <div class="supplier-link">
+                    <p>Product Webpage</p>
+                    <a href="<%= storeItem.product_webpage %>" target="_blank"><%= storeItem.product_webpage %></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="item-details-section">
+            <div class="item-details-header">
+                <p>Inventory Control</p>
+            </div>
+            <div class="item-details-body">
+                <p>In Stock: <%= storeItem.total %></p>
+                <p>Need: <%= storeItem.need %></p>
+                <p>Reorder when <%= storeItem.reorder_alert %> are in stock.</p>
+            </div>
+        </div>
+
+        <div class="item-details-section">
+            <div class="item-details-header">
+                <p>Images</p>
+            </div>
+            <div class="item-details-body">
+                <img src="<%= storeItem.product_image_url %>" alt="">
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div class="edit-item">
+        <a href="/business/admin/<%= companyId %>/manage/store/item/<%= storeItem.id %>/edit">Edit Item</a>
+    </div>
+</div>
+

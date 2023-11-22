@@ -1,0 +1,569 @@
+<style>
+    p {
+        color: #fff;
+    }
+    .show {
+        display: block;
+    }
+    .quiz-question {
+        display: none;
+    }
+    #quizContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-radius: 8px;
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 30px;
+
+    }
+    .question {
+        margin-top: 30px;
+    }
+    .question p {
+        color: lightskyblue;
+    }
+    .question-text {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+    }
+    .possible-answers {
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        padding: 10px;
+        border-radius: 8px;
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+    }
+    .possible-answers > div {
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+    }
+    .option1 label {
+        color: #fff;
+    }
+    .option2 label {
+        color: #fff;
+    }
+    .option3 label {
+        color: #fff;
+    }
+    .option4 label {
+        color: #fff;
+    }
+    .hide > button {
+        margin-top: 150px;
+        background: lime;
+        padding: 30px;
+        width: 100%;
+    }
+    .button {
+        display: none;
+    }
+    .hide {
+        display: none;
+    }
+    #handIn button {
+        padding: 10px;
+        border-radius: 8px;
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue;
+        outline: none;
+        border: none;
+        font-size: 1.4rem;
+        color: #fff;
+        margin-bottom: 30px;
+    }
+    .next-button {
+        width: 100%;
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .next-button button {
+        padding: 10px;
+        border-radius: 8px;
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue;
+        outline: none;
+        border: none;
+        font-size: 1.4rem;
+        color: #fff;
+    }
+    #output {
+        color: red;
+        font-size: 2rem;
+        text-align: center;
+    }
+    #gradeDisplay {
+    color: lightskyblue;
+    font-size: 4rem;
+    text-align: center;
+    padding: 20px;
+    }
+    .hidden {
+        display: none;
+    }
+</style>
+
+
+<div class="page-title">
+    <h2>Quiz</h2>
+    <h2><%= className.name %></h2>
+</div>
+<div id="quizContainer">
+        <% var quizLength = quiz.questions.length %>
+        <p>Total Questions: <%= quizLength %></p>
+        <% for (var i=0; i < quiz.questions.length; i++) { %>
+            <% var questionIndex = parseInt([i]) %>
+            <% var questionNumber = (questionIndex + 1) %>
+            <div class="quiz-question" id="question_<%= questionNumber %>">
+                <div class="question">
+                    <p>Question <span class="question-number"><%= questionNumber %></span></p>
+                    <p class="question-text"><%= quiz.questions[i].question %></p>
+                </div>
+                <div class="possible-answers" data-anwers-question-id="question_<%= questionNumber %>">
+
+                    <div class="option1">
+                        <input type="radio" name="options" value="1" id="">
+                        <label class=".answer-text" for=""><%= quiz.questions[i].options.option1.possible_answer %></label>
+                    </div>
+
+                    <div class="option2">
+                        <input type="radio" name="options" value="2" id="">
+                        <label class=".answer-text" for=""><%= quiz.questions[i].options.option2.possible_answer %></label>
+                    </div>
+
+                    <div class="option3">
+                        <input type="radio" name="options" value="3" id="">
+                        <label class=".answer-text" for=""><%= quiz.questions[i].options.option3.possible_answer %></label>
+                    </div>
+
+                    <div class="option4">
+                        <input type="radio" name="options" value="4" id="">
+                        <label class=".answer-text" for=""><%= quiz.questions[i].options.option4.possible_answer %></label>
+                    </div>
+
+                </div>
+                <div class="quiz-nav-buttons">
+
+                    <% var previousQuestion = questionNumber - 1%>
+                    <% var nextQuestion = questionNumber + 1 %>
+                    <% var correctAnswer = quiz.questions[i].answer %>
+                    
+                    <p style="display: none; color: lime" class="answer"><%= correctAnswer %></p>
+                    <p style="display: none;"><%= previousQuestion %></p>
+                    <p style="display: none;"><%= nextQuestion %></p>
+                    <% if ([i] < 1) { %>
+                        <div class="next-button hidden" data-anwers-question-id="question_<%= questionNumber %>">
+                            <button  class="next-btn" onclick="nextQuestion(<%= nextQuestion %>)">Next</button>
+                        </div>
+                    <% } else { %>
+                        <% if ([i] === quiz.questions.length) { %>
+
+                            <% } else { %>
+                                <% if (quizLength = 0 ) { %>
+
+                                <% } else { %>
+                                    <div class="next-button hidden" data-anwers-question-id="question_<%= questionNumber %>">
+                                        <button class="next-btn" onclick="nextQuestion(<%= nextQuestion %>)">Next</button>
+                                    </div>
+]
+                                <% } %>
+                        <% } %>
+                    <% } %>
+                </div>
+
+                <!-- End of Current Question -->
+            </div>
+
+            <% } %>
+            <div id="gradeDisplay"></div>
+    <form id="handIn" action="/academy/course/<%= course.id %>/class/<%= className.id %>/quiz/<%= quiz.id %>/submit" method="post">
+        <input type="number" id="grade" name="grade" placeholder="Grade" hidden>
+        <button class="button" type="submit">Hand In Quiz</button>
+    </form>
+</div>
+<span id="totalQuestionsAnswered" style="color: purple; font-size: 2rem; display: none;"></span>
+
+<script>
+    let allQuestions = []
+    const quizContainer = document.getElementById('quizContainer')
+    const questionsList = quizContainer.querySelectorAll('.quiz-question')
+    const nextButton = document.querySelector('.next-button')
+    const gradeDisplay = document.querySelector('#gradeDisplay')
+    questionsList.forEach(question => {
+        const correctAnswer = question.querySelector('.answer').innerText
+        const thisQuestionNumber = question.querySelector('.question-number').innerText
+        const addQuestion = {
+            "question_number": thisQuestionNumber,
+            "correct_answer": correctAnswer
+        }
+        allQuestions.push(addQuestion)
+        console.log('All Questions (In Loop): ' + addQuestion.question_number + ' - ' + addQuestion.correct_answer)
+    })
+    console.table(allQuestions)
+    console.log('allQuestions.length: ' + allQuestions.length)
+
+
+
+
+    let answeredQuestions = [];
+    let currentQuestion = allQuestions[0]
+    currentQuestion = document.getElementById(`question_${currentQuestion.question_number}`)
+    console.log(currentQuestion)
+    currentQuestion.setAttribute('class', '.quiz-question .current-question')
+    let currentQuestionId = currentQuestion.querySelector('.question-number')
+    let currentQuestionNumber = currentQuestionId.innerText
+    const quizGrade = document.querySelector('#grade')
+    console.log('Answered Questions: ' + answeredQuestions.length)
+    console.log('Total Questions: ' + allQuestions.length)
+    const totalQuestionCount = allQuestions.length
+    const totalAnsweredElem = document.querySelector('#totalQuestionsAnswered')
+
+
+            console.log(quizContainer)
+            const allQuestionOptionsLists = quizContainer.querySelectorAll('.possible-answers')
+            console.log(allQuestionOptionsLists)
+
+            const allNextButtons = quizContainer.querySelectorAll('.next-button')
+            
+            const allQuestionsEls = quizContainer.querySelectorAll('.quiz-question')
+            allQuestionsEls.forEach(questionEl => {
+                const questionId = questionEl.getAttribute('id')
+                allNextButtons.forEach(nextBtn => {
+                    const nextBtnId = nextBtn.getAttribute('data-anwers-question-id')
+                    console.log(nextBtnId)
+                    allQuestionOptionsLists.forEach(optionsList => {
+                        const optionsListId = optionsList.getAttribute('data-anwers-question-id')
+                        console.log(optionsListId)
+                        if (optionsListId === nextBtnId) {
+                            console.log("MATCH")
+                            console.log(optionsList)
+                            console.log(nextBtn)
+                            const allOptions = optionsList.querySelectorAll('input')
+                            allOptions.forEach(option => {
+                                console.log(option)
+                                option.addEventListener('click', e => {
+                                    nextBtn.classList.remove('hidden')
+                                })
+                            })
+                        }
+                    })
+
+                })
+                console.log(questionId)
+
+            })
+
+            console.log(currentQuestionNumber)
+    function nextQuestion(question) {
+        
+
+ 
+        const submitQuizBtn = document.querySelector('.button')
+        console.log(submitQuizBtn)
+        const correctAnswer = currentQuestion.querySelector('.answer').innerText
+        const thisQuestion = currentQuestion.querySelector('.question-number').innerText
+        
+        const possibleAnswers = currentQuestion.querySelectorAll('input[type="radio"]')
+        const output = document.getElementById('output')
+        console.log(question)
+            let selectedAnswer;
+            for (const possibleAnswer of possibleAnswers) {
+                if (possibleAnswer.checked) {
+                    selectedAnswer = possibleAnswer.value;
+                    console.log('Selected Answer: ' + selectedAnswer)
+                } 
+                if (selectedAnswer != null) {
+                    const nxtBtn = nextButton.querySelector('button')
+              
+                    nxtBtn.classList.remove('hide')
+                }
+            }
+            // show the output:
+            
+            if (typeof selectedAnswer === 'undefined') {
+                let nextQuestionNumber = (parseInt(thisQuestion) + 1)
+                console.log('Next Question: ' + nextQuestionNumber)
+                console.log(nextQuestionNumber)
+                currentQuestion.setAttribute('class', '.quiz-question')
+                currentQuestion.setAttribute('style', 'display: none')
+                currentQuestion = document.getElementById(`question_${nextQuestionNumber}`)
+                currentQuestion.setAttribute('class', '.quiz-question .current-question')
+                currentQuestion.setAttribute('style', 'display: block')
+            } else { 
+            if (selectedAnswer === correctAnswer) {
+                const answer = {
+                    "question_number": thisQuestion,
+                    "selected": selectedAnswer,
+                    "correct_answer": correctAnswer,
+                    "correct": 1
+                }
+
+                answeredQuestions.push(answer)
+                totalAnsweredElem.innerText = answeredQuestions.length
+
+                console.table(answeredQuestions)
+                if (answeredQuestions.length === allQuestions.length) {
+                    submitQuizBtn.classList.remove('hide')
+                    currentQuestion.setAttribute('style', 'display: none')
+                    submitQuizBtn.classList.remove('button')
+                    let correctAnswers = 0
+                    const totalCorrect = answeredQuestions.forEach(answer => {
+                        if (answer.correct === 1) {
+                            correctAnswers++
+                        }
+                    })
+                    console.log('correctAnswers: ' + correctAnswers)
+                    const totalQuestions = allQuestions.length
+                    console.log('totalQuestion: ' + totalQuestions)
+                    const gradePercent = (correctAnswers / totalQuestions) * 100
+                    console.log('Grade Percent: ' + gradePercent)
+                    const grade = parseFloat(gradePercent).toFixed(0) + "%"
+                    console.log('Grade: ' + grade)
+                    quizGrade.value = parseFloat(gradePercent).toFixed(0)
+                    console.log(submitQuizBtn)
+                    gradeDisplay.innerText = grade
+                } else {
+                    let nextQuestionNumber = (parseInt(thisQuestion) + 1)
+                    console.log('Next Question: ' + nextQuestionNumber)
+                    console.log(nextQuestionNumber)
+                    currentQuestion.setAttribute('class', '.quiz-question')
+                    currentQuestion.setAttribute('style', 'display: none')
+                    currentQuestion = document.getElementById(`question_${nextQuestionNumber}`)
+                    currentQuestion.setAttribute('class', '.quiz-question .current-question')
+                    currentQuestion.setAttribute('style', 'display: block')
+                }
+            } else if (selectedAnswer != correctAnswer) {
+                const answer = {
+                    "question_number": thisQuestion,
+                    "selected": selectedAnswer,
+                    "correct_answer": correctAnswer,
+                    "correct": 0
+                }
+
+                answeredQuestions.push(answer)
+                totalAnsweredElem.innerText = answeredQuestions.length
+
+                console.table(answeredQuestions)
+                if ( answeredQuestions.length === allQuestions.length) {
+                    submitQuizBtn.classList.remove('hide')
+                    currentQuestion.setAttribute('style', 'display: none')
+                    submitQuizBtn.classList.remove('button')
+                    let correctAnswers = 0
+                    const totalCorrect = answeredQuestions.forEach(answer => {
+                        if (answer.correct === 1) {
+                            correctAnswers++
+                        }
+                    })
+                    console.log('correctAnswers: ' + correctAnswers)
+                    const totalQuestions = allQuestions.length
+                    console.log('totalQuestion: ' + totalQuestions)
+                    const gradePercent = (correctAnswers / totalQuestions) * 100
+                    console.log('Grade Percent: ' + gradePercent)
+                    const grade = parseFloat(gradePercent).toFixed(0) + "%"
+                    console.log('Grade: ' + grade)
+                    quizGrade.value = parseFloat(gradePercent).toFixed(0)
+                    console.log(submitQuizBtn)
+                    gradeDisplay.innerText = grade
+                } else {
+                    let nextQuestionNumber = (parseInt(thisQuestion) + 1)
+                    console.log('Next Question: ' + nextQuestionNumber)
+                    console.log(nextQuestionNumber)
+                    currentQuestion.setAttribute('class', '.quiz-question')
+                    currentQuestion.setAttribute('style', 'display: none')
+                    currentQuestion = document.getElementById(`question_${nextQuestionNumber}`)
+                    currentQuestion.setAttribute('class', '.quiz-question .current-question')
+                    currentQuestion.setAttribute('style', 'display: block')
+                }
+            }
+        }
+
+    }
+
+
+
+
+    function previousQuestion(question) {
+        const submitQuizBtn = document.querySelector('.button')
+        console.log(submitQuizBtn)
+        const correctAnswer = currentQuestion.querySelector('.answer').innerText
+        const thisQuestion = currentQuestion.querySelector('.question-number').innerText
+
+        const possibleAnswers = currentQuestion.querySelectorAll('input[type="radio"]')
+        const output = document.getElementById('output')
+        console.log(question)
+        let selectedAnswer;
+        for (const possibleAnswer of possibleAnswers) {
+            if (possibleAnswer.checked) {
+                selectedAnswer = possibleAnswer.value;
+                console.log('Selected Answer: ' + selectedAnswer)
+            }
+        }
+        // show the output:
+        output.innerText = selectedAnswer ? `You selected ${selectedAnswer}` : `You haven't selected an answer. ${selectedAnswer}`;
+        if (typeof selectedAnswer === 'undefined') {
+            let prevQuestionNumber = (parseInt(thisQuestion) - 1)
+            console.log('Next Question: ' + prevQuestionNumber)
+            console.log(prevQuestionNumber)
+            currentQuestion.setAttribute('class', '.quiz-question')
+            currentQuestion.setAttribute('style', 'display: none')
+            currentQuestion = document.getElementById(`question_${prevQuestionNumber}`)
+            currentQuestion.setAttribute('class', '.quiz-question .current-question')
+            currentQuestion.setAttribute('style', 'display: block')
+        } else { 
+        if (selectedAnswer === correctAnswer) {
+            const answer = {
+                "question_number": thisQuestion,
+                "selected": selectedAnswer,
+                "correct_answer": correctAnswer,
+                "correct": 1
+            }
+            if (thisQuestion && !selectedAnswer) {
+                console.log('Not Answered')
+                totalAnsweredElem.innerText = answeredQuestions.length
+                
+                console.table(answeredQuestions)
+            } else {
+                console.log('Answered')
+                answeredQuestions.push(answer)
+                totalAnsweredElem.innerText = answeredQuestions.length
+
+                console.table(answeredQuestions)
+            }
+            if (answeredQuestions.length === allQuestions.length) {
+                submitQuizBtn.classList.remove('hide')
+                currentQuestion.setAttribute('style', 'display: none')
+                submitQuizBtn.classList.remove('button')
+                let correctAnswers = 0
+                const totalCorrect = answeredQuestions.forEach(answer => {
+                    if (answer.correct === 1) {
+                        correctAnswers++
+                    }
+                })
+                console.log('correctAnswers: ' + correctAnswers)
+                const totalQuestions = allQuestions.length
+                console.log('totalQuestion: ' + totalQuestions)
+                const gradePercent = (correctAnswers / totalQuestions) * 100
+                console.log('Grade Percent: ' + gradePercent)
+                const grade = parseFloat(gradePercent).toFixed(0) + "%"
+                console.log('Grade: ' + grade)
+                quizGrade.value = parseFloat(gradePercent).toFixed(0)
+                console.log(submitQuizBtn)
+            } else {
+                let prevQuestionNumber = (parseInt(thisQuestion) - 1)
+                console.log('Next Question: ' + prevQuestionNumber)
+                console.log(prevQuestionNumber)
+                currentQuestion.setAttribute('class', '.quiz-question')
+                currentQuestion.setAttribute('style', 'display: none')
+                currentQuestion = document.getElementById(`question_${prevQuestionNumber}`)
+                currentQuestion.setAttribute('class', '.quiz-question .current-question')
+                currentQuestion.setAttribute('style', 'display: block')
+            }
+        } else if (selectedAnswer != correctAnswer) {
+            const answer = {
+                "question_number": thisQuestion,
+                "selected": selectedAnswer,
+                "correct_answer": correctAnswer,
+                "correct": 0
+            }
+            if (thisQuestion && !selectedAnswer) {
+                console.log('Not Answered')
+                totalAnsweredElem.innerText = answeredQuestions.length
+                
+                console.table(answeredQuestions)
+            } else {
+                console.log('Answered')
+                answeredQuestions.push(answer)
+                totalAnsweredElem.innerText = answeredQuestions.length
+
+                console.table(answeredQuestions)
+            }
+            if (answeredQuestions.length === allQuestions.length) {
+                submitQuizBtn.classList.remove('hide')
+                currentQuestion.setAttribute('style', 'display: none')
+                submitQuizBtn.classList.remove('button')
+                let correctAnswers = 0
+                const totalCorrect = answeredQuestions.forEach(answer => {
+                    if (answer.correct === 1) {
+                        correctAnswers++
+                    }
+                })
+                console.log('correctAnswers: ' + correctAnswers)
+                const totalQuestions = allQuestions.length
+                console.log('totalQuestion: ' + totalQuestions)
+                const gradePercent = (correctAnswers / totalQuestions) * 100
+                console.log('Grade Percent: ' + gradePercent)
+                const grade = parseFloat(gradePercent).toFixed(0) + "%"
+                console.log('Grade: ' + grade)
+                quizGrade.value = parseFloat(gradePercent).toFixed(0)
+                console.log(submitQuizBtn)
+            } else {
+                let prevQuestionNumber = (parseInt(thisQuestion) - 1)
+                console.log('Next Question: ' + prevQuestionNumber)
+                console.log(prevQuestionNumber)
+                currentQuestion.setAttribute('class', '.quiz-question')
+                currentQuestion.setAttribute('style', 'display: none')
+                currentQuestion = document.getElementById(`question_${prevQuestionNumber}`)
+                currentQuestion.setAttribute('class', '.quiz-question .current-question')
+                currentQuestion.setAttribute('style', 'display: block')
+            }
+        }
+    }
+    }
+</script>
+
+<!-- 
+<script>
+
+    const startButton = document.getElementById('start-btn');
+    const questionContainerElement = document.getElementById('quizContainer')
+    startButton.addEventListener('click', startGame)
+    const questionElement = document.getElementsByClassName('question-text')
+
+
+    let shuffledQuestions, currentQuestionIndex
+
+
+
+    function startGame() {
+        console.log("Started")
+        startButton.classList.add('hide')
+        shuffledQuestions = allQuestions.sort(() => Math.random() - .5)
+        currentQuestionIndex = 0;
+        questionContainerElement.classList.remove('hide')
+
+        setNextQuestion()
+    }
+
+    function setNextQuestion() {
+        showQuestion(shuffledQuestions[currentQuestionIndex])
+    }
+
+    function showQuestion(question) {
+        let questionContainer = document.querySelector('.quiz-question')
+
+        questionContainer.classList.remove('quiz-question')
+        questionElement.innerText = question.question_text
+
+    }
+
+    function selectAnswer() {
+
+    }
+
+ 
+</script> -->

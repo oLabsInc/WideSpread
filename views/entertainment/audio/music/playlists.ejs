@@ -1,0 +1,125 @@
+<style>
+    .back-to-music {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+    .back-to-music a {
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue;
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.2rem;
+
+    }
+    .playlist {
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .playlist a {
+        padding: 10px;
+        border-radius: 8px;    
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue;
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.2rem;
+        margin-bottom: 50px;
+    }
+    .create-new-playlist h3 {
+        text-align: center;
+        font-size: 1.4rem;
+    }
+    .create-new-playlist form {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        border-radius: 8px;
+        padding: 10px;
+        padding-bottom: 20px;
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+    }
+    .create-new-playlist button {
+        color: #fff;
+        font-size: 1.2rem;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue;
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+        padding: 10px;
+        border-radius: 8px;
+
+    }
+    .input-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+    .input-group p {
+        text-align: center;
+        color: #fff;
+        font-size: 1.2rem;
+        padding: 10px;
+    }
+    .input-group input {
+        width: 90%;
+        border-radius: 8px;
+        padding: 5px;
+        outline: none;
+        border: none;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue;
+        background: rgba(135, 206, 250, 0.25);
+        color: #fff;
+    }
+
+</style>
+
+<div class="back-to-music">
+    <a href="/entertainment/audio/music">Back to Music</a>
+</div>
+
+<div class="page-title">
+    <h2>Your Playlists</h2>
+</div>
+
+<div class="playlists">
+    <% if (!playlists) { %>
+        <form action="/entertainment/audio/music/playlist/create-alone" method="post">
+            <div class="input-group">
+                <p>Playlist Name</p>
+                <input type="text" name="name" placeholder="Playlist Name">
+            </div>
+            <button type="submit">Create Playlist</button>
+        </form>
+    <% } else { %>
+        <% playlists.forEach(function(playlist) { %>
+            <div class="playlist">
+                <a href="/entertainment/audio/music/playlist/<%= playlist.id %>"><%= playlist.name %></a>
+            </div>
+        <% }) %>
+    <% } %>
+</div>
+
+<div class="create-new-playlist">
+    <form action="/entertainment/audio/music/playlist/create-alone" method="post">
+            <h3>Create New Playlist</h3>
+            <div class="input-group">
+                <p>Playlist Name</p>
+                <input type="text" name="name" placeholder="Playlist Name">
+            </div>
+            <button type="submit">Create Playlist</button>
+        </form>
+</div>

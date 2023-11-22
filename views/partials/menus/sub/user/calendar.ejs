@@ -1,0 +1,19 @@
+<style>
+    #settingsMenu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        overflow-x: auto;
+    }
+
+</style>
+
+
+<div id="settingsMenu" class="sub-zone-page-menu">
+    <div class="menu-item <%= subZonePage=='Home' ? 'menu-link active' : 'menu-link' %>"><a href="/users/calendar">Home</a></div>
+    <div class="menu-item <%= subZonePage=='Upcoming Events' ? 'menu-link active' : 'menu-link' %>"><a href="/users/calendar/upcoming">Upcoming</a></div>
+    <div class="menu-item <%= subZonePage=='Tentative Plans' ? 'menu-link active' : 'menu-link' %>"><a href="/users/calendar/tentative">Tentative</a></div>
+    <div class="menu-item <%= subZonePage=='Business Schedule' ? 'menu-link active' : 'menu-link' %>"><a href="/users/calendar/business">Business</a></div>
+    <div class="menu-item <%= subZonePage=='Shared with You' ? 'menu-link active' : 'menu-link' %>"><a href="/users/calendar/friends">Friends</a></div>
+    <div class="menu-item <%= subZonePage=='Help' ? 'menu-link active' : 'menu-link' %>"><a href="/users/calendar/help">Help</a></div>
+</div>

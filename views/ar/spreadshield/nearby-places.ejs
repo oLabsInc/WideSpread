@@ -1,0 +1,84 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Style -->
+    <!-- <link rel="stylesheet" href="./frontend/overlay-style.css" /> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" href="/images/system/widespread_logo_1a1a1a.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Gruppo&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,100&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/080e00a6ec.js" crossorigin="anonymous"></script>
+
+    <!-- jQuery -->
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+    <!-- aframe -->
+    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+
+    <!-- aFrame - html-embed  -->
+    <script src="https://supereggbert.github.io/aframe-htmlembed-component/dist/build.js"></script>
+    <!-- ARjs -->
+    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+    <!-- aFrame html-shader -->
+    <script src="https://unpkg.com/aframe-html-shader@0.5.0/dist/aframe-html-shader.min.js"></script>
+
+    <title>WideSpread AR</title>
+</head>
+
+<body
+    style='margin: 0; overflow: hidden; backface-visibility: visible; background: black; opacity: 0.8;'>
+
+
+
+<%- include('../../partials/layout/core-menu-ar'); %>
+
+
+    <!--  AR START -->
+
+    <!--  CELL PHONE SIZES START -->
+
+
+    <!--  
+
+3840x2160 (4K UHD) (60 fps), 1920x1080 (Full HD) (240 fps), 1280x720 (HD) (960 fps)
+Note 10+ - 2930x1440
+
+-->
+
+
+    <!--  CELL PHONE SIZES END -->
+
+    <a-scene style="background: transparent; backface-visibility: visible;"
+        loading-screen="dotsColor: lightskyblue; backgroundColor: black" vr-mode-ui="enabled: true"
+        arjs='sourceType: webcam; sourceWidth:3840; sourceHeight:2160; displayWidth: 2930; displayHeight: 1440; debugUIEnabled: false;'
+        inspector="url: https://cdn.jsdelivr.net/gh/aframevr/aframe-inspector@master/dist/aframe-inspector.min.js">
+        <!-- WideSpread Matrix -->
+        <a-camera gps-camera rotation-reader>
+        </a-camera>
+
+        <!-- Businesses Appear Below -->
+
+
+
+        <!-- WideSpread Matrix -->
+    </a-scene>
+
+
+    <!-- AR END  -->
+
+    <!-- Background Audio -->
+
+
+    <script src="/spreadshield-markers.js"></script>
+</body>
+
+</html>

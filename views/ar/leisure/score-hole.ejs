@@ -1,0 +1,513 @@
+<style>
+    #caddyContainer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 99999;
+        background-color: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(4px);
+        border-top-right-radius: 16px;
+        padding: 8px;
+        border-top: outset 2px rgba(255, 255, 255, 0.5);
+        border-right: outset 2px rgba(255, 255, 255, 0.5);
+        font-family: 'Gruppo', cursive;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 50vw;
+    }
+    .caddy-header {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        width: 90%;
+    }
+    .caddy-header p {
+        width: 50%;
+        text-align: center;
+        font-size: 1.8rem;
+        font-weight: bold;
+        text-shadow: 0 0 2px #000;
+        margin: 0;
+        
+    }
+    .caddy-header p:last-of-type {
+        margin-left: 10px;
+    }
+    .caddy-body {
+        margin-top: 15px;
+        border-top: solid 1px #fff;
+        padding: 2px;
+    }
+    .yards-to-pin {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px;
+        margin-top: 10px;
+        position: relative;
+    }
+    .yards-to-pin h5 {
+        text-align: center;
+        font-size: 1.5rem;
+        color: #fff;
+        margin: 0;
+    }
+
+    .caddy-score form {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+    .caddy-score-item {
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .caddy-score-item label {
+        width: 50%;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin: 0;
+        padding: 5px;
+        padding-right: 2px;
+    }
+    .caddy-score-item input {
+        width: 30%;
+        padding: 5px;
+        outline: none;
+        border: none;
+        border-radius: 4px;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        color: #fff;
+        box-shadow: inset 0 0 3px lime;
+    }
+    .caddy-score-item input::placeholder {
+        color: green;
+    }
+    .caddy-score button {
+        width: 20%;
+        outline: none;
+        border: none;
+        border-radius: 8px;
+        background-color: green;
+        color: #fff;
+        font-size: 1rem;
+        padding: 5px;
+    }
+    .all-holes {
+        position: fixed;
+        top: 52px;
+        left: 0;
+        width: 100vw;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+        overflow-x: scroll;
+        z-index: 99998;
+        padding-left: 10px;
+        display: none;
+    }
+    .hole {
+
+        background-color: lime;
+        margin-right: 10px;
+    }
+    .hole p {
+        font-size: 1.3rem;
+        color: #fff;
+    }
+    .current-score {
+        position: fixed;
+        top: 50px;
+        left: 0;
+        width: 100vw;
+        overflow-x: auto;
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(4px);
+        z-index: 95000;
+    
+    }
+    .current-score table {
+        width: 100%;
+        border-collapse: collapse;
+        position: relative;
+    }
+    .current-score tr {
+        position: relative;
+    }
+    .current-score td {
+        border-left: solid 1px #fff;
+        border-bottom: solid 1px #fff;
+        color: #fff;
+        text-shadow: 0 0 2px #000;
+        font-size: 1.3rem;
+        font-weight: bold;
+        text-align: center;
+        position: relative;
+        font-family: 'Gruppo', cursive;
+    }
+    .current-score td a {
+        color: #fff;
+        text-decoration: none;
+    }
+    .current-score td:first-of-type {
+        text-align: left;
+        border-left: none;
+    }
+    .current-score td:last-of-type {
+        border-right: solid 1px #fff;
+    }
+    #total {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 75px;
+    }
+    .total {
+        width: 75px;
+    }
+    .active {
+        display: block;
+    }
+    .inactive {
+        display: none;
+    }
+
+
+    .formContainer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: lime;
+        z-index: 99998;
+        display: none;
+    }
+    .formContainer form {
+        position: relative;
+        z-index: 99999;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    #switchMeasurements {
+        font-size: 2rem;
+    }
+    #refreshPage {
+        background-color: green;
+        padding: 5px;
+        width: 50px;
+        height: 50px;
+        border: none;
+        outline: none;
+        border-radius: 50%;
+        color: #fff;
+        position: absolute;
+        left: 50px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    #refreshPage i {
+        font-size: 2rem;
+    }
+</style>
+
+
+<a-assets>
+    <img id="tee" src="/images/system/ar/tee-off_1a1a1a.png" alt="">
+    <img id="flag" src="/images/system/ar/flag_1a1a1a.png" alt="">
+    <img id="hole" src="/images/system/ar/hole_number_background_1a1a1a.png" alt="" style="filter: drop-shadow(0 0 4px lightskyblue);">
+</a-assets>
+
+
+
+<a-entity gps-entity-place='latitude: <%= hole.tees[0].ll.lat %>; longitude: <%= hole.tees[0].ll.long %>;' scale='3 3 3' look-at="#camera" position="0 5 0">
+    <a-text align='right' value="Hole <%= hole.hole_number %>" scale="3 3 3" color="lightskyblue"></a-text>
+    <a-text align='center' value="Par <%= hole.par %>" scale="1 1 1" color="#fff"></a-text>
+    <a-image src="#hole" position="0 0 0" width="2" height="2"></a-image>
+</a-entity>
+
+
+<% hole.tees.forEach(function(tee) { %>
+    <a-entity gps-entity-place='latitude: <%= tee.ll.lat %>; longitude: <%= tee.ll.long %>' scale='3 3 3' look-at="#camera">
+        <a-text align='center' value="<%= tee.color %>" scale="2 2 2" color="<%= tee.color %>" position="0 1.5 0.2"></a-text>
+        <a-image src="#tee" position="0 0 0" width="2" height="2"></a-image>
+    </a-entity>
+<% }) %>
+
+
+    <a-entity id="currentPin" gps-entity-place='latitude: <%= hole.pin.lat %>; longitude: <%= hole.pin.long %>' scale='3 3 3' distanceMsg look-at="#camera">
+        <a-image src="#flag" position="0 0 0" width="1" height="4"></a-image>
+    </a-entity>
+
+
+
+    <div id="caddyContainer">
+        <div class="caddy-header">
+            <% var holeNumber = hole.hole_number %>
+            <% var scoreIndex = holeNumber + 1 %>
+            <p style="color: <%= teeColor %>">Hole <%= holeNumber %></p>
+            <p style="color: <%= teeColor %>; border-left: solid 2px <%= teeColor %>">Par <%= hole.par %></p>
+            
+
+
+
+            <p style="display: none;" id="currentLat"></p>
+            <p style="display: none;" id="currentLong"></p>
+        </div>
+        <div class="caddy-body">
+            <div class="yards-to-pin">
+                <i id="switchMeasurements" style="color: lightskyblue;" class="fas fa-exchange-alt"></i>
+                <h5 id="yardsToPin"></h5>
+                <h5 id="feetToPin"></h5>
+            </div>
+            <div class="caddy-score">
+                <form action="/ar/sports/golf/courses/view/<%= courseId %>/round/<%= scoreCardId %>/holes/<%= hole.id %>/tee/color/<%= teeColor %>/add-score?_method=PATCH" method="post">
+                    <div class="caddy-score-item">
+                        <label for="strokes">Strokes:</label>
+                            <input type="number" name="strokes" id="strokes" placeholder="#">
+                    </div>
+                    <input type="text" name="last_hole" value="<%= lastHole %>" hidden>
+                    <input type="text" name="next_hole" id="nextHoleEl" hidden>
+                    <button type="submit">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="current-score">
+        <table>
+            <thead>
+                <tr>
+                    <td>Hole</td>
+                    <% holes.forEach(function(hole, index) { %>
+                        <td class="holeScoreUpdateButton" data-id="<%= hole.id %>">
+                            <a href="/ar/sports/golf/courses/view/<%= courseId %>/round/<%= scoreCardId %>/holes/<%= hole.id %>/tee/color/<%= teeColor %>"><%= hole.hole_number %></a>                                    
+                        </td>
+                        <% }) %>
+                        <td class="total">Total</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><%= score.player_name %></td>
+                        <% score.holes.forEach(function(hole, index) { %>
+                            <td class="strokes"><%= hole.strokes %></td>
+                    <% }) %>
+                    <td id="total"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="all-holes">
+        <% allHoles.forEach(function(hole) { %>
+            <div class="hole">
+                <p><%= hole.hole_number %></p>
+                <p><%= hole.id %></p>
+            </div>
+        <% }) %>
+    </div>
+
+
+ 
+    <script>
+
+        window.onload = () => {
+            setTimeout(function () {
+                console.log("Waited for 3 seconds...");
+           
+
+                    let distanceMsg = document.getElementById('currentPin').getAttribute('distancemsg');
+        console.log('Distance From Pin: ', distanceMsg); 
+            const string = distanceMsg;
+            const substring = "kilometers";
+            console.log(string.includes(substring));
+
+            let yardsToPinEl = document.getElementById('yardsToPin')
+            let feetToPinEl = document.getElementById('feetToPin')
+            
+            if (string.includes(substring) === true) {
+                console.log("THIS IS KM MULTIPLY BY 1000")
+                const metersFromPin = parseInt(distanceMsg) * 1000
+                const converterForYards = 1.0936133
+                let yards = metersFromPin * converterForYards
+                console.log('Yards to pin: ', yards)
+                let feet = yards * 3
+                yardsToPinEl.innerText = Math.trunc(yards) + ' yds'
+                feetToPinEl.innerText = Math.trunc(feet) + ' ft'
+                yardsToPinEl.classList.add('active')
+                feetToPinEl.classList.add('inactive')
+                
+                let switchMeasurements = document.getElementById('switchMeasurements')
+                switchMeasurements.addEventListener('click', () => {
+                    console.log('click')
+                    toggleClass()
+
+                })
+
+            } else {
+                const metersFromPin = parseInt(distanceMsg)
+                const converterForYards = 1.0936133
+                let yards = metersFromPin * converterForYards
+                console.log('Yards to pin: ', yards)
+                const yardsToPinEl = document.getElementById('yardsToPin')
+                if (isNaN(yards) || (yards === " ")) {
+                    console.log('NaN - DO SOMETHING HERE')
+                    console.log('APPEND REFRESH PAGE BUTTON')
+                    // window.location.reload()
+                    let refreshButtonEl = document.createElement('div')
+                    let refreshButton = document.createElement('button')
+                    refreshButton.setAttribute('id', 'refreshPage')
+                    refreshButton.innerHTML = `<i class="fas fa-redo"></i>`
+                    refreshButtonEl.appendChild(refreshButton)
+                    yardsToPinEl.appendChild(refreshButtonEl)
+                    let refreshPageBtn = document.getElementById('refreshPage')
+                    refreshPageBtn.addEventListener('click', () => {
+                        console.log('click')
+                        window.location.reload()
+
+                    })
+
+
+                } else {
+                    yardsToPinEl.innerText = Math.trunc(yards) + ' yds'
+                    let feet = yards * 3
+                    yardsToPinEl.classList.add('active')
+                    yardsToPinEl.innerText = Math.trunc(yards) + ' yds'
+                    feetToPinEl.innerText = Math.trunc(feet) + ' ft'
+                    yardsToPinEl.classList.add('active')
+                    feetToPinEl.classList.add('inactive')
+
+                    let switchMeasurements = document.getElementById('switchMeasurements')
+                    switchMeasurements.addEventListener('click', () => {
+                        console.log('click')
+                        toggleClass()
+
+                    })
+                }
+            }
+
+
+                function toggleClass() {
+                    if (yardsToPinEl.classList.contains('active')) {
+                        yardsToPinEl.classList.remove('active');
+                        yardsToPinEl.classList.add('inactive');
+                        feetToPinEl.classList.add('active');
+                        feetToPinEl.classList.remove('inactive');
+                    } else {
+                        yardsToPinEl.classList.add('active');
+                        yardsToPinEl.classList.remove('inactive');
+                        feetToPinEl.classList.remove('active');
+                        feetToPinEl.classList.add('inactive');
+                    }
+                }
+             }, 3000);
+
+
+            let position = navigator.geolocation.getCurrentPosition(
+                function (position) {
+
+                    console.log('Latitude: ', position.coords.latitude)
+                    console.log('Longitude: ', position.coords.longitude)
+                    const currentLat = position.coords.latitude
+                    const currentLong = position.coords.longitude
+        
+                    const currentLatString = currentLat.toString()
+                    const currentLongString = currentLong.toString()
+                    
+                    const currentLatEl = document.getElementById('currentLat')
+                    currentLatEl.innerText = currentLatString
+                    const currentLongEl = document.getElementById('currentLong')
+                    currentLongEl.innerText = currentLongString
+                    console.log(currentLatString)
+                    console.log(currentLongString)
+                }
+
+            )
+            
+        }
+        
+
+
+
+        let holes = []
+        const allHolesEl = document.querySelectorAll('.hole')
+        console.log(allHolesEl)
+        allHolesEl.forEach(hole => {
+            console.log(hole)
+            let holeData = hole.querySelectorAll('p')
+            holeData.forEach(data => {
+                console.log(data.innerText)
+
+            })
+            const holeObject = {
+                hole_number: holeData[0].innerText,
+                hole_id: holeData[1].innerText,
+            }
+            holes.push(holeObject)
+            
+        })
+        const currentHole = <%- holeNumber %>;
+        holes.forEach((hole, index) => {
+            const thisHole = parseInt(hole.hole_number)
+            console.log((index+1).toString())
+            console.log(currentHole.toString())
+            const currentHoleString = currentHole.toString()
+            if (currentHole === (thisHole)) {
+                console.log('THIS IS CURRENT HOLE', currentHole)
+                console.log('HOLE ID: ', hole.hole_id)
+                const nextHole = (currentHole + 1).toString()
+                console.log('NEXT HOLE INDEX: ', nextHole)
+
+                console.log('NEXT HOLE: ', nextHole)
+                const nextHoleIndex = parseInt(currentHole)
+                console.log(nextHole)
+                if (holes[nextHoleIndex]) {
+
+                    const nextHoleId = holes[nextHoleIndex].hole_id
+                    const nextHoleEl = document.getElementById('nextHoleEl')
+                    nextHoleEl.setAttribute('value', nextHoleId)
+                    console.log(holes[nextHoleIndex].hole_id)
+                }
+            }
+
+        })
+        console.table(holes)
+
+        let totalStrokes = []
+
+        const strokeElems = document.querySelectorAll('.strokes')
+        strokeElems.forEach(stroke => {
+            const strokeNumber = parseInt(stroke.innerText)
+            totalStrokes.push(strokeNumber)
+        })
+
+        const totalScore = totalStrokes.reduce((total, stroke) => {
+            return total + stroke
+        }, 0)
+        console.log(totalScore)
+        const totalScoreEl = document.getElementById('total')
+        totalScoreEl.innerText = totalScore
+    </script>

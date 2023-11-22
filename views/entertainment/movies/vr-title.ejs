@@ -1,0 +1,56 @@
+<style>
+    #coreMenu {
+        opacity: 0;
+        transition: ease-in 0.5s;
+    }
+    #coreMenu:hover {
+        opacity: 1;
+        transition: ease-in 2s;
+    }
+    #coreData {
+        opacity: 0;
+        transition: ease-in 0.5s;
+    }
+    #coreData:hover {
+        opacity: 1;
+        transition: ease-in 2s;
+    }
+    #coreContainer {
+        min-height: 100vh;
+        overflow: hidden;
+    }
+
+    body, html {
+        overflow: hidden;
+    }
+    iframe {
+        opacity: 1;
+        width: 100vw;
+        max-height: 105vh;
+        height: 105vh;
+        top: 0;
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        z-index: 1;
+        overflow: hidden;
+        border-radius: 6px;
+        transition: ease-in 0.5s;
+    }
+    iframe:hover {
+        opacity: 1;
+        transition: ease-in 0.5s;
+    }
+    .black-bar {
+        width: 100vw;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #000;
+        z-index: 99999;
+    }
+</style>
+    <div class="black-bar"></div>
+            <iframe src="https://www.2embed.ru/embed/imdb/movie?id=<%= returnedData.imdbID %>" frameborder="0"
+                allowfullscreen="false" ></iframe>

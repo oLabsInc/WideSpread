@@ -1,0 +1,457 @@
+<style>
+  @media screen and (min-width: 300px) {
+
+    .spread-form {
+        margin-top: 40px;
+        width: 100%;
+    }
+    .spread-form form {
+    }
+    .input-section {
+      display: flex;
+      flex-direction: column;
+      align-items:stretch;
+      justify-content: space-between;
+      width: 100%;
+        margin-bottom: 5px;
+    }
+    .input-section button {
+      width: 50%;  
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.075);
+      backdrop-filter: blur(4px);
+      margin-top: 20px;
+      margin-bottom: 20px;
+      outline: none;
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 1.2rem;
+      padding: 10px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue;
+    }
+    .input-header {
+        text-align: center;
+        padding: 5px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+    .input-data {
+        margin-bottom: 3px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+    .input-data label {
+        color: #fff;
+        text-align: center;
+        width: 20%;
+        font-size: 1rem;
+        padding: 4px;
+    }
+    .input-data input {
+        background: rgba(135, 206, 250, 0.25);
+        width: 80%;
+        font-size: 1.1rem;
+        padding: 6px;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        outline: none;
+        border: none;
+        border-left: inset 2px lightskyblue;
+        border-right: inset 1px transparent;
+        color: rgba(227, 244, 255, 1);
+        text-shadow: 1px 1px 2px rgba(154, 194, 218, 0.15);
+        box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.75);
+        transition: ease-in-out 0.65s;
+      }
+      .input-data input::placeholder {
+        color: rgba(173, 224, 255, 0.6);
+        text-shadow: 1px 1px 2px rgba(137, 188, 219, 0.5);
+      }
+      .input-data input:focus::placeholder {
+        color: rgba(255, 255, 255, 0.75);
+        text-shadow: 1px 1px 2px rgba(169, 212, 239, 0.75);
+      }
+      .input-data input:focus-within {
+    background: rgba(135, 206, 250, 0.4);
+    box-shadow: inset 5px 0 15px rgb(144 202 200 / 29%), 0 0 9px #79b4e7c7;
+    border-left: solid 2px #00cbffbf;
+    border-right: solid 1px #00ccff81;
+      }
+      .input-data input:-internal-autofill-selected  {
+        background-color: rgba(135, 206, 250, 0.5);
+        color: red;
+      background: rgba(135, 206, 250, 0.5);
+      font-family: 'Gruppo', cursive;
+    }
+  input:-webkit-autofill,
+  input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+  }
+    .login-link {
+      padding: 20px;
+      text-align: center;
+      margin-top: 30px;
+    }
+    .login-link p {
+      color: #fff;
+    }
+    .login-link a {
+      text-decoration: none;
+    }
+  }
+
+  
+  .spread-cut-out-card-background {
+    position: fixed;
+    z-index: -99999;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .spread-cut-out-card-container {
+    margin-top: 100vh;
+    width: 90%;
+    min-height: 500px;
+    margin-inline: auto;
+    position: relative;
+    z-index: -2;
+    border-radius: 26px;
+    box-shadow: 0 30px 20px rgba(0, 0, 0, 0.6);
+      margin-bottom: 300px;
+  }
+
+  .spread-cut-out-card-background img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .spread-cut-out-card {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+  }
+  .spread-cut-out-container {
+    width: 100%;
+  }
+  .spread-cut-out-center {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    width: calc(100% + 4px);
+  }
+  .spread-cut-out-center-left, .spread-cut-out-center-right {
+    background-color: #222;
+    border: solid 2px #222;
+    width: 25%;
+    position: relative;
+  }
+  .spread-cut-out-center-left::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 50px;
+    height: 50px;
+    background-color: #222;
+    border-bottom-right-radius: 50%;
+  }
+  .spread-cut-out-center-left::after {
+    content: '';
+    position: absolute;
+    bottom: -28px;
+    right: -30px;
+    width: 50px;
+    height: 50px;
+    background-color: #222;
+    border-top-right-radius: 50%;
+  }
+  .spread-cut-out-center-right::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    width: 50px;
+    height: 50px;
+    background-color: #222;
+    border-bottom-left-radius: 50%;
+  }
+  .spread-cut-out-center-right::after {
+    content: '';
+    position: absolute;
+    bottom: -28px;
+    left: -30px;
+    width: 50px;
+    height: 50px;
+    background-color: #222;
+    border-top-left-radius: 50%;
+  }
+  .spread-cut-out-center-center {
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 20px #222;
+    border-radius: 36px;
+    position: relative;
+    box-shadow: inset 0 0 25px rgba(135, 206, 250, 0.6), inset 0 30px 20px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+  }
+  .spread-cut-out-center-center::before {
+    content: '';
+    position: absolute;
+    left: -25px;
+    top: 0;
+    width: 20px;
+    height: 100%;
+    background-color: #222;
+  }
+  .spread-cut-out-center-center::after {
+    content: '';
+    position: absolute;
+    right: -25px;
+    top: 0;
+    width: 20px;
+    height: 100%;
+    background-color: #222;
+  }
+  .spread-cut-out-center-center img {
+    width: 80%;
+    max-width: 300px;
+    border-radius: 18px;
+    /* box-shadow: 0 0 15px rgba(135, 206, 250, 0.6); */
+    transition: ease-in-out 1.5s;
+  }
+  .spread-cut-out-header, .spread-cut-out-footer {
+    background-color: #222;
+    border: solid 2px #222;
+    width: 100%;
+    height: 40px;
+    position: relative;
+  }
+  .spread-cut-out-header h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: lightskyblue;
+    width: 90%;
+    margin-inline: auto;
+  }
+.spread-cut-out-header::after {
+    content: '';
+    position: absolute;
+    right: 0px;
+    bottom: -15px;
+    width: 100%;
+    height: 100%;
+    background-color: #222;
+  }
+.spread-cut-out-footer::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background-color: #222;
+}
+.spread-cut-out-footer::after {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background-color: #222;
+}
+  .spread-cut-out-header {
+    border-top-left-radius: 26px;
+    border-top-right-radius: 26px;
+  }
+  .spread-cut-out-footer {
+  }
+
+  .spread-cut-out-card-data {
+    background-color: #222;
+    width: calc(100% + 4px);
+    border-bottom-left-radius: 26px;
+    border-bottom-right-radius: 26px;
+  }
+  
+  .spread-cut-out-card-data-header {
+  }
+  .spread-cut-out-card-data-header h3 {
+    text-align: center;
+    color: lightskyblue;
+    width: 90%;
+    margin-inline: auto;
+    padding-bottom: 15px;
+    border-bottom: solid 1px lightskyblue;
+    font-size: 1.8rem;
+  }
+  .spread-cut-out-card-data-body {
+    padding: 15px;
+    margin-bottom: 15px;
+    width: 85%;
+    margin-inline: auto;
+  }
+  .spread-cut-out-card-data-body p {
+    color: #fff;
+    font-size: 1.2rem;
+    padding-bottom: 10px;
+  }
+
+
+  .spread-cut-out-card-data-actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-bottom: 25px;
+  }
+
+  .spread-card-action-item {
+    background-color: lightskyblue;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .scale-image {
+    scale: 1.5;
+    transform: translateY(-50px);
+    transition: ease-in-out 1.5s;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.6);
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+<section class="spread-form">
+
+
+  <form action="/users/login" method="POST">
+    <div class="input-section">
+      <div class="input-header">
+        <h5>Login</h5>
+      </div>
+        <div class="input-data">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="input-control login-input"
+            placeholder="Enter your email"
+            />
+        </div>
+        <div class="input-data">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            />
+        </div>
+        <div class="input-data">
+          <input
+            type="hidden"
+            id="redirectUrl"
+            />
+        </div>
+
+        <button type="submit">Login</button>
+
+    </div>
+  </form>
+
+
+</section>
+
+
+
+
+
+
+<div class="login-link">
+  <p class="lead mt-4">Need An Account? <a href="/users/register" style="color: lightskyblue; background: none; border: none;">Register</a></p>
+</div>
+
+<div class="spread-cut-out-card-background"></div>
+
+<div class="spread-cut-out-card-container">
+  <div class="spread-cut-out-card">
+    <div class="spread-cut-out-container">
+      <div class="spread-cut-out-header"></div>
+      <div class="spread-cut-out-center">
+        <div class="spread-cut-out-center-left"></div>
+        <div class="spread-cut-out-center-center">
+          <img src="/images/test/3.jpeg" alt="">
+        </div>
+        <div class="spread-cut-out-center-right"></div>
+      </div>
+      <div class="spread-cut-out-footer"></div>
+    </div>
+    <div class="spread-cut-out-card-data">
+      <div class="spread-cut-out-card-data-header">
+        <h3>SpreadCard Data</h3>
+      </div>
+      <div class="spread-cut-out-card-data-body">
+        <p>This is a sample SpreadCard. Click on the photo above to make it bigger, click it again to return it to it's original size. </p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur omnis sunt, ipsa delectus libero, praesentium dolores id repellendus labore fugit sed quasi! Ipsam quod ut quis aperiam, repellat eum sunt.</p>
+      </div>
+      <div class="spread-cut-out-card-data-actions">
+        <div class="spread-card-action-item">
+          <span>Open</span>
+        </div>
+        <div class="spread-card-action-item">
+          <span>Save</span>
+        </div>
+        <div class="spread-card-action-item">
+          <span>Share</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script>
+  const redirectUrl = document.getElementById('redirectUrl')
+  console.log(redirectUrl)
+
+
+
+</script>
+
+
+<script>
+  const spreadCardImg = document.querySelector('.spread-cut-out-center-center img')
+  spreadCardImg.addEventListener('click', e => {
+    spreadCardImg.classList.toggle('scale-image')
+  })
+  console.log(document.referrer)
+</script>

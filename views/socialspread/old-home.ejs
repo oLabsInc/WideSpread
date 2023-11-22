@@ -1,0 +1,426 @@
+<!-- <style>
+    .spread-feed-container {
+        margin-top: 30px;
+    }
+
+    .spread-post-container {
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+        margin-top: 15px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    
+    .spread-post-header {
+        padding: 5px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background: #555;
+        margin-bottom: 8px;
+        opacity: 0.8;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+    }
+    .spread-post-header h5 {
+        font-size: 1.3rem;
+        font-weight: bolder;
+        text-shadow: 0 0 10px #000;
+    }
+    .edit-post {
+        width: 50px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .edit-post i {
+        font-size: 1.1rem;
+        font-weight: 300;
+        opacity: 0.5;
+    }
+    .spread-post-body {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 8px;
+
+    }
+    .spread-post-author-image {
+        width: 20%;
+        max-width: 20%;
+        min-width: 20%;
+        height: 100%;
+        overflow: hidden;
+        padding: 4px;
+        padding-left: 0;
+        border-bottom-right-radius: 4px;
+    }
+    .spread-post-author-image img {
+        width: 100%;
+        height: 100%;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .post-time {
+        margin-bottom: 10px;
+    }
+    .post-time small {
+        font-size: 0.7rem;
+        margin-bottom: 8px;
+
+    }
+    .spread-post-content {
+        width: 80%;
+        min-width: 80%;
+        max-width: 80%;
+        padding: 10px;
+    }
+    .spread-post-content p {
+        color: #fff;
+        word-wrap: break-word;
+        width: 95%;
+    }
+    .spread-post-content textarea:read-only {
+        padding: 8px;
+        resize: none;
+        width: 100%;
+        height: 100%;
+    }
+    .spread-post-actions {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 5px;
+        background: rgba(0, 0, 0, 0.25);
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+    }
+
+    .post-reactions {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 25%;
+    }
+    .reaction-button {
+        padding: 3px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+    }
+    .reaction-button button {
+        outline: none;
+        border: none;
+        font-size: 1.4rem;
+        border-radius: 4px;
+        background: transparent;
+        color: #fff;
+    }
+    .reaction-button span {
+        color: #fff;
+    }
+    .post-add-comment {
+        width: 75%;
+    }
+    .post-add-comment form {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    .post-add-comment input {
+        font-size: 1rem;
+        width: calc(95% - 50px);
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        padding: 3px;
+        background: rgba(255, 255, 255, 0.25);
+        color: #fff;
+        font-weight: lighter;
+        margin: 0;
+        outline: none;
+        border: inset 2px rgba(255, 255, 255, 0.25);
+        transition: ease-in 0.5s;
+    }
+    .post-add-comment input::placeholder {
+        color: #fff;
+        text-shadow: 0 0 6px #000;
+    }
+    .post-add-comment input:focus {
+        color: #fff;
+        text-shadow: 0 0 6px #000;
+        background: rgba(135, 206, 250, 0.25);
+        box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.25), 0 0 2px rgba(255, 255, 255, 0.5);
+        border: inset 2px rgba(135, 206, 250, 0.75);
+        transition: ease-in 0.3s;
+    }
+    .post-add-comment button {
+        font-size: 1.1rem;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        margin: 0;
+        width: 50px;
+        background: rgba(135, 206, 250, 0.5);
+        padding: 5px;
+        outline: none;
+        border: outset 2px lightskyblue;
+        border-right: none;
+        color: #fff;
+        box-shadow: -5px 0 5px rgba(0, 0, 0, 0.5), inset 0 0 3px #fff;
+    }
+
+
+
+    .spread-post-comments {
+        width: 80%;
+        max-width: 80%;
+        background: rgba(51, 51, 51, 0.5);
+        backdrop-filter: blur(4px);
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.25);
+        border-bottom-right-radius: 16px;
+        border-right: outset 2px lightskyblue;
+        border-bottom: outset 2px lightskyblue;
+        margin-bottom: 40px;
+        padding-bottom: 3px;
+    }
+    .spread-post-comments-header {
+        text-align: center;
+        padding: 8px;
+    }
+    .spread-post-comment-container {
+        margin-bottom: 24px;
+    }
+    .spread-post-comment-container:last-of-type {
+        margin-bottom: 12px;
+    }
+    .spread-post-comment-header {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 4px;
+        margin-bottom: 8px;
+        opacity: 0.8;
+    }
+    .spread-post-comment-header h6 {
+        padding: 4px;
+    }
+    .comment-time small {
+        font-size: 0.7rem;
+        margin-bottom: 8px;
+    }
+    .spread-post-comment-body {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    .spread-post-comment-author-image {
+        width: 20%;
+        max-width: 20%;
+        padding: 4px;
+        padding-left: 0;;
+        min-height: 100%;
+        border-bottom-right-radius: 4px;
+    }
+    .spread-post-comment-author-image img {
+        width: 100%;
+        min-width: 100%;
+        height: 100%;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .spread-post-comment-content {
+        width: 80%;
+        max-width: 80%;
+        min-width: 80%;
+    }
+    .spread-post-comment-content p {
+        padding: 5px;
+        color: #fff;
+        word-wrap: break-word;
+        width: 95%;
+    }
+    .spread-post-comment-actions {
+
+    }
+</style>
+
+<div class="page-title">
+    <h2><%= zone %></h2>
+</div>
+
+<%- include('../partials/menus/socialspread'); %>
+
+<div class="user-background-image">
+    <img src="<%= user.user_background_image %>" alt="">
+</div>
+
+
+<div class="spread-feed-container">
+    <% allPosts.forEach(function(post) { %>
+        <div class="spread-post-container">
+            <div class="spread-post-header" style="background: <%= post.author.favColor1 %>; opacity: 0.75;">
+                <div class="spread-post-author">
+                    <h5><%= post.author.fname %> <%= post.author.lname %></h5>
+                </div>
+                <div class="edit-post">
+                    <span>
+                        <% if(user.id == post.author.id){ %>
+                            <a style="color: #fff; text-shadow: 0 0 3px #fff;" href="/users/post/edit/<%= post.id%>"><small><i class="far fa-edit" style="color: yellow"></i></small></a>
+                        <% } else { %>
+                            <span style="display: none;"></span>
+                        <% } %>
+                    </span>
+                    <span>
+                        <% if(user.id == post.author.id){ %>
+                            <a href="/users/post/<%= post.id%>" style="text-shadow: 0 0 3px #fff;"><small><i class="far fa-trash-alt" style="color: red"></i></small></a>
+                        <% } else { %>
+                            <span style="display: none;"></span>
+                        <% } %>
+                    </span>
+                </div>
+            </div>
+            <div class="spread-post-body">
+                <div class="spread-post-author-image">
+                    <% if (post.author.user_avatar == null) { %>
+                        <img src="/images/system/default-user-avatar_1a1a1a.png" alt="">
+                    <% } else { %>
+                        <img src="/image/<%= post.author.user_avatar %>" alt="">
+                    <% } %>
+                </div>
+                <div class="spread-post-content">
+                        <div class="post-time">
+                            <p><small>
+                                <%= post.createdAt.toLocaleDateString() %>
+                                    <%= post.createdAt.toLocaleTimeString() %>
+                                </small></p>
+                        </div>
+                        <% if(user.id==post.author.id){ %>
+
+                           <p><%= post.postBody %></p>
+                        <% } else { %>
+                            <p><%= post.postBody %></p>
+                        <% } %>
+
+                </div>
+            </div>
+            <div class="spread-post-actions">
+                <div class="post-reactions">
+                    <div class="reaction-button">
+                        <form action="/socialspread/post/<%= post.id %>/like?_method=PATCH" method="post">
+                            <input type="text" name="likedBy" value="<%= user.id %>" hidden="true">
+                            <% if (userLikes == post.id) { %>
+                            <button type="submit"><i class="far fa-heart"></i></button>
+                            <% } else {  %>
+                                <button type="submit"><i class="fas fa-heart"></i></button>
+                            <% } %>
+                            <span>
+                                <%= post.likes %>
+                            </span>
+                        </form>
+                    </div>
+                    <div class="reaction-button">
+                        <form action="/socialspread/post/<%= post.id %>/save?_method=PATCH" method="post">
+                            <input type="text" name="saved_posts" value="<%= post.id %>" hidden="true">
+                            <button type="submit"><i class="far fa-bookmark"></i></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="post-add-comment">
+                    <form action="" method="post">
+                        <input type="text" name="commentBody" placeholder="Reply to post...">
+                        <button type="submit">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="spread-post-comments">
+            <% if (post.comments.length <= 0) { %>
+                <div class="spread-post-comments-header">
+                    <h6>Be the first to comment.</h6>
+                </div>
+            <% } else { %>
+            <div class="spread-post-comments-header">
+                <h6>Comments</h6>
+            </div>
+            <% post.comments.forEach(function(comment) { %>
+                <div class="spread-post-comment-container">
+                    <div class="spread-post-comment-header" style="background: <%= comment.author.favColor1 %>; opacity: 0.75;">
+                        <div class="comment-author">
+                            <h6><%= comment.author.fname %> <%= comment.author.lname %></h6>
+                        </div>
+                            <div class="edit-post">
+                                <div>
+                                    <% if(user.id==comment.author.id){ %>
+                                        <a style="color: #fff;" href="/users/comment/<%= comment.id%>/edit"><small><i class="far fa-edit"
+                                                    style="color: yellow"></i></small></a>
+                                        <% } else { %>
+                                            <span style="display: none;"></span>
+                                            <% } %>
+                                </div>
+                                <div>
+                                    <% if(user.id==comment.author.id){ %>
+                                            <form action="/users/comment/<%= comment.id%>/delete?_method=DELETE" method="post">
+                                                <input type="text" name="comment" value="<%= comment.id %>" hidden="true">
+                                                <button type="submit" style="background: transparent; outline: none; border: none;"><i class="far fa-trash-alt" style="color: red" background: transparent;></i></button>
+                                            </form>
+                                        <% } else { %>
+                                            <span style="display: none;"></span>
+                                            <% } %>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="spread-post-comment-body">
+                        <div class="spread-post-comment-author-image">
+                            <% if (comment.author.user_avatar == null) { %>
+                                <img src="/images/system/default-user-avatar_1a1a1a.png" alt="">
+                            <% } else { %>
+                                <img src="/image/<%= comment.author.user_avatar %>" alt="">
+                            <% } %>
+                        </div>
+                        <div class="spread-post-comment-content">
+                            <div class="comment-time">
+                                <p><small>
+                                    <%= comment.createdAt.toLocaleDateString() %>
+                                        <%= comment.createdAt.toLocaleTimeString() %>
+                                    </small></p>
+                            </div>
+                            <p>
+                                <%= comment.commentBody %>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="spread-post-comment-actions"></div>
+                </div>
+            <% }) %>
+
+        <% } %>
+
+        </div>
+    <% }) %>
+</div>
+
+<div class="end-of-feed" style="text-align: center; margin-bottom: 30px;">
+    <h5>This is the beginning of space time.</h5>
+</div>
+<script>
+
+    
+
+</script> -->
