@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
 
 </style>
@@ -24,3 +25,31 @@
     
 
     <% }) %>
+=======
+<style>
+
+</style>
+
+<% files.forEach(function(image){ %>
+    <div class="image-and-data-container">
+        <div class="image-container">
+            <a href="/files/<%= image.filename %>">
+                <img src="/image/<%= image.filename %>">
+                <p>
+                    <%= image.filename %>
+                </p>
+            </a>
+            <p>
+                <%= image.uploadDate %>
+            </p>
+        </div>
+        <div class="delete-image">
+            <form action="/delete-image/<%= image._id %>?_method=DELETE" method="POST">
+                <button type="submit" class="btn btn-block btn-danger">Delete</button>
+            </form>
+        </div>
+    </div>
+    
+
+    <% }) %>
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3

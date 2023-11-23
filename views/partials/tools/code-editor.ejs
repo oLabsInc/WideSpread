@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
 
     .code-editor-container {
@@ -199,4 +200,207 @@
 
 
 
+=======
+<style>
+
+    .code-editor-container {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 30px;
+        padding-top: 100px;
+    }
+    .code-editor-text {
+        min-height: 35vh;
+        max-height: 35vh;
+    }
+    textarea {
+        width: 97%;
+        min-height: 250px;
+        overflow-y: scroll;
+        padding: 5px;
+        display: inline-block;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        outline: none;
+        font-size: 14px;
+        border: none;
+        border-radius: 8px;
+        resize: none;
+        
+    }
+
+    #html {
+        color: lightskyblue;
+    }
+
+    #htmlTab>textarea::placeholder {
+        color: lightskyblue;
+    }
+
+    #css {
+        color: rgb(237, 255, 75);
+    }
+    
+    #cssTab>textarea::placeholder {
+        color: rgb(237, 255, 75);
+    }
+
+    #js {
+        color: rgb(39, 218, 39);
+    }
+
+    #jsTab>textarea::placeholder {
+        color: rgb(39, 218, 39);
+    }
+
+    .tab {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .tablinks {
+        border: outset 1px lightskyblue;
+        border-bottom: none;
+        outline: none;
+        width: 30%;
+        color: #fff;
+        font-size: 1.2rem;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        padding: 5px;
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(4px);
+    }
+    .active-editor {
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        color: lightskyblue;
+        box-shadow: inset 0 0 8px rgba(135, 206, 250, 0.5);
+    }
+    .tabcontent {
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+        border: solid 1px lightskyblue;
+        border-radius: 8px;
+    }
+    .code-editor-output {
+        margin-top: 10px;
+
+    }
+    
+    .compile-button {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .compile-button button {
+        width: 90%;
+        outline: none;
+        border: none;
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.25);
+        color: #fff;
+        padding: 5px;
+    }
+    iframe {
+        background: #fff;
+        border-radius: 8px;
+        border: solid 1px lightskyblue;
+        position: relative;
+        width: 100%;
+        border-radius: 8px;
+        height: 38vh;
+        max-height: 100vh;
+    }
+    #closeCodeEditorButton {
+        position: absolute;
+        top: 60px;
+        right: 20px;
+    }
+@media screen and (orientation : landscape) {
+    .code-editor-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        max-height: 80vh;
+        padding-top: 50px;
+    }
+    .code-editor-text {
+        width: 50%;
+        min-height: 50vh;
+        max-height: 50vh;
+    }
+    .code-editor-text textarea {
+        border-top: solid 1px lightskyblue;
+        min-height: 50vh;
+        padding: 10px;
+    }
+    .code-editor-output {
+        width: 50%;
+        height: 50vh;
+        max-height: 50vh;
+    }
+    .code-editor-output iframe {
+        min-height: 70vh;
+        padding: 10px;
+    }
+}
+</style>
+
+
+<div class="code-editor-container">
+
+    <div class="code-editor-text">
+        <div class="tab">
+            <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'htmlTab')">HTML</button>
+            <button class="tablinks" onclick="openTab(event, 'cssTab')">CSS</button>
+            <button class="tablinks" onclick="openTab(event, 'jsTab')">JavaScript</button>
+        </div>
+        <div id="htmlTab" class="tabcontent">
+            <textarea id="html" placeholder="Enter your HTML code..."></textarea>
+        </div>
+        <div id="cssTab" class="tabcontent">
+            <textarea id="css" placeholder="Enter your CSS code..."></textarea>
+        </div>
+        <div id="jsTab" class="tabcontent">
+            <textarea id="js" placeholder="Enter your JavaScript code..."></textarea>
+        </div>
+    </div>
+    <div class="code-editor-output">
+        <div class="compile-button">
+            <button id="compile"><i class="fas fa-play"></i></button>
+        </div>
+        <iframe id="code"></iframe>
+    </div>
+</div>
+
+<div id="closeCodeEditorButton"><i style="color: orangered; font-size: 2rem;" class="far fa-times-circle"></i></div>
+
+<script>
+    document.getElementById("defaultOpen").click();
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active-editor", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active-editor";
+    }
+</script>
+
+
+
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 <script src="/logic/code-editor.js"></script>

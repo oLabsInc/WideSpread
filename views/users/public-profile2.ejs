@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
 
 h5 {
@@ -964,4 +965,972 @@ h5 {
                             
                                 </div>
                             </div>
+=======
+<style>
+
+h5 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+.spread-break {
+    width: 80%;
+}
+.spread-break hr {
+    background: lightskyblue;
+    box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.534);
+    width: 80%;
+    margin-left: 10%;
+    border-radius: 50%;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+.vr-user-link {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    border-top: groove 2px lightskyblue;
+    border-bottom: groove 2px lightskyblue;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.vr-user-link a {
+    color: #fff;
+    text-align: center;
+}
+.jumbotron {
+    border-radius: 8px;
+    background: transparent;
+    margin-bottom: 30px;
+    backdrop-filter: none;
+}
+.name-header {
+    width: 85%;
+    margin: 0 auto;
+}
+.name-header {
+    padding: 15px;
+    padding-bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+}
+.name-header h1 {
+    font-size: 1.1rem;
+    color: #fff;
+}
+.user-header {
+    padding-bottom: 10px;
+    background:rgba(255, 255, 255, 0.3);
+    background-image: url('/image/<%= user.user_avatar %>');
+    background-size: cover;
+    backdrop-filter: blur(2px);
+    position: relative;
+    height: 500px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+    box-shadow: -4px -4px 8px rgba(34, 34, 34, 0.5), -3px -3px 6px rgba(17, 17, 17, 0.5), 6px 6px 8px rgba(17, 17, 17, 0.5), 3px 3px 6px rgba(0, 0, 0, 0.5), inset -2px -2px 2px #222, inset 2px 2px 2px #222;
+    border-radius: 16px;
+}
+.user-name {
+    background: rgba(255, 255, 255, 0.3);
+    margin-top: 0;
+    text-align: center;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    padding: 10px;
+    backdrop-filter: blur(2px);
+    border-bottom: groove 2px lightskyblue;
+}
+.user-name h2 {
+    color: rgb(40, 40, 40);
+    padding-top: 10px;
+}
+.info-header {
+    border-top: groove 2px lightskyblue;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.301);
+    backdrop-filter: blur(2px);
+    text-shadow: 0 0 3px #000;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.info-header h5 {
+    border-bottom: groove 2px lightskyblue;
+    background:rgba(80, 80, 80, 0.459);
+    backdrop-filter: blur(4px);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-shadow: inset 0 0 3px 1px rgba(0, 0, 0, 0.301);
+}
+.info-header-contact {
+    display: inline-flex;
+    width: 100%;
+    text-align: center;
+    border-bottom: solid 1px #fff;
+    padding-bottom: 10px;
+}
+.info-header-contact a {
+    margin-left: 20px;
+    padding: 5px;
+}
+.info-header-bottom {
+    display: inline-flex;
+    width: 100%;
+    margin-top: 5px;
+}
+.info-header-bottom-half {
+    width: 50%;
+    margin-top: 10px;
+}
+.info-header a {
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 3px lightskyblue;
+}
+.info-header p {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 0;
+}
+.qr-code {
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 20px;
+    width: fit-content;
+    max-height: 80vh;
+    text-align: center;
+    margin: 0 auto;
+}
+.qr-code img {
+    max-width: 100%;
+    max-height: 80vh;
+}
+.weather {
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
+    border-radius: 8px;
+    border-top: groove 2px lightskyblue;
+    border-bottom: groove 2px lightskyblue;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.75);
+}
+.weather h5 {
+    padding: 5px;
+    text-align: center;
+    border-bottom: groove 2px lightskyblue;
+    background: rgba(255, 255, 255, 0.3);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+
+}
+.weather h6 {
+    padding: 5px;
+}
+.weather-data {
+    padding: 5px;
+    padding-left: 15px;
+    width: 100%;
+    display: inline-flex;
+}
+.weather-info {
+    width: 80%;
+}
+.weather-icons {
+    width: 20%;
+}
+
+.user-images {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 10px;
+
+}
+.user-image {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(2px);
+    border-radius: 8px;
+    padding: 10px;
+    width: 300px;
+    border: groove 2px lightskyblue;
+    box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.61);
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+}
+.user-image img {
+    border-radius: 8px;
+    max-width: 100%;
+}
+.friend-container {
+    margin-top: 30px;
+}
+.add-friend-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin: 0 auto;
+}
+.add-friend-container form {
+    width: 100%;
+}
+.add-friend-container button {
+    outline: none;
+    border: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
+    height: 40px;
+    margin: 0 auto;
+    margin-top: 10px;
+    background: rgba(0, 128, 0, 0.3);
+    border: groove 2px green;
+    border-bottom: none;
+    box-shadow: inset 0 2px 2px 1px rgba(0, 0, 0, 0.445);
+    color: #fff;
+}
+.find-new-friends {
+    display: inline-flex;
+    max-width: 90vw;
+    overflow-x: scroll;
+    padding: 20px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    padding-right: 80px;
+}
+.spread-container {
+    padding: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(2px);
+    border-top: groove 2px lightskyblue;
+    border-bottom: groove 2px lightskyblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+.spread-container h3 {
+    text-align: center;
+}
+.spread-container-sub {
+    padding: 5px;
+    width: 98%;
+    margin-left: 1%;
+}
+.social-list-item {
+    background: rgba(255, 255, 255, 0.384);
+    backdrop-filter: blur(4px);
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border-top: groove 2px lightskyblue;
+    border-bottom: groove 2px lightskyblue;
+}
+.social-list-item img {
+    width: 20px;
+    height: 20px;
+}
+.social-list-item a {
+    height: 20px;
+    color: #fff;
+    overflow-y: hidden;
+    width: 50%;
+    padding-left: 5px;
+}
+.possible-friend-image {
+    overflow: hidden;
+}
+
+.post-on-wall {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(2px);
+    padding-top: 10px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+.post-on-wall h5 {
+    text-align: center;
+    color: #fff;
+    border-bottom: groove 2px lightskyblue;
+    margin-bottom: 10px;
+}
+.post-on-wall textarea {
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 8px;
+    padding: 10px;
+}
+.privacy-radio-header {
+    text-align: center;
+    color: #fff;
+    padding-top: 10px;
+}
+.privacy-radio-options {
+    display: inline-flex;
+    width: 100%;
+    padding-bottom: 20px;
+}
+.privacy-radio {
+    width: 50%;
+    text-align: center;
+    color: #fff;
+}
+.post-on-wall button {
+    width: 80%;
+    margin-left: 10%;
+    background: green;
+    outline: none;
+    color: #fff;
+    border: groove 2px green;
+    border-bottom: none;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.inspreads {
+    max-height: 500px;
+    overflow-y: scroll;
+}
+.inspread {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(2px);
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+.inspread-from {
+    display: inline-flex;
+}
+.inspread-from-image {
+    background: rgba(40, 40, 40, 0.3);
+    border: groove 2px lightskyblue;
+    border-right: solid 1px lightskyblue;
+    border-radius: 15px;
+    box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.452);
+    padding-left: 10px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    display: flex;
+    align-items: center;
+  justify-content: center;
+}
+.inspread-from-image img {
+    display: inline-flex;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+}
+.inspread-body {
+    width: 100%;
+}
+.inspread-body h4 {
+    color: lightskyblue;
+    padding: 10px;
+    width: 100%;
+
+}
+.inspread-body p {
+    color: #fff;
+    padding-left: 20px;
+    padding-bottom: 0;
+}
+.inspread-body small {
+    color: #ccc;
+    padding: 10px;
+    padding-left: 20px;
+}
+
+.all-posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.post-container {
+    background: rgba(255, 255, 255, 0.3);
+    width: 90%;
+    margin-left: 0;
+    padding: 0;
+    border: none;
+    border-radius: 15px;
+    border-bottom: groove 2px lightskyblue;
+    border-top: groove 2px lightskyblue;
+    box-shadow: inset 0 0 8px 5px rgba(255, 255, 255, 0.5);
+}
+.post-user-image {
+    width: 100%;
+    height: 160px;
+    text-align: center;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.post-user-image img {
+    width: 100px;
+    height: 100%;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.post-author {
+    backdrop-filter: blur(4px);
+    background: rgba(255, 255, 255, 0.5);
+    margin-top: 20px;
+    text-align: center;
+    border: groove 2px lightskyblue;
+    border-left: none;
+    border-right: none;
+    padding-top: 10px;
+    color: #fff;
+    text-shadow: 0 0 3px #000;
+}
+.post-body {
+    padding: 15px;
+    color: #fff;
+}
+.post-comments {
+    position: relative;
+    background: rgba(150, 150, 150, 0.3);
+    margin-top: -20px;
+    margin-bottom: 40px;
+    width: 80%;
+    margin-left: 5%;
+    border-bottom: groove 2px lightskyblue;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.post-comments h4 {
+    text-align: center;
+    padding: 10px;
+}
+
+.post-comments p {
+    color: #fff;
+}
+.post-comment {
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    padding-bottom: 10px;
+    border-bottom: groove 2px lightskyblue;
+    border-top: groove 2px lightskyblue;
+    box-shadow: inset 0 0 8px 5px rgba(255, 255, 255, 0.5);
+}
+.comment-layout {
+    display: inline-flex;
+}
+.comment-left {
+    width: 80px;
+    padding-top: 10px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.comment-right {
+    width: fit-content;
+}
+.comment-author-image {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.comment-author-image img {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.comment-author-name {
+    padding: 10px;
+    display: block;
+    width: 100%;
+    text-shadow: 0 0 3px #000;
+}
+.comment-body {
+    padding: 8px;
+}
+.comment-on-post h5 {
+    text-align: center;
+}
+.comment-on-post {
+        padding: 10px;
+        padding-bottom: 0;
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 0;
+        border-top: groove 2px lightskyblue;
+        box-shadow: none;
+        border-radius: 0;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        background:rgba(255, 255, 255, 0.3);
+    }
+    .comment-on-post textarea {
+        width: 90%;
+        margin-left: 5%;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(2px);
+        color: #fff;
+        box-shadow: none;
+        outline: none;
+        border: none;
+    }
+    .comment-on-post button {
+        width: 80%;
+        margin-left: 10%;
+        background: green;
+        border: groove 2px green;
+        border-bottom: none;
+        outline: none;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        color: #fff;
+    }
+.public-article {
+
+}
+.article {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(4px);
+    border-radius: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 90%;
+    margin-left: 5%;
+    padding-top: 20px;
+    box-shadow: inset 0 0 8px 5px rgba(255, 255, 255, 0.5);
+}
+.article h3, .article h5 {
+    padding: 5px;
+}
+.article h3 {
+    color: lightskyblue;
+}
+.article h5 {
+    color: #ccc;
+}
+.article p {
+    text-align: left;
+    padding: 15px;
+    color: #fff;
+}
+.article small {
+    color: #ccc;
+}
+.article-more {
+    background: green;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 20px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border: groove 2px green;
+    border-bottom: none;
+}
+.article-more a {
+    color: #fff;
+    padding: 10px;
+
+}
+.article hr {
+    width: 80%;
+    margin-left: 10%;
+    background: lightskyblue;
+}
+.movie-list {
+    padding: 10px;
+    text-align: center;
+}
+.movie-list p {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 8px;
+    border-radius: 8px;
+    border-top: groove 2px lightskyblue;
+    border-bottom: groove 2px lightskyblue;
+    margin-bottom: 10px;
+    box-shadow: inset 0 0 8px 5px rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(2px);
+}
+    .movie-list a {
+        color: #fff;
+    }
+    .your-shows {
+        border-left: groove 1px lightskyblue;
+        border-right: groove 1px lightskyblue;
+        border-radius: 8px;
+        min-height: 200px;
+        width: calc(100vw - 20px);
+        background: rgba(0, 0, 0, 0.3);
+        margin-inline: auto;
+        overflow-x: scroll;
+    }
+    .your-shows h5 {
+        text-align: center;
+        padding: 10px;
+    }
+
+    /* Slider */
+    
+    .slider {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 10px;
+        
+    }
+    .show-container {
+        width: 200px;
+        max-width: 200px;
+        min-width: 200px;
+        height: 300px;
+        min-height: 300px;
+        max-height: 300px;
+        position: relative;
+        border-radius: 8px;
+        margin-right: 20px;
+    }
+    .show-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -25;
+    }
+    .show-image img {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+    }
+    .show-title h5 {
+        background: rgba(255, 255, 255, 0.3);
+        border-bottom: groove 2px lightskyblue;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        z-index: 10;
+        padding: 5px;
+        text-align: center;
+    }
+    .user-profile {
+        background-color: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(4px);
+        width: 90%;
+        margin: 0 auto;
+        border-radius: 16px;
+        padding: 10px;
+        margin-top: 30px;
+    }
+    .user-profile h5 {
+        text-align: center;
+        color: lightskyblue;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+    }
+    .user-profile h5:first-of-type {
+        margin-top: 0;
+    }
+    .user-bio {
+        color: #fff;
+    }
+
+    .user-bio {
+        color: #fff;
+    }
+
+    .social-tree {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    .social-tree a {
+        color: #fff;
+        text-decoration: none;
+        margin-bottom: 10px;
+    }
+    .social-tree i {
+        margin-right: 8px;
+        color: lightskyblue;
+    }
+</style>
+<% if (user.user_background_image) { %>
+<div class="user-background-image" style="background-image: url('/image/<%= user.user_background_image %>'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+
+    </div>
+    <%} else { %>
+        <div class="user-background-color" style="width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; background: <%= user.favColor1 %>; z-index: -20;"></div>
+        <% } %>
+
+<div class="vr-user-link">
+    <a href="/vr-ar/<%= user.id %>"><%= user.fname %>'s VR user</a>
+</div>
+
+<div class="construction" style="text-align: center;">
+    <h1 style="color: orangered;">UNDER CONSTRUCTION</h1>
+    <h2 style="padding: 8px; margin-bottom: 30px;">Please come back later, feel free to suggest features at jolson@widespread.world, thank you for your patience.</h2>
+</div>
+    <div class="user-header">
+        <div class="user-name">
+            <h2 style="text-shadow: 0 0 8px <%= user.favColor1 %>; font-weight: bolder;"><%= user.fname %> <%= user.lname %></h2>
+        </div>
+
+        <div class="">
+        <div class="info-header">
+            <h5><%= user.current_occupation %></h5>
+            <div class="info-header-contact">
+                <a href="mailto:<%= user.email %>"><i style="margin-right: 10px;" class="far fa-envelope"></i></a>
+                <a href="mailto:<%= user.phone1 %>"><i style="margin-right: 10px;" class="fas fa-phone"></i></a>
+            </div>
+            <div class="info-header-bottom">
+                <div class="info-header-bottom-half">
+                    <p><%= user.town %></p>
+                    <p><%= user.state %></p>
+                    <p><%= user.country %></p>
+                </div>
+                <div class="info-header-bottom-half" style="border-left: solid 1px #fff;">
+                    <% if (!user.age) { %>
+                        <span style="display: none;"></span>
+                    <% } else { %>
+                        <p> Age: <%= user.age %></p>
+                    <% } %>
+                    <p> <%= user.gender %></p>
+                </div>
+            </div>
+                <div class="add-friend-container">
+                    <form action="/users/<%= user._id %>/add-friend" method="POST">
+                        <input type="text" name="friends" value="<%= user._id %>" style="display: none;">
+                        <button class="add-friend" type="submit"><i class="fas fa-user-plus"></i></button>
+                    </form>
+                </div>
+        </div>
+        </div>
+    </div>
+<div class="user-profile">
+    <h5 style="color: <%= user.favColor1 %>">Bio</h5>
+    <div class="user-bio">
+        <p><%= user.about %></p>
+    </div>
+
+    <h5 style="color: <%= user.favColor1 %>">Social</h5>
+
+    <div class="social-tree">
+        <% if (!user.social.github) { %>
+            <span style="display: none;"></span>
+        <% } else { %>
+            <a target="_blank" href="<%= user.social.github %>"><i style="color: <%= user.favColor1 %>" class="fab fa-github"></i> <%= user.social.github %></a>
+        <% } %>
+
+        <% if (!user.social.linkedin) { %>
+            <span style="display: none;"></span>
+        <% } else { %>
+            <a target="_blank" href="<%= user.social.linkedin %>"><i style="color: <%= user.favColor1 %>" class="fab fa-linkedin-in"></i> <%= user.social.linkedin %></a>
+        <% } %>
+
+        <% if (!user.social.facebook) { %>
+            <span style="display: none;"></span>
+        <% } else { %>
+            <a target="_blank" href="<%= user.social.facebook %>"><i style="color: <%= user.favColor1 %>" class="fab fa-facebook"></i> <%= user.social.facebook %></a>
+        <% } %>
+
+        <% if (!user.social.twitter) { %>
+            <span style="display: none;"></span>
+        <% } else { %>
+            <a target="_blank" href="<%= user.social.twitter %>"><i style="color: <%= user.favColor1 %>" class="fab fa-twitter"></i> <%= user.social.twitter %></a>
+        <% } %>
+
+        <% if (!user.social.pinterest) { %>
+            <span style="display: none;"></span>
+        <% } else { %>
+            <a target="_blank" href="<%= user.social.pinterest %>"><i style="color: <%= user.favColor1 %>" class="fab fa-pinterest"></i> <%= user.social.pinterest %></a>
+        <% } %>
+
+        <% if (!user.social.youtube) { %>
+            <span style="display: none;"></span>
+        <% } else { %>
+            <a target="_blank" href="<%= user.social.youtube %>"><i style="color: <%= user.favColor1 %>" class="fab fa-youtube"></i> <%= user.social.youtube %></a>
+        <% } %>
+
+        <% if (!user.social.gab) { %>
+            <span style="display: none;"></span>
+        <% } else { %>
+            <a target="_blank" href="<%= user.social.gab %>"><%= user.social.gab %></a>
+        <% } %>
+
+        <% if (!user.social.rumble) { %>
+            <span style="display: none;"></span>
+        <% } else { %>
+            <a target="_blank" href="<%= user.social.rumble %>"><%= user.social.rumble %></a>
+        <% } %>
+
+
+    </div>
+
+    
+</div>
+    
+    <h5 style="text-align: center;">Share user</h5>
+    <div class="qr-code">
+        <img src="https://qrtag.net/api/qr_transparent_6.svg?url=https://widespread-beta.herokuapp.com/users/<%= user.id %>" alt="qrtag">
+    </div>
+    
+<div class="spread-break">
+    <hr>
+</div>
+    <h5 style="text-align: center;"><%= user.fname %>'s Photo's</h5>
+    <div class="user-images">
+    <% profileImages.forEach(function(image){ %>
+
+                        <a href="/image/<%= image.img.data %>">
+                            <div class="user-image"> 
+                                <img src="/image/<%= image.img.data %>"> 
+                            </div> 
+                        </a>
+
+        
+        <% }); %>
+</div>
+
+    <div class="spread-break">
+        <hr>
+    </div>
+    
+        <!-- Friend List -->
+        <div class="friend-container">
+            <h5 style="text-align: center; margin-bottom: 20px;"><%= user.fname %>'s Friends</h5>
+            <div class="row">
+                <div class="find-new-friends">
+                        <% user.friends.forEach(function(friend){ %>
+                            <div class="possible-friend" style="box-shadow: 0 0 10px <%= friend.favColor1 %>;">
+                                <a href="/users/<%= friend.id %>">
+                                    <div class="possible-friend-image" style="border: groove 1px <%= friend.favColor1 %>; border-top: none;">
+                                        <% if (friend.user_avatar) { %>
+                                            <img src="/image/<%= friend.user_avatar   %>" alt="<%= user.fname %> <%= user.lname %>'s Avatar" width="60px">
+                                        <%} else { %>
+                                            <img src="/images/system/default-user_1a1a1a.png" alt="Default Avatar"  width="60px" style="box-shadow: 0 3px 10px <%= friend.favColor1 %>; background: #000" >
+                                            <% } %>
+                                    </div>
+                                <h3 style="text-shadow: 0 0 3px <%= friend.favColor1 %>; border-top: solid 1px <%= friend.favColor1 %>; border-bottom: solid 1px <%= friend.favColor1 %>;"><%= friend.fname %> <%= friend.lname %></h3>
+                                <p><%= friend.town %>, <%= friend.state %></p>
+                                <p><%= friend.country %></p>
+                                <small><%= friend.gender %></small>
+                                <p><%= friend.email %></p>
+                                
+                            </a>
+                        </div>
+                                <% }); %>
+                </div>
+            </div>
+        </div>
+
+
+                <h5 style="text-align: center; width: 100%;"><%= user.fname %>'s Posts</h5>
+                <div class="all-posts">
+                <ul>
+                    <% posts.forEach(function(post){ %>
+                        <div class="post-container">
+                            <div class="post-user-image">
+                                    <% if (user.user_avatar) { %>
+                                        <img src="/image/<%= user.user_avatar %>" alt="<%= user.fname %> <%= user.lname %>'s Avatar">
+                                        <%} else { %>
+                                            <img src="/images/system/default-user_1a1a1a.png" alt="<%= user.fname %> <%= user.lname %>'s Avatar">
+                                            <% } %>
+                            </div>
+                            <div class="post-author">
+                                <h3 style="color: <%= user.favColor1 %>"><%= user.fname %> <%= user.lname %></h3>
+                            </div>
+                            <div class="post-body">
+                                <p><%= post.postBody %></p>
+                            </div>
+                        </div>
+                            <div class="post-comments">
+                                    <h4>Comments</h4>
+                                    <% if (post.comments) { %>
+                                        <% post.comments.forEach(function(comment) { %>
+                                            <div class="post-comment">
+                                                
+
+                                                <div class="comment-layout">
+                                                    <div class="comment-left">
+                                                        <% if (comment.author.user_avatar) { %>
+                                                            <div class="comment-author-image">
+                                                            <img src="/image/<%= comment.author.user_avatar %>" alt="" width="auto" height="80px">
+                                                        </div>
+                                                            <% } else { %>
+                                                            <img src="/images/system/default-user_1a1a1a.png" alt="" width="80px" height="80px">
+                                                            <% } %>
+                                                    </div>
+                                                    <div class="comment-right">
+                                                        <div class="comment-author-name">
+                                                            <h6 style="color: <%= comment.author.favColor1 %>"><a href="/users/<%= comment.author.id %>" style="color: <%= comment.author.favColor1 %>"><%= comment.author.fname %> <%= comment.author.lname %></a></h6>
+                                                        </div>
+                                                        <div class="comment-body">
+                                                            <p><%= comment.commentBody %></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <% }) %>
+                                        <% } else { %>
+                                            <p>Be the first to comment...</p>
+                                        <% } %>
+                                        <div class="comment-on-post">
+                                            <h5>Leave a comment</h5>
+                                            <form action="/users/<%= post.author.id %>/post/<%= post.id %>/comment" method="POST">
+                                                <textarea required name="commentBody" id="commentBody" style="color: #fff"></textarea>
+                                                <button type="submit">Spread More</button>
+                                                <input type="text" name="fromPost" value="<%= post.id %>" hidden="true">
+                                            </form>
+                    
+                                        </div>
+                            </div>
+
+<!--                             <a href="/users/posts/<%= post.id %>">See More</a> -->
+
+                            
+                        <% }); %>
+                </ul> 
+                </div>
+                            <h5 style="text-align: center; width: 80%; margin-left: 10%; margin-top: 20px; padding-top: 20px;"><%= user.fname %>'s Movie List</h5>
+                            <div class="movie-list">
+
+                                <% user.movie_list.forEach(function(movie) { %>
+                                    <div class="movie-container">
+                                        <p><a href="/entertainment/movies/<%= movie.movie_link %>"><%= movie.movie_name %></a></p>
+                                    </div>
+                                <% }) %>
+                            </div>
+
+                            <div class="your-shows">
+                                <h5 style="text-align: center;"><%= user.fname %>'s  Shows</h5>
+                                <div class="slider">
+                                <% user.show_list.forEach(function(show) { %>
+                                    <a href="/entertainment/tv/<%= show.show_link %>">
+                                        <div class="show-container">
+                                            <div class="show-image">
+                                                <img width="200px" height="300px" src="https://image.tmdb.org/t/p/w500<%= show.show_poster %>" alt="">
+                                            </div>
+                                            <div class="show-title">
+                                                <h5> <%= show.show_name %></h5>
+                                            </div>
+                                        </div>
+                                    </a>
+                                <% }) %>
+                            
+                                </div>
+                            </div>
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
                                     

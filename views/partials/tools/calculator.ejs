@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     #outer {
         width: 90%;
@@ -289,4 +290,297 @@
         if (Caption == 'C') reset(0);
         if (document.calcsci.LED.value[0] == '.') document.calcsci.LED.value = '0' + document.calcsci.LED.value
     }
+=======
+<style>
+    #outer {
+        width: 90%;
+        max-width: 400px;
+        border-radius: 8px;
+        margin: 0 auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #cover {
+        border: 0;
+        margin: 0 auto;
+        padding: 10px 0;
+        color: #fff;
+    }
+
+    .main {
+        width: 92%;
+        border: 0;
+        border-collapse: collapse;
+        margin: 0 auto
+    }
+
+    .main td {
+        text-align: center;
+        border: 0;
+        vertical-align: middle;
+        padding: 2px 0;
+        font-size: 16px
+    }
+
+    a.b,
+    a.b:visited,
+    a.b:hover {
+        width: 96%;
+        display: block;
+        background: #000;
+        border: 0;
+        border-radius: 4px;
+        border-top: groove 2px lightskyblue;
+        border-bottom: groove 2px lightskyblue;
+        text-decoration: none;
+        color: #fff;
+        text-align: center;
+        margin: 1px auto;
+        line-height: 28px;
+        padding: 5px;
+        box-shadow: inset 0 0 8px rgba(135, 206, 250, 0.5);
+    }
+
+    a.c,
+    a.c:visited,
+    a.c:hover {
+        width: 96%;
+        font-weight: bold;
+        display: block;
+        background: lightskyblue;
+        text-decoration: none;
+        color: #fff;
+        text-align: center;
+        display: block;
+        margin: 1px auto;
+        padding: 5px;
+        line-height: 28px;
+        border-radius: 4px;
+        border-top: groove 2px #fff;
+        border-bottom: groove 2px #fff;
+        box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+    }
+
+    input.pan {
+        width: 98%;
+        text-align: right;
+        font-weight: bold;
+        font-size: 16px;
+        border: 1px inset #ddd;
+        line-height: 22px;
+        height: 24px;
+        background: #d7e3d9;
+        margin: 0 auto 3px auto
+    }
+
+    #LED {
+        background: lightskyblue;
+        border-radius: 4px;
+        padding: 5px;
+        font-size: 1.5rem;
+        min-height: 40px;
+        box-shadow: 0 0 2px black, inset 0 0 1px #fff;
+        outline: none;
+        border: none;
+        padding-inline-end: 10px;
+        width: calc(100% - 10px);
+    }
+    #LED::placeholder {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    td:hover::after, th:hover::after {
+        background-color: transparent;
+        box-shadow: none;
+    }
+    body:not(.nohover) tbody tr:hover {
+        background-color: transparent;
+        box-shadow: none;
+        border-top: none;
+        border-bottom: none;
+    }
+    a.c, a.c:visited, a.c:hover {
+        width: 70%;
+        font-size: 28px;
+    }
+    #e {
+        font-size: 65px;
+        font-weight: lighter;
+
+    }
+    a.b, a.b:visited, a.b:hover {
+        width: 70%;
+    }
+
+        #closeCalculatorButton {
+        position: absolute;
+        top: 70px;
+        right: 10px;
+
+    }
+</style>
+<div id="closeCalculatorButton">
+    <i style="color: red; font-size: 2rem;" class="far fa-times-circle"></i>
+</div>
+<div id="outer">
+    <div id="cover">
+        <form name="calcsci">
+            <table class="main">
+                <col style="width:16.5%" span="6">
+                <tr class="tdp">
+                    <td colspan="6">
+                        <input class="pan" id="LED" placeholder="0" type="number">
+                <tr>
+                    <td colspan="2"><label><input name="angle" id="angle0" type="radio" class="rad" checked="checked"> 
+                            Degrees</label>
+                    <td colspan="2"><label><input name="angle" id="angle1" type="radio" class="rad">  Radians</label>
+                    <td colspan="2"><label><input name="angle" id="angle2" type="radio" class="rad">  Gradient</label>
+                <tr>
+                    <td><a class="c" id="C" onclick="Click('C');">C</a>
+                    <td><a class="c" id="e" onclick="Click('=');">=</a>
+                    <td><a class="b" onclick="Click('M+');">M +</a>
+                    <td><a class="b" onclick="Click('M-');">M -</a>
+                    <td><a class="b" onclick="Click('MR');">MRC</a>
+                    <td><a class="b" onclick="Click('MC');">MC</a>
+                <tr>
+                    <td><a class="b" id="sin" onclick="Click('sin');">sin</a>
+                    <td><a class="b" id=cos onclick="Click('cos');">cos</a>
+                    <td><a class="b" id="tab" onclick="Click('tan');">tan</a>
+                    <td><a class="b" id="sinh" onclick="Click('sinh');">sinh</a>
+                    <td><a class="b" id="cosh" onclick="Click('cosh')" ;>cosh</a>
+                    <td><a class="b" id="tanh" onclick="Click('tanh')" ;>tanh</a>
+                <tr>
+                    <td><a class="b" id="asin" onclick="Click('asin');">asin</a>
+                    <td><a class="b" id="acos" onclick="Click('acos');">acos</a>
+                    <td><a class="b" id="atan" onclick="Click('atan');">atan</a>
+                    <td><a class="b" id="asinh" onclick="Click('asinh');">asinh</a>
+                    <td><a class="b" id="acosh" onclick="Click('acosh');">acosh</a>
+                    <td><a class="b" id="atanh" onclick="Click('atanh');">atanh</a>
+                <tr>
+                    <td><a class="b" id="exp" onclick="Click('exp');">exp</a>
+                    <td><a class="b" id="seven" onclick="Click('7');">7</a>
+                    <td><a class="b" id="eight" onclick="Click('8');">8</a>
+                    <td><a class="b" id="nine" onclick="Click('9');">9</a>
+                    <td><a class="b" id="plus" onclick="Click('+');">+</a>
+                    <td><a class="b" id="pow" onclick="Click('^');">x^y</a>
+                <tr>
+                    <td><a class="b" id="log" onclick="Click('log');">log</a>
+                    <td><a class="b" id="four" onclick="Click('4');">4</a>
+                    <td><a class="b" id="five" onclick="Click('5');">5</a>
+                    <td><a class="b" id="six" onclick="Click('6');">6</a>
+                    <td><a class="b" id="minus" onclick="Click('-');">-</a>
+                    <td><a class="b" id="denom" onclick="Click('1/x');">1/x</a>
+                <tr>
+                    <td><a class="b" id="abs22" onclick="Click('ln');">ln</a>
+                    <td><a class="b" id="one" onclick="Click('1');">1</a>
+                    <td><a class="b" id="two" onclick="Click('2');">2</a>
+                    <td><a class="b" id="three" onclick="Click('3');">3</a>
+                    <td><a class="b" id="multiply" onclick="Click('*');">x</a>
+                    <td><a class="b" id="pi3" onclick="Click('pi');">pi</a>
+                <tr>
+                    <td><a class="b" id="sqrt" onclick="Click('sqrt');">sqrt</a>
+                    <td><a class="b" id="zero" onclick="Click('0');">0</a>
+                    <td><a class="b" id="decimal" onclick="Click('.');">.</a>
+                    <td><a class="b" id="plusminus" onclick="Click('+/-');">+/-</a>
+                    <td><a class="b" id="devide" onclick="Click('/');">/</a>
+                    <td><a class="b" id="pi4" onclick="Click('e');">e</a>
+            </table>
+        </form>
+    </div>
+</div>
+
+<script>var Result = 0, Operator = 0, Second = 0, Ready = 0, Done = 1, Complete = 0, Integer, mem = 0, CurrentValue;
+    function reset(value) {
+        document.calcsci.LED.value = value;
+        Result = 0, Operator = 0, Second = 0, Ready = 0; Done = 1; Complete = 0
+    }
+
+    function SetValue(NewValue) {
+        Integer = 1;
+        if (Second || Done) { Second = 0; Done = 0; CurrentValue = NewValue }
+        for (var i = 0; i < CurrentValue.length; i++)
+            if (CurrentValue[i] == '.') Integer = 0
+    }
+    function Click(Caption) {
+        CurrentValue = document.calcsci.LED.value;
+        if (Caption == '.') {
+            SetValue('0');
+            if (Integer) { CurrentValue += Caption; document.calcsci.LED.value = CurrentValue; Complete = 0 }
+        }
+        if (Caption.length == 1 && Caption >= '0' && Caption <= '9') {
+            SetValue(''); if (CurrentValue == '0') CurrentValue = ''; CurrentValue += Caption;
+            document.calcsci.LED.value = CurrentValue; Complete = 1
+        }
+        if (Caption == 'pi') { CurrentValue = Math.PI; document.calcsci.LED.value = CurrentValue; Complete = 1 }
+        if (Caption == 'e') { CurrentValue = Math.E; document.calcsci.LED.value = CurrentValue; Complete = 1 }
+        if (Caption == '-' || Caption == '+' || Caption == '/' || Caption == '*' || Caption == '^') {
+            if (Second) Operator = Caption; else {
+                if (!Ready) { Operator = Caption; Result = CurrentValue; Ready = 1 }
+                else {
+                    if (Operator == 'pow') Result = Math.pow(Result, CurrentValue);
+                    else Result = eval(Result + Operator + CurrentValue); Operator = Caption; document.calcsci.LED.value = Result
+                } Complete = 0; Second = 1
+            }
+        }
+        if (Caption == '1/x') { Result = eval('1/' + CurrentValue); reset(Result) }
+        if (Caption == 'sqrt') { Result = Math.sqrt(CurrentValue); reset(Result) }
+        if (Caption == 'exp') { Result = Math.exp(CurrentValue); reset(Result) }
+        if (Caption == 'log') { Result = Math.log(CurrentValue) / Math.LN10; reset(Result) }
+        if (Caption == 'ln') { Result = Math.log(CurrentValue); reset(Result) }
+        if (Caption == 'sin') {
+            Result = CurrentValue; if (document.calcsci.angle[0].checked)
+                Result = Result * Math.PI / 180; if (document.calcsci.angle[2].checked)
+                Result = Result * Math.PI / 200; Result = Math.sin(Result); reset(Result)
+        }
+        if (Caption == 'cos') {
+            Result = CurrentValue; if (document.calcsci.angle[0].checked)
+                Result = Result * Math.PI / 180; if (document.calcsci.angle[2].checked); Result = Result * Math.PI / 200; Result = Math.cos(Result); reset(Result)
+        }
+        if (Caption == 'tan') {
+            Result = CurrentValue; if (document.calcsci.angle[0].checked); Result = Result * Math.PI / 180;
+            if (document.calcsci.angle[2].checked)
+                Result = Result * Math.PI / 200; Result = Math.tan(Result); reset(Result)
+        }
+        if (Caption == 'asin') {
+            Result = Math.asin(CurrentValue);
+            if (document.calcsci.angle[0].checked) Result = Result * 180 / Math.PI;
+            if (document.calcsci.angle[2].checked) Result = Result * 200 / Math.PI; reset(Result)
+        }
+        if (Caption == 'acos') {
+            Result = Math.acos(CurrentValue); if (document.calcsci.angle[0].checked) Result = Result * 180 / Math.PI;
+            if (document.calcsci.angle[2].checked) Result = Result * 200 / Math.PI; reset(Result)
+        }
+        if (Caption == 'atan') {
+            Result = Math.atan(CurrentValue); if (document.calcsci.angle[0].checked) Result = Result * 180 / Math.PI;
+            if (document.calcsci.angle[2].checked) Result = Result * 200 / Math.PI; reset(Result)
+        }
+        if (Caption == 'sinh') { Result = Math.exp(CurrentValue); Result = (Result - 1 / Result) / 2; reset(Result) }
+        if (Caption == 'cosh') { Result = Math.exp(CurrentValue); Result = (Result + 1 / Result) / 2; reset(Result) }
+        if (Caption == 'tanh') { Result = Math.exp(CurrentValue); Result = (Result - 1 / Result) / (Result + 1 / Result); reset(Result) }
+        if (Caption == 'asinh') {
+            //sign(x)*log(|x|+ sqrt(x*x+1))
+            //alert(CurrentValue+ Math.sqrt(CurrentValue*CurrentValue+ 1));
+            //Result=Math.log(CurrentValue+ Math.sqrt(CurrentValue*CurrentValue+ 1));
+            Result = CurrentValue / Math.abs(CurrentValue) * Math.log(Math.abs(CurrentValue) + Math.sqrt(CurrentValue * CurrentValue + 1)); reset(Result)
+        }
+        if (Caption == 'acosh') {
+            //2 log(sqrt((x+1)/2)+ sqrt((x-1)/2))
+            Result = 2 * Math.log(Math.sqrt((CurrentValue + 1) / 2) + Math.sqrt((CurrentValue - 1) / 2)); reset(Result)
+        }
+        if (Caption == 'atanh') {
+            //0.5*log((x-1)/(x+1))
+            Result = Math.log((CurrentValue - 1) / (CurrentValue + 1)) / 2; reset(Result)
+        }
+        if (Caption == '+/-') document.calcsci.LED.value = eval(-CurrentValue); if (Caption == '=' && Complete && Operator != '0') { if (Operator == '^') { Result = Math.pow(Result, CurrentValue); reset(Result) } else reset(eval(Result + Operator + CurrentValue)) }
+        if (Caption == 'MC') { mem = 0 };
+        if (Caption == 'M+') { mem = mem * 1 + CurrentValue * 1 };
+        if (Caption == 'M-') { mem = mem * 1 - CurrentValue * 1 };
+        if (Caption == 'MR') { document.getElementById('LED').value = mem };
+        if (Caption == 'C') reset(0);
+        if (document.calcsci.LED.value[0] == '.') document.calcsci.LED.value = '0' + document.calcsci.LED.value
+    }
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 </script>

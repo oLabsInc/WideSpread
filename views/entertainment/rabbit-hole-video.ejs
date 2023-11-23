@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
 .video-container {
     max-width: 100vw;
@@ -1198,3 +1199,1205 @@ videoContainer.addEventListener('touchstart', e => {
         })
     })
 </script>
+=======
+<style>
+.video-container {
+    max-width: 100vw;
+    width: 90vw;
+    max-height: 100vh;
+    margin-inline: auto;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 0 10px lightskyblue;
+    position: relative;
+    z-index: 20;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.video-container:fullscreen {
+    border-radius: 0;
+    min-width: 100vw;
+    width: 100vw;
+}
+.video-container video {
+    max-width: 100vw;
+    max-height: 90vh;
+    width: 90vw;
+    min-width: 90vw;
+    aspect-ratio: 16 / 9;
+}
+.video-container:fullscreen video {
+    min-width: 100vw;
+    width: 100vw;
+    aspect-ratio: 16 / 9;
+}
+
+.video-information {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.video-length {
+    color: #fff;
+    width: 90%;
+    text-align: right;
+}
+.video-data {
+    padding: 8px;
+}
+.video-data h5 {
+    color: lightskyblue;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-bottom: solid 1px lightskyblue;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    padding-top: 20px;
+    width: 90vw;
+}
+.video-data p {
+    color: #fff;
+    text-indent: 8px;
+    font-size: 1.1rem;
+    width: 80vw;
+    margin-inline: auto;
+    margin-bottom: 30px;
+}
+.video-tags {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 90%;
+}
+.video-tags i {
+    padding: 8px;
+}
+.video-tag {
+    margin-right: 10px;
+    color: lightskyblue;
+    font-weight: bold;
+}
+
+
+.video-controls {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    transition: opacity 500ms ease-in-out;
+    z-index: 99997;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 5px;
+    border-top: solid 2px rgba(85, 85, 85, 0.5);
+    box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.4);
+}
+.video-container:hover .video-controls, .video-container.paused .video-controls {
+    opacity: 1;
+}
+.controls {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.video-controls button {
+    background: none;
+    outline: none;
+    border: none;
+    text-shadow: 0 0 2px #fff;
+    display: block;
+    
+}
+.video-controls button i {
+    font-size: 2rem;
+    color: rgba(135, 206, 250, 0.5);
+}
+.video-container.paused #pauseBtn {
+    display: none;
+}
+.video-container:not(.paused) #playBtn {
+    display: none;
+}
+.video-container.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99998;
+    width: 100%;
+    height: 100vh;
+
+}
+.video-container.fullscreen .video-controls {
+
+    height: 50px;
+
+}
+.controls-hover {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 50px;
+    z-index: 99995;
+    background-color: transparent;
+
+}
+
+
+.video-container.fullscreen #fullscreenBtn {
+    display: none;
+}
+
+
+.video-container:not(.fullscreen) #exitFullscreenBtn {
+    display: none;
+}
+
+.duration-container {
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+    flex-grow: 1;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline-container {
+  height: 7px;
+  margin-inline: .5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.timeline {
+  background-color: rgba(100, 100, 100, .5);
+  height: 3px;
+  width: 100%;
+  position: relative
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: calc(100% - var(--preview-position) * 100%);
+  background-color: rgba(255, 255, 255, 0.5);
+  display: none;
+}
+
+.timeline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: calc(100% - var(--progress-position) * 100%);
+  background-color: lightskyblue;
+}
+
+.timeline .thumb-indicator {
+  --scale: 0;
+  position: absolute;
+  transform: translateX(-50%) scale(var(--scale));
+  height: 200%;
+  top: -50%;
+  left: calc(var(--progress-position) * 100%);
+  background-color: #fff;
+  z-index: 99999;
+  border-radius: 50%;
+  transition: transform 150ms ease-in-out;
+  aspect-ratio: 1 / 1;
+}
+.video-container.scrubbing .thumbnail-img {
+  display: block;
+}
+
+.video-container.scrubbing .preview-img,
+.timeline-container:hover .preview-img {
+  display: block;
+}
+
+.video-container.scrubbing .timeline::before,
+.timeline-container:hover .timeline::before {
+  display: block;
+}
+
+.video-container.scrubbing .thumb-indicator,
+.timeline-container:hover .thumb-indicator {
+  --scale: 1;
+}
+
+.video-container.scrubbing .timeline,
+.timeline-container:hover .timeline {
+  height: 100%;
+}
+
+.timeline-container:hover .timeline::before {
+    display: block;
+}
+
+.timeline-container:hover .thumb-indicator {
+    --scale: 1
+}
+
+.timeline-container:hover .timeline {
+    height: 100%;
+}
+
+
+.show-recommended-container {
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    overflow-x: auto;
+    padding: 8px;
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 100%;
+    height: 65%;
+    z-index: 99999;
+    display: none;
+}
+
+.recommended-video-container {
+    width: 40vw;
+    min-width: 50%;
+    max-width: 400px;
+    
+
+}
+.recommended-video {
+    position: relative;
+    background-color: red;
+    max-height: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.recommended-video img {
+
+    width: 100%;
+    height: 100%;
+}
+.recommended-video p {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-top: solid 1px lightskyblue;
+    border-bottom: solid 1px lightskyblue;
+    box-shadow: 0 0 3px rgba(135, 206, 250, 0.25);
+    color: #fff;
+    text-shadow: 0 0 2px lightskyblue;
+    width: calc(100% - 8px);
+    text-align: center;
+    padding: 4px;
+}
+.similar-videos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+.similar-video {
+    width: 500px;
+    max-width: 90vw;
+    border-radius: 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(135, 206, 250, 0.5);
+    margin-bottom: 25px;
+    margin-right: 10px;
+    overflow: hidden;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode:hue;
+}
+.similar-video a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+}
+.similar-video-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: solid 1px lightskyblue;
+    padding: 8px;
+    padding-top: 0;
+    padding-left: 0;
+}
+.similar-video img {
+    width: 30%;
+    max-width: 25vw;
+    max-height: 200px;
+    border-bottom-right-radius: 12px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+.similar-video-data {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    height: 175px;
+    padding-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.similar-video-header {
+    background: #ffffff3d;
+    backdrop-filter: blur(10px);
+    box-shadow: inset 0 0 20px 5px #87cefa7d;
+}
+.similar-video-header h5 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: lightskyblue;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0 0 20px #000, 0 0 2px #000;
+    padding: 8px;
+    text-align: center;
+    width: 100%;
+}
+.similar-video-data p {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+.similar-video-data-description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    -webkit-box-orient: vertical;
+    width: 90%;
+    margin: 5px;
+    margin-inline: auto;
+}
+.tags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: 90%;
+    margin-inline: auto;
+
+}
+.similar-tag {
+    padding: 8px;
+}
+.similar-tag a {
+    color: lightskyblue;
+    font-size: 1rem;
+}
+
+
+.similar-video-data p:last-of-type {
+    text-align: right;
+    color: lightskyblue;
+    font-weight: bold;
+    margin-right: 15px;
+    text-shadow: 0 0 2px #fff;
+}
+.hidden {
+    display: none;
+}
+
+.comments-header {
+    padding: 8px;
+}
+.comments-header p {
+    text-align: center;
+    color: #fff;
+}
+.comments-header a {
+    color: lightskyblue;
+    text-decoration: none;
+}
+.comments-container {
+    margin-bottom: 20px;
+    width: 80%;
+    margin-inline: auto;
+    margin-top: 20px;
+}
+
+.add-spread-comment {
+    width: 100%;
+    margin-bottom: 15px;
+}
+.add-spread-comment form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.add-spread-comment textarea {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 8px;
+    outline: none;
+    width: 90%;
+    margin-inline: auto;
+    max-width: 100vw;
+    margin: 0;
+    border: none;
+    border-top: solid 1px lightskyblue;
+    height: 150px;
+    overflow-y: auto;
+    resize: none;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.add-spread-comment textarea::placeholder {
+    color: lightskyblue;
+}
+.add-spread-comment button {
+    width: calc(90% + 15px);
+    margin-inline: auto;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    outline: none;
+    border: none;
+    background-color: rgba(135, 206, 250, 0.5);
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+    color: #fff;
+    padding: 10px;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+.comments {
+}
+.comments h2 {
+    text-align: center;
+    color: lightskyblue;
+    font-size: 1.4rem;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.comment {
+    margin-bottom: 0;
+    border-top: solid 1px lightskyblue;
+    border-bottom: solid 1px lightskyblue;
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.comment-user-avatar {
+    width: 100px;
+    height: 150px;
+}
+.comment-user-avatar img {
+    max-width: 100%;
+    max-height: 100%;
+    border-bottom-right-radius: 16px;
+}
+.comment-data {
+    width: calc(100% - 120px);
+    padding: 10px;
+    position: relative;
+    padding-bottom: 40px;
+}
+.comment-header h5 {
+    color: lightskyblue;
+    font-size: 1.2rem;
+}
+.comment-body p {
+    color: #fff;
+    height: 80px;
+}
+.comment-footer-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 40px;
+}
+.comment-footer {
+    display: none;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 40px;
+}
+.comment-footer i {
+    padding: 5px;
+    height: 30px;
+}
+.close-footer i {
+    color: orangered;
+    margin-left: 10px;
+}
+.reply-comment-form {
+    display: none;
+    width: 90%;
+    margin-inline: auto;
+}
+.reply-comment-form form {
+    width: 100%;
+}
+.reply-comment-form textarea {
+    resize: none;
+    width: calc(100% - 16px);
+    height: 100px;
+    border: none;
+    outline: none;
+    background-color: rgba(135, 206, 250, 0.25);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    padding: 8px;
+    box-shadow: inset 0 0 10px rgb(255 255 255 / 25%);
+    overflow-y: auto;
+}
+.reply-comment-form button {
+    border: none;
+    width: calc(100% - 0px);
+    background-color: rgba(135, 206, 250, 0.75);
+    backdrop-filter: blur(10px);
+    box-shadow: inset 0 0 10px rgb(255 255 255 / 50%);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    outline: none;
+    padding: 10px;
+    margin-top: 0;
+    color: #fff;
+    font-size: 1.3rem;
+    
+}
+.cancel-reply-btn {
+    color: orangered;
+    display: none;
+}
+
+.replys-container {
+    background-color: rgba(135, 206, 250, 0.25);
+    backdrop-filter: blur(10px);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    width: 90%;
+    margin-inline: auto;
+}
+.comment-reply {
+    width: 100%;
+    min-height: 110px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-bottom: solid 1px #fff;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.25);
+}
+.comment-reply:last-of-type {
+    padding-bottom: 20px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+.comment-reply-avatar {
+    width: 70px;
+    max-width: 30%;
+}
+.comment-reply-avatar img {
+    max-width: 100%;
+    max-height: 100%;
+    border-bottom-right-radius: 8px;
+}
+.comment-reply-data {
+    width: 70%;
+    height: 65px;
+    position: relative;
+    padding-bottom: 40px;
+}
+.comment-reply-body h6 {
+    padding: 5px;
+    color: lightskyblue;
+    font-size: 1.2rem;
+}
+.comment-reply-body p {
+    padding: 5px;
+    color: #fff;
+    font-size: 1rem;
+}
+.comment-reply-footer {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+</style>
+
+    <div class="video-information">
+        <div class="video-data">
+            <h5><%= video.title %></h5>
+            <p><%= video.description %></p>
+        </div>
+        <div class="video-length">Length: <%= video.video_length %></div>
+        <div class="video-tags">
+            <i class="bx bx-tag"></i>
+            <% video.tags.forEach(function(tag) { %>
+        <div class="video-tag">#<%= tag %></div>
+            <% }) %>
+        </div>
+
+    </div>
+
+
+    <div class="video-container paused">
+    <div id="playerRecommended" class="show-recommended-container">
+        <% allVideos.forEach(function(relatedVideo) { %>
+            <% if (relatedVideo.id == video.id ) { %>
+                <span style="display: none;"></span>
+            <% } else { %>
+
+                <div class="recommended-video-container">
+                    <a href="/entertainment/rabbit-hole/video/<%= relatedVideo.id %>">
+                        <div class="recommended-video">
+                            <img src="<%= relatedVideo.thumbnail %>" alt="">
+                            <p><%= relatedVideo.title %></p>
+                        </div>
+                    </a>
+                </div>
+
+            <% } %>
+        <% }) %>
+    </div>
+    <div id="controlsHover" class="controls-hover"></div>
+    <div class="video-controls">
+        <div class="timeline-container">
+            <div class="timeline">
+
+                <div class="thumb-indicator"></div>
+            </div>
+        </div>
+        <div class="controls">
+            <button class="play-pause-button">
+                <i id="playBtn" class="bx bx-play"></i>
+                <i id="pauseBtn" class="bx bx-pause"></i>
+            </button>
+
+            <button style="display: none;">
+                <i id="volumeBtn" class="bx bx-volume-full"></i>
+            </button>
+            <button  style="display: none;">
+                <i id="muteBtn" class="bx bx-volume-mute"></i>
+            </button>
+            <button  style="display: none;">
+
+                <i id="playbackSettingsBtn" class="bx bx-cog"></i>
+            </button>
+            <div class="duration-container">
+                <div class="current-time">00:00</div>
+                <div class="total-time"></div>
+            </div>
+            <a href="/vr/entertainment/rabbit-hole/video/<%= video.id %>">
+                <i id="enterVR" class="bx bx-globe"></i>
+            </a>
+            <button>
+                <i id="fullscreenBtn" class="bx bx-fullscreen"></i>
+                <i id="exitFullscreenBtn" class="bx bx-exit-fullscreen"></i>
+            </button>
+        </div>
+    </div>
+    <video src="<%= video.url_source %>" poster="<%= video.thumbnail %>" onended="showRecommended()"></video>
+</div>
+
+
+<% if (!user) { %>
+    <div class="comments-header">
+        <p><a href="/users/login">Login</a> to Comment</p>
+    </div>
+    <div class="comments">
+        <h2>Comments</h2>
+        <% comments.forEach(function(comment) { %>
+        <div class="comment">
+            <div class="comment-user-avatar">
+            <img src="/image/<%= comment.author.user_avatar %>" alt="">
+            </div>
+            <div class="comment-data">
+            <div class="comment-header">
+                <h5><%= comment.author.fname %> <%= comment.author.lname %></h5>
+            </div>
+            <div class="comment-body">
+                <p><%= comment.string_post %></p>
+            </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+<% } else { %>
+    <div class="comments-container">
+        <div class="add-spread-comment">
+            <form action="/entertainment/rabbit-hole/video/<%= video.id %>/post" method="post">
+                <textarea name="string_post" id="stringPost" placeholder="Comment..."></textarea>
+                <button type="submit">Post</button>
+            </form>
+        </div>
+        <div class="comments">
+            <h2>Comments</h2>
+            <% comments.forEach(function(comment) { %>
+                <div class="comment-container">
+                   <div class="comment" data-comment-id="<%= comment.id %>">
+                        <div class="comment-user-avatar">
+                            <img src="/image/<%= comment.author.user_avatar %>" alt="">
+                        </div>
+                        <div class="comment-data">
+                            <div class="comment-header">
+                                <h5><%= comment.author.fname %> <%= comment.author.lname %></h5>
+                            </div>
+                            <div class="comment-body">
+                                <p><%= comment.string_post %></p>
+                            </div>
+                            <% if (!user) { %>
+                                <span style="display: none;"></span>
+                            <% } else { %> 
+                                <div class="comment-footer-btn" data-footer-btn-id="<%= comment.id %>"><i class="bx bx-dots-vertical-rounded"></i></div>
+                                <div class="comment-footer" data-footer-id="<%= comment.id %>">
+                                    <div class="comment-footer-item" data-comment-heart-id="<%= comment.id %>"><i class="bx bx-heart"></i></div>
+                                    <div class="comment-footer-item" data-comment-link-id="<%= comment.id %>"><i class="bx bx-link-alt"></i></div>
+                                    <div class="comment-footer-item" data-comment-share-id="<%= comment.id %>"><i class="bx bx-share-alt"></i></div>
+                                    <div class="comment-footer-item comment-reply-btn" data-comment-message-id="<%= comment.id %>"><i class="bx bx-message" data-comment-message-id="<%= comment.id %>"></i><i class="bx bx-message-x cancel-reply-btn" data-comment-message-id="<%= comment.id %>"></i></div>
+                                    <div class="comment-footer-item close-footer" data-comment-close-id="<%= comment.id %>"><i class="bx bx-x" data-comment-close-id="<%= comment.id %>"></i></div>
+                                </div>
+
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="reply-comment-form" data-comment-reply-form-id="<%= comment.id %>">
+                        <form action="/entertainment/rabbit-hole/video/<%= video.id %>/comment/<%= comment.id %>/reply" method="post">
+                            <textarea name="commentBody" placeholder="Reply..."></textarea>
+                            <button type="submit">Comment</button>
+                        </form>
+                    </div>
+                    <div class="replys-container">
+                        <% replys.forEach(function(reply) { %>
+                            <% if (reply.fromPost == comment.id) { %>
+                                <div class="comment-reply">
+                                    <div class="comment-reply-avatar">
+                                        <img src="/image/<%= reply.author.user_avatar %>" alt="">
+                                    </div>
+                                    <div class="comment-reply-data">
+                                        <div class="comment-reply-body">
+                                            <h6><%= reply.author.fname %> <%= reply.author.lname %></h6>
+                                            <p><%= reply.commentBody %></p>
+                                        </div>    
+                                        <div class="comment-reply-footer">
+                                            <div class="reply-footer-item"><i class="bx bx-heart"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% } %>
+                        <% }) %>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+<% } %>
+
+
+<div class="similar-videos">
+    <% allVideos.forEach(function(similarVideo) { %>
+        <% if (similarVideo.id != video.id) { %>
+            <div class="similar-video" style="background-image: url('<%= similarVideo.thumbnail %>')">
+                <a href="/entertainment/rabbit-hole/video/<%= similarVideo.id %>">
+                    <div class="similar-video-header">
+                        <img src="<%= similarVideo.thumbnail %>" alt="">
+                        <h5><%= similarVideo.title %></h5>
+
+                    </div>
+                </a>
+
+                    <div class="similar-video-data">
+                        <p class="similar-video-data-description"><%= similarVideo.description %></p>
+                        <div class="tags">
+                            <% similarVideo.tags.forEach(function(tag) { %>
+                                <div class="similar-tag">
+                                    <a href="/search/results/<%= tag %>">
+                                        <span>#<%= tag %></span>
+                                    </a>
+                                </div>
+                            <% }) %>
+                        </div>
+                        <p><%= similarVideo.video_length %></p>
+                    </div>
+            </div>
+        <% } %>
+    <% }) %>
+</div>
+
+    <script>
+        const coreMenu = document.getElementById('coreMenu')
+        const videoContainer = document.querySelector('.video-container')
+        const videoControls = document.querySelector('.video-controls')
+        const video = document.querySelector('video')
+        const currentTimeEl = document.querySelector('.current-time')
+        const totalTimeEl = document.querySelector('.total-time')
+        const timelineContainer = document.querySelector('.timeline-container')
+        
+        const playPauseBtn = document.querySelector('.play-pause-button')
+        const playBtn = document.getElementById('playBtn')
+        const controlsHover = document.getElementById('controlsHover')
+        const playerRecommended = document.getElementById('playerRecommended')
+        const fullscreenBtn = document.getElementById('fullscreenBtn')
+        const exitFullscreenBtn = document.getElementById('exitFullscreenBtn')
+
+        const showRecommendedEl = document.querySelector('.show-recommended-container')
+
+        
+
+/* 
+        timelineContainer.addEventListener('mousemove', handleTmelineUpdate)
+
+        function handleTmelineUpdate(e) {
+            console.log(e)
+            const rect = timelineContainer.getBoundingClientRect()
+            const percent = Math.min(Math.max(0, e.x - rect.x), rect.width) / rect.width
+            timelineContainer.style.setProperty('--preview-position', percent)
+            if (isScrubbing) {
+                timelineContainer.style.setProperty('--progress-position', percent)
+
+            }
+
+        }
+        
+ */
+function isVideoPlaying() {
+    if (video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2 && video.currentTime < video.duration) {
+        console.log('PLAYING')
+
+        }
+    }
+
+controlsHover.addEventListener('mouseenter', e => {
+    videoControls.classList.toggle('hidden')
+    if (e.target) {
+        checkHidden()
+
+    }
+})
+
+videoControls.addEventListener('mouseleave', e => {
+    const hideControls = setTimeout(waitToHide, 2500);
+    function waitToHide() {
+        if (!videoControls.classList.contains('hidden')) {
+            videoControls.classList.toggle('hidden')
+        }
+
+    }
+})
+// Timeline
+videoContainer.addEventListener('touchstart', e => {
+        if (video.currentTime || video) {
+            checkHidden()
+            checkActive()
+            const hideControls = setTimeout(waitToHide, 2500);
+            function waitToHide() {
+                if (!videoControls.classList.contains('hidden')) {
+                    videoControls.classList.toggle('hidden')
+                }
+
+            }   
+        }
+
+    })
+    function getCursorPosition(e) {
+        let x = e.clientX;
+        let y = e.clientY;
+        let position = {x: x, y:y}
+        return position
+        
+    }
+
+    videoContainer.addEventListener('mouseenter', e => {
+        videoControls.classList.toggle('hidden')
+        if (e.target) {
+            checkHidden()
+
+        }
+
+    })
+    videoContainer.addEventListener('mouseleave', e => {
+        checkHidden()
+        if (e.target) {
+            videoControls.classList.toggle('hidden')
+        }
+
+    })
+    function checkActive() {
+        if (videoControls.classList.contains('active')) {
+            videoControls.classList.toggle('hidden')
+            videoControls.classList.toggle('active')
+        }
+    }
+    function checkHidden() {
+        if (videoControls.classList.contains('hidden')) {
+            videoControls.classList.toggle('hidden')
+        }
+    }
+    timelineContainer.addEventListener("mousemove", handleTimelineUpdate)
+    timelineContainer.addEventListener("mousedown", toggleScrubbing)
+    document.addEventListener("mouseup", e => {
+        if (isScrubbing) toggleScrubbing(e)
+    })
+    document.addEventListener("mousemove", e => {
+        if (isScrubbing) handleTimelineUpdate(e)
+    })
+
+    let isScrubbing = false
+    let wasPaused
+    function toggleScrubbing(e) {
+        const rect = timelineContainer.getBoundingClientRect()
+        const percent = Math.min(Math.max(0, e.x - rect.x), rect.width) / rect.width
+        isScrubbing = (e.buttons & 1) === 1
+        videoContainer.classList.toggle("scrubbing", isScrubbing)
+        if (isScrubbing) {
+            wasPaused = video.paused
+            video.pause()
+        } else {
+            video.currentTime = percent * video.duration
+            if (!wasPaused) video.play()
+        }
+
+        handleTimelineUpdate(e)
+    }
+
+    function handleTimelineUpdate(e) {
+        const rect = timelineContainer.getBoundingClientRect()
+        const percent = Math.min(Math.max(0, e.x - rect.x), rect.width) / rect.width
+        const previewImgNumber = Math.max(
+            1,
+            Math.floor((percent * video.duration) / 10)
+        )
+        timelineContainer.style.setProperty("--preview-position", percent)
+
+        if (isScrubbing) {
+            e.preventDefault()
+            timelineContainer.style.setProperty("--progress-position", percent)
+        }
+
+    }
+
+        playPauseBtn.addEventListener('click', playToggle)
+
+        function playToggle() {
+            video.paused ? video.play() : video.pause()
+        }
+        
+        video.addEventListener('play', () => {
+            videoContainer.classList.remove('paused')
+            const hideControls = setTimeout(waitToHide, 2500);
+            function waitToHide() {
+                if (!videoControls.classList.contains('hidden')) {
+                    videoControls.classList.toggle('hidden')
+                }
+
+            }
+
+
+        })
+
+        video.addEventListener('pause', () => {
+            videoContainer.classList.add('paused')
+        })
+
+        fullscreenBtn.addEventListener('click', toggleFullscreenMode)
+        exitFullscreenBtn.addEventListener('click', toggleFullscreenMode)
+        function toggleFullscreenMode() {
+            if (document.fullscreenElement == null) {
+                videoContainer.requestFullscreen()
+
+            } else {
+                document.exitFullscreen()
+
+            }
+        }
+
+        document.addEventListener('fullscreenchange', () => {
+            videoContainer.classList.toggle('fullscreen')
+            const hideControls = setTimeout(waitToHide, 2500);
+            function waitToHide() {
+                if (!videoControls.classList.contains('hidden')) {
+                    videoControls.classList.toggle('hidden')
+                }
+
+            }
+        })
+
+
+        video.addEventListener('loadeddata', () => {
+            totalTimeEl.textContent = formatDuration(video.duration)
+        })
+
+        video.addEventListener('timeupdate', () => {
+            currentTimeEl.textContent = formatDuration(video.currentTime)
+            const percent = video.currentTime / video.duration
+            timelineContainer.style.setProperty('--progress-position', percent)
+            if (playerRecommended) {
+                hideRecommended()
+            }
+        })
+
+        const leadingZeroFormatter = new Intl.NumberFormat(undefined, {
+            minimumIntegerDigits: 2
+        })
+        function formatDuration(time) {
+            const seconds = Math.floor(time % 60)
+            const minutes = Math.floor(time / 60) % 60
+            const hours = Math.floor(time / 3600)
+            if (hours === 0) {
+                return `${leadingZeroFormatter.format(minutes)}:${leadingZeroFormatter.format(seconds)}`
+            } else {
+                return `${leadingZeroFormatter.format(hours)}:${leadingZeroFormatter.format(minutes)}:${leadingZeroFormatter.format(seconds)}`
+
+            }
+            
+        }
+
+        function showRecommended() {
+            console.log('VIDEO HAS ENDED')
+            console.log('SHOW RECOmMENDED')
+            showRecommendedEl.style.display = 'flex'
+            videoControls.classList.toggle('hidden')
+        }
+
+        function hideRecommended() {
+            showRecommendedEl.style.display = 'none'
+        }
+        playBtn.addEventListener('click', e => {
+            if (playerRecommended) {
+                playerRecommended.style.display = 'none'
+            }
+        })
+    </script>
+
+
+
+<script>
+    const comments = document.querySelectorAll('.comment')
+    const commentFooterBtns = document.querySelectorAll('.comment-footer-btn i')
+    const commentFooters = document.querySelectorAll('.comment-footer')
+
+
+    comments.forEach(comment => {
+        const commentId = comment.getAttribute('data-comment-id')
+        console.log('commentId: ', commentId)
+        commentFooterBtns.forEach(btn => {
+            const dataFooterBtnId = btn.getAttribute('data-footer-btn-id')
+            btn.addEventListener('click', e => {
+                console.log(e.target)
+                commentFooters.forEach(footer => {
+                    const dataFooterId = btn.getAttribute('data-footer-id')
+                    if (dataFooterBtnId == dataFooterId) {
+                        footer.style.display = 'flex'
+                        btn.style.display = 'none'
+                    }
+                    
+                    
+                    const closeFooterBtn = footer.querySelector('.close-footer i')
+                    const dataCloseFooterId = closeFooterBtn.getAttribute('data-comment-close-id')
+                    closeFooterBtn.addEventListener('click', e => {
+                        console.log(e.target)
+                        console.log(dataCloseFooterId)
+                        console.log(dataFooterId)
+                        if (dataCloseFooterId == commentId) {
+                            footer.style.display = 'none'
+                            btn.style.display = 'block'
+                        }
+                    })
+
+
+                    
+                    const replyToCommentBtn = footer.querySelector('.comment-reply-btn i')
+                    dataReplyToCommentBtnId = replyToCommentBtn.getAttribute('data-comment-message-id')
+                    const closeReplyFormBtn = comment.querySelector('.cancel-reply-btn')
+                    dataCloseReplyToCommentBtnId = replyToCommentBtn.getAttribute('data-comment-message-id')
+
+                    const replyFormEl = comment.querySelector('.reply-comment-form')
+                    replyToCommentBtn.addEventListener('click', e => {
+                        console.log(e.target)
+                        if (dataReplyToCommentBtnId == commentId) {
+                            const allReplyForms = document.querySelectorAll('.reply-comment-form')
+                            allReplyForms.forEach(replyForm => {
+                                const dataReplyFormId = replyForm.getAttribute('data-comment-reply-form-id')
+                                if (dataReplyFormId == dataReplyToCommentBtnId) {
+                                    replyForm.style.display = 'block'
+                                    replyToCommentBtn.style.display = 'none'
+                                    closeReplyFormBtn.style.display = 'block'
+                                }
+                            })
+                        }
+                    })
+
+                    closeReplyFormBtn.addEventListener('click', e => {
+                        console.log(e.target)
+                        if (dataCloseReplyToCommentBtnId == commentId) {
+                            const allReplyForms = document.querySelectorAll('.reply-comment-form')
+                            allReplyForms.forEach(replyForm => {
+                                const dataReplyFormId = replyForm.getAttribute('data-comment-reply-form-id')
+                                if (dataReplyFormId == dataCloseReplyToCommentBtnId) {
+                                    replyForm.style.display = 'none'
+                                    closeReplyFormBtn.style.display = 'none'
+                                    replyToCommentBtn.style.display = 'block'
+                                }
+                            })
+                        }
+
+
+                    })
+                })
+            })
+        })
+    })
+</script>
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3

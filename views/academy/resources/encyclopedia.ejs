@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     .search {
         width: 100%;
@@ -181,3 +182,188 @@
 <% } else { %>
     <span style="color: red;">No Data</span>
 <% } %>
+=======
+<style>
+    .search {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .search input {
+        background-color: #000;
+        border-radius: 2px;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        padding: 5px;
+        outline: none;
+        border: none;
+        font-size: 1.3rem;
+    }
+    .search button {
+        outline: none;
+        border: none;
+        border-radius: 2px;
+        padding: 5px;
+        padding-right: 8px;
+        background-color: rgba(135, 206, 250, 0.5);
+        backdrop-filter: blur(4px);
+        box-shadow: inset 0 0 10px #fff;
+        color: #fff;
+        font-size: 1.3rem;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
+    .page-title {
+        text-align: center;
+    }
+    .search {
+        margin-bottom: 30px;
+    }
+    .result {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        border-top: groove 2px lightskyblue;
+        border-bottom: groove 2px lightskyblue;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .mw-parser-output table {
+        display: none;
+    }
+    .mw-parser-output tbody {
+        border-radius: 8px;
+        background-color: #000;
+        color: #fff;
+    }
+
+    .page-result section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .page-result section p {
+        width: 100vw;
+        margin-top: 75px;
+    }
+
+    .citation {
+        color: #fff;
+    }
+    .mw-parser-output .portalborder {
+        display: none;
+    }
+    .mw-parser-output ul, .mw-parser-output ol {
+        width: 95%;
+        padding: 10px;
+    }
+    .mw-parser-output ul > li > .mw-parser-output ul, .mw-parser-output ol > li > .mw-parser-output ol {
+        width: 100%;
+        padding-bottom: 0;
+    }
+    .mw-parser-output li {
+        margin-bottom: 8px;
+    }
+    .mw-parser-output {
+        background-color: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(4px);
+        width: 90%;
+        margin-inline: auto;
+        border-radius: 16px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .toc {
+        background-color: rgba(0, 0, 0, 0.25);
+        width: 100%;
+        padding: 20px;
+    }
+    .toctitle {
+        margin-bottom: 15px;
+        padding: 5px;
+        font-size: 1.5rem;
+    }
+    .toc a {
+        text-decoration: none;
+        color: lightskyblue;
+        padding: 5px;
+        margin-left: 5px;
+        font-size: 1.2rem;
+    } 
+    .mw-parser-output h2 {
+        margin-top: 25px;
+        margin-bottom: 15px;
+        border-top: solid 1px lightskyblue;
+        width: 90%;
+        text-align: center;
+    }
+    .mw-headline {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    .mw-editsection {
+        display: none;
+
+    }
+    .mw-parser-output p {
+        color: #fff;
+        text-shadow: 0 0 2px #000;
+        width: 95%;
+        text-indent: 8px;
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+    }
+    .mw-parser-output a {
+        color: lightskyblue;
+        text-shadow: 0 0 2px #000;
+        text-decoration: none;        
+        font-weight: bold;
+    }
+    
+    .mw-parser-output img {
+        border-radius: 8px;
+        box-shadow: 0 4px 8px #000;
+
+    }
+    .thumbcaption {
+        color: #fff;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+    .mwe-math-element img {
+        background-color: rgba(255, 255, 255, 0.75);
+        padding-left: 5px;
+        padding-right: 5px;
+        margin-left: 3px;
+        margin-right: 3px;
+        max-width: 97%;
+
+        box-shadow: none;
+        border-radius: 4px;
+    }
+</style>
+ 
+<div class="page-title">
+    <h1>Encyclopedia</h1>
+</div>
+<div class="search">
+    <form action="/academy/resources/encyclopedia/search" method="post">
+        <input type="text" name="search" placeholder="Search Encyclopedia...">
+        <button type="submit">Search</button>
+    </form>
+</div>
+<% if (returnedData) { %>
+    <p style="color: lime;"><%- returnedData %></p>
+
+
+<% } else { %>
+    <span style="color: red;">No Data</span>
+<% } %>
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3

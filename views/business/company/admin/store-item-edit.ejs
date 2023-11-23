@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     .store {
         width: 90%;
@@ -356,4 +357,364 @@
 
 <div class="delete-item">
     <a href="/business/admin/<%= companyId %>/manage/store/item/<%= storeItem.id %>/delete">Delete Item</a>
+=======
+<style>
+    .store {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 30px;
+        background: rgba(0, 0, 0, 0.25);
+        padding: 10px;
+        border-radius: 8px;
+        backdrop-filter: blur(4px);
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+    }
+    .store-header {
+        font-size: 1.3rem;
+        text-align: center;
+        padding: 15px;
+        color: #fff;
+    }
+
+    .add-item {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        padding: 12px;
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        border-top: outset 1px #fff;
+        border-bottom: outset 1px #fff;
+    }
+
+
+    .edit-input label {
+        color: #fff;
+        padding: 8px;
+    }
+
+    .edit-input {
+        width: 100%;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+
+    .edit-input input {
+        width: 90%;
+        min-width: 90%;
+        padding: 5px;
+        border-radius: 4px;
+        outline: none;
+        border: none;
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.25), 0 0 2px lightskyblue;
+    }
+
+    .edit-input textarea {
+        resize: none;
+        width: 90%;
+        min-width: 90%;
+        height: 200px;
+        padding: 5px;
+        border-radius: 4px;
+        outline: none;
+        border: none;
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.25), 0 0 2px lightskyblue;
+    }
+
+    .edit-input textarea::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+        text-shadow: 0 0 2px lightskyblue;
+    }
+
+    .edit-input input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+        text-shadow: 0 0 2px lightskyblue;
+    }
+
+    .edit-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 30px;
+        margin-top: 30px;
+    }
+
+    .edit-button button {
+        background: rgba(135, 206, 250, 0.5);
+        color: #fff;
+        font-size: 1.4rem;
+        border-radius: 8px;
+        padding: 8px;
+        border: none;
+        outline: none;
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.25), 0 0 2px lightskyblue;
+    }
+    .store-list {
+        padding: 10px;
+    }
+    .no-items p {
+        color: #fff;
+        text-align: center;
+    }
+
+    .add-item-header {
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+    .add-item-header:first-of-type {
+        margin-top: 0;
+    }
+    .add-item-header h5 {
+        font-size: 1.3rem;
+    }
+    .add-item-header p {
+        color: lightskyblue;
+    }
+    
+    .add-item-sub-header {
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+    .add-item-sub-header p {
+        color: #fff;
+    }
+
+
+    .store-item {
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 8px;
+        background: rgba(85, 85, 85, 0.5);
+        border-top: outset 1px #fff;
+        border-bottom: outset 1px #fff;
+    }
+    .store-item-header {
+        width: 90%;
+        max-width: 90%;
+    }
+    .store-item-header {
+        padding: 8px;
+    }
+    .store-item-header h6 {
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        font-size: 1.2rem;
+        width: 90%;
+        
+        border-bottom: solid 1px lightskyblue;
+    }
+    .store-item-header p {
+        margin-left: 10px;
+        color: #fff;
+    }
+    .store-item-link {
+        width: 10%;
+        max-width: 10%;
+        text-align: center;
+    }
+    .store-item-link a {
+        color: lightskyblue;
+        font-size: 1.5rem;
+    }
+    .delete-item {
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+    .delete-item a {
+        padding: 10px;
+        border-radius: 8px;
+        font-size: 1.5rem;
+        color: red;
+        box-shadow: inset 0 0 10px #fff, 0 0 10px #fff, 0 0 3px red;
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(4px);
+        text-decoration: none;
+    }
+</style>
+
+
+<div class="page-title">
+    <h2>Manage Store Item</h2>
+</div>
+
+
+<!-- IMAGE UPLOAD FORM -->
+<div class="add-item-photo">
+    <form action="/upload-item-image/<%= companyId %>/<%= storeItem.id %>?_method=PATCH" method="post" enctype="multipart/form-data" >
+        <div class="custom-file">
+            <input type="file" name="item_image" id="itemImage">
+            <label for="itemImage" class="custom-file-label"></label>
+        </div>
+        <button type="submit" class="custom-file-button">Change</button>
+    </form>
+</div>
+
+
+<div class="add-item">
+    <form action="/business/admin/<%= companyId %>/manage/store/item/<%= storeItem.id %>/edit?_method=PATCH" method="post">
+        <div class="add-item-header">
+            <h5>Add New Store Item</h5>
+            <p>(Required Data)</p>
+        </div>
+        <div class="edit-input">
+            <label for="make">Product Make</label>
+            <input type="text" id="make" name="make" value="<%= storeItem.make %>" placeholder="Make">
+        </div>
+
+        <div class="edit-input">
+            <label for="model">Product Model</label>
+            <input type="text" id="model" name="model" value="<%= storeItem.model %>" placeholder="Model">
+        </div>
+        <div class="edit-input">
+            <label for="name">Product Name</label>
+            <input type="text" id="name" name="name" value="<%= storeItem.name %>" placeholder="Name">
+        </div>
+
+        <div class="edit-input">
+            <label for="description">Description</label>
+            <textarea name="description" id="description" value="<%= storeItem.description %>" placeholder="Description"><%= storeItem.description %></textarea>
+        </div>
+        <div class="edit-input">
+            <label for="price">Price</label>
+            <input type="number" id="price" name="price" value="<%= storeItem.price %>" placeholder="Price">
+        </div>
+
+        <div class="add-item-header">
+            <p>(Optional Data)</p>
+        </div>
+
+
+        <div class="edit-input">
+            <label for="sku">SKU</label>
+            <input type="text" id="sku" name="sku" value="<%= storeItem.sku %>" placeholder="SKU">
+        </div>
+
+        <div class="edit-input">
+            <label for="year">Year</label>
+            <input type="text" id="year" name="year" value="<%= storeItem.year %>" placeholder="Year">
+        </div>
+
+
+        <div class="add-item-sub-header">
+            <p>Dimensions</p>
+        </div>
+
+
+        <div class="edit-input">
+            <label for="dim-units"></label>
+            <select name="units" id="dim-units">
+                <option value="Dimention Units" selected hidden>Dimension Units</option>
+                <option value="mm">mm</option>
+                <option value="cm">cm</option>
+                <option value="m">m</option>
+                <option value="in">in</option>
+                <option value="ft">ft</option>
+            </select>
+        </div>
+        <div class="edit-input">
+            <label for="width">Width</label>
+            <input type="number" id="width" name="width" value="<%= storeItem.dimensions.width %>" placeholder="Width">
+        </div>
+
+        <div class="edit-input">
+            <label for="height">Height</label>
+            <input type="number" id="height" name="height" value="<%= storeItem.dimensions.height %>" placeholder="Height">
+        </div>
+
+        <div class="edit-input">
+            <label for="depth">Depth</label>
+            <input type="number" id="depth" name="depth" value="<%= storeItem.dimensions.depth %>" placeholder="Depth">
+        </div>
+
+
+        <div class="add-item-sub-header">
+            <p>Weight</p>
+        </div>
+
+
+        <div class="edit-input">
+            <label for="Weight-units"></label>
+            <select name="weight_units" id="Weight-units">
+                <option value="Weight Units" selected hidden>Weight Units</option>
+                <option value="g.">Gram</option>
+                <option value="kg.">Kilogram</option>
+                <option value="oz.">Ounce</option>
+                <option value="mT.">Metric Ton (1000 kgs.)</option>
+                <option value="lb.">Pound</option>
+                <option value="t.">Ton (2000 lbs.)</option>
+            </select>
+        </div>
+        <div class="edit-input">
+            <label for="weight">Weight</label>
+            <input type="number" id="weight" name="weight_value" value="<%= storeItem.weight.value %>" placeholder="Weight">
+        </div>
+
+        <div class="edit-input">
+            <label for="category">Category</label>
+            <input type="text" id="category" name="category" value="<%= storeItem.category %>" placeholder="Category">
+        </div>
+
+        <div class="edit-input">
+            <label for="supplier_website">Supplier Website</label>
+            <input type="text" id="supplier_website" name="supplier_website" value="<%= storeItem.supplier_website %>" placeholder="Supplier Website">
+        </div>
+
+        <div class="edit-input">
+            <label for="product_webpage">Product Webpage</label>
+            <input type="text" id="product_webpage" name="product_webpage" value="<%= storeItem.product_webpage %>" placeholder="Product Webpage">
+        </div>
+
+        <div class="edit-input">
+            <label for="product_image_url">Product Image URL</label>
+            <input type="text" id="product_image_url" name="product_image_url" value="<%= storeItem.product_image_url %>" placeholder="Product Image URL">
+        </div>
+
+        <div class="edit-input">
+            <label for="total">Total</label>
+            <input type="number" id="total" name="total" value="<%= storeItem.total %>" placeholder="Total">
+        </div>
+
+        <div class="edit-input">
+            <label for="need">Need</label>
+            <input type="number" id="need" name="need" value="<%= storeItem.need %>" placeholder="Need">
+        </div>
+
+        <div class="edit-input">
+            <label for="reorder_alert">Reorder Alert</label>
+            <input type="number" id="reorder_alert" name="reorder_alert" value="<%= storeItem.reorder_alert %>" placeholder="Reorder Alert">
+        </div>
+
+
+
+
+
+        <div class="edit-button">
+            <button type="submit">Update Item</button>
+        </div>
+
+    </form>
+</div>
+
+<div class="delete-item">
+    <a href="/business/admin/<%= companyId %>/manage/store/item/<%= storeItem.id %>/delete">Delete Item</a>
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 </div>

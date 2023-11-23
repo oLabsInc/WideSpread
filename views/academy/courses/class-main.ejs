@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     .page-background {
         position: fixed;
@@ -1016,3 +1017,1023 @@
 
 </script>
 
+=======
+<style>
+    .page-background {
+        position: fixed;
+        z-index: -10;
+        top: 0;
+        left: 0;
+        min-width: 100vw;
+        max-width: 100vw;
+        min-height: 100vh;
+    }
+    .page-background img {
+        min-width: 100%;
+        max-width: 100vw;
+        min-height: 100vh;
+        opacity: 0.5;
+    }
+    .page-title {
+        margin-top: 20px;
+        width: 100%;
+        min-width: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 0 5px lightskyblue;
+    }
+    .page-title h2 {
+        font-size: 2rem;
+    }
+
+
+
+
+    .learning-point-list {
+        width: 100%;
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+    }
+    .learning-point-list a {
+        text-decoration: none;
+        color: #fff;
+    }
+    .learning-point-item {
+        width: 95%;
+        min-width: 95%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        background: rgba(0, 0, 0, 0.5);
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        border-radius: 16px;
+        backdrop-filter: blur(4px);
+        box-shadow: 0 0 5px lightskyblue;
+    }
+    
+    .learning-point-header {
+    }
+    .learning-point-header h3 {
+        font-size: 1.8rem;
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+    .spread-element {
+
+        word-break: break-word;
+    }
+    .spread-body {
+        background-color: rgba(0, 0, 0, 0.25);
+    }
+    .spread-body p {
+        color: #fff;
+    }
+    .spread-element a {
+        color: lightskyblue;
+        font-weight: bold;
+        word-break: break-all;
+    }
+
+    ol > li.spread-element {
+        list-style: decimal;
+        margin-left: 20px;
+        padding-left: 8px;
+        margin-bottom: 8px;
+    }
+    ol > li.spread-element::marker {
+        font-weight: bold;
+        color: #fff;
+    }
+    table {
+        max-width: 100%;
+        overflow-x: scroll;
+        margin-top: 20px;
+    }
+    .spread-table {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        margin-top: 20px;
+    }
+    .spread-element-table {
+        width: 95%;
+        max-width: 95%;
+        overflow-x: auto;
+        margin: 0 auto;
+        font-size: 1.2rem;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(135, 206, 250, 0.5);
+        border: outset 1px lightskyblue;
+    }
+    .spread-element-table thead {
+        background-color: #000;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+    .spread-element-table th {
+        border-right: solid 1px lightskyblue;
+        padding: 5px;
+        color: lightskyblue;
+        font-weight: bold;
+        transition: ease-in 1s;
+    }
+    .spread-element-table th:hover {
+        background-color: lightskyblue;
+        color: #000;
+        transition: ease-in 0.3s;
+    }
+    .spread-element-table {
+    overflow: hidden;
+    }
+
+    td, th {
+    padding: 10px;
+    position: relative;
+    outline: 0;
+    }
+
+    body:not(.nohover) tbody tr:hover {
+    background-color: rgba(135, 206, 250, 0.5);
+    box-shadow: 0 0 5px #000;
+    border-top: solid 1px #000;
+    border-bottom: solid 1px #000;
+    }
+
+    td:hover::after,
+    thead th:not(:empty):hover::after,
+    td:focus::after,
+    thead th:not(:empty):focus::after { 
+    content: '';  
+    height: 10000px;
+    left: 0;
+    position: absolute;  
+    top: -5000px;
+    width: 100%;
+    z-index: -1;
+    }
+
+    td:hover::after,
+    th:hover::after {
+    background-color: rgba(135, 206, 250, 0.25);
+    box-shadow: 0 0 5px #000;
+    }
+
+    td:focus::after,
+    th:focus::after {
+    background-color: rgba(173, 216, 230, 1);
+    }
+
+    /* Focus stuff for mobile */
+    td:focus::before,
+    tbody th:focus::before {
+    background-color: lightblue;
+    content: '';  
+    height: 100%;
+    top: 0;
+    left: -5000px;
+    position: absolute;  
+    width: 10000px;
+    z-index: -1;
+    }
+    .spread-element-table th:first-of-type {
+        border-top-left-radius: 8px;
+        
+    }
+    .spread-element-table th:last-of-type {
+        border-top-right-radius: 8px;
+        border-right: none;
+
+    }
+    .spread-element-table tbody {
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(4px);
+    }
+    .spread-element-table > tbody > tr {
+        font-weight: normal;
+        transition: ease-in 1s;
+    }
+    .spread-element-table > tbody > tr:hover {
+        background-color: #fff;
+        font-weight: bold;
+        transition: ease-in 0.3s;
+    }
+    .spread-element-table > tbody > tr > td {
+        padding: 5px;
+        border-right: solid 1px #000;
+        box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    .spread-element-table > tbody > tr > td:last-of-type {
+        border-right: none;
+    }
+    .spread-element-table > tbody > tr:last-of-type > td:first-of-type {
+        border-bottom-left-radius: 8px;
+    }
+    .spread-element-table > tbody > tr:last-of-type > td:last-of-type {
+        border-bottom-right-radius: 8px;
+    }
+    .learning-point-actions {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px;
+        width: 95%;
+        margin: 0 auto;
+    }
+    .learning-point-actions span {
+        color: lightskyblue;
+        font-size: 1.2rem;
+        padding: 5px;
+    }
+    .edit-class-button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        border-radius: 16px;
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+    }
+    .edit-class-button a {
+        color: #fff;
+        font-size: 1.3rem;
+        text-decoration: none;
+    }
+    .edit-quiz-button {
+        margin-bottom: 15px;
+    }
+    .take-quiz-container {
+        text-align: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        border-radius: 16px;
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+    }
+    .take-quiz-container a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.3rem;
+    }
+    .quiz-score {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .quiz-score p {
+        color: #fff;
+        font-size: 2rem;
+        text-shadow: 0 0 2px rgba(135, 206, 250, 0.5);
+    }
+    .hide {
+        display: none;
+    }
+
+    .fullscreen-tool {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 50000;
+        background-color: #000;
+    }
+    #flashcardsContainer {
+        position: fixed;
+        bottom: 0;
+        height: calc(100vh - 52px);
+        background-color: #000;
+        width: 100vw;
+        z-index: 20000;
+    }
+    #closeFlashcardsButton {
+        text-align: right;
+        padding: 8px;
+        width: 20px;
+        position: absolute;
+        right: 8px;
+        top: 8px;
+    }
+    .flashcard-stack {
+        padding: 3px;
+        width: 100%;
+        margin-top: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .flashcard {
+        width: 90%;
+        height: 200px;
+        background-color: lightskyblue;
+        border-radius: 16px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        
+    }
+    .flashcard p {
+        text-align: center;
+        font-size: 1.5rem;
+        color: #fff;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .flashcard-back {
+        font-weight: bold;
+        height: 100px;
+    }
+    #startFlashcards {
+        background-color: greenyellow;
+        padding: 10px;
+        border-radius: 8px;
+        margin: 0 auto;
+        color: #fff;
+        font-size: 2rem;
+        font-weight: bold;
+        top: 50%;
+        width: 50%;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        left: 50%;
+    }
+
+    .stack-navigation {
+        width: 50%;
+        margin: 0 auto;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .stack-navigation i {
+        font-size: 3rem;
+
+    }
+    #nextFlashcard {
+        padding: 10px;
+        border-radius: 8px;
+        width: 30%;
+        color: lightskyblue;
+        text-shadow: 0 0 5px #fff;
+    }
+    #previousFlashcard {
+        background-color: greenyellow;
+        padding: 10px;
+        color: #fff;
+        border-radius: 8px;
+        width: 30%;
+        font-size: 2rem;
+    }
+    .notebook-section {
+        text-align: center;
+        margin-bottom: 30px;
+        margin-top: 30px;
+    }
+    .notebook-section a {
+        font-size: 1.5rem;
+        color: #fff;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px lightskyblue;
+        background-color: rgba(135, 206, 250, 0.5);
+        backdrop-filter: blur(4px);
+    }
+    .student-notebook {
+        width: 90%;
+        margin-inline: auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 16px;
+        box-shadow: 0 0 5px lightskyblue;
+    }
+    .notebook-header {
+        text-align: center;
+        border-bottom: solid 1px #fff;
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+    .notebook-header h4 {
+        font-size: 1.4rem;
+    }
+    .notebook-header h5 {
+        font-size: 1.2rem;
+    }
+
+    .notes-list {
+        margin-top: 10px;
+    }
+    .notes-list-header {
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+    
+    .notes {
+        margin-top: 8px;
+        padding-bottom: 20px;
+        max-height: 200px;
+        overflow-y: auto;
+
+    }
+    .notes ol {
+        list-style: decimal;
+        margin-left: 10px;
+    }
+    .notes li {
+        margin-left: 30px;
+        margin-bottom: 30px;
+        border-bottom: solid 1px #aaa;
+        border-left: solid 1px #aaa;
+        border-bottom-left-radius: 8px;
+        padding-bottom: 8px;
+    }
+    .notes li::marker {
+        color: lightskyblue;
+        font-weight: bold;
+        font-size: 2rem;
+    }
+
+    .note-header p {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 1.7rem;
+        font-weight: bold;
+    }
+    .note-body h5 {
+        text-align: center;
+        font-size: 1.4rem;
+    }
+    .note-list {
+        margin-top: 20px;
+    }
+    .note-list ul li {
+        list-style: disc;
+        color: #fff;
+        margin-left: 20px;
+
+    }
+    .note-list li {
+        margin-left: 10px;
+        margin-bottom: 10px;
+        border-bottom: none;
+        border-left: none;
+        padding-bottom: none;
+    }
+    .notes-list li::marker {
+        font-size: 1.2rem;
+        color: #fff;
+        font-weight: bold;
+    }
+    .note {
+        padding-left: 8px;
+    }
+    .note-header {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #fff;
+    }
+    .note-body {
+        color: #fff;
+    }
+    .note-body p {
+        margin-bottom: 20px;
+        text-indent: 8px;
+        padding: 5px;
+    }
+    #newNoteEl {
+        overflow-y: auto;
+    }
+</style>
+
+<%- include('../../partials/menus/academy'); %>
+<%- include('../../partials/menus/sub/academy/class', { classes: course.classes, currentCourse: course, currentPage: className.name}); %>
+
+
+<div class="page-background" style="background-color: <%= course.course_colors.main %>;">
+    <img src="/image/<%= course.background_image %>" alt="">
+</div>
+
+<div class="page-title">
+    <h3>
+        <%= course.name %>
+    </h3>
+    <h2>
+        <%= className.name %>
+    </h2>
+
+</div>
+<div class="edit-class">
+<% if (userId === className.class_creator.id) { %>
+    <div class="edit-class-button">
+        <a href="/admin/academy/course/<%= course.id %>/class/<%= className.id %>">Edit Class</a>
+    </div>
+<% } else { %>
+    <span style="display: none;"></span>
+<% } %>
+</div>
+<div class="notebook-section">
+    <% if (!notebookSection) { %>
+        <a href="/academy/course/<%= course.id %>/class/<%= className.id %>/notebook/<%= notebook.id %>/action/notebook-section/create">Add Notebook Section</a>
+        
+    <% } else { %>
+            
+        <div class="student-notebook">
+            <div class="notebook-header" style="background-color: <%= notebook.color %>;">
+                <h4><%= notebook.name %> Notebook</h4>
+                <h5>Section: <%= notebookSection.title %></h5>
+            </div>
+            <div class="notes-list">
+                <div class="notes-list-header">
+                    <h6>Notes</h6>
+                </div>
+
+<!-- NOTES -->
+                <div class="notes">
+                    <ol>
+
+                        <% notes.forEach(function(note) { %>
+                            <li>
+                                <div class="note">
+                                    <div class="note-header">
+                                        <p><%= note.title %></p>
+                                    </div>
+                                    <div class="note-body">
+                                        <% note.body.forEach(function(noteItem) { %>
+                                            <% if (noteItem.type === 'header') { %>
+                                                <h5><%- noteItem.data.text %></h5>
+                                            <% } %>
+                                            <% if (noteItem.type === 'paragraph') { %>
+                                                <p><%- noteItem.data.text %></p>
+                                            <% } %>
+                                            <% if (noteItem.type === 'list') { %>
+                                                <% if (noteItem.data.style === 'unordered') { %>
+                                                    <div class="note-list">                        
+                                                        <ul>
+                                                            <% noteItem.data.items.forEach(function(listItem) { %>
+                                                                <li>
+                                                                    <div class="note-list-item"><p><%- listItem %></p></div>
+                                                                </li>
+                                                            <% }) %>
+                                                        </ul>
+                                                    </div>
+                                                <% } %>
+                                                <% if (noteItem.data.style === 'ordered') { %>
+                                                    <div class="note-list">
+                                                        <ol>
+                                                            <% noteItem.data.items.forEach(function(listItem) { %>
+                                                                <li>
+                                                                    <div class="note-list-item"><p><%- listItem %></p></div>
+                                                                </li>
+                                                            <% }) %>
+                                                        </ol>
+                                                    </div>
+                                                <% } %>
+                                            <% } %>
+                                        <% }) %>
+                                    </div>
+                                </div>
+                            </li>
+                        <% }) %>
+                    </ol>
+                </div>
+
+
+
+            </div>
+        </div>
+
+    <% } %>
+
+</div>
+
+<div class="learning-point-list">
+    <% learningPoints.forEach(function(learningPoint) { %>
+        <div class="learning-point-item" id="<%= learningPoint.id %>">
+            <div class="learning-point-header">
+                <h3><%= learningPoint.section_header %></h3>
+            </div>
+            <div class="learning-point-body">
+                    <div class="spread-body">
+                        <% learningPoint.section_body.forEach(function(spreadBlock) { %>
+
+                            <% if (spreadBlock.type==='header' ) { %>
+                                <h3 class="spread-element">
+                                    <%- spreadBlock.data.text %>
+                                </h3>
+                                <% } %>
+                                    <% if (spreadBlock.type==='paragraph' ) { %>
+                                        <p class="spread-element">
+                                            <%- spreadBlock.data.text %>
+                                        </p>
+                                        <% } %>
+
+                                            <% if (spreadBlock.type==='quote' ) { %>
+                                                <p class="quote spread-element">"<%- spreadBlock.data.text %>"</p>
+                                                <p><strong class="spread-element">- <%- spreadBlock.data.caption %></strong></p>
+                                                <% } %>
+
+                                                    <% if (spreadBlock.type==='list' ) { %>
+                                                        <ol>
+                                                            <% spreadBlock.data.items.forEach(function(listItem) { %>
+                                                                <li class="spread-element">
+                                                                    <%- listItem %>
+                                                                </li>
+                                                                <% }) %>
+                                                        </ol>
+                                                        <% } %>
+                        <% if (spreadBlock.type==='table' ) { %>
+                            <div class="spread-table">
+                            <table class="spread-element-table">
+
+                                <thead>
+                                    <tr>
+                                        <% spreadBlock.data.content[0].forEach(function(tr) { %>
+                                            <th><%- tr %></th>
+                                        <% }) %>
+
+                                    </tr>
+                                    <tr></tr>
+                                </thead>
+                                <tbody>
+                                    <% spreadBlock.data.content.forEach(function(tableRow) { %>
+                                        <% if (spreadBlock.data.content[0] === tableRow) { %>
+                                            <tr style="display: none;">
+                                            </tr>
+                                        <% } else { %>
+                                            <tr>
+                                                <% tableRow.forEach(function(td) { %>
+                                                    <td><%- td %></td>
+                                                <% }) %>
+                                            </tr>
+                                        <% } %>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                            </div>
+                        <% } %>
+
+                        <% if (spreadBlock.type==='raw' ) { %>
+                            <div class="spread-code">
+                                <p>
+
+                                    <%= spreadBlock.data.html %>
+                                </p>
+                            </div>
+                        <% } %>
+
+                    <% }) %>
+                    </div>
+            </div>
+            <div class="learning-point-actions">
+                <div class="academy-user-menu-item"><i class="bx bx-question-mark"></i></div>
+                <div class="academy-user-menu-item"><i class="bx bx-save"></i></div>
+                <div class="academy-user-menu-item"><i class="bx bx-edit"></i></div>
+                <div class="academy-user-menu-item"><i class="bx bx-share-alt"></i></div>
+
+            </div>
+        </div>
+    <% }) %>
+</div>
+
+
+<div class="take-quiz-container">
+
+<% if (userId.id == className.class_creator.id) { %>
+        <div class="edit-quiz-button">
+            <a href="/admin/academy/course/<%= course.id %>/class/<%= className.id %>/quiz">Add/Edit Quiz Questions</a>
+        </div>
+<% } else { %>
+    <span style="display: none;"></span>
+<% } %>
+
+
+    <% if (!allQuizzes) { %>
+        <span style="display: none;"></span>
+    <% } else { %>
+        <p id="takenQuizId" style="display: none; background: lime; font-size: 1.5rem;"><%= allQuizzes.quiz_id %></p>
+    <% } %>
+    
+    
+    <% if (!quizzes) { %>
+        <span style="color: #fff">No quiz added yet for this class.</span>
+    <% } else { %>
+        <p id="quizId" style="display: none; background: #fff; font-size: 1.5rem;"><%= quizzes.id %></p>
+        <div class="quiz-score">
+            <% if (!allQuizzes) { %>
+                <span style="display: none;"></span>
+            <% } else { %>
+                <p>Quiz Grade: <%= allQuizzes.grade %>%</p>
+            <% } %>
+        </div>
+        <a id="takeQuizBtn" href="/academy/course/<%= course.id %>/class/<%= className.id %>/quiz/<%= quizzes.id %>/take">Take Quiz for <%= className.name %></a>
+    <% } %>
+    
+
+    
+</div>
+
+    <!-- TOOLBOX TOOLS -->
+
+        <!-- New Note -->
+        <% if (!notebookSection) { %>
+            <span style="display: none;"></span>
+        <% } else { %>
+            <div id="newNoteEl" class="fullscreen-tool hide">
+                <%- include('../../partials/tools/new-note'); %>
+            </div>
+        <% } %>
+        
+        <!-- Whiteboard -->
+        <div id="chalkboardTool" class="fullscreen-tool hide">
+            <%- include('../../partials/tools/whiteboard'); %>
+        </div>
+
+
+        <!-- Code Editor -->
+        <div id="codeEditor" class="code-editor fullscreen-tool hide">
+            <%- include('../../partials/tools/code-editor'); %>
+        </div>
+        
+
+        <!-- Calculator -->
+        <div id="calculator" class="calculator fullscreen-tool hide">
+            <%- include('../../partials/tools/calculator'); %>
+        </div>
+        
+
+        <!-- Flashcards -->
+        <div id="flashcardsContainer" class="hidden">
+            <% if (flashcards.length >= 1) { %>
+                <div id="closeFlashcardsButton"><i style="color: orangered; font-size: 2rem;" class="far fa-times-circle"></i></div>
+                <div id="startFlashcards">
+                    Start
+                </div>
+                <div class="flashcard-stack">
+                    <% flashcards.forEach(function(flashcard) { %>
+                        <div class="flashcard hidden" style="background-color: <%= course.course_colors.main %>;">
+                            <div class="flashcard-front">
+                                <p>
+                                    <%= flashcard.question %>
+                                </p>
+                            </div>
+                            <div class="flashcard-back hidden">
+                                <p>
+                                    <%= flashcard.answer %>
+                                </p>
+                            </div>
+                        </div>
+                        <% }) %>
+                </div>
+                <div class="stack-navigation">
+                    <!-- <div id="previousFlashcard" class="hidden"><i class="bx bx-left-arrow-circle"></i></div> -->
+                    <div id="nextFlashcard" class="hidden"><i class="bx bx-right-arrow-circle"></i></div>
+                </div>
+            <% } else { %>
+                <span>No flashcards yet.</span>
+
+            <% } %>
+        </div>
+        
+
+        
+        <%- include('../../partials/academy/student-desk'); %>
+
+<script>
+
+
+    const takenQuizIdContainer = document.getElementById('takenQuizId')
+    const quizIdContainer = document.getElementById('quizId')
+    let takeQuizBtn = document.getElementById('takeQuizBtn')
+    if (takenQuizIdContainer) {
+        const takenQuizId = takenQuizIdContainer.innerText
+        const quizId = quizIdContainer.innerText
+        console.log('takenQuizId: ' + takenQuizId)
+        console.log('quizId: ' + quizId)
+
+        if (takenQuizId === quizId) {
+            console.log('Quiz already taken.')
+            takeQuizBtn.classList.add('hide')
+        }
+    }
+
+    if (quizIdContainer) {
+        const quizId = quizIdContainer.innerText
+    }
+    if (!quizIdContainer) {
+        console.log('NO QUIZ ADDED YET')
+    }
+    
+
+
+</script>
+
+
+<script>
+        const flashcardsButton = document.getElementById('flashcardsButton')
+        const flashcardsContainer = document.getElementById('flashcardsContainer')
+        const startFlashcards = document.getElementById('startFlashcards')
+        const nextFlashcard = document.getElementById('nextFlashcard')
+        const previousFlashcard = document.getElementById('previousFlashcard')
+        const allFlashcards = document.querySelectorAll('.flashcard')
+        
+        let allFlashcardsArray = []
+
+        allFlashcards.forEach((card, index) => {
+            allFlashcardsArray.push(card)
+
+
+                card.addEventListener('click', e => {
+                    console.log(e.target)
+                    if (allFlashcards.length <= 0) {
+                        console.log('NO FLASHCARDS')
+                    } else {
+
+                        const cardAnswer = card.querySelector('.flashcard-back')
+                        cardAnswer.classList.toggle('hidden')
+                    }
+                })
+        })
+        console.log('allFlashcardsArray: ', allFlashcardsArray)
+
+        let currentCount = 0
+        const totalCount = allFlashcards.length
+        if (totalCount === 0) {
+            console.log('NO FLASHCARDS')
+            flashcardsButton.innerHTML = `<i class="bx bx-block"></i>`
+        }
+        if (allFlashcardsArray.length >= 1) {
+            startFlashcards.addEventListener('click', e => {
+                startFlashcardSlide()
+                startFlashcards.classList.add('hidden')
+                nextFlashcard.classList.remove('hidden')
+                // previousFlashcard.classList.remove('hidden')
+            })
+        }
+
+
+        let currentCard = allFlashcardsArray[currentCount]
+        console.log(currentCard)
+        function startFlashcardSlide() {
+            currentCard = allFlashcardsArray[currentCount]
+            currentCard.classList.remove('hidden')
+        }
+
+        if (allFlashcardsArray.length >= 1) {
+            nextFlashcard.addEventListener('click', e => {
+                nextCard()
+            })
+        }
+
+        function nextCard() {
+            allFlashcards.forEach((card, index) => {
+                    
+                if (!card.classList.contains('hidden')) {
+                        card.querySelector('.flashcard-back').classList.add('hidden')
+                        card.classList.add('hidden')
+                    }
+                })
+                if (currentCount >= totalCount) {
+                    currentCount = 0
+
+                    startFlashcardSlide()
+                }
+                currentCard.classList.remove('hidden')
+            currentCount++
+            currentCard = allFlashcardsArray[currentCount]
+            console.log('current card inside next(): ', currentCard)
+            
+        }
+        function previousCard(currentCount) {
+                allFlashcards.forEach(card => {
+                    
+                    if (!card.classList.contains('hidden')) {
+                        card.classList.add('hidden')
+                    }
+                })
+                if (currentCount = 1) {
+                    currentCount = totalCount
+                    startFlashcardReverse()
+
+                }
+            currentCount--
+            currentCard = allFlashcardsArray[currentCount]
+            console.log('current card inside previous(): ', currentCard)
+            
+        }
+        flashcardsButton.addEventListener('click', e => {
+            flashcardsContainer.classList.remove('hidden')
+
+        })
+
+        if (allFlashcardsArray.length >= 1) {
+            const closeFlashcardsBtn = document.getElementById('closeFlashcardsButton')
+            closeFlashcardsBtn.addEventListener('click', (e) => {
+                console.log('Clicked')
+                flashcardsContainer.classList.add('hidden')
+            })
+        }
+
+    /* Whiteboard */
+    const chalkboardButton = document.getElementById('chalkboardToolButton')
+    const chalkboard = document.getElementById('chalkboardTool')
+    
+    if (chalkboardButton) {
+        chalkboardButton.addEventListener('click', (e) => {
+
+            chalkboard.classList.remove('hide')
+
+        })
+    }
+
+    const closeWhiteBoardBtn = document.getElementById('closeWhiteboardButton')
+    if (closeWhiteBoardBtn) {
+        closeWhiteBoardBtn.addEventListener('click', (e) => {
+            console.log('Clicked')
+            chalkboard.classList.add('hide')
+        })
+    }
+    /* Code Editor */
+    const codeEditorButton = document.getElementById('codeEditorButton')
+    const codeEditor = document.getElementById('codeEditor')
+
+    if (codeEditorButton) {
+        codeEditorButton.addEventListener('click', (e) => {
+            codeEditor.classList.remove('hide')
+        })
+    }
+
+    const closeCodeEditorBtn = document.getElementById('closeCodeEditorButton')
+    if (closeCodeEditorBtn) {
+        closeCodeEditorBtn.addEventListener('click', (e) => {
+            console.log('Clicked')
+            codeEditor.classList.add('hide')
+        })
+    }
+
+    /* Calculator */
+    const calculatorButton = document.getElementById('calculatorButton')
+    const calculator = document.getElementById('calculator')
+    console.log(calculatorButton)
+    console.log(calculator)
+    if (calculatorButton) {
+        calculatorButton.addEventListener('click', (e) => {
+            console.log("CLICKKKKKKKK")
+            calculator.classList.remove('hide')
+        })
+    }
+
+    const closeCalculatorBtn = document.getElementById('closeCalculatorButton')
+
+    if (closeCalculatorBtn) {
+        closeCalculatorBtn.addEventListener('click', (e) => {
+            console.log('Clicked')
+            calculator.classList.add('hide')
+        })
+    }
+
+</script>
+
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3

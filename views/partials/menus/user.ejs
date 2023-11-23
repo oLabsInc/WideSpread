@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     #userMenu {
         display: flex;
@@ -19,4 +20,27 @@
     <div class="menu-item <%= subZone=='Contacts' ? 'zone-menu-link active' : 'menu-link' %>"><a href="/users/contacts">Contacts</a></div>
     <div class="menu-item <%= subZone=='Calendar' ? 'zone-menu-link active' : 'menu-link' %>"><a href="/users/calendar">Calendar</a></div>
     <div class="menu-item <%= subZone=='Help' ? 'zone-menu-link active' : 'menu-link' %>"><a href="/users/help">Help</a></div>
+=======
+<style>
+    #userMenu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        overflow-x: auto;
+
+    }
+
+</style>
+
+
+
+<div id="userMenu" class="zone-page-menu">
+    <div class="menu-item <%= subZone=='Dashboard' ? 'zone-menu-link active' : 'menu-link' %>"><a href="/users/dashboard">Dashboard</a></div>
+    <div class="menu-item <%= subZone=='VR' ? 'zone-menu-link active' : 'menu-link' %>"><a href="/vr/users/dashboard">VR</a></div>
+    <div class="menu-item <%= subZone=='Settings' ? 'zone-menu-link active' : 'menu-link' %>"><a href="/users/settings">Settings</a></div>
+    <div class="menu-item <%= subZone=='Inventory' ? 'zone-menu-link active' : 'menu-link' %>"><a href="/users/inventory">Inventory</a></div>
+    <div class="menu-item <%= subZone=='Contacts' ? 'zone-menu-link active' : 'menu-link' %>"><a href="/users/contacts">Contacts</a></div>
+    <div class="menu-item <%= subZone=='Calendar' ? 'zone-menu-link active' : 'menu-link' %>"><a href="/users/calendar">Calendar</a></div>
+    <div class="menu-item <%= subZone=='Help' ? 'zone-menu-link active' : 'menu-link' %>"><a href="/users/help">Help</a></div>
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 </div>

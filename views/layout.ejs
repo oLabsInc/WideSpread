@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -226,4 +227,234 @@
 
 
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WideSpread</title>
+    <link rel="icon" href="/images/system/logo_2a1a1a.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gruppo&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,100&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/080e00a6ec.js" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="boxicons.min.css"> -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    
+    <!-- EditorJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/link@2.0.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/raw"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/simple-image@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/image@2.3.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/checklist@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/embed@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/quote@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/table@latest"></script>
+
+
+    <!-- <script defer src="/logic/sub-zone-menu.js"></script> -->
+
+
+    <link rel="stylesheet" href="/style/main.css">
+</head>
+
+
+
+
+<body>
+
+
+
+    <div id="core">
+        <div id="wideSpread">
+            <div id="spreadMenu">
+                <%- include('./partials/layout/core-menu'); %>
+            </div>
+            <div id="spreadShow">
+                <%- include('./partials/layout/core-container'); %>
+            </div>
+        </div>
+    </div>
+    <div id="cora">
+        <div id="closeCora">
+            <svg fill="orangered" width="64px" height="64px" viewBox="0 0 256 256" id="Flat" xmlns="http://www.w3.org/2000/svg" stroke="orangered"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M128,28.00012a100,100,0,1,0,100,100A100.113,100.113,0,0,0,128,28.00012Zm0,192a92,92,0,1,1,92-92A92.10446,92.10446,0,0,1,128,220.00012ZM162.82813,98.82873l-29.17139,29.17139,29.17139,29.17139a3.99992,3.99992,0,1,1-5.65625,5.65722L128,133.65686,98.82813,162.82873a3.99992,3.99992,0,0,1-5.65625-5.65722l29.17138-29.17139L93.17188,98.82873a3.99992,3.99992,0,0,1,5.65625-5.65722L128,122.34338l29.17188-29.17187a3.99992,3.99992,0,1,1,5.65625,5.65722Z"></path> </g></svg>
+        </div>
+        <div id="coraIn">
+
+        </div>
+        <div id="coraOut"></div>
+
+        <div id="coraCurrent"></div>
+        <div id="coraNotifications">
+            <div class="cora-alert">
+                <div class="close-cora-alert close-button">
+                    <svg fill="orangered" width="64px" height="64px" viewBox="0 0 256 256" id="Flat" xmlns="http://www.w3.org/2000/svg" stroke="orangered"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M128,28.00012a100,100,0,1,0,100,100A100.113,100.113,0,0,0,128,28.00012Zm0,192a92,92,0,1,1,92-92A92.10446,92.10446,0,0,1,128,220.00012ZM162.82813,98.82873l-29.17139,29.17139,29.17139,29.17139a3.99992,3.99992,0,1,1-5.65625,5.65722L128,133.65686,98.82813,162.82873a3.99992,3.99992,0,0,1-5.65625-5.65722l29.17138-29.17139L93.17188,98.82873a3.99992,3.99992,0,0,1,5.65625-5.65722L128,122.34338l29.17188-29.17187a3.99992,3.99992,0,1,1,5.65625,5.65722Z"></path> </g></svg>
+                </div>
+                <div class="cora-alert-body">Battery: 15%</div>
+            </div>
+            
+            <div class="cora-alert">
+                <div class="close-cora-alert close-button">
+                    <svg fill="orangered" width="64px" height="64px" viewBox="0 0 256 256" id="Flat" xmlns="http://www.w3.org/2000/svg" stroke="orangered"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M128,28.00012a100,100,0,1,0,100,100A100.113,100.113,0,0,0,128,28.00012Zm0,192a92,92,0,1,1,92-92A92.10446,92.10446,0,0,1,128,220.00012ZM162.82813,98.82873l-29.17139,29.17139,29.17139,29.17139a3.99992,3.99992,0,1,1-5.65625,5.65722L128,133.65686,98.82813,162.82873a3.99992,3.99992,0,0,1-5.65625-5.65722l29.17138-29.17139L93.17188,98.82873a3.99992,3.99992,0,0,1,5.65625-5.65722L128,122.34338l29.17188-29.17187a3.99992,3.99992,0,1,1,5.65625,5.65722Z"></path> </g></svg>
+                </div>
+                <div class="cora-alert-body">New message from Philip</div>
+            </div>
+
+        </div>
+            <script>
+
+
+                const allMainMenuItemLinks = document.querySelectorAll('.main-menu-item a')
+
+
+                let allUrls = []
+
+                allMainMenuItemLinks.forEach(link => {
+                    link.addEventListener('click', e => {
+                        console.log(e.target)
+                    })
+                    const url = link.getAttribute('href')
+                    const fullUrl = `http://localhost:5000${url}`
+                    // console.log(fullUrl)
+                    allUrls.push(fullUrl)
+                })
+                console.log('Total Zone Routes: ', allUrls.length)
+                let screenWidth = screen.width;
+                let screenHeight = screen.height;
+                    // console.log('Screen Width: ' + screenWidth + 'px')
+                    // console.log('Screen Height: ' + screenHeight + 'px')
+                    // console.log('Current Internet Connection: ', navigator.connection.effectiveType)
+                const handleCharacteristicValueChanged = (event) => {
+                    // console.log(event.target.value.getUint8(0) + '%');
+                };
+
+                const mainMenuItems = document.querySelectorAll('.main-menu-item')
+                const rootNav = document.getElementById('rootNav')
+                const open = document.getElementById('open')
+
+                mainMenuItems.forEach(menuItem => {
+                    menuItem.addEventListener('click', e => {
+                        rootNav.style.width = '0'
+                        open.style.opacity = 1
+                    })
+                })
+            </script>
+
+
+<!-- DEVICE BATTERY -->
+
+<script>
+
+    const
+        batteryLevelEls = document.querySelectorAll('.battery-level'),
+        coraNotifications = document.getElementById('coraNotifications')
+
+
+    navigator.getBattery().then((battery) => {
+            function updateAllBatteryInfo() {
+                updateChargeInfo();
+                updateLevelInfo();
+                updateChargingInfo();
+                updateDischargingInfo();
+            }
+            updateAllBatteryInfo();
+
+            battery.addEventListener("chargingchange", () => {
+                updateChargeInfo();
+            });
+            function updateChargeInfo() {
+                console.log(`Battery charging? ${battery.charging ? "Yes" : "No"}`);
+                batteryLevelEls.forEach(batteryLevelEl => {
+                    if (battery.charging) {
+                        const batteryLevelIcon = batteryLevelEl.querySelector('.battery-level-icon')
+                        batteryLevelIcon.setAttribute('src', '/images/system/icons/bat_charging_2.gif')
+                    } else {
+                        displayBatIcon()
+                    }
+                })
+
+            }
+
+            battery.addEventListener("levelchange", () => {
+                updateLevelInfo();
+            });
+            function updateLevelInfo() {
+                console.log(`Battery level: ${battery.level * 100}%`);
+                displayBatIcon()
+
+            }
+
+            battery.addEventListener("chargingtimechange", () => {
+                updateChargingInfo();
+            });
+            function updateChargingInfo() {
+                console.log(`Battery charging time: ${battery.chargingTime} seconds`);
+            }
+
+            battery.addEventListener("dischargingtimechange", () => {
+                updateDischargingInfo();
+            });
+            function updateDischargingInfo() {
+                console.log(`Battery discharging time: ${battery.dischargingTime} seconds`);
+            }
+
+            function displayBatIcon() {
+                const currentBatLevel = battery.level * 100
+
+                batteryLevelEls.forEach(batteryLevel => {
+
+                    const 
+                        batteryLevelIcon = batteryLevel.querySelector('img'),
+                        batteryLevelPercent = batteryLevel.querySelector('.battery-percent'),
+                        cora = document.getElementById('cora')
+
+
+                    if (currentBatLevel >= 90) {
+                        batteryLevelIcon.setAttribute('src', '/images/system/icons/bat_100.png')
+                    }
+                    if (currentBatLevel >= 75 && currentBatLevel < 90) {
+                        batteryLevelIcon.setAttribute('src', '/images/system/icons/bat_75.png')
+                    }
+                    if (currentBatLevel >= 41 && currentBatLevel < 74) {
+                        batteryLevelIcon.setAttribute('src', '/images/system/icons/bat_50.png')
+                    }
+                    if (currentBatLevel >= 15 && currentBatLevel < 40) {
+                        batteryLevelIcon.setAttribute('src', '/images/system/icons/bat_25.png')
+                    }
+                    if (currentBatLevel > 5 && currentBatLevel < 14) {
+                        batteryLevelIcon.setAttribute('src', '/images/system/icons/bat_0.png')
+                        const lowBatteryAlert = coraNotifications.querySelector('#lowBatteryAlert')
+                        cora.style.top = 0
+                        lowBatteryAlert.classList.remove('hidden')
+
+                    }
+                    if (currentBatLevel > 0 && currentBatLevel < 4) {
+                        batteryLevelIcon.setAttribute('src', '/images/system/icons/bat_0.png')
+                        batteryLevelIcon.classList.add('low-battery')
+                    }
+                    batteryLevelPercent.textContent = currentBatLevel + '%'
+                })
+            }
+        });
+</script>
+
+
+<script>
+    const
+        cora = document.getElementById('cora'),
+        closeCora = document.getElementById('closeCora')
+
+    closeCora.addEventListener('click', e => {
+        cora.style.top = '-100%'
+    })
+</script>
+
+
+
+</body>
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 </html>

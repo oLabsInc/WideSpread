@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     a {
         text-decoration: none;
@@ -135,4 +136,143 @@
                 </div>
             </div>
     <% }) %>
+=======
+<style>
+    a {
+        text-decoration: none;
+    }
+    #companyList {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 30px;
+        z-index: 1;
+    }
+    .company-card {
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        border-radius: 8px;
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        width: 90%;
+        margin-bottom: 15px;
+        padding: 5px;
+    }
+    .company-header {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .company-header h5 {
+        text-align: right;
+        font-size: 1.2rem;
+        padding: 8px;
+    }
+    .company-header img {
+        max-height: 50px;
+        border-radius: 6px;
+
+    }
+    .company-intro {
+        padding: 8px;
+        margin-top: 8px;
+        border-top: outset 1px rgba(135, 206, 250, 0.5);
+    }
+    .company-intro p {
+        color: #fff;
+    }
+    .company-contact {
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 8px;
+        border-top: inset 1px rgba(135, 206, 250, 0.5);
+        padding: 5px;
+        font-size: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .company-contact-item  {
+        min-width: 50%;
+        padding: 5px;
+    }
+    .company-contact-item:last-of-type > p {
+        text-align: left;
+    }
+    .company-contact a {
+        text-decoration: none;
+        color: lightskyblue;
+    }
+
+@media screen and (orientation : landscape) {
+    #companyList {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: flex-start;
+    }
+    .company-card {
+        width: 40%;
+    }
+    .company-contact {
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 8px;
+        border-top: inset 1px rgba(135, 206, 250, 0.5);
+        padding: 5px;
+        font-size: 1.2rem;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+}
+</style>
+
+<%- include('../partials/menus/business'); %>
+<div class="page-title">
+    <h2>
+        Business
+    </h2>
+</div>
+
+<div class="spread-link" style="display: flex; align-items: center; justify-content: center;"><a href="/business/add/company">Add Your Business</a></div>
+
+<div class="page-header">
+    <h4>All Companies</h4>
+</div>
+
+<div id="companyList">
+    <% allCompanies.forEach(function(company) { %>
+        <div class="company-card">
+            <a href="/business/company/<%= company.id %>">
+            <div class="company-header">
+                <% if (!company.logo) { %>
+                    <img style="filter: drop-shadow(0 0 2px lightskyblue);" src="/images/system/icons/default_business_1a1a1a.png" alt="Default Buisness Logo">
+                    <% } else { %>
+                        <img style="filter: drop-shadow(0 0 0.5px <%= company.colors.main %>);" src="/image/<%= company.logo %>" alt="<%= company.company_name %>'s Logo">
+                        <% } %>
+                    <h5><%= company.company_name %></h5>
+                </div>
+            </a>
+                <div class="company-info">
+                    <div class="company-intro">
+                        <p><%= company.company_bio %></p>
+                    </div>
+
+                        <div class="company-contact">
+                            <div class="company-contact-item" id="website"><p><a target="_blank" href="<%= company.company_website %>"><%= company.company_website %></a></p></div>
+                            <div class="company-contact-item" id="phone"><p><a href="tel:<%= company.company_phone %>"><%= company.company_phone %></a></p></div>
+                        </div>
+                </div>
+            </div>
+    <% }) %>
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 </div>

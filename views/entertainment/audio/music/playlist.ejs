@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     #nowPlaying {
         position: relative;
@@ -541,4 +542,549 @@ i.fa-step-backward {
     // Load the first track in the tracklist
     loadTrack(track_index);
 
+=======
+<style>
+    #nowPlaying {
+        position: relative;
+        min-height: 200px;
+        margin-bottom: 30px;
+        
+    }
+    #nowPlayingArt {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -10;
+        width: 100%;
+        height: 100%;
+
+    }
+
+
+
+
+
+.player {
+  width: 90vw;  
+  margin: 0 auto;
+  margin-top: 50px;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  border-radius: 16px;
+  border-top: outset 1px rgba(255, 255, 255, 0.25);
+  border-bottom: outset 1px rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+}
+  
+.details {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 25px;
+}
+  
+.track-art {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -10;
+  background-image: URL(
+     "https://source.unsplash.com/Qrspubmx6kE/640x360");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+  
+/* Changing the font sizes to suitable ones */
+.now-playing {
+  font-size: 1rem;
+}
+  
+.track-name {
+  font-size: 3rem;
+  text-align: center;
+  padding: 8px;
+}
+  
+.track-artist {
+  font-size: 1.5rem;
+}
+  
+/* Using flex with the row direction to
+   align items in a horizontal direction */
+.buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.buttons i {
+    color: rgba(255, 255, 255, 0.5);
+    text-shadow: 0 0 5px rgba(135, 206, 250, 0.75);
+}
+  
+.playpause-track,
+.prev-track,
+.next-track {
+  padding: 25px;
+  opacity: 0.8;
+  
+  /* Smoothly transition the opacity */
+  transition: opacity .2s;
+}
+  
+/* Change the opacity when mouse is hovered */
+.playpause-track:hover,
+.prev-track:hover,
+.next-track:hover {
+  opacity: 1.0;
+}
+  
+/* Define the slider width so that it scales properly */
+.slider_container {
+  width: 75%;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  
+/* Modify the appearance of the slider */
+.seek_slider, .volume_slider {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 5px;
+  background: black;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+  
+/* Modify the appearance of the slider thumb */
+.seek_slider::-webkit-slider-thumb,
+.volume_slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: white;
+  cursor: pointer;
+  border-radius: 50%;
+}
+  
+/* Change the opacity when mouse is hovered */
+.seek_slider:hover,
+.volume_slider:hover {
+  opacity: 1.0;
+}
+  
+.seek_slider {
+  width: 60%;
+}
+  
+.volume_slider {
+  width: 30%;
+}
+  
+.current-time,
+.total-duration {
+  padding: 10px;
+}
+  
+i.fa-volume-down,
+i.fa-volume-up {
+  padding: 10px;
+}
+  
+/* Change the mouse cursor to a pointer
+   when hovered over */
+i.fa-play-circle,
+i.fa-pause-circle,
+i.fa-step-forward,
+i.fa-step-backward {
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+    .back-to-playlists {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+    .back-to-playlists a {
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue;
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.2rem;
+
+    }
+    .search-music-button {
+        margin-top: 30px;
+    }
+    .playlist {
+        text-align: center;
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        border-radius: 8px;
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        padding-bottom: 20px;
+    }
+    .playlist h2 {
+        font-size: 1.5rem;
+        padding: 20px;
+    }
+    .playlist p {
+        color: #fff;
+    }
+    .playlist a {
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue;
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.2rem;
+    }
+    .song {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        border-radius: 8px;
+    }
+    .song p {
+        color: #fff;
+    }
+    .song-body {
+        margin-left: 5px;
+        padding: 5px;
+    }
+    .song-body h6 {
+        font-size: 1.2rem;
+        padding: 5px;
+    }
+    .song-path {
+        display: none;
+    }
+    .song-image {
+        display: none;
+    }
+    .song-actions {
+        margin-right: 15px;
+    }
+    .song-actions i {
+        color: rgba(255, 255, 255, 0.5);
+        text-shadow: 0 0 2px lightskyblue;
+    }
+    #pause {
+        display: none;
+    }
+
+</style>
+
+<div class="back-to-playlists">
+    <a href="/entertainment/audio/music/playlists">Back to Playlists</a>
+</div>
+
+<div class="track-art"></div>
+<div class="player">
+
+    <!-- Define the section for displaying details -->
+    <div class="details">
+        <div class="now-playing">PLAYING x OF y</div>
+        <div class="track-name">Track Name</div>
+        <div class="track-artist">Track Artist</div>
+    </div>
+
+    <!-- Define the section for displaying track buttons -->
+    <div class="buttons">
+        <div class="prev-track" onclick="prevTrack()">
+            <i class="fa fa-step-backward fa-2x"></i>
+        </div>
+        <div class="playpause-track" onclick="playpauseTrack()">
+            <i class="fa fa-play-circle fa-5x"></i>
+        </div>
+        <div class="next-track" onclick="nextTrack()">
+            <i class="fa fa-step-forward fa-2x"></i>
+        </div>
+    </div>
+
+    <!-- Define the section for displaying the seek slider-->
+    <div class="slider_container">
+        <div class="current-time">00:00</div>
+        <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
+        <div class="total-duration">00:00</div>
+    </div>
+    <p style="color: orangered">Need to fix Time Slider</p>
+    <!-- Define the section for displaying the volume slider-->
+    <div class="slider_container">
+        <i class="fa fa-volume-down"></i>
+        <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume()">
+        <i class="fa fa-volume-up"></i>
+    </div>
+</div>
+
+<div class="page-title">
+    <h2><%= playlist.name %></h2>
+</div>
+
+<div class="playlist">
+    <h2>Up Next</h2>
+    <% if (playlist.songs <= 0) { %>
+        <p>You haven't added songs to this playlist yet.</p>
+        <div class="search-music-button">
+            <a href="/entertainment/audio/music">Search Music</a>
+        </div>
+    <% } else { %>
+        <% playlist.songs.forEach(function(song) { %>
+            <div class="song" onclick="thisSong(this)">
+                <div class="song-body">
+                    <h6 class="song-name"><%= song.song %></h6>
+                    <p class="song-artist"><%= song.artist %></p>
+                    <p class="song-path">/audio/<%= song.img.data %></p>
+                    <p class="song-image"><%= song.background_photo %></p>
+                    <p class="song-id" style="display: none;"><%= song.id %></p>
+                </div>
+                <div class="song-actions">
+                    <span id="play"><i class="fas fa-play"></i></span>
+                    <span id="pause"><i class="fas fa-pause"></i></span>
+                </div>
+            </div>
+        <% }) %>
+    <% } %>
+</div>
+
+
+<script>
+
+    let now_playing = document.querySelector(".now-playing");
+        let track_art = document.querySelector(".track-art");
+        let track_name = document.querySelector(".track-name");
+        let track_artist = document.querySelector(".track-artist");
+
+        let playpause_btn = document.querySelector(".playpause-track");
+        let next_btn = document.querySelector(".next-track");
+        let prev_btn = document.querySelector(".prev-track");
+
+        let seek_slider = document.querySelector(".seek_slider");
+        let volume_slider = document.querySelector(".volume_slider");
+        let curr_time = document.querySelector(".current-time");
+        let total_duration = document.querySelector(".total-duration");
+
+        // Specify globally used values
+        let track_index = 0;
+        let isPlaying = false;
+        let updateTimer;
+
+        // Create the audio element for the player
+        let curr_track = document.createElement('audio');
+        curr_track.setAttribute('crossOrigin', "anonymous")
+        // Define the list of tracks that have to be played
+        let track_list = [];
+        const allSongs = document.querySelectorAll('.song')
+        allSongs.forEach(song => {
+            let songData = {
+                name: song.querySelector('.song-name').innerHTML,
+                artist: song.querySelector('.song-artist').innerHTML,
+                image: song.querySelector('.song-image').innerHTML,
+                path: song.querySelector('.song-path').innerHTML
+            }
+            track_list.push(songData)
+            console.log(songData)
+        })
+        console.log(allSongs)
+            function thisSong(songDiv) {
+                let songIds = []
+                let songId = songDiv.querySelector('.song-id').innerHTML
+                console.log(songId)
+                allSongs.forEach((song, index) => {
+                    let songData = {
+                        id: song.querySelector('.song-id').innerHTML,
+                        name: song.querySelector('.song-name').innerHTML,
+                        artist: song.querySelector('.song-artist').innerHTML,
+                        image: song.querySelector('.song-image').innerHTML,
+                        path: song.querySelector('.song-path').innerHTML
+                    }
+                    if (songId === songData.id) {
+                        console.log(songData.name)
+                        loadTrack([index])
+                        playTrack()
+                    }
+                    console.log(songData.id)
+                    songIds.push(songData)
+                    console.log(songData)
+                })
+
+
+            }
+        
+
+    function loadTrack(track_index) {
+        // Clear the previous seek timer
+        clearInterval(updateTimer);
+        resetValues();
+
+        // Load a new track
+        curr_track.src = track_list[track_index].path;
+        curr_track.load();
+
+        // Update details of the track
+        track_art.style.backgroundImage =
+            "url(" + track_list[track_index].image + ")";
+        track_name.textContent = track_list[track_index].name;
+        track_artist.textContent = track_list[track_index].artist;
+        now_playing.textContent =
+            "Now Playing " + (track_index + 1) + " of " + track_list.length;
+
+        // Set an interval of 1000 milliseconds
+        // for updating the seek slider
+        updateTimer = setInterval(seekUpdate, 1000);
+
+        // Move to the next track if the current finishes playing
+        // using the 'ended' event
+        curr_track.addEventListener("ended", nextTrack);
+
+    }
+
+
+    // Function to reset all values to their default
+    function resetValues() {
+        curr_time.textContent = "00:00";
+        total_duration.textContent = "00:00";
+        seek_slider.value = 0;
+    }
+
+
+
+    function playpauseTrack() {
+        // Switch between playing and pausing
+        // depending on the current state
+        if (!isPlaying) playTrack();
+        else pauseTrack();
+    }
+
+    function playTrack() {
+        // Play the loaded track
+        curr_track.play();
+        isPlaying = true;
+
+        // Replace icon with the pause icon
+        playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
+    }
+
+    function pauseTrack() {
+        // Pause the loaded track
+        curr_track.pause();
+        isPlaying = false;
+
+        // Replace icon with the play icon
+        playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
+    }
+
+    function nextTrack() {
+        // Go back to the first track if the
+        // current one is the last in the track list
+        if (track_index < track_list.length - 1)
+            track_index += 1;
+        else track_index = 0;
+
+        // Load and play the new track
+        loadTrack(track_index);
+        playTrack();
+    }
+
+    function prevTrack() {
+        // Go back to the last track if the
+        // current one is the first in the track list
+        if (track_index > 0)
+            track_index -= 1;
+        else track_index = track_list.length - 1;
+
+        // Load and play the new track
+        loadTrack(track_index);
+        playTrack();
+    }
+
+
+
+    function seekTo() {
+        // Calculate the seek position by the
+        // percentage of the seek slider 
+        // and get the relative duration to the track
+        seekto = curr_track.duration * (seek_slider.value / 100);
+
+        // Set the current track position to the calculated seek position
+        curr_track.currentTime = seekto;
+    }
+
+    function setVolume() {
+        // Set the volume according to the
+        // percentage of the volume slider set
+        curr_track.volume = volume_slider.value / 100;
+    }
+
+    function seekUpdate() {
+        let seekPosition = 0;
+
+        // Check if the current track duration is a legible number
+        if (!isNaN(curr_track.duration)) {
+            seekPosition = curr_track.currentTime * (100 / curr_track.duration);
+            seek_slider.value = seekPosition;
+
+            // Calculate the time left and the total duration
+            let currentMinutes = Math.floor(curr_track.currentTime / 60);
+            let currentSeconds = Math.floor(curr_track.currentTime - currentMinutes * 60);
+            let durationMinutes = Math.floor(curr_track.duration / 60);
+            let durationSeconds = Math.floor(curr_track.duration - durationMinutes * 60);
+
+            // Add a zero to the single digit time values
+            if (currentSeconds < 10) { currentSeconds = "0" + currentSeconds; }
+            if (durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
+            if (currentMinutes < 10) { currentMinutes = "0" + currentMinutes; }
+            if (durationMinutes < 10) { durationMinutes = "0" + durationMinutes; }
+
+            // Display the updated duration
+            curr_time.textContent = currentMinutes + ":" + currentSeconds;
+            total_duration.textContent = durationMinutes + ":" + durationSeconds;
+        }
+    }
+
+
+    // Load the first track in the tracklist
+    loadTrack(track_index);
+
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 </script>

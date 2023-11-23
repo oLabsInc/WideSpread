@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     .user-container {
         background-color: rgba(0, 0, 0, 0.4);
@@ -373,4 +374,381 @@
             shareResult.textContent = 'Error: ' + err
         }
     })
+=======
+<style>
+    .user-container {
+        background-color: rgba(0, 0, 0, 0.4);
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+    .user-public-menu ul {
+        background-color: #000;
+        backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: flex-start;
+        overflow-x: auto;
+        gap: 0.2rem;
+        border-bottom: solid 1px #fff;
+    }
+    .user-public-menu li {
+        border-right: solid 1px #fff;
+    }
+    .user-public-menu li:last-of-type {
+        border-right: none;
+    }
+    .public-menu-item {
+        padding: 8px;
+        text-align: center;
+    }
+    .public-menu-item a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .user-header {
+        margin-top: 50px;
+    }
+    .user-name {
+        background-color: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(10px);
+        padding: 8px;
+        max-width: 400px;
+        margin-inline: auto;
+        text-align: center;
+        border-top: solid 2px #fff;
+        border-bottom: solid 2px #fff;
+        box-shadow: 0 -8px 10px rgba(0, 0, 0, 0.4), inset 0 0 8px rgba(255, 255, 255, 0.5);
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+    }
+    .user-name h3 {
+        font-size: 1.75rem;
+    }
+    
+    
+    .user-avatar {
+        max-width: 90vw;
+        width: 300px;
+        margin-inline: auto;
+        background-color: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border-top: solid 2px #fff;
+        border-top-left-radius: 26px;
+        border-top-right-radius: 26px;
+        height: 300px;
+        display: flex;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+        box-shadow: inset 0 0 8px #000;
+    }
+    .user-avatar img {
+        max-width: 100%;
+        max-height: 100%;
+        filter: drop-shadow(0 0 8px #000);
+    }
+
+
+
+    .user-contact, .user-bio, .user-education, .user-spreads {
+        text-align: center;
+        padding: 20px;
+        border-top: solid 1px lightskyblue;
+        border-bottom: solid 1px lightskyblue;
+        backdrop-filter: blur(10px);
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .user-bio {}
+    .user-contact h1 {
+        font-size: 1.5rem;
+    }
+    .contact-share-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 15px;
+    }
+
+    .user-contact-item {
+        padding: 5px;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    .user-contact-item-type {
+        margin-right: 8px;
+    }
+    .user-contact-item-data a {
+        color: lightskyblue;
+        text-decoration: none;
+    }
+    .share-container {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: solid 1px lightskyblue;
+        border-left: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    .user-share {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 0.5rem;
+        width: 100%;
+    }
+    .card-share-button {
+        width: 100px;
+        max-width: 45vw;
+        aspect-ratio: 1 / 1;
+        background: rgba(255, 255, 255, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        padding: 10px;
+    }
+    .card-share-button i {
+        font-size: 90px;
+    }
+
+    .qr-code {
+    }
+    .qr-code img {
+        background: #fff;
+        max-width: 45vw;
+        aspect-ratio: 1 / 1;
+        padding: 10px;
+        border-radius: 12px;
+        width: 100px;
+        height: 100px;
+    }
+    .user-spreads {
+    }
+    .user-spreads p {
+        color: #fff;
+    }
+    .user-spreads a {
+        color: lightskyblue;
+        text-decoration: none;
+    }
+    .user-bio {
+        margin-bottom: 30px;
+        background-color: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(10px);
+    }
+    .user-bio p {
+        color: #fff;
+        margin-top: 15px;
+    }
+    .school-item {
+        background-color: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-top: solid 1px lightskyblue;
+        border-bottom: solid 1px lightskyblue;
+        box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.35), 0 0 8px rgba(255, 255, 255, 0.25);
+    }
+    .school-item h6 {
+        color: lightskyblue;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    .school-item p {
+        color: #fff;
+    }
+
+@media screen and (min-width: 499px) {
+    .contact-share-container {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        
+    }
+    .share-container {
+        min-width: 200px;
+        margin-top: 0;
+        border-top: none;
+    }
+    .user-share {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        justify-content: space-evenly;
+    }
+    .card-share-button {
+        width: 100px;
+        max-width: 100px;
+        aspect-ratio: 1 / 1;
+        background: rgba(255, 255, 255, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+    }
+    .card-share-button i {
+        font-size: 90px;
+    }
+
+    .qr-code {
+    }
+    .qr-code img {
+        background: #fff;
+        width: 100px;
+        max-width: 100px;
+        aspect-ratio: 1 / 1;
+        padding: 10px;
+        border-radius: 12px;
+        width: 100px;
+        height: 100px;
+    }
+}
+</style>
+
+
+
+    <div class="user-main-data">
+        <div class="user-header">
+
+            <div class="user-avatar">
+                <% if (thisUser.user_avatar) { %>
+                    <img src="/image/<%= thisUser.user_avatar %>" alt="">
+                <% } else { %>
+                    <img src="/images/system/default-user-avatar_1a1a1a.png" alt="">
+                <% } %>
+            </div>
+            <div class="user-name">
+                <h3><%= thisUser.fname %> <%= thisUser.lname %></h3>
+            </div>
+        </div>
+        <% if (thisUser.about) { %>
+            
+            <div class="user-bio">
+                <div class="section-header">
+                    <h3>About <%= thisUser.fname %></h3>
+                </div>
+                <p><%= thisUser.about %></p>
+            </div>
+        <% } %>
+        <% if (thisUser.previous_education[0]) { %>
+            <div class="user-education">
+                <div class="section-header">
+                    <h3><%= thisUser.fname %>'s Education</h3>
+                </div>
+                <% thisUser.previous_education.forEach(function(school) { %>
+                    <div class="school-item">
+                        <h6><%= school.institution %></h6>
+                        <p>Graduated in: <%= school.attended.end.completion_date.getFullYear() %> with a <%= school.attended.gpa %> GPA</p>
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+
+        <div class="user-contact">
+            <h1>Contact <%= thisUser.fname %></h1>
+            <div class="contact-share-container">
+
+                <div class="share-container">
+                    <div class="user-share">
+                        <div class="card-share-button" data-user-id="<%= thisUser.id %>" data-user-name="<%= thisUser.fname %> <%= thisUser.lname %>">
+                            <i class="bx bx-share-alt"></i>
+                        </div>
+                        <div class="share-result hidden" style="color: yellowgreen; font-size: 1.5rem;"></div>
+                        <div class="qr-code">
+                            <img src="https://qrtag.net/api/qr_transparent_6.svg?url=https://www.widespread.world/users/public/<%= thisUser.id %>" alt="qrtag">
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        
+    </div>
+    <div class="user-spreads">
+        <p><a href="/users/login">Login</a> or <a href="/users/register">register</a> to view <%= thisUser.fname %>'s full profile</p>
+
+    </div>
+    <h1 id="currentUser" data-current-user-id="<%= thisUser.id %>" style="color: #000; font-size: 0.25rem; display: none;"><%= thisUser.fname %> <%= thisUser.lname %></h1>
+</div>
+
+
+<script>
+    const
+        shareBtn = document.querySelector('.card-share-button'),
+        sharedUserId = shareBtn.getAttribute('data-user-id'),
+        sharedUserName = shareBtn.getAttribute('data-user-name'),
+        // sendingUserName = document.getElementById('currentUser').innerText,
+        sendingUserId = document.getElementById('currentUser').getAttribute('data-current-user-id'),
+        link = `https://www.widespread.world/users/public/${sharedUserId}`,
+        shareResult = document.querySelector('.share-result')
+
+        let shareData
+
+        shareData = {
+            title: `Spreading ${sendingUserName}'s profile to you!`,
+            text: `Check out ${sharedUserName} on WideSpread!`,
+            url: link
+        }
+
+
+    shareBtn.addEventListener('click', async () => {
+        console.log('clicked')
+        try {
+            const filesArray = []
+            let myHeaders = new Headers({
+                'Content-Type': 'image/png'
+            });
+            const myRequest = await new Request('images/system/widespread_logo_1a1a1a.png', {
+                method: 'GET',
+                headers: myHeaders,
+                mode: 'no-cors',
+                cache: 'default',
+            });
+
+            fetch(myRequest)
+                .then(response => response.blob())
+                .then(myBlob => {
+                    let myImage = URL.createObjectURL(myBlob);
+                    filesArray.push(myImage)
+                    console.table(filesArray)
+                });
+            if (navigator.canShare && navigator.canShare({ files: filesArray })) {
+                navigator.share({
+                    files: filesArray,
+                    title: 'WideSpread Photos',
+                    text: 'WideSpread System Photos',
+                })
+                    .then(() => console.log('Share was successful.'))
+                    .catch((error) => console.log('Sharing failed', error));
+            } else {
+                shareResult.textContent = `Your device doesn't support sharing files.`
+                console.log(`Your system doesn't support sharing files.`);
+            }
+            await navigator.share(shareData)
+            shareResult.classList.remove('hidden')
+            shareResult.textContent = `Sharing ${sharedUserName}'s Profile...`
+
+            function removeShareResult() {
+                shareResult.classList.add('hidden')
+            }
+            setTimeout(removeShareResult, 3000);
+        } catch (err) {
+            shareResult.textContent = 'Error: ' + err
+        }
+    })
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 </script>

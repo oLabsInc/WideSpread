@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     .add-new-page {
         width: 90%;
@@ -71,4 +72,79 @@
             </div>
         <% }) %>
     </div>
+=======
+<style>
+    .add-new-page {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    .add-new-page a {
+        color: #fff;
+        font-size: 1.3rem;
+        text-decoration: none;
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue;
+        border-radius: 8px;
+        padding: 10px;
+    }
+    .subpages-container {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background:rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        border-radius: 8px;
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+    }
+    .subpages-container-header {
+        text-align: center;
+        padding: 20px;
+    }
+    .pages-container {
+        margin: 0 auto;
+        margin-bottom: 15px;
+        width: 90%;
+    }
+    .page-container {
+        padding: 8px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.25);
+        border-radius: 8px;
+        margin-bottom: 20px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue;
+    }
+    .page-container a {
+        color: #fff;
+        font-size: 1.5rem;
+        text-decoration: none;
+    }
+</style>
+
+<div class="page-title">
+    <h2>Manage Public Pages</h2>
+</div>
+
+<div class="add-new-page">
+    <a href="/business/admin/<%= company.id %>/manage/public-pages/add">Add New Page</a>
+</div>
+<div class="subpages-container">
+    <div class="subpages-container-header">
+        <h3>All Pages</h3>
+    </div>
+    <div class="pages-container">
+
+        <% subPages.forEach(function(page) { %>
+            <div class="page-container">
+                <a href="/business/admin/<%= company.id %>/manage/public-pages/edit/<%= page.id %>"><%= page.page_name %></a>
+            </div>
+        <% }) %>
+    </div>
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 </div>

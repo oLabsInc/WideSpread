@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     .company-background-image {
         position: fixed;
@@ -540,4 +541,548 @@
         })
         console.table(listItems)
 
+=======
+<style>
+    .company-background-image {
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100vw;
+        min-height: 100vh;
+        z-index: -50;
+    }
+
+    .company-background-image-filter {
+        position: fixed;
+        background: rgba(0, 0, 0, 0.5);
+        box-shadow: inset 0 0 100px #000;
+        top: 0;
+        left: 0;
+        min-width: 100vw;
+        min-height: 100vh;
+        z-index: -40;
+
+    }
+
+
+    .company-pages-nav {
+        width: 100%;
+        background: rgba(0, 0, 0, 0.25);
+        margin-top: 20px;
+        backdrop-filter: blur(4px);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+    }
+
+    .company-nav-item {
+        width: fit-content;
+        min-width: 100px;
+        padding: 8px;
+        text-align: center;
+    }
+
+    .company-nav-item a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .subpage-active a {
+        color: lightskyblue;
+    }
+
+    .company-container {
+        width: 100vw;
+        margin: 0 auto;
+    }
+
+    .company-header {
+        margin-top: 20px;
+    }
+
+    .company-name {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        color: #fff;
+    }
+
+    .company-name h2 {
+        font-size: 1.8rem;
+    }
+
+    .company-name p {
+        font-size: 0.8rem;
+        margin-top: 10px;
+    }
+
+    .company-logo {
+        width: 90%;
+        max-width: 300px;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+
+    .company-logo img {
+        width: 100%;
+        border-radius: 16px;
+    }
+
+
+    .edit-form {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 50px;
+        padding-top: 20px;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        border-radius: 8px;
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+    }
+
+
+    .edit-form-main-header {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .edit-form-main-header h3 {
+        font-size: 1.4rem;
+    }
+
+
+
+    .edit-form-section {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 30px;
+    }
+
+    .edit-form-header {
+        text-align: center;
+        padding: 8px;
+        font-size: 1.2rem;
+    }
+
+    .edit-input label {
+        color: #fff;
+        padding: 8px;
+    }
+
+    .edit-input {
+        width: 100%;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+
+    .edit-input input {
+        width: 100%;
+        min-width: 100%;
+        padding: 5px;
+        border-radius: 4px;
+        outline: none;
+        border: none;
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.25), 0 0 2px lightskyblue;
+    }
+
+    .edit-input input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+        text-shadow: 0 0 2px lightskyblue;
+    }
+
+    .edit-input textarea {
+        width: 100%;
+        min-width: 100%;
+        padding: 5px;
+        border-radius: 4px;
+        outline: none;
+        border: none;
+        resize: none;
+        min-height: 150px;
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.25), 0 0 2px lightskyblue;
+    }
+
+    .edit-input textarea::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+        text-shadow: 0 0 2px lightskyblue;
+    }
+
+    .edit-form-photos {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: flex-start;
+        overflow-x: scroll;
+        margin-bottom: 20px;
+    }
+
+    .delete-photo {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background: rgba(255, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.25), 0 0 2px red;
+        padding: 8px;
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        line-height: 15px;
+        text-align: center;
+    }
+
+    .delete-photo p {
+        color: #fff;
+        text-shadow: 0 0 2px #fff;
+    }
+
+    .edit-form-photo {
+        position: relative;
+        margin-right: 15px;
+        width: 150px;
+
+    }
+
+    .edit-form-photo img {
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.25), 0 0 2px lightskyblue;
+    }
+
+    .edit-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
+    .edit-button button {
+        background: rgba(135, 206, 250, 0.5);
+        color: #fff;
+        font-size: 1.4rem;
+        border-radius: 8px;
+        padding: 8px;
+        border: none;
+        outline: none;
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.25), 0 0 2px lightskyblue;
+    }
+    #pageList {
+        width: 90%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .list {
+        margin-bottom: 10px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .list input {
+        border-radius: 4px;
+        padding: 5px;
+        outline: none;
+        border: none;
+        width: 80%;
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 0 12px rgb(255 255 255 / 25%), 0 0 2px lightskyblue;
+    }
+    .add-item {
+        width: 10%;
+        border: none;
+        outline: none;
+        font-size: 1.5rem;
+        border-radius: 4px;
+        background: rgba(0, 128, 0, 0.25);
+        box-shadow: 0 0 12px rgb(255 255 255 / 25%), 0 0 2px lime;
+        backdrop-filter: blur(4px);
+        color: #fff;
+        padding: 5px;
+        padding-top: 0;
+        margin: 0;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+
+<%- include('../../../partials/menus/business'); %>
+
+    <div class="company-background-image"
+        style="background:url('/image/<%= company.background_image %>') 50% 50% no-repeat; background-size:cover;">
+    </div>
+    <div class="company-background-image-filter"></div>
+
+
+    <form action="/business/admin/<%= company.id %>/manage/public-pages/add" method="post">
+        <div class="edit-form">
+
+
+
+
+
+
+
+            <div class="edit-form-main-header">
+                <h3>Add Subpage</h3>
+            </div>
+
+            <div class="page-type">
+                <select name="page_type" id="pageType">
+                    <option value="" selected hidden>Page Type</option>
+                    <option value="store">Store</option>
+                    <option value="text">Text</option>
+                    <option value="gallery">Photo Gallery</option>
+                    <option value="link-tree">Link Tree</option>
+                </select>
+            </div>
+            <div class="edit-form-section">
+                <div class="edit-form-header">
+                    <h5>Page Content</h5>
+                </div>
+
+                <div class="edit-input">
+                    <label for="pageName">Page Name</label>
+                    <input type="text" id="pageName" name="page_name" placeholder="Page Name" required>
+                </div>
+
+                <div class="edit-input">
+                    <label for="">First Header</label>
+                    <input type="text" name="page_header1" placeholder="First Header">
+                </div>
+                <div class="edit-input">
+                    <label for="">First Body</label>
+                    <textarea name="page_body1"
+                        placeholder="First Headers Content"></textarea>
+                </div>
+
+
+
+                <div class="edit-input">
+                    <label for="">Second Header</label>
+                    <input type="text" name="page_header2" placeholder="Second Header">
+                </div>
+                <div class="edit-input">
+                    <label for="">Second Body</label>
+                    <textarea name="page_body2"
+                        placeholder="Second Headers Content"></textarea>
+                </div>
+
+
+                <div class="edit-input">
+                    <label for="">Third Header</label>
+                    <input type="text" name="page_header3" placeholder="Third Header">
+                </div>
+                <div class="edit-input">
+                    <label for="">Third Body</label>
+                    <textarea name="page_body3"
+                        placeholder="Third Headers Content"></textarea>
+                </div>
+
+            </div>
+
+
+
+
+
+            <div class="edit-form-section" id="pageList">
+                <div class="edit-form-header">
+                    <h5>Add A List</h5>
+                </div>
+                <div class="edit-input">
+                    <label for="listName">List Name</label>
+                    <input type="text" name="list_name" id="listName" placeholder="List Name">
+                </div>
+                <div class="list">
+                    <input type="text" name="list" placeholder="List Item">
+                    <button class="add-item">+</button>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="edit-form-section">
+                <div class="edit-form-header">
+                    <h5>Page Contact Details</h5>
+                </div>
+
+                <div class="edit-input">
+                    <label for="">Phone 1</label>
+                    <input type="number" name="phone1" placeholder="Phone 1">
+                </div>
+                
+                <div class="edit-input">
+                    <label for="">Phone 2</label>
+                    <input type="number" name="phone2" placeholder="Phone 2">
+                </div>
+                
+                <div class="edit-input">
+                    <label for="">Phone 3</label>
+                    <input type="number" name="phone3" placeholder="Phone 3">
+                </div>
+                
+                <div class="edit-input">
+                    <label for="">Email 1</label>
+                    <input type="number" name="email1" placeholder="Email 1">
+                </div>
+                
+                <div class="edit-input">
+                    <label for="">Email 2</label>
+                    <input type="number" name="email2" placeholder="Email 2">
+                </div>
+                
+                <div class="edit-input">
+                    <label for="">Email 3</label>
+                    <input type="number" name="email3" placeholder="Email 3">
+                </div>
+                
+                <div class="edit-input">
+                    <label for="">Email 4</label>
+                    <input type="number" name="email4" placeholder="Email 4">
+                </div>
+                
+                <div class="edit-input">
+                    <label for="">Fax 1</label>
+                    <input type="number" name="fax1" placeholder="Fax 1">
+                </div>
+                
+                <div class="edit-input">
+                    <label for="">Fax 2</label>
+                    <input type="number" name="fax2" placeholder="Fax 2">
+                </div>
+
+                <div class="edit-form-header">
+                    <h5>Main Office</h5>
+                </div>
+                <div class="edit-input">
+                    <label for="">Street</label>
+                    <input type="text" name="street" placeholder="Street">
+                </div>
+                
+                <div class="edit-input">
+                    <label for="">City</label>
+                    <input type="text" name="city" placeholder="City">
+                </div>
+                
+                <div class="edit-input">
+                    <label for="">State</label>
+                    <input type="text" name="state" placeholder="State">
+                </div>
+                
+                <div class="edit-input">
+                    <label for="">Country</label>
+                    <input type="text" name="country" placeholder="Country">
+                </div>
+                
+                <div class="edit-input">
+                    <label for="">Zip</label>
+                    <input type="text" name="zip" placeholder="Zip">
+                </div>
+
+
+                <div class="edit-form-header">
+                    <h5>Sub Office</h5>
+                </div>
+                <div class="edit-input">
+                    <label for="">Street</label>
+                    <input type="text" name="street_sub" placeholder="Street">
+                </div>
+                
+                <div class="edit-input">
+                    <label for="">City</label>
+                    <input type="text" name="city_sub" placeholder="City">
+                </div>
+                
+                <div class="edit-input">
+                    <label for="">State</label>
+                    <input type="text" name="state_sub" placeholder="State">
+                </div>
+                
+                <div class="edit-input">
+                    <label for="">Country</label>
+                    <input type="text" name="country_sub" placeholder="Country">
+                </div>
+                
+                <div class="edit-input">
+                    <label for="">Zip</label>
+                    <input type="text" name="zip_sub" placeholder="Zip">
+                </div>
+
+                <div class="edit-form-header">
+                    <h5>Page Photos</h5>
+                </div>
+                <div class="edit-form-photos">
+
+                </div>
+
+            </div>
+
+
+
+
+            <div class="edit-button">
+                <button type="submit">Add Page</button>
+            </div>
+
+        </div>
+    </form>
+
+
+
+
+    <script>
+        let pageList = document.getElementById('pageList')
+        let listItems = []
+        let eachListItem = pageList.querySelectorAll('.list')
+
+        
+        eachListItem.forEach(item => {
+            let inputVal = item.querySelector('input').value
+            console.log('Item: ', inputVal)
+            item.querySelector('.add-item').addEventListener('click', function(event) {
+                event.preventDefault()
+                let newListItemContainer = document.createElement('div')
+                let newListItemInput = document.createElement('input')
+                newListItemInput.setAttribute('placeholder', 'List Item')
+                newListItemInput.setAttribute('name', 'list')
+                newListItemInput.setAttribute('type', 'text')
+                newListItemContainer.classList.add('list')
+                newListItemContainer.appendChild(newListItemInput)
+                pageList.appendChild(newListItemContainer)
+                console.log("Clicked")
+                
+            })
+
+            listItems.push(inputVal)
+        })
+        console.table(listItems)
+
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
     </script>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
 
     p {
@@ -554,4 +555,562 @@
     })
 
     
+=======
+<style>
+
+    p {
+        color: #fff;
+    }
+    .ss-mini-card-slider {
+        width: 100vw;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        max-height: 250px;
+        padding: 8px;
+    }
+    .ss-mini-card {
+        width: 250px;
+        max-width: 250px;
+        max-height: 250px;
+        min-height: 185px;
+        min-width: 200px;
+        background: rgba(85, 85, 85, 0.25);
+        backdrop-filter: blur(4px);
+        margin-right: 15px;
+        padding-bottom: 8px;
+        position: relative;
+        border-radius: 16px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue;
+        overflow: hidden;
+    }
+    .ss-mini-card-logo {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 5px;
+        max-height: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 5px;
+        min-height: min-content;
+    }
+    .ss-mini-card-logo img {
+        max-width: 100%;
+        max-height: 150px;
+        border-radius: 8px;
+        opacity: 0.75;
+        filter: drop-shadow(0 0 5px rgba(135, 206, 250, 0.5));
+    }
+    .ss-mini-card-header {
+        text-align: center;
+        padding: 8px;
+    }
+    .ss-mini-card-header p {
+        color: #fff;
+    }
+    .ss-mini-card-body {
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+        box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.25), 0 0 4px rgba(255, 255, 255, 0.25);
+        border-top: outset 2px rgba(135, 206, 250, 0.75);
+        border-bottom: outset 2px rgba(135, 206, 250, 0.75);
+        text-align: center;
+        margin-top: 5px;
+        width: 100%;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        overflow: hidden;
+    }
+    .ss-mini-card-body a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.2rem;
+    }
+    .spreader {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+    }
+    .socialspread-spreader-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        margin-top: 30px;
+        min-width: 50%;
+    }
+    .spreader-header {
+        width: 100%;
+    }
+    .spreader-header h5 {
+        text-align: center;
+        font-size: 2.5rem;
+        width: 100%;
+        color: lightskyblue;
+        margin-bottom: 15px;
+    }
+    #businessPost {
+        margin: 0 auto;
+        margin-bottom: 30px;
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(4px);
+        width: 90%;
+        border-radius: 16px;
+    }
+    #articlePostSave {
+        padding: 10px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.75), inset 0 0 8px rgba(135, 206, 250, 0.5);
+        backdrop-filter: blur(4px);
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.25);
+    }
+    .socialspread-spreader-container button {
+        background-color: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(4px);
+        padding: 8px;
+        margin: 0 auto;
+        border-radius: 8px;
+        outline: none;
+        border: none;
+        color: lightskyblue;
+        font-size: 2rem;
+    }
+
+
+
+
+    .commentEditor {
+        display: none;
+    }
+
+    .comment-editor-container {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 40px;
+        background-color: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(4px);
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    }
+
+    .commentEditor {
+        width: 100%;
+    }
+    .cancelComment {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 8px;
+        border-bottom: solid 1px red;
+        background-color: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+    }
+
+
+    .comment-editor-container button {
+        background-color: rgba(0, 0, 0, 0.25);
+        margin: 0 auto;
+        margin-top: 20px;
+        outline: none;
+        border: outset 1px lightskyblue;
+        border-bottom: none;
+        color: lightskyblue;
+        font-size: 1.5rem;
+        padding: 8px;
+        width: 100%;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.2), inset 0 0 20px rgba(135, 206, 250, 0.5);
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+    }
+    .active {
+        display: block;
+        width: 100%;
+
+    }
+    .active > button {
+        margin: 0 auto;
+    }
+    .commentEditorObject > .codex-editor--narrow .codex-editor__redactor {
+        width: 100%;
+        padding: auto;
+    }
+    .hide {
+        display: none;
+    }
+</style>
+<%- include('../partials/menus/socialspread'); %>
+
+<div class="zone-title">
+    <h1>
+        <%= zone %> Business
+    </h1>
+</div>
+
+<div class="zone-title">
+    <h1 style="color: orangered">UNDER CONSTRUCTION</h1>
+</div>
+
+
+<div class="ss-mini-card-slider">
+    <% companies.forEach(function(company) { %>
+        <div class="ss-mini-card">
+            <div class="ss-mini-card-header">
+                <p><%= company.company_type %></p>
+            </div>
+            <div class="ss-mini-card-body">
+                <a href="/business/<%= company.id %>"><%= company.company_name %></a>
+            </div>
+            <div class="ss-mini-card-logo">
+                <% if (!company.logo) { %>
+                    <img src="https://cdn.cleverism.com/wp-content/uploads/2017/01/logo-placeholder.png" alt="">
+                <% } else { %>
+                    <img style="filter: drop-shadow(0 0 2px <%= company.colors.main %>);" src="/image/<%= company.logo %>" alt="">
+                <% } %>
+            </div>
+
+        </div>
+    <% }) %>
+</div>
+
+
+<div class="spreads-container">
+    <% spreads.forEach(function(spread) { %>
+        <div class="spread-container-item">
+            <div class="spread-header">
+                <div class="spread-header-image">
+                    <img src="/image/<%= spread.author.user_avatar %>" alt="">
+                </div>
+                <div class="spread-header-text">
+                    <h6><%= spread.author.fname %> <%= spread.author.lname %></h6>
+                    <p class="spreadAt"></p>
+                </div>
+            </div>
+            <% if (!spread.generic_spread) { %>
+                <span>NO SPREADDATA</span>
+            <% } else { %>
+            <div class="spread-body">
+                <% spread.generic_spread.spreadData.forEach(function(spreadBlock) { %>
+
+                    <% if (spreadBlock.type === 'header') { %>
+                        <h3><%= spreadBlock.data.text %></h3>
+                    <% } %>
+                    <% if (spreadBlock.type === 'paragraph') { %>
+                        <p><%= spreadBlock.data.text %></p>
+                    <% } %>
+
+                    <% if (spreadBlock.type === 'quote') { %>
+                        <p class="quote">"<%= spreadBlock.data.text %>"</p>
+                        <p><strong>- <%= spreadBlock.data.caption %></strong></p>
+                    <% } %>
+
+                    <% if (spreadBlock.type === 'list') { %>
+                        <ol>
+                            <% spreadBlock.data.items.forEach(function(listItem) { %>
+                                <li><%= listItem %></li>
+                            <% }) %>
+                        </ol>
+                    <% } %>
+
+
+
+
+                <% }) %>
+            </div>
+            <% } %>
+
+            <div class="comment-section">
+                <div class="comment-section-header">
+                    <h6>Comments</h6>
+                </div>
+
+                <div class="comments-container">
+                    <div class="comment">
+                        <div class="comment-header">
+                            <div class="comment-header-image">
+                                <img src="/images/system/default-user-avatar_1a1a1a.png" alt="User Avatar">
+                            </div>
+                            <div class="comment-header-text">
+                                <div class="comment-author">
+                                    <p>User 1</p>
+                                </div>
+                                <div class="comment-body">
+                                    <p>This is a test comment. That was an excellent post!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comment">
+                        <div class="comment-header">
+                            <div class="comment-header-image">
+                                <img src="/image/<%= spread.author.user_avatar %>" alt="">
+                            </div>
+                            <div class="comment-header-text">
+                                <div class="comment-author">
+                                    <p style="color: <%= spread.author.favColor1 %>"><%= spread.author.fname %> <%= spread.author.lname %></p>
+                                </div>
+                                <div class="comment-body">
+                                    <p>Well thank you very much!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="comment-editor-container">
+                        <div class="commentEditor" data-spread-id="<%= spread.id %>">
+                            <div class="cancel-comment-container">
+                                <p style="color: red" class="cancelComment" data-spread-id="<%= spread.id %>">Cancel</p>
+                            </div>
+
+                            <div class="commentEditorObject" id="commentID<%= spread.id %>" data-spread-id="<%= spread.id %>"></div>
+                            <form action="/socialspread/business/spread-it/comment" method="post">
+
+                            </form>
+                            <button class="addCommentToSpeadBtn" data-spread-id="<%= spread.id %>">Spread It</button>
+                        </div>
+
+                    </div>
+                    <div class="add-comment-button">
+                        <p class="addCommentButton" data-spread-id="<%= spread.id %>">Add Comment</p>
+                    </div>
+
+
+                    
+                </div>
+            </div>
+        </div>
+    <% }) %>
+</div>
+
+
+
+<div class="spreader">
+    <div class="socialspread-spreader-container">
+        <div class="spreader-header">
+            <h5>Spread Something</h5>
+        </div>
+        <div id="businessPost"></div>
+        <form action="/socialspread/business/spread-it" method="post">
+            
+        </form>
+        <button id="articlePostSave">Spread It</button>
+    </div>
+</div>
+
+<div id="articleDataContainer"></div>
+
+<script src="../dist/editor.js"></script>
+<script src="./tools/header/dist/bundle.js"></script>
+<script>
+
+    let articleDataContainer = document.getElementById('articleDataContainer')
+    let articleData = document.createElement('p')
+    articleData.classList.add('article-data')
+
+
+    const spreader = new EditorJS({
+        holder: 'businessPost',
+        tools: {
+            header: {
+                class: Header,
+                shortcut: 'CMD+SHIFT+H',
+                inlineToolbar: ['link']
+            },
+            list: {
+                class: List,
+                inlineToolbar: true
+            },
+            image: SimpleImage,
+            checklist: Checklist,
+            quote: Quote,
+            embed: Embed,
+            table: Table,
+            raw: {
+                class: RawTool,
+                placeholder: 'Enter code...'
+            }
+        },
+        autofocus: true,
+        placeholder: 'Let`s write an awesome story!'
+    })
+
+    spreader.isReady
+        .then(() => {
+            console.log('Editor.js is ready to work!')
+            /** Do anything you need after editor initialization */
+        })
+        .catch((reason) => {
+            console.log(`Editor.js initialization failed because of ${reason}`)
+        });
+
+
+    
+    const articleSaveBtn = document.getElementById('articlePostSave')
+    articleSaveBtn.addEventListener("click", (e) => {
+
+
+        spreader.save().then((outputData) => {
+
+                console.log('Article data: ', outputData.blocks)
+                
+                const url = "http://localhost:5000/socialspread/business/spread-it"
+                let spreadData = outputData.blocks
+
+                // event.preventDefault();
+                console.log(event);
+
+                console.log('spreadData: ', spreadData);
+                const spreadObject = { spreadData }
+
+                fetch('/socialspread/business/spread-it', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(spreadObject)
+                }).then(response => response.json()).then((data) => {
+                    console.log(data)
+                    window.location.reload()
+                    // Create a render function to add the todo to the DOM
+
+                }).catch(e => console.log(`Error is ${e}`))
+        })
+
+            })
+
+
+
+
+    
+</script>
+
+<script>
+    document.addEventListener('click', (e) => {
+        const codeSnippets = document.querySelectorAll('.ce-rawtool')
+        if (codeSnippets.length > 0) {
+            codeSnippets.forEach(snippet => {
+                const snippetTextarea = snippet.querySelector('textarea')
+                snippetTextarea.setAttribute('spellcheck', 'false')
+            })
+        }
+    })
+</script>
+
+
+<script>
+    const addCommentBtn = document.querySelectorAll('.addCommentButton')
+    let commentEditor = document.querySelectorAll('.commentEditor')
+    
+    addCommentBtn.forEach((button, index) => {
+        const thisButton = index + 1
+        const thisSpreadId = button.getAttribute('data-spread-id')
+        button.addEventListener('click', (e) => {
+            commentEditor.forEach((editor, index) => {
+                const thisCommentEditor = editor.getAttribute('data-spread-id')
+               
+                if (thisCommentEditor === thisSpreadId) {
+                    console.log('Editor: ', commentEditor)
+                    editor.classList.add('active')
+                    console.log('Button HTML: ', button)
+                    button.classList.add('hide')
+
+
+
+                    const cancelBtn = document.querySelectorAll('.cancelComment')
+                    console.log(cancelBtn)
+
+                    cancelBtn.forEach((canButton, index) => {
+
+                        const thisCancelBtn = canButton.getAttribute('data-spread-id')
+                        if (thisCancelBtn === thisSpreadId) {
+                            canButton.addEventListener('click', (e) => {
+                                editor.classList.remove('active')
+                                button.classList.remove('hide')
+                            })
+                        }
+
+                        })
+
+
+                } else {
+                    
+                    console.log('NOT THIS Editor: ', commentEditor)
+                }
+            })
+            // commentEditor.classList.add('active')
+            console.log('Comment on: ', thisSpreadId)
+        })
+    })
+</script>
+
+
+<script>
+    let allCommentEditorsArray = []
+
+    
+    const allCommentEditors = document.querySelectorAll('.commentEditorObject')
+    console.log(allCommentEditors)
+    allCommentEditors.forEach((editor, index) => {
+        console.log('Editor HTML: ', editor)
+
+        const editorId = editor.getAttribute('data-spread-id')
+        console.log('Editor ID: ', editorId)
+
+        const thisSpreadId = editor.getAttribute('data-spread-id')
+        console.log(thisSpreadId)
+
+        if (editorId === thisSpreadId) {
+            console.log('THIS IS THE CORRECT EDITOR: ', editorId)
+            const thisEditorsId = 'commentID' + editorId
+            console.log(thisEditorsId)
+        const spreaderComment = new EditorJS({
+            holder: thisEditorsId,
+            tools: {
+                header: {
+                    class: Header,
+                    shortcut: 'CMD+SHIFT+H',
+                    inlineToolbar: ['link']
+                },
+                list: {
+                    class: List,
+                    inlineToolbar: true
+                },
+                image: SimpleImage,
+                checklist: Checklist,
+                quote: Quote,
+                embed: Embed,
+                table: Table,
+                raw: {
+                    class: RawTool,
+                    placeholder: 'Enter code...'
+                }
+            },
+            autofocus: true,
+            placeholder: 'Let`s write an awesome story!'
+        })
+
+        spreaderComment.isReady
+            .then(() => {
+                console.log('Editor.js is ready to work!')
+                /** Do anything you need after editor initialization */
+            })
+            .catch((reason) => {
+                console.log(`Editor.js initialization failed because of ${reason}`)
+            });
+        }
+
+    })
+
+    
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 </script>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
 
 </style>
@@ -287,4 +288,295 @@
     selectElements.forEach(selectElement => {
         new Select(selectElement)
     })
+=======
+<style>
+
+</style>
+
+<%- include('../partials/menus/business'); %>
+
+<div class="page-title">
+    <h2><%= subZonePage %></h2>
+</div>
+
+<div class="spread-form">
+    <form action="/business/add/company" method="post">
+        <div class="input-header">
+            <h5>General Information</h5>
+        </div>
+        <div class="input-data">
+            <label for="companyName">Name</label>
+            <input type="text" name="company_name" id="companyName" placeholder="Company Name" required>
+        </div>
+
+        <div class="input-data">
+            <label for="companyBio">Bio</label>
+            <textarea name="company_bio" id="companyBio" placeholder="Company Bio..."></textarea>
+        </div>
+    
+        <div class="input-data">
+            <label for="companyWebsite">Website</label>
+            <input type="url" name="company_website" id="companyWebsite" placeholder="Company Website">
+        </div>
+
+        <div class="input-header">
+            <h5>Contact Information</h5>
+        </div>
+        <div class="input-data">
+            <label for="companyMainPhone">Phone</label>
+            <input type="tel" name="company_phone" id="companyMainPhone" placeholder="Company Phone">
+        </div>
+        <div class="input-data">
+            <label for="companyMainEmail">Email</label>
+            <input type="email" name="company_main_email" id="companyMainEmail" placeholder="Company Email">
+        </div>
+        <div class="input-data">
+            <label for="companyMainFax">Fax</label>
+            <input type="tel" name="company_fax" id="companyMainFax" placeholder="Company Fax">
+        </div>
+
+        <div class="input-header">
+            <h5>Location Information</h5>
+        </div>
+        <div class="input-data">
+            <label for="companyAddrLn1">Street 1</label>
+            <input type="text" name="company_street_1" id="companyAddrLn1" placeholder="Street Line 1">
+        </div>
+        <div class="input-data">
+            <label for="companyAddrLn2">Street 2</label>
+            <input type="text" name="company_street_2" id="companyAddrLn2" placeholder="Street Line 2">
+        </div>
+        <div class="input-data">
+            <label for="suite">Suite</label>
+            <input type="text" name="company_suite_number" id="suite" placeholder="Suite">
+        </div>
+        <div class="input-data">
+            <label for="city">City</label>
+            <input type="text" name="company_city" id="city" placeholder="City">
+        </div>
+
+
+            <div id="updateCompanyStateSelect" class="input-data-select">
+                <span id="companyLivesInState" style="display: none;">
+                    Select State
+                </span>
+                <label>State</label>
+                <select data-custom>
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="DC">District Of Columbia</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                </select>
+            </div>
+        <div class="input-data">
+            <label for="zip">Zip Code</label>
+            <input type="number" name="company_zip" id="zip" placeholder="Zip Code">
+        </div>
+        <div class="input-data">
+            <label for="country">Country</label>
+            <input type="text" name="company_country" id="country" placeholder="Country">
+        </div>
+        <input type="text" name="companyOwner" value="<%= user.id %>" hidden>
+        <div class="input-data">
+            <button type="submit">Add Company</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    const updateCompanyStateSelect = document.getElementById("updateCompanyStateSelect");
+
+
+    class Select {
+        constructor(element) {
+            this.element = element
+            this.options = getFormattedOptions(element.querySelectorAll("option"))
+            this.customElement = document.createElement("div")
+            this.labelElement = document.createElement("span")
+            this.optionsCustomElement = document.createElement("ul")
+            setupCustomElement(this)
+            element.style.display = "none"
+            element.after(this.customElement)
+        }
+
+        get selectedOption() {
+            return this.options.find(option => option.selected)
+        }
+
+        get selectedOptionIndex() {
+            return this.options.indexOf(this.selectedOption)
+        }
+
+        selectValue(value) {
+
+            const newSelectedOption = this.options.find(option => {
+                return option.value === value
+            })
+            const prevSelectedOption = this.selectedOption
+            prevSelectedOption.selected = false
+            prevSelectedOption.element.selected = false
+
+            newSelectedOption.selected = true
+            newSelectedOption.element.selected = true
+
+            this.labelElement.innerText = newSelectedOption.label
+            this.optionsCustomElement
+                .querySelector(`[data-value="${prevSelectedOption.value}"]`)
+                .classList.remove("selected")
+            const newCustomElement = this.optionsCustomElement.querySelector(
+                `[data-value="${newSelectedOption.value}"]`
+            )
+            newCustomElement.classList.add("selected")
+            newCustomElement.scrollIntoView({ block: "nearest" })
+        }
+    }
+
+    function setupCustomElement(select) {
+        select.customElement.classList.add("custom-select-container")
+        select.customElement.tabIndex = 0
+
+        select.labelElement.classList.add("custom-select-value")
+
+        const companySavedState = document.querySelector('#companyLivesInState').innerText
+        if (companySavedState != 'null') {
+            select.labelElement.innerText = companySavedState
+        } else {
+            select.labelElement.innerText = select.selectedOption.label
+        }
+        select.customElement.append(select.labelElement)
+
+
+        select.optionsCustomElement.classList.add("custom-select-options")
+        select.options.forEach(option => {
+            const optionElement = document.createElement("li")
+            optionElement.classList.add("custom-select-option")
+            optionElement.classList.toggle("selected", option.selected)
+            optionElement.innerText = option.label
+            optionElement.dataset.value = option.value
+            optionElement.addEventListener("click", () => {
+                select.selectValue(option.value)
+                select.optionsCustomElement.classList.remove("show")
+                updateCompanyStateSelect.style.marginBottom = '10px'
+            })
+            select.optionsCustomElement.append(optionElement)
+        })
+        select.customElement.append(select.optionsCustomElement)
+
+        select.labelElement.addEventListener("click", () => {
+            select.optionsCustomElement.classList.toggle("show")
+            updateCompanyStateSelect.style.marginBottom = '210px'
+        })
+
+        select.customElement.addEventListener("blur", () => {
+            select.optionsCustomElement.classList.remove("show")
+            updateCompanyStateSelect.style.marginBottom = '10px'
+        })
+
+        let debounceTimeout
+        let searchTerm = ""
+        select.customElement.addEventListener("keydown", e => {
+            switch (e.code) {
+                case "Space":
+                    select.optionsCustomElement.classList.toggle("show")
+                    break
+                case "ArrowUp": {
+                    const prevOption = select.options[select.selectedOptionIndex - 1]
+                    if (prevOption) {
+                        select.selectValue(prevOption.value)
+                    }
+                    break
+                }
+                case "ArrowDown": {
+                    const nextOption = select.options[select.selectedOptionIndex + 1]
+                    if (nextOption) {
+                        select.selectValue(nextOption.value)
+                    }
+                    break
+                }
+                case "Enter":
+                case "Escape":
+                    select.optionsCustomElement.classList.remove("show")
+                    break
+                default: {
+                    clearTimeout(debounceTimeout)
+                    searchTerm += e.key
+                    debounceTimeout = setTimeout(() => {
+                        searchTerm = ""
+                    }, 500)
+
+                    const searchedOption = select.options.find(option => {
+                        return option.label.toLowerCase().startsWith(searchTerm)
+                    })
+                    if (searchedOption) {
+                        select.selectValue(searchedOption.value)
+                    }
+                }
+            }
+        })
+    }
+
+    function getFormattedOptions(optionElements) {
+        return [...optionElements].map(optionElement => {
+            return {
+                value: optionElement.value,
+                label: optionElement.label,
+                selected: optionElement.selected,
+                element: optionElement,
+            }
+        })
+    }
+
+    const selectElements = document.querySelectorAll("[data-custom]")
+
+    selectElements.forEach(selectElement => {
+        new Select(selectElement)
+    })
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 </script>

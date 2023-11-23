@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     .workout-history-list {
         margin-top: 50px;
@@ -88,4 +89,96 @@
 <% }) %>
 
 
+=======
+<style>
+    .workout-history-list {
+        margin-top: 50px;
+    }
+    .workout-exercise-item {
+        background-color: rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(10px);
+        margin-bottom: 30px;
+        border-top: solid 1px #fff;
+        box-shadow: 0 0 8px lightskyblue;
+    }
+    .workout-exercise-item-header {
+        text-align: center;
+    }
+    .workout-exercise-item-header h6 {
+        font-size: 1.3rem;
+        color: #fff;
+    }
+    .workout-exercise-item-header p {
+        color: #ccc;
+    }
+.workout-exercise-item-data table {
+    width: 100%;
+}
+.workout-exercise-item-data tr {
+    border-bottom: solid 1px #fff;
+}
+.workout-exercise-item-data th {
+    color: lightskyblue;
+    font-size: 1.2rem;
+}
+.workout-exercise-item-data td {
+    color: #fff;
+    text-align: center;
+    padding: 3px;
+}
+.workout-exercise-item-data td:first-of-type {
+    text-align: left;
+    border-right: solid 1px #fff;
+}
+
+</style>
+<%- include('../../partials/menus/wellness'); %>
+
+
+<%- include('../../partials/menus/sub/wellness/fitness'); %>
+
+
+<div class="workout-history-list">
+
+
+<% workoutHistory.forEach(function(workout) { %>
+
+    <div class="workout-exercise-item">
+        <div class="workout-exercise-item-header">
+            <h6><%= workout.exercise %></h6>
+            <p><%= workout.date.toDateString() %></p>
+        </div>
+        <div class="workout-exercise-item-data">
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Set 1</th>
+                    <th>Set 2</th>
+                    <th>Set 3</th>
+                    <th>Set 4</th>
+                    <th>Set 5</th>
+                </tr>
+                <tr>
+                    <td>Weight</td>
+                    <td><%= workout.set1.weight %></td>
+                    <td><%= workout.set2.weight %></td>
+                    <td><%= workout.set3.weight %></td>
+                    <td><%= workout.set4.weight %></td>
+                    <td><%= workout.set5.weight %></td>
+                </tr>
+                <tr>
+                    <td>Reps</td>
+                    <td><%= workout.set1.reps %></td>
+                    <td><%= workout.set2.reps %></td>
+                    <td><%= workout.set3.reps %></td>
+                    <td><%= workout.set4.reps %></td>
+                    <td><%= workout.set5.reps %></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+<% }) %>
+
+
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 </div>

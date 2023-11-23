@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     .page-background {
         position: fixed;
@@ -493,4 +494,501 @@
     } else {
         console.log('TOO MANY STATEMENTS')
     }
+=======
+<style>
+    .page-background {
+        position: fixed;
+        z-index: -10;
+        top: 0;
+        left: 0;
+        min-width: 100vw;
+        max-width: 100vw;
+        min-height: 100vh;
+        background-color: <%= course.course_colors.main %>;
+    }
+    .page-background img {
+        min-width: 100%;
+        max-width: 100vw;
+        min-height: 100vh;
+        opacity: 0.5;
+    }
+    .page-title {
+        margin-top: 20px;
+        width: 100%;
+        min-width: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 0 5px lightskyblue;
+    }
+    .page-title h2 {
+        font-size: 2rem;
+    }
+    .page-title h3 {
+        text-transform: capitalize;
+        padding: 6px;
+    }
+
+    .add-course {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+    }
+    .add-course a {
+        padding: 20px;
+        font-size: 1.5rem;
+        color: #fff;
+        text-decoration: none;
+        margin: 0 auto;
+        background: rgba(0, 0, 0, 0.5);
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 0 5px lightskyblue;
+        border-radius: 16px;
+    
+    }
+    .toolbox-container {
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.25), 0 0 2px #fff;
+        width: 90%;
+        margin: 0 auto;
+        border-radius: 16px;
+        padding: 8px;
+        padding-bottom: 15px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .toolbox-header {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .toolbox-header h5 {
+        font-size: 1.2rem;
+    }
+    .toolbox {
+        width: 95%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .toolbox-item-container {
+        min-width: 50px;
+        padding: 5px;
+    }
+    .toolbox-item {
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+        border-radius: 6px;
+        box-shadow: 0 0 6px rgba(255, 255, 255, 0.25), 0 0 2px lightskyblue;
+        text-align: center;
+    }
+    .toolbox-item i {
+        color: #fff;
+        padding: 5px;
+        font-size: 2rem;
+    }
+
+    .course-description {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 30px;
+        margin-top: 30px;
+    }
+    .course-description h5 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
+    .course-description p {
+        text-indent: 8px;
+        color: #fff;
+    }
+
+
+    .course-classes-header {
+        margin: 0 auto;
+        margin-top: 40px;
+        margin-bottom: 30px;
+        text-align: center;
+        width: 100%;
+        min-width: 100%;
+        background: rgba(255, 255, 255, 0.25);
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 0 5px lightskyblue;
+    }
+    .course-classes-header h3 {
+        color: lightskyblue;
+        font-size: 1.8rem;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+
+    .class-list {
+        width: 90%;
+        min-width: 90%;
+        margin: 0 auto;
+        background: rgba(0, 0, 0, 0.5);
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 0 5px lightskyblue;
+        border-radius: 16px;
+    }
+    .class-list ol {
+        padding: 15px;
+        margin-left: 20px;
+        list-style: decimal;
+    }
+    .class-list > ol > li {
+        color: lightskyblue;
+        font-size: 1.5rem;
+
+    }
+    .class-list a {
+        text-decoration: none;
+        color: #fff;
+    }
+    .class-item {
+        width: 100%;
+        border-bottom: solid 1px rgba(135, 206, 250, 0.75);
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    li:last-of-type > .class-item {
+        border-bottom: none;
+    }
+    
+    .class-header {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .class-header h3 {
+        font-size: 1.5rem;
+        text-align: center;
+        padding: 10px;
+    }
+    .class-link {
+        width: 15%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .class-link i {
+        font-size: 1.3rem;
+        color: lightskyblue;
+    }
+    .class-body {
+        padding-left: 12px;
+    }
+    .class-body p {
+        border-left: solid 1px rgba(255, 255, 255, 0.75);
+        font-size: 1.1rem;
+        color: #fff;
+        padding: 8px;
+        padding-left: 12px;
+        margin-bottom: 15px;
+        text-indent: 15px;
+    }
+    .hide {
+        display: none;
+    }
+    .current-course-data {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        background: rgba(0, 0, 0, 0.5);
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 0 5px lightskyblue;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .current-course-data p {
+        font-size: 1.3rem;
+        color: lightskyblue;
+        margin-left: 15px;
+    }
+    .current-course-data h5 {
+        margin-right: 15px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        font-size: 3rem;
+        color: lightskyblue;
+    }
+
+    .course-grade {
+        background-color: rgba(0, 0, 0, 0.5);
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 2rem;
+        color: #fff;
+        width: 90%;
+        margin-inline: auto;
+        border-radius: 16px;
+        padding: 10px;
+    }
+
+    .student-notebook {
+        background-color: rgba(0, 0, 0, 0.5);
+        margin-inline: auto;
+        margin-bottom: 30px;
+        box-shadow: 0 0 5px lightskyblue;
+        width: 90%;
+        border-radius: 16px;
+    }
+    .student-notebook h5 {
+        text-align: center;
+        padding: 8px;
+        font-size: 1.5rem;
+        border-bottom: solid 1px #fff;
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+    }
+
+    .notebook-sections {
+        padding: 8px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .notebook-sections p {
+        text-align: left;
+        color: #fff;
+
+    }
+    .notebook-sections ol {
+        list-style: decimal;
+        margin-left: 15px;
+    }
+    .notebook-sections {
+        font-size: 1.2rem;
+    }
+    .notebook-sections li:last-of-type {
+        border-bottom: none;
+    }
+    .notebook-sections li {
+        margin-bottom: 8px;
+        border-bottom: solid 1px #fff;
+        padding-bottom: 4px;
+    }
+    .notebook-sections li::marker {
+        font-weight: bold;
+        color: lightskyblue;
+    }
+
+    .notebook-section {
+        color: #fff;
+    }
+    .notebook-section p {
+        padding-left: 8px;
+    }
+</style>
+
+<%- include('../../partials/menus/academy'); %>
+<%- include('../../partials/menus/sub/academy/course', {classes: course.classes, course: course}); %>
+
+<div class="page-background">
+    <img src="/image/<%= course.background_image %>" alt="">
+</div>
+
+<div class="page-title">
+    <h2>
+        <%= course.name %>
+    </h2>
+    <h3>
+        <%= course.subject %>
+    </h3>
+</div>
+
+    <% if (thisCourse) { %>
+        <span style="display: none;"></span>
+    <% } else { %>
+        <div id="addBtn" class="add-course hide">
+            <a href="/academy/course/<%= courseId %>/action/add">Save Course</a>
+        </div>
+    <% } %>
+
+
+            <% if (user.id === course.course_creator.id) { %>
+                <div id="addBtn" class="add-course">
+                    <a href="/academy/course/<%= courseId %>/action/class/add">Add A Class</a>
+                </div>
+            <% } %>
+            
+            
+
+
+<div class="this-course-grade">
+    <% allQuizzes.forEach(function(quiz) { %>
+            <p class="single-quiz-grade" style="display: none;"><%= quiz.grade %></p>
+    <% }) %>
+</div>
+                    <div class="course-grade">
+                        <p>Current Grade: <span class="current-grade" id="courseGrade"></span></p>
+                    </div>
+
+
+<div class="course-description">
+    <h5>About <%= course.name %></h5>
+    <p><%= course.description %></p>
+</div>
+
+
+<% if (!notebook) { %>
+    <span style="display: none;"></span>
+<% } else { %>
+<div class="student-notebook">
+    <h5 style="background-color: <%= notebook.color %>;"><%= notebook.name %> Notebook</h5>
+
+    <div class="notebook-sections">
+        <% if (notebookSections.length <= 0) { %>
+            <p>You haven't added any notes yet.</p>
+        <% } else { %>
+            <ol>
+                <% notebookSections.forEach(function(section) { %>
+                    <li>
+                        <div class="notebook-section">
+                            <p><%= section.title %></p>
+                        </div>
+                    </li>
+                <% }) %>
+            </ol>
+        <% } %>
+    </div>
+</div>
+<% } %>
+
+
+<div class="course-classes-header">
+    <h3>Classes</h3>
+</div>
+
+
+<div class="class-list">
+    <% if (course.classes.length <= 0) { %> 
+        <p style="text-align: center; color: #fff; padding: 8px;">No classes have been added yet.</p>
+    <% } else { %>
+    <ol>
+        <% course.classes.forEach(function(className) { %>
+            <li>
+                <div class="class-item">
+                    <div class="class-header">
+                        <div class="class-title">
+                            <h3><%= className.name %></h3>
+                        </div>
+                        <div class="class-link">
+                            <div class="class-link-item">
+                                <% allQuizzes.forEach(function(quiz) { %>
+                                    <% if (quiz.class_id == className.id) { %>
+                                        <i style="color: yellowgreen; margin-right: 10px;" class="fas fa-check-circle"></i>
+                                    <% } else { %>
+                                        <i style="color: rgba(255, 255, 255, 0.2); margin-right: 10px;" class="fas fa-check-circle"></i>
+                                    <% } %>
+                                <% }) %>
+                            </div>
+                            <div class="class-link-item">
+                                <a href="/academy/course/<%= course.id %>/class/<%= className.id %>"><i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="class-body">
+                        <p><%= className.description %></p>
+                    </div>
+                </div>
+            </li>
+        <% }) %>
+    </ol>
+    <% } %>
+</div>
+
+
+<script>
+
+    let addCourseBtn = document.getElementById('addBtn')
+    let isCurrentCourse = document.getElementById('currentCourse')
+    let currentCourseId = isCurrentCourse
+    function checkCurrentCourse() {
+                if (!isCurrentCourse) {
+            addCourseBtn.classList.remove('hide')
+
+        }
+        }
+
+        window.onload = checkCurrentCourse();
+</script>
+
+<script>
+    let accumulatedGrades = []
+    let currentGrade
+    const singleQuizGrade = document.querySelectorAll('.single-quiz-grade')
+    let currentGradeContainer = document.getElementById('courseGrade')
+    singleQuizGrade.forEach(grade => {
+        const gradeValue = grade.innerHTML
+        const gradeInt = parseInt(gradeValue)
+        console.log(gradeInt)
+        accumulatedGrades.push(gradeInt)
+    })
+    console.log('GRADE INT')
+    console.table(accumulatedGrades)
+    const totalGrades = accumulatedGrades.reduce((a, b) => a + b, 0)
+        console.log(totalGrades)
+    const totalQuizzes = accumulatedGrades.length
+        console.log(totalQuizzes)
+    const currentGradePercent = (totalGrades/totalQuizzes)
+    currentGrade = parseFloat(currentGradePercent).toFixed(0)
+    console.log(currentGrade)
+    console.log(currentGradeContainer)
+        currentGradeContainer.innerText = `${currentGrade}%`
+
+    if (!currentGrade) {
+        
+        console.log('No Current Grade')
+        
+  /*       if (isNaN(currentGrade) || (currentGrade === "")) {
+            console.log('IS NAN')
+            currentGradeContainer.innerText = "100%"
+        } 
+        */
+        
+        
+    } else if (currentGrade && currentGradeContainer) {
+                if (isNaN(currentGrade) || (currentGrade === " ")) {
+            console.log('IS NAN')
+            currentGradeContainer.innerText = "100%"
+
+        } else {
+
+            
+            
+            currentGradeContainer.innerText = currentGrade + "%"
+        }
+        
+        
+    } else {
+        console.log('TOO MANY STATEMENTS')
+    }
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 </script>

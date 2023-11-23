@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     #settingsMenu {
         display: flex;
@@ -16,4 +17,24 @@
     <div class="menu-item <%= subZonePage=='Privacy' ? 'menu-link active' : 'menu-link' %>"><a href="/users/settings/privacy">Privacy</a></div>
     <div class="menu-item <%= subZonePage=='Security' ? 'menu-link active' : 'menu-link' %>"><a href="/users/settings/security">Security</a></div>
     <div class="menu-item <%= subZonePage=='Help' ? 'menu-link active' : 'menu-link' %>"><a href="/users/settings/help">Help</a></div>
+=======
+<style>
+    #settingsMenu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        overflow-x: auto;
+    }
+
+</style>
+
+
+<div id="settingsMenu" class="sub-zone-page-menu">
+    <div class="menu-item <%= subZonePage=='Home' ? 'menu-link active' : 'menu-link' %>"><a href="/users/settings">Home</a></div>
+    <div class="menu-item <%= subZonePage=='Update Your Profile' ? 'menu-link active' : 'menu-link' %>"><a href="/users/settings/update-profile">Update Profile</a></div>
+    <div class="menu-item <%= subZonePage=='Prefrences' ? 'menu-link active' : 'menu-link' %>"><a href="/users/settings/prefrences">Prefrences</a></div>
+    <div class="menu-item <%= subZonePage=='Privacy' ? 'menu-link active' : 'menu-link' %>"><a href="/users/settings/privacy">Privacy</a></div>
+    <div class="menu-item <%= subZonePage=='Security' ? 'menu-link active' : 'menu-link' %>"><a href="/users/settings/security">Security</a></div>
+    <div class="menu-item <%= subZonePage=='Help' ? 'menu-link active' : 'menu-link' %>"><a href="/users/settings/help">Help</a></div>
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 </div>

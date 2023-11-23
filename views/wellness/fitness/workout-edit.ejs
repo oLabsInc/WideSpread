@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     .exercise-list {
         display: flex;
@@ -92,4 +93,100 @@
 
       </div>
       <button type="submit">Update Workout</button>
+=======
+<style>
+    .exercise-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        gap: 0.5rem;
+    }
+    .exercise {
+        background-color: rgba(135, 206, 250, 0.15);
+        margin-bottom: 15px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px;
+        border-radius: 6px;
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+    .exercise-title {
+        background-color: rgba(255, 255, 255, 0.15);
+        border-right: solid 3px rgba(255, 255, 255, 0.5);
+        border-radius: 6px;
+        text-align: right;
+        padding: 5px;
+        padding-right: 8px;
+        margin-left: 5px;
+    }
+    .exercise-category {
+        color: lightskyblue;
+    }
+</style>
+
+
+    <div class="spread-container-core">
+    
+    
+        <div id="spreadCoreMenu">
+            <%- include('../../partials/menus/wellness'); %>
+                <%- include('../../partials/menus/sub/wellness/fitness'); %>
+        </div>
+    
+    
+        <div class="back-home">
+            <a href="/wellness">
+                <h5><i class="fas fa-less-than"></i><span>Go Back</span></h5>
+            </a>
+        </div>
+    
+    
+        <div class="spread-info-container">
+    
+    
+            <h2>
+                Workout Schedule
+            </h2>
+    
+    
+            <!-- EDI THIS TEXT -->
+            <p>
+                Click on a day you'd like to populate with exercises, then add the exercises.
+                Once you have finished with 1 day, do the same for the next day you want to work out. Repeat until
+                you're happy with your workout schedule.
+            </p>
+    
+        </div>
+
+    <form action="/wellness/fitness/plan/session/day/<%= day %>/add?_method=PATCH" method="post">
+      <div class="exercise-list">
+        <% exercises.forEach(function(exercise) { %>
+            <div class="exercise">
+                <div class="exercise-checkbox">
+                    <input type="checkbox" name="sunday" value="<%= exercise.id %>">
+                </div>
+                <div class="exercise-data">
+                    <div class="exercise-title">
+                        <h6><%= exercise.exercise %></h6>
+                        <span class="exercise-category"><%= exercise.category %></span>
+                        <div class="exercise-difficulty">
+                            <div class="difficulty difficulty-plus"></div>
+                            <div class="difficulty difficulty-plus"></div>
+                            <div class="difficulty difficulty-plus"></div>
+                            <div class="difficulty"></div>
+                            <div class="difficulty"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+
+      </div>
+      <button type="submit">Update Workout</button>
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
   </form>

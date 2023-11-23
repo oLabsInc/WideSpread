@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     p {
         color: #fff;
@@ -278,4 +279,286 @@
         </li>
     <% }) %>
     </ol>
+=======
+<style>
+    p {
+        color: #fff;
+
+    }
+
+    .admin-form {
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 30px;
+
+        border-radius: 16px;
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        margin-bottom: 30px;
+    }
+    .admin-form form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .admin-form-header {
+        margin-top: 20px;
+        text-align: center;
+    }
+    .admin-form-header h5 {
+        font-size: 1.2rem;
+    }
+    .input-group  textarea {
+        background: rgba(135, 206, 250, 0.25);
+        box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.25), 0 0 10px rgba(255, 255, 255, 0.25), 0 0 2px lightskyblue;
+        outline: none;
+        border: none;
+        width: 90%;
+        height: 100px;
+        border-radius: 8px;
+        resize: none;
+        padding: 5px;
+    }
+    .answer-option {
+        width: 90%;
+        
+    }
+    .answer-option input {
+        width: 100%;
+        color: lightskyblue;
+        padding: 5px;
+        border-radius: 6px;
+        background: rgba(135, 206, 250, 0.25);
+        box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.25), 0 0 10px rgba(255, 255, 255, 0.25), 0 0 2px lightskyblue;
+        outline: none;
+        border: none;
+    }
+    .answer-option input::placeholder {
+        color: #fff;
+    }
+    .correct-answer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+        margin-top: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .answer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    .answer label {
+        font-size: 1.3rem;
+        color: #fff;
+    }
+    .answer input {
+        border: outset 2px lightskyblue;
+        margin-top: 10px;
+    }
+    .admin-form button {
+        width: 50%;
+        margin: 0 auto;
+        margin-top: 20px;
+        background: rgba(255, 255, 255, 0.25);
+        border-radius: 8px;
+        padding: 10px;
+        font-size: 1.3rem;
+        color: lightskyblue;
+        text-shadow: 0 0 2px rgba(135, 206, 250, 0.5);
+        margin-bottom: 20px;
+        outline: none;
+        border: none;
+        box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.25), 0 0 10px rgba(255, 255, 255, 0.25), 0 0 2px lightskyblue;
+    }
+    .current-quiz-container {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .current-quiz-container-header {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .current-quiz-container-header h3 {
+        font-size: 1.6rem;
+        border-bottom: solid 1px lightskyblue;
+        width: fit-content;
+    }
+    .current-quiz-container ol {
+        list-style: decimal;
+        
+    }
+    .current-quiz-container li {
+        color: lightskyblue;
+        border-bottom: solid 1px rgba(135, 206, 250, 0.5);
+        margin-bottom: 15px;
+        padding: 20px;
+        margin-left: 30px;
+        font-size: 1.3rem;
+
+    }
+
+    .current-quiz-container li:last-of-type {
+        color: lightskyblue;
+        border-bottom: none;
+        margin-bottom: 15px;
+        padding: 20px;
+        margin-left: 30px;
+        font-size: 1.5rem;
+
+    }
+    .possible-answers {
+        padding: 20px;
+    }
+    .possible-answers p {
+        padding: 0;
+        margin-bottom: 5px;
+    }
+    .possible-answers small {
+        color: #fff;
+        margin-left: 20px;
+        font-size: 0.8rem;
+    }
+    .possible-answers i {
+        color: green;
+    }
+    .correct {
+        color: green;
+    }
+    .edit-question {
+        
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    .edit-question a {
+        color: lightskyblue;
+        text-decoration: none;
+    }
+</style>
+
+<div class="page-title">
+    <h2 style="margin-bottom: 15px;">Create Quiz</h2>
+    <h2><%= currentPage %></h2>
+</div>
+
+<div class="admin-form">
+    <form action="/admin/academy/course/<%= course.id %>/class/<%= className.id %>/quiz/<%= quiz.id %>/questions/add" method="post">
+        <div class="admin-form-header">
+            <h5>Question</h5>
+        </div>
+        <div class="input-group">
+            <label for="question">Question</label>
+            <textarea name="question" id="question" placeholder="Question..."></textarea>
+        </div>
+        <div class="admin-form-header">
+            <h5>Possible Answers</h5>
+        </div>
+        <div class="possible-answers">
+            <div class="answer-option">
+                <label for="possible1">1</label>
+                <input type="text" name="possible_answer1" id="possible1" placeholder="Possible answer 1">
+                <input type="hidden" name="option_number1" value="1">
+            </div>
+            <div class="answer-option">
+                <label for="possible2">2</label>
+                <input type="text" name="possible_answer2" id="possible2" placeholder="Possible answer 2">
+                <input type="hidden" name="option_number2" value="2">
+            </div>
+            <div class="answer-option">
+                <label for="possible3">3</label>
+                <input type="text" name="possible_answer3" id="possible3" placeholder="Possible answer 3">
+                <input type="hidden" name="option_number3" value="3">
+            </div>
+            <div class="answer-option">
+                <label for="possible4">4</label>
+                <input type="text" name="possible_answer4" id="possible4" placeholder="Possible answer 4">
+                <input type="hidden" name="option_number4" value="4">
+            </div>
+        </div>
+        <div class="admin-form-header">
+            <h5>Correct Answer</h5>
+        </div>
+        <div class="correct-answer">
+            <div class="answer">
+                <label for="a1">1</label>
+                <input type="radio" value="1" name="answer" id="a1">
+            </div>
+            <div class="answer">
+                <label for="a2">2</label>
+                <input type="radio" value="2" name="answer" id="a2">
+            </div>
+            <div class="answer">
+                <label for="a3">3</label>
+                <input type="radio" value="3" name="answer" id="a3">
+            </div>
+            <div class="answer">
+                <label for="a4">4</label>
+                <input type="radio" value="4" name="answer" id="a4">
+            </div>
+        </div>
+        <button type="submit">Add Question</button>
+    </form>
+</div>
+
+
+
+<div class="current-quiz-container">
+    <div class="current-quiz-container-header">
+        <h3>Current Questions</h3>
+    </div>
+    <ol>
+    <% quiz.questions.forEach(function(question) { %>
+        <li>
+        <div class="question">
+            <p><%= question.question %></p>
+        </div>
+        <div class="possible-answers">
+            <% if (question.options.option1.option_number === question.answer) { %>
+                
+                <p class="correct"><%= question.options.option1.option_number %> - <%= question.options.option1.possible_answer %> <small><i class="far fa-check-circle"></i></small></p>
+            <% } else { %>
+                <p><%= question.options.option1.option_number %> - <%= question.options.option1.possible_answer %></p>
+            <% } %>
+            <% if (question.options.option2.option_number === question.answer) { %>
+                
+                <p class="correct"><%= question.options.option2.option_number %> - <%= question.options.option2.possible_answer %> <small><i class="far fa-check-circle"></i></small></p>
+            <% } else { %>
+                <p><%= question.options.option2.option_number %> - <%= question.options.option2.possible_answer %></p>
+            <% } %>
+            <% if (question.options.option3.option_number === question.answer) { %>
+                
+                <p class="correct"><%= question.options.option3.option_number %> - <%= question.options.option3.possible_answer %> <small><i class="far fa-check-circle"></i></small></p>
+            <% } else { %>
+                <p><%= question.options.option3.option_number %> - <%= question.options.option3.possible_answer %></p>
+            <% } %>
+            <% if (question.options.option4.option_number === question.answer) { %>
+                
+                <p class="correct"><%= question.options.option4.option_number %> - <%= question.options.option4.possible_answer %> <small><i class="far fa-check-circle"></i></small></p>
+            <% } else { %>
+                <p><%= question.options.option4.option_number %> - <%= question.options.option4.possible_answer %></p>
+            <% } %>
+
+
+        </div>
+        <div class="edit-question">
+            <a href="#"><i class="far fa-edit"></i></a>
+        </div>
+        </li>
+    <% }) %>
+    </ol>
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 </div>

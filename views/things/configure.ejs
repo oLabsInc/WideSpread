@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
 a {
     text-decoration: none;
@@ -375,4 +376,383 @@ select {
             .catch(err => console.error(err));
      */
 
+=======
+<style>
+a {
+    text-decoration: none;
+}
+h3 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.75rem;
+}
+
+h5, h6 {
+    text-align: center;
+}
+p {
+    text-align: center;
+}
+input {
+    border: none;
+    outline: none;
+    background-color: #000;
+    border-radius: 4px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+select {
+    margin-bottom: 20px;
+}
+.device-data {
+    padding-bottom: 8px;
+    background-color: rgba(255, 255, 255, 0.25);
+    width: 90%;
+    margin-inline: auto;
+    border-radius: 16px;
+    margin-top: 30px;
+}
+.device-data-header {
+    backdrop-filter: blur(5px);
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    padding: 8px;
+    border-bottom: solid 1px lightskyblue;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.75);
+    font-weight: bold;
+}
+.device-data h6 {
+    padding: 8px;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+.thing-actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+.thing-actions p {
+    background-color: rgba(135, 206, 250, 0.5);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    font-weight: bold;
+    padding: 5px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+.thing-settings {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: solid 1px lightskyblue;
+}
+.thing-settings p {
+    color: lightskyblue;
+    font-size: 1.1rem;
+}
+.thing-settings span {
+    color: #fff;
+    padding-left: 8px;
+}
+#getLocation {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 1.5rem;
+    color: #fff;
+    background-color: rgba(135, 206, 250, 0.5);
+    outline: none;
+    border: none;
+    border-radius: 8px;
+}
+.add-location {
+    padding: 8px;
+    margin-bottom: 30px;
+}
+.add-location h5 {
+    text-align: center;
+    padding: 10px;
+    font-size: 1.5rem;
+}
+.add-location form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.add-location button {
+    padding: 10px;
+    font-size: 1.5rem;
+    color: #fff;
+    background-color: rgba(172, 255, 47, 0.5);
+    outline: none;
+    border: none;
+    border-radius: 8px;
+}
+.configure-device {
+    margin-bottom: 80px;
+    padding-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(5px);
+    border-radius: 16px;
+    width: 90%;
+    margin-inline: auto;
+}
+.configure-device h5 {
+    text-align: center;
+    padding: 10px;
+    font-size: 1.5rem;
+}
+.configure-device form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.configure-device button {
+    padding: 10px;
+    font-size: 1.5rem;
+    color: #fff;
+    background-color: rgba(172, 255, 47, 0.5);
+    outline: none;
+    border: none;
+    border-radius: 8px;
+}
+.scan-bluetooth  button {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 1.5rem;
+    color: #fff;
+    background-color: rgba(135, 206, 250, 0.5);
+    outline: none;
+    border: none;
+    border-radius: 8px;
+}
+</style>
+
+<div class="page-title">
+    <h2>Configure: <%= thing.device_information.device_name %></h2>
+</div>
+
+<div class="device-data">
+    <% if (thing.device_information.device_type == 'Garage Door') { %>
+        <p class="device-data-header" style="color: #FF4500; font-size: 1.5rem;"><%= thing.device_information.device_name %></p>
+        <h6>Available actions for this device:</h6>
+        <div class="thing-actions">
+            <% thing.available_actions.forEach(function(action) { %>
+                <p style="color: #fff;"><%= action %></p>
+            <% }) %>
+        </div>
+        
+        <% } %>
+        <% if (thing.device_information.device_type == 'Lighting Control') { %>
+            <p class="device-data-header" style="color: #FFA500; font-size: 1.5rem;"><%= thing.device_information.device_name %></p>
+            <h6>Available actions for this device:</h6>
+            <div class="thing-actions">
+                <% thing.available_actions.forEach(function(action) { %>
+                    <p style="color: #fff;"><%= action %></p>
+                <% }) %>
+            </div>
+        <% } %>
+        <% if (thing.device_information.device_type == 'Irrigation') { %>
+            <p class="device-data-header" style="color: lightskyblue; font-size: 1.5rem;"><%= thing.device_information.device_name %></p>
+            <h6>Available actions for this device:</h6>
+            <div class="thing-actions">
+                <% thing.available_actions.forEach(function(action) { %>
+                    <p style="color: #fff;"><%= action %></p>
+                <% }) %>
+            </div>
+        <% } %>
+        <% if (thing.device_information.device_type == 'Thermostat') { %>
+            <p class="device-data-header" style="color: lightcoral; font-size: 1.5rem;"><%= thing.device_information.device_name %></p>
+            <h6>Available actions for this device:</h6>
+            <div class="thing-actions">
+                <% thing.available_actions.forEach(function(action) { %>
+                    <p style="color: #fff;"><%= action %></p>
+                <% }) %>
+            </div>
+        <% } %>
+        <% if (thing.device_information.device_type == 'Security Camera') { %>
+            <p class="device-data-header" style="color: orangered; font-size: 1.5rem;"><%= thing.device_information.device_name %></p>
+            <h6>Available actions for this device:</h6>
+            <div class="thing-actions">
+                <% thing.available_actions.forEach(function(action) { %>
+                    <p style="color: #fff;"><%= action %></p>
+                <% }) %>
+            </div>
+        <% } %>
+        <% if (thing.device_information.device_type == 'Door Lock') { %>
+            <p class="device-data-header" style="color: #DC143C; font-size: 1.5rem;"><%= thing.device_information.device_name %></p>
+            <h6>Available actions for this device:</h6>
+            <div class="thing-actions">
+                <% thing.available_actions.forEach(function(action) { %>
+                    <p style="color: #fff;"><%= action %></p>
+                <% }) %>
+            </div>
+        <% } %>
+        <% if (thing.device_information.device_type == 'Blinds/Shades') { %>
+            <p class="device-data-header" style="color: #FF1493; font-size: 1.5rem;"><%= thing.device_information.device_name %></p>
+            <h6>Available actions for this device:</h6>
+            <div class="thing-actions">
+                <% thing.available_actions.forEach(function(action) { %>
+                    <p style="color: #fff;"><%= action %></p>
+                <% }) %>
+            </div>
+        <% } %>
+        <% if (thing.device_information.device_type == 'SpreadShield') { %>
+            <p class="device-data-header" style="color: #1b6492; font-size: 1.5rem;"><%= thing.device_information.device_name %></p>
+            <h6>Available actions for this device:</h6>
+            <div class="thing-actions">
+                <% thing.available_actions.forEach(function(action) { %>
+                    <p style="color: #fff;"><%= action %></p>
+                <% }) %>
+            </div>
+        <% } %>
+        <% if (thing.device_information.device_type == 'FlexFloor') { %>
+            <p class="device-data-header" style="color: #000000; font-size: 1.5rem;"><%= thing.device_information.device_name %></p>
+            <h6>Available actions for this device:</h6>
+            <div class="thing-actions">
+                <% thing.available_actions.forEach(function(action) { %>
+                    <p style="color: #fff;"><%= action %></p>
+                <% }) %>
+            </div>
+        <% } %>
+        
+        <div class="thing-settings">
+            <p>IP Address: <span><%= thing.device_information.ip_address %></span></p>
+            <p>Zone: <span><%= thing.device_information.zone %></span></p>
+            <h6 style="color: lightskyblue; font-weight: bold; text-align: center; font-size: 1.2rem">Location</h6>
+            <p>Name: <span><%= thing.device_location.name %></span></p>
+            <p>Latitude: <span><%= thing.device_location.coordinates.x %></span></p>
+            <p>Longitude: <span><%= thing.device_location.coordinates.y %></span></p>
+        </div>
+</div>
+
+
+<h3 style="border-top: solid 1px lightskyblue; padding-top: 20px;">Settings</h3>
+
+<div class="add-location">
+    <h5>Add New Location</h5>
+    <button id="getLocation">Get Current Coordinates</button>
+    <form action="/things/user/<%= user.id %>/places/new/add" method="post">
+        <input type="text" name="place_name" placeholder="Name of Place" required>
+        <input type="text" name="lat" id="lat" hidden>
+        <input type="text" name="long" id="long" hidden>
+        <button type="submit">Add Place</button>
+    </form>
+</div>
+
+
+<div class="configure-device">
+    <h5>Configure Device</h5>
+    <form action="/things/user/<%= user.id %>/devices/id/<%= thing.id %>/configure/update?_method=PATCH" method="post">
+        <select name="device_location" id="deviceLocation">
+            <% if (savedPlaces.length <= 0) { %>
+                <option selected hidden disabled>No Saved Locations</option>
+                
+            <% } else { %>
+                <option selected hidden disabled>Device Location</option>
+                <% savedPlaces.forEach(function(place) { %>
+                    <option value="<%= place.id %>"><%= place.name %></option>
+                <% }) %>
+            <% } %>
+        </select>
+
+        <input type="text" name="device_information.ip_address" placeholder="Device IP Address" required>
+        <input type="password" name="device_information.device_password" id="pass1" placeholder="Password">
+        <input type="password" id="pass2" placeholder="Retype Password">
+        <input type="number" name="device_information.zone" placeholder="Zone">
+        <button type="submit">Update Device</button>
+    </form>
+    <a href="#">Create Device Schedule</a>
+</div>
+
+<div class="scan-bluetooth">
+    <button id="connectBT">Connect to Bluetooth Device</button>
+
+</div>
+
+<a style="margin-top: 80px;" href="/things/user/<%= user.id %>">
+    <h5>Back to Dashboard</h5>
+</a>
+
+<script>
+    const connectBT = document.getElementById('connectBT')
+
+    connectBT.addEventListener('click', e => {
+        e.stopPropagation()
+        e.preventDefault()
+
+        if (checkBLEAvailability) {
+            getDeviceInfo()
+        }
+    })
+
+    function checkBLEAvailability() {
+        if (!navigator.bluetooth) {
+            console.log('Bluetooth is not available.')
+            return false
+        }
+        return true
+    }
+
+    function getDeviceInfo() {
+        let options = {
+            acceptAllDevices: true
+        }
+        console.log('Requesting BLE device info...')
+        navigator.bluetooth.requestDevice(options).then(device => {
+            console.log('Name: ', device.name)
+        }).catch(error => {
+            console.log('Request device error: ', error)
+        })
+    }
+
+    
+</script>
+
+<script>
+    const getLocation = document.getElementById('getLocation')
+    const lat = document.getElementById('lat')
+    const long = document.getElementById('long')
+    getLocation.addEventListener('click', e => {
+        navigator.geolocation.getCurrentPosition(getLatLon);
+        getLocation.innerText = 'Current Location Added'
+    })
+    
+    function getLatLon(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        lat.setAttribute('value', latitude)
+        long.setAttribute('value', longitude)
+            console.log("Latitude is " + latitude);
+            console.log("Longitude is " + longitude);
+        }
+</script>
+
+<script>
+/*         const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Host': 'trueway-geocoding.p.rapidapi.com',
+                'X-RapidAPI-Key': '0f915bd732mshdc9ec693ec7695fp19c4d9jsn7900273e18b6'
+            }
+        };
+
+        // user input for house number, street name, city, state
+        // replace spaces with %20
+        // replace commas with %2C
+        // %2 = comma
+
+        fetch(`https://trueway-geocoding.p.rapidapi.com/Geocode?address=${addressURL}&language=en`, options)
+            .then(response => response.json())
+            .then(response => console.log(response))
+            .catch(err => console.error(err));
+     */
+
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 </script>

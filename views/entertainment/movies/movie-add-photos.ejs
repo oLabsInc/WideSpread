@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     .spread-header-container {
         margin-bottom: 30px;
@@ -144,4 +145,152 @@
             })
         })
 
+=======
+<style>
+    .spread-header-container {
+        margin-bottom: 30px;
+        min-height: 150px;
+        max-height: 150px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .spread-slider-container {
+        min-height: 200px;
+        margin-top: 10px;
+        border-top: outset 2px #333;
+        border-bottom: outset 2px #333;
+    }
+
+    .spread-slider-container h5 {
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(4px);
+        padding: 10px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .spread-slider-container>h5>b {
+        text-decoration: none;
+        color: rgba(0, 0, 0, 0.75);
+        text-shadow: 0 0 2px lightskyblue;
+        font-weight: bolder;
+        text-transform: capitalize;
+    }
+
+
+
+
+    .spread-slider {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .spread-slider-item {
+        margin-bottom: 10px;
+    }
+
+    .spread-slider-item-background {}
+
+    .spread-slider-item-background img {
+        border-radius: 8px;
+        max-width: 150px;
+        box-shadow: 0 3px 4px rgba(0, 0, 0, 0.534);
+    }
+
+    .spread-header-slider-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+        align-items: center;
+        min-height: 150px;
+
+
+    }
+
+    .spread-header-slider-item {
+        min-height: 150px;
+        min-height: 100%;
+        background: rgba(0, 0, 0, 0.25);
+        height: 100px;
+        border: solid 1px #fff;
+        box-shadow: inset 0 0 3px rgba(135, 206, 250, 0.6);
+        border-top: none;
+        width: 20%;
+    }
+    .selected-photo {
+        box-shadow: 0 0 20px #fff;
+        border: outset 2px lightskyblue;
+    }
+    .add-photos-form {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .add-photos-form input {
+        width: 100%;
+        background-color: #000;
+        color: #fff;
+        border-radius: 4px;
+        outline: none;
+        border: none;
+        margin-bottom: 5px;
+    }
+    .add-photos-form button {
+        width: 100%;
+        background-color: rgba(135, 206, 250, 0.5);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 0 10px #fff, inset 0 0 20px rgba(255, 255, 255, 0.5);
+        color: #fff;
+        border-radius: 4px;
+        outline: none;
+        border: none;
+        padding: 5px;
+    }
+</style>
+
+
+    <div id="photoContainer" class="spread-slider-container">
+
+        <div class="spread-slider-anchor">
+            <div class="spread-slider-rack">
+                <div id="movieSpreadSlider" class="spread-slider">
+                    <% returnedData.resource.images.forEach(function(image) { %>
+                        <div class="spread-slider-item">
+                            <div class="spread-slider-item-background">
+                                <img src="<%= image.url %>" alt="">
+                            </div>
+                        </div>
+                        <% }) %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <form class="add-photos-form" action="/socialspread/movies/add-photos/<%= spreadObj.id %>/?_method=PATCH" method="post">
+        <div id="photoInputs"></div>
+        <button type="submit">Add Photos & Spread It!</button>
+    </form>
+
+    <script>
+        const photoInputsEl = document.getElementById('photoInputs')
+        const allImages = document.querySelectorAll('img')
+        allImages.forEach(image => {
+            image.addEventListener('click', e => {
+                console.log(e.target)
+                const targetPhoto = e.target
+                targetPhoto.classList.add('selected-photo')
+                const targetUrl = targetPhoto.getAttribute('src')
+                let photoInput = document.createElement('input')
+                photoInput.value = targetUrl
+                photoInput.setAttribute('name', 'movie_photos')
+                photoInputsEl.appendChild(photoInput)
+            })
+        })
+
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
     </script>

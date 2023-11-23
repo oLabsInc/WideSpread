@@ -1,3 +1,4 @@
+<<<<<<< HEAD
     <style>
       body {
         padding-bottom: 0;
@@ -489,3 +490,496 @@
 
 
 
+=======
+    <style>
+      body {
+        padding-bottom: 0;
+      }
+      .overlay .closebtn {
+        top: 0;
+      }
+      #coraTesting {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        width: 90%;
+        margin-inline: auto;
+        margin-bottom: 50px;
+      }
+
+      #coraTesting h3 {
+        font-size: 1.5rem;
+        color: lightskyblue;
+      }
+      #coraTesting h6 {
+        font-size: 1.25rem;
+      }
+      .cora-test-option {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 1rem;
+      }
+      #coraTesting a {
+        text-decoration: none;
+        padding: 5px;
+        color: #fff;
+        border-radius: 8px;
+        background-color: rgba(135, 206, 250, 0.15);
+        box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.25);
+      }
+
+      #coreContainer {
+        padding-top: 0;
+      }
+
+      .share-options p {
+        color: #fff;
+      }
+
+      .search-results-container {
+        margin-top: 50px;  
+      }
+      .search-results-header {
+        text-align: center;
+        padding-bottom: 8px;
+      }
+
+      .search-results-options {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+      .search-results-options h4 {
+        font-size: 1.3rem;
+        cursor: pointer;
+        transition: ease-in-out 0.5s;
+      }
+      .search-results-options h4:hover {
+        color: rgba(255, 255, 255, 0.25);
+        text-shadow: 0 0 3px lightskyblue;
+      }
+      .active-tab {
+        color: lightskyblue;
+      }
+      .search-results-search-bars {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .search-results-search-bar {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 85%;
+        max-width: 900px;
+        margin-bottom: 8px;
+        padding: 5px;
+        display: none;
+      }
+      .search-results-search-bar:first-of-type {
+        display: flex;
+      }
+      .search-results-search-bar input {
+        font-size: 1rem;
+        width: calc(95% - 50px);
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        padding: 3px;
+        padding-left: 5px;
+        background: rgba(255, 255, 255, 0.25);
+        color: #fff;
+        font-weight: lighter;
+        margin: 0;
+        margin-top: 1px;
+        outline: none;
+        border: inset 2px rgba(255, 255, 255, 0.25);
+        border-right: none;
+        transition: ease-in 0.5s;
+      }
+      .search-results-search-bar button {
+        font-size: 1.1rem;
+        border-radius: 6px;
+        margin: 0;
+        width: 50px;
+        background: rgba(135, 206, 250, 0.5);
+        padding: 7px;
+        outline: none;
+        border: outset 2px lightskyblue;
+        border-right: none;
+        color: #fff;
+        box-shadow: -5px 0 5px rgb(0 0 0 / 25%), inset 0 0 3px #fff;
+      }
+      #searchResultsImage {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+
+
+      }
+      .result-container:first-of-type {
+        margin-top: 50px;
+      }
+      .result-container {
+        background-color: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(10px);
+        margin-bottom: 10px;
+        padding: 8px;
+        max-width: 90vw;
+        margin-inline: auto;
+        border-radius: 26px;
+      }
+      .result-container h6 {
+        font-size: 1.3rem;
+      }
+      .result-container a {
+        text-decoration: none;
+      }
+      .result-container a {
+      }
+      .result-container p {
+        text-decoration: none;
+        padding: 8px;
+        color: #fff;
+      }
+      .result-container > a > p {
+        color: lightskyblue;
+        text-decoration: underline;
+        border-bottom: solid 1px #fff;
+      }
+      .search-thumbnail {
+        border-radius: 26px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+      }
+      #bigImgContainer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 40000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(10px);
+      }
+      #bigImgContainer img {
+        max-width: 90vw;
+        max-height: 90vh;
+        filter: drop-shadow(0 20px 18px #000);
+        border-radius: 26px;
+      }
+      @media screen and (min-width: 300px) {
+        .welcome-page {
+          min-height: 100vh;
+          width: 100vw;
+          max-width: 100vw;
+
+        }
+        .create-account {
+          margin-top: 80px;
+        }
+        .welcome-message {
+          text-align: center;
+        }
+        .welcome-message h1 {
+          padding: 20px;
+          font-size: 2.5rem;
+          cursor: default;
+        }
+        .welcome-message h5 {
+          font-size: 1.2rem;
+          padding: 10px;
+        }
+        .create-account-btns {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly;
+          align-items: center;
+          margin-top: 30px;
+        }
+        .create-account-btns h6 {
+          padding: 10px;
+          font-size: 1.5rem;
+        }
+        .create-account-btns>h6>a {
+          color: lightskyblue;
+          text-decoration: none;
+        }
+        .site-security {
+          position: absolute;
+          bottom: 40px;
+          width: 50%;
+          transform: translateX(50%);
+          text-align: center;
+
+        }
+        .site-security img {
+          border-radius: 6px;
+          filter: drop-shadow(0 0 3px lightskyblue);
+          opacity: 0.3;
+          transition: ease-out 2s;
+        }
+        .site-security img:hover {
+          border-radius: 6px;
+          filter: drop-shadow(0 0 3px lightskyblue);
+          opacity: 1;
+          transition: ease-in 0.5s;
+        }
+        .search-thumbnail {
+          max-width: 80vw;
+        }
+
+      }
+      @media screen and (min-width: 1100px) {
+        .overlay .closebtn {
+          top: 50px;
+        }
+
+      }
+    </style>
+    
+    
+    
+    <div class="welcome-page">
+    <!-- Create Account -->
+    <div class="create-account">
+      <div class="welcome-message">
+        <h1>WideSpread</h1>
+        <h3>Everything, Everywhere, Anytime</h3>
+      </div>
+    </div>
+      <div class="search-results-container">
+        <div class="search-results-header">
+          <div class="search-results-options">
+            <h4 id="webSearchTab" class="active-tab">Web</h4>
+            <h4 id="imageSearchTab">Images</h4>
+            <h4 style="color: rgba(255, 255, 255, 0.25); cursor: not-allowed;" id="newsSearchTab">News</h4>
+          </div>
+          
+        </div>
+        <div class="search-results-search-bars">
+          <div id="webSearchBar" class="search-results-search-bar">
+            <input type="search" id="webSearch" placeholder="Search the web..." data-search-type="WebSearch">
+            <button id="webSearchBtn">Go</button>
+          </div>
+          <div id="imageSearchBar" class="search-results-search-bar">
+            <input type="search" id="imageSearch" placeholder="Search for images..." data-search-type="ImageSearch">
+            <button id="imageSearchBtn">Go</button>
+          </div>
+
+        </div>
+      </div>
+      <div id="searchResultsWeb"></div>
+      <div id="searchResultsImage"></div>
+      <div id="bigImgContainer"></div>
+
+      <div class="spread-section">
+        <h3>What is WideSpread?</h3>
+        <p>WideSpread is an alternative to all big tech platforms. We believe that your data, is YOUR data; your privacy, is
+          YOUR privacy; and that your freedom is YOUR freedom. While WideSpread is still currently under construction, we
+          invite you to check anything and everything out! WideSpread is divided into "Zones", different aspects of life.
+          Everything is accessible in the traditional 2D view, it's also accessible through VR & AR (virtual & augmented
+          reality). WideSpread also allows you to interact with IoT devices (Internet of Things (smart devices)). A lot of
+          WideSpread is accessible to anyone, but some features do require an account. When you do decide to join us, your
+          data will never be sold (I'm working on something now for WideSpread users to sell their own data if they would like
+          to, where any income from that would be put into that users account).</p>
+      </div>
+      
+<div id="coraTesting">
+  <h3>Check out Cora & Cory!</h3>
+  <h6>Your Virtual Assistant on WideSpread</h6>
+  <div class="cora-test-option">
+    <a href="/cora">Complete Tasks</a>
+    <a href="/cora-general">General Inforamtion</a>
+  </div>
+</div>
+
+
+
+      <div class="share-options" style="display: none;">
+        <p id="urlMask"><i class="bx bx-share-alt"></i> https://goolnk.com/bY7AXn</p>
+      </div>
+
+      <div class="site-security">
+
+        <span id="siteseal">
+          <script async type="text/javascript"
+          src="https://seal.godaddy.com/getSeal?sealID=jgxvKyT7N7AEcUNZqHedzVwz8a710Xgax9bVWVqtVNZveGlpWdoC9du61Exf"></script>
+        </span>
+      </div>
+
+
+  </div>
+
+
+<script>
+  const urlMask = document.getElementById('urlMask')
+  urlMask.addEventListener('click', e => {
+    const urlMaskEl = e.target
+    const urlMaskData = urlMaskEl.innerText
+    console.log(urlMaskData)
+  })
+</script>
+
+<script>
+  const searchForm = document.getElementById('searchForm')
+  const searchResultsWeb = document.getElementById('searchResultsWeb')
+  const searchResultsImage = document.getElementById('searchResultsImage')
+  const bigImgContainer = document.getElementById('bigImgContainer')
+  const webSearchTab = document.getElementById('webSearchTab')
+  const webSearchBar = document.getElementById('webSearchBar')
+  const webSearch = document.getElementById('webSearch')
+  const webSearchBtn = document.getElementById('webSearchBtn')
+  const imageSearchTab = document.getElementById('imageSearchTab')
+  const imageSearchBar = document.getElementById('imageSearchBar')
+  const imageSearch = document.getElementById('imageSearch')
+  const imageSearchBtn = document.getElementById('imageSearchBtn')
+  const allSearchBars = document.querySelectorAll('.search-results-search-bar')
+
+  searchForm.style.display = 'none'
+  webSearchTab.addEventListener('click', e => {
+    allSearchBars.forEach(searchBar => {
+      searchBar.style.display = 'none'
+    })
+    webSearchBar.style.display = 'flex'
+    imageSearchTab.classList.remove('active-tab')
+    webSearchTab.classList.add('active-tab')
+  })
+  imageSearchTab.addEventListener('click', e => {
+    allSearchBars.forEach(searchBar => {
+      searchBar.style.display = 'none'
+    })
+    imageSearchBar.style.display = 'flex'
+    webSearchTab.classList.remove('active-tab')
+    imageSearchTab.classList.add('active-tab')
+  })
+
+
+
+  webSearchBtn.addEventListener('click', e => {
+    console.log(webSearch.value)
+    const query = webSearch.value
+    const queryString = query.replace(' ', '%20')
+    console.log(queryString)
+  const url = `https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/WebSearchAPI?q=${queryString}&pageNumber=1&pageSize=20&autoCorrect=true&safeSearch=false`;
+
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': '7e45ec5e4fmsh4f3dac417f9eaa7p179a33jsnbfe4cb2e4c79',
+      'X-RapidAPI-Host': 'contextualwebsearch-websearch-v1.p.rapidapi.com'
+    }
+  }
+
+  fetch(url, options)
+    .then(res => res.json())
+    .then(json => {
+        console.log(json)
+        console.log(json.value)
+        const results = json.value
+        results.forEach(result => {
+          console.log(result)
+          let resultContainer = document.createElement('div')
+          resultContainer.classList.add('result-container')
+          let resultHeader = document.createElement('a')
+          let resultTitle = document.createElement('h6')
+          let resultUrl = document.createElement('p')
+          let resultBody = document.createElement('p')
+
+          resultTitle.innerText = result.title
+          resultUrl.innerText = result.url
+          
+          resultHeader.setAttribute('href', result.url)
+          resultHeader.appendChild(resultTitle)
+          resultHeader.appendChild(resultUrl)
+          resultBody.innerHTML = result.snippet
+          resultContainer.appendChild(resultHeader)
+          resultContainer.appendChild(resultBody)
+          searchResultsWeb.appendChild(resultContainer)
+
+        })
+        
+    })
+    .catch(err => console.error('error:' + err));
+
+
+  })
+
+  imageSearchBtn.addEventListener('click', e => {
+    console.log(webSearch.value)
+    const query = webSearch.value
+    const queryString = query.replace(' ', '&20')
+    console.log(queryString)
+  const url = `https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/ImageSearchAPI?q=${queryString}&pageNumber=1&pageSize=20&autoCorrect=true`;
+
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': '7e45ec5e4fmsh4f3dac417f9eaa7p179a33jsnbfe4cb2e4c79',
+      'X-RapidAPI-Host': 'contextualwebsearch-websearch-v1.p.rapidapi.com'
+    }
+  };
+
+  fetch(url, options)
+    .then(res => res.json())
+    .then(json => {
+        const images = json.value
+        images.forEach(img => {
+          const thumbnail = img.thumbnail
+          const imgUrl = img.url
+          let imgContainer = document.createElement('img')
+          imgContainer.setAttribute('src', thumbnail)
+          imgContainer.classList.add('search-thumbnail')
+          imgContainer.setAttribute('data-image-url', imgUrl)
+          searchResultsImage.appendChild(imgContainer)
+
+
+          imgContainer.addEventListener('click', e => {
+            console.log(e.target)
+            const targetImg = e.target
+            const imgSrc = targetImg.getAttribute('data-image-url')
+            console.log(imgSrc)
+            let bigImg = document.createElement('img')
+            bigImg.setAttribute('src', imgSrc)
+            bigImgContainer.appendChild(bigImg)
+            bigImgContainer.style.display = 'flex'
+            bigImgContainer.addEventListener('click', e => {
+              
+              bigImgContainer.style.display = 'none'
+              bigImg.remove()
+            })
+          })
+
+        })
+        console.log(json.value)
+        
+      }
+      )
+      .catch(err => console.error('error:' + err));
+
+
+  })
+
+
+</script>
+
+
+
+
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
   @media screen and (min-width: 300px) {
 
@@ -132,4 +133,140 @@
   <div class="login-link">
     <p class="lead mt-4">Have An Account? <a href="/users/login"
         style="color: lightskyblue; background: none; border: none;">Login</a></p>
+=======
+<style>
+  @media screen and (min-width: 300px) {
+
+    .spread-form {
+        margin-top: 40px;
+        width: 100%;
+    }
+    .spread-form form {
+    }
+    .input-section {
+      display: flex;
+      flex-direction: column;
+      align-items:stretch;
+      justify-content: space-between;
+      width: 100%;
+        margin-bottom: 5px;
+    }
+    .input-section button {
+      width: 50%;  
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(4px);
+      margin-top: 20px;
+      margin-bottom: 20px;
+      outline: none;
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 1.2rem;
+      padding: 10px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue;
+    }
+    .input-header {
+        text-align: center;
+        padding: 5px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+    .input-data {
+        margin-bottom: 3px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+    .input-data label {
+        background: rgba(255, 255, 255, 0.25);
+        color: #fff;
+        text-align: center;
+        width: 30%;
+        font-size: 1rem;
+        padding: 4px;
+    }
+    .input-data input {
+        background: rgba(135, 206, 250, 0.5);
+        width: 70%;
+        font-size: 1rem;
+        padding: 4px;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        outline: none;
+        border: inset 2px lightskyblue;
+        border-right: none;
+        box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+    .input-data:last-of-type input {
+      height: 40px;
+    }
+    .input-data input:-internal-autofill-selected  {
+      background-color: rgba(135, 206, 250, 0.5);
+      background: rgba(135, 206, 250, 0.5);
+      font-family: 'Gruppo', cursive;
+    }
+  input:-webkit-autofill,
+  input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+  }
+    .login-link {
+      padding: 20px;
+      text-align: center;
+      margin-top: 30px;
+    }
+    .login-link p {
+      color: #fff;
+    }
+    .login-link a {
+      text-decoration: none;
+    }
+  }
+  @media screen and (orientation : landscape) {
+    .input-data:last-of-type input {
+      height: auto;
+    }
+  }
+</style>
+
+
+<section class="spread-form">
+  <form action="/users/register" method="POST">
+    <div class="input-section">
+      <div class="input-header">
+        <h5>Register</h5>
+      </div>
+      <div class="input-data">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="fname" class="input-control login-input" placeholder="Enter First Name" value="<%= typeof name != 'undefined' ? fname : '' %>" />
+      </div>
+      <div class="input-data">
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lname" class="input-control login-input" placeholder="Enter Last Name" value="<%= typeof name != 'undefined' ? lname : '' %>" />
+      </div>
+      <div class="input-data">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" class="input-control login-input" placeholder="Enter your email" />
+      </div>
+      <div class="input-data">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" />
+      </div>
+      <div class="input-data">
+        <label for="password2">Confirm Password</label>
+        <input type="password" id="password2" name="password2" placeholder="Renter your password" />
+      </div>
+      <button type="submit">Register</button>
+    </div>
+
+  </form>
+</section>
+
+  <div class="login-link">
+    <p class="lead mt-4">Have An Account? <a href="/users/login"
+        style="color: lightskyblue; background: none; border: none;">Login</a></p>
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
   </div>

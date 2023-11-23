@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     .spread-form {
         margin-top: 40px;
@@ -437,4 +438,445 @@
 
             </div>
             <% }) %>
+=======
+<style>
+    .spread-form {
+        margin-top: 40px;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .spread-form form {}
+
+    .input-section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .input-section button {
+        width: 25%;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.5);
+        margin-top: 20px;
+        margin-bottom: 20px;
+        outline: none;
+        border-radius: 6px;
+        color: #fff;
+        font-size: 1.2rem;
+        padding: 10px;
+        background: rgba(135, 206, 250, 0.5);
+        border: outset 2px lightskyblue;
+        box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25), inset 0 0 3px #fff;
+    }
+
+    .input-header {
+        text-align: center;
+        padding: 5px;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    .input-data {
+        margin-bottom: 3px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        width: 80%;
+    }
+
+    .input-data input {
+        font-size: 1rem;
+        width: calc(95% - 50px);
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        padding: 3px;
+        padding-left: 5px;
+        background: rgba(255, 255, 255, 0.25);
+        color: #fff;
+        font-weight: lighter;
+        margin: 0;
+        margin-top: 1px;
+        outline: none;
+        border: inset 2px rgba(255, 255, 255, 0.25);
+        border-right: none;
+        transition: ease-in 0.5s;
+    }
+
+    .input-data input:-webkit-autofill,
+    .input-data input:-webkit-autofill:focus {
+        transition: background-color 600000s 0s, color 600000s 0s;
+    }
+
+    .input-data input::placeholder {
+        color: #fff;
+        text-shadow: 0 0 6px #000;
+    }
+
+    .input-data input:focus {
+        color: #fff;
+        text-shadow: 0 0 6px #000;
+        background: rgba(135, 206, 250, 0.25);
+        box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.25), 0 0 2px rgba(255, 255, 255, 0.5);
+        border: inset 2px rgba(135, 206, 250, 0.75);
+        border-right: none;
+        transition: ease-in 0.3s;
+    }
+
+    .input-data label {
+        background: rgba(255, 255, 255, 0.25);
+        color: #fff;
+        text-align: center;
+        width: 20%;
+        font-size: 1rem;
+        padding: 4px;
+    }
+
+    .input-data input {
+        width: 100%;
+        font-size: 1rem;
+        padding: 4px;
+        margin-top: 8px;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        outline: none;
+        border: inset 2px lightskyblue;
+        border-right: none;
+        box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+
+    .input-data input:-internal-autofill-selected {
+        background-color: rgba(135, 206, 250, 0.5);
+        background: rgba(135, 206, 250, 0.5);
+        font-family: 'Gruppo', cursive;
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:focus {
+        transition: background-color 600000s 0s, color 600000s 0s;
+    }
+
+    .current-search-results-query {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .current-search-results-query p {
+        color: #fff;
+        text-align: center;
+        padding: 8px;
+    }
+
+    .current-search-results-query h5 {
+        color: lightskyblue;
+        text-transform: capitalize;
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+
+    @media screen and (min-width: 300px) {
+        .articles-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+
+        }
+
+        .article-container {
+            background: rgba(85, 85, 85, 0.25);
+            backdrop-filter: blur(4px);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue;
+            width: 90vw;
+            margin: 0 auto;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .article-background {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .article-background img {
+            width: 100%;
+            top: 0;
+            position: relative;
+            left: 0;
+            z-index: 18;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .article-background p {
+            color: #fff;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 20;
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-weight: bold;
+            font-size: 1.3rem;
+            text-shadow: 0 0 4px #000;
+            background: rgba(135, 206, 250, 0.25);
+            backdrop-filter: blur(4px);
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border-bottom: outset 2px rgba(135, 206, 250, 0.75);
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4), inset 0 0 8px rgba(255, 255, 255, 0.25);
+        }
+
+        .article-header {
+            position: relative;
+            z-index: 21;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .article-title {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .article-title h5 {
+            font-size: 1.3rem;
+            color: lightskyblue;
+            text-align: center;
+        }
+
+        .article-header p {
+            text-align: center;
+            padding: 8px;
+        }
+
+        .published-data {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: solid 1px lightskyblue;
+            width: 90%;
+            margin: 0 auto;
+
+        }
+
+        .article-info span {
+            width: 45%;
+            color: #ccc;
+            font-size: 0.6rem;
+            padding: 8px;
+        }
+
+        .article-info span:last-of-type {
+            text-align: right;
+        }
+
+        .article-summary {
+            padding: 10px;
+            padding-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .article-summary p {
+            font-size: 1.1rem;
+        }
+
+        .article-link {
+            background: rgba(135, 206, 250, 0.25);
+            box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.25), 0 -3px 5px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            width: 50%;
+            margin: 0 auto;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            text-align: center;
+            padding: 12px;
+        }
+
+        .article-link a {
+            width: 100%;
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.4rem;
+        }
+
+        .article-media-slider {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            width: 100%;
+            overflow-x: scroll;
+            align-items: center;
+            justify-content: flex-start;
+            border-top: outset 2px rgba(135, 206, 250, 0.75);
+            box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.4);
+            background: #000;
+
+        }
+
+        .article-image {
+            min-width: 45vw;
+            height: fit-content;
+        }
+
+        .article-image img {
+            width: 100%;
+        }
+    }
+
+
+    @media screen and (min-width: 900px) {
+        .articles-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: stretch;
+            justify-content: space-evenly;
+            margin-right: 30px;
+        }
+
+        .article-container {
+            max-width: 300px;
+
+        }
+
+        .article-media-slider {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            width: 100vw;
+            overflow-x: scroll;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .article-image {
+            max-width: 200px;
+            min-width: 200px;
+            width: 200px;
+        }
+
+        .article-image img {
+            width: 100%;
+        }
+    }
+
+    @media screen and (orientation : landscape) {
+
+        .article-media-slider {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            width: 100vw;
+            overflow-x: scroll;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .article-image {
+            max-width: 200px;
+            min-width: 200px;
+            width: 200px;
+        }
+
+        .article-image img {
+            width: 100%;
+        }
+    }
+</style>
+<%- include('../partials/menus/news'); %>
+
+<div class="zone-title">
+    <h1>
+        <%= zone %>
+    </h1>
+</div>
+
+
+    <div class="spread-form">
+        <form action="/news/search" method="post">
+            <div class="input-section">
+                <div class="input-data">
+                    <input type="search" name="searchQuery" placeholder="Search news...">
+                </div>
+                <button type="submit">Search News</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="current-search-results-query">
+        <h5>
+            <%= subZone %>
+        </h5>
+    </div>
+    <div class="articles-container">
+        <% returnedData.articles.forEach(function(article) { %>
+            <div class="article-container">
+                <% if (!article.media) { %>
+                    <span></span>
+                    <% } else { %>
+                        <div class="article-background">
+                            <img width="200px" src="<%= article.media %>" alt="">
+                            <p style="color: #fff; text-transform: capitalize;">
+                                <%= article.topic %>
+                            </p>
+                        </div>
+                        <% } %>
+
+                            <div class="article-header">
+                                <div class="article-title">
+                                    <h5>
+                                        <%= article.title %>
+                                    </h5>
+                                    <% if (!article.author) { %>
+                                        <span></span>
+                                        <% } else { %>
+                                            <p style="color: #fff;">Written By: <%= article.author %>
+                                            </p>
+                                            <% } %>
+                                </div>
+
+                                <div class="article-info">
+                                    <div class="published-data">
+                                        <span style="color: #fff;">
+                                            <%= article.country %>
+                                        </span>
+                                        <span>
+                                            <%= article.published_date %>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="article-summary">
+                                <p style="color: #fff;">
+                                    <%= article.summary %>
+                                </p>
+                            </div>
+
+                            <div class="article-link">
+                                <a href="<%= article.link %>" target="_blank">Read Article</a>
+                            </div>
+
+                            <div class="article-media-slider">
+                                <% article.media_content.forEach(function(data) { %>
+                                    <div class="article-image">
+                                        <img src="<%= data %>" alt="">
+                                    </div>
+                                    <% }) %>
+                            </div>
+
+            </div>
+            <% }) %>
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
     </div>

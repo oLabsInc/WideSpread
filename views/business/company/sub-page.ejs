@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     .company-background-image {
         position: fixed;
@@ -566,4 +567,574 @@
 
 </div>
 
+=======
+<style>
+    .company-background-image {
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100vw;
+        min-height: 100vh;
+        z-index: -50;
+    }
+
+    .company-background-image-filter {
+        position: fixed;
+        background: rgba(0, 0, 0, 0.5);
+        box-shadow: inset 0 0 100px #000;
+        top: 0;
+        left: 0;
+        min-width: 100vw;
+        min-height: 100vh;
+        z-index: -40;
+
+    }
+
+
+    .company-pages-nav {
+        width: 100%;
+        background: rgba(0, 0, 0, 0.25);
+        margin-top: 20px;
+        backdrop-filter: blur(4px);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+    }
+    .company-nav-item {
+        width: fit-content;
+        min-width: 100px;
+        padding: 8px;
+        text-align: center;
+    }
+    .company-nav-item a {
+        color: #fff;
+        text-decoration: none;
+    }
+    .subpage-active a {
+        color: lightskyblue;
+    }
+    .company-container {
+        width: 100vw;
+        margin: 0 auto;
+    }
+
+    .company-header {
+        margin-top: 20px;
+    }
+
+    .company-name {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        color: #fff;
+    }
+
+    .company-name h2 {
+        font-size: 1.8rem;
+    }
+
+    .company-name p {
+        font-size: 0.8rem;
+        margin-top: 10px;
+    }
+
+    .company-logo {
+        width: 90%;
+        max-width: 300px;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+
+    .company-logo img {
+        width: 100%;
+        border-radius: 16px;
+    }
+
+
+
+    .company-body {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        padding: 12px;
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        border-top: outset 1px #888;
+        border-bottom: outset 1px #888;
+        
+    }
+
+    .company-body p {
+        font-size: 1.3rem;
+        line-height: 1.6rem;
+        color: #fff;
+    }
+
+    .company-contact {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        padding: 12px;
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        border-top: outset 1px #888;
+        border-bottom: outset 1px #888;
+    }
+
+    .company-contact i {
+        color: rgba(255, 255, 255, 0.5);
+        padding: 8px;
+    }
+
+    .company-address {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin-bottom: 15px;
+    }
+
+    .company-address p {
+        color: #fff;
+    }
+
+    .company-contact-item {
+        padding: 8px;
+    }
+
+    .company-contact-item p {
+        color: #fff;
+        text-shadow: 0 0 2px lightskyblue;
+    }
+
+    .company-contact-item a {
+        text-decoration: none;
+        color: #fff;
+        text-shadow: 0 0 2px lightskyblue;
+    }
+
+    .company-employee-portal {
+        margin: 0 auto;
+        margin-bottom: 100px;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        width: 90%;
+        border-radius: 8px;
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        position: relative;
+        z-index: 10;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 10px;
+    }
+
+    .company-employee-portal a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.3rem;
+    }
+
+    .subpage-title {
+        text-align: center;
+        font-size: 1.8rem;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .page-container {
+        width: 90%;
+        margin: 0 auto;
+
+    }
+    .page-section {
+        margin-bottom: 30px;
+        background:rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        border-radius: 8px;
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+
+    }
+
+    .page-header {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .page-header h3 {
+        font-size: 1.4rem;
+    }
+    .page-body {
+        color: #fff;
+        padding: 15px;
+    }
+    .subpage-side {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 50px;
+        padding-top: 20px;
+        background:rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        border-radius: 8px;
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+
+    }
+    .subpage-side-section-header {
+        text-align: center;
+        padding: 5px;
+        font-size: 1.3rem;
+    }
+    .subpage-side-section {
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .subpage-side-section a {
+        color: lightskyblue;
+        padding: 8px;
+        text-decoration: none;
+    }
+
+
+    .store-items {
+        margin-bottom: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 30px;
+    }
+    .item-container {
+        width: 90%;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        border-top: outset 1px #fff;
+        border-bottom: outset 1px #fff;
+        margin-bottom: 30px;
+        border-radius: 16px;
+        padding: 8px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue;
+
+    }
+    .item-header {
+
+        padding-bottom: 5px;
+        border-bottom: solid 1px lightskyblue;
+    }
+
+    .item-name {
+        width: 80%;
+    }
+    .item-name h5 {
+        font-size: 1.5rem;
+        color: lightskyblue;
+    }
+    .item-name h6 {
+        font-size: 1.2rem;
+    }
+    .item-image {
+        margin: 0 auto;
+        margin-top: 20px;
+        width: 90%;
+    }
+    .item-image img {
+        width: 100%;
+        border-radius: 8px;
+    }
+    .item-body {
+        padding: 8px;
+    }
+    .item-body p {
+        color: #fff;
+    }
+    .item-footer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-top: solid 1px lightskyblue;
+    }
+    .item-price {
+        width: 80%;
+    }
+    .item-price p {
+        font-size: 1.3rem;
+        color: lightskyblue;
+        font-weight: bold;
+        padding-left: 20px;
+    }
+    .item-link {
+        width: 20%;
+        text-align: center;
+    }
+    .item-link a {
+        font-size: 1.5rem;
+        color: rgba(135, 206, 250, 0.75);
+        text-shadow: 0 0 2px #fff;
+        text-decoration: none;
+    }
+    .page-list {
+        background: rgba(0, 0, 0, 0.25);
+        padding-bottom: 30px;
+        width: 90%;
+        margin: 0 auto;
+        border-radius: 16px;
+        border-top: outset 1px #fff;
+        border-bottom: outset 1px #fff;
+        backdrop-filter: blur(4px);
+
+    }
+    .list {
+        display: flex;    
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .list ul {
+        list-style-type: circle;
+        font-size: 1rem;
+    }
+    .list li {
+        margin-bottom: 10px;
+        color: #fff;
+    }
+</style>
+
+<%- include('../../partials/menus/business'); %>
+
+    <div class="company-background-image"
+        style="background:url('/image/<%= company.background_image %>') 50% 50% no-repeat; background-size:cover;">
+    </div>
+    <div class="company-background-image-filter"></div>
+
+<div class="company-pages-nav">
+    <div class="company-nav-item <%= subZonePage=='Home' ? 'company-nav-item subpage-active' : 'company-nav-item' %>">
+        <a href="/business/company/<%= company.id %>">Home</a>
+    </div>
+    <% pages.forEach(function(page) { %>
+        <div class="company-nav-item <%= subZonePage==page.page_name ? 'company-nav-item subpage-active' : 'company-nav-item' %>">
+            <a href="/business/company/<%= company.id %>/page/<%= page.id %>"><%= page.page_name %></a>
+        </div>
+    <% }) %>
+</div>
+
+<% if (page.page_type === 'store') { %>
+    <div class="subpage-title">
+        <h2>Store</h2>
+    </div>
+
+        <div class="store-items">
+        <% items.forEach(function(item) { %>
+            <div class="item-container">
+                <div class="item-header" style="border-bottom: solid 1px <%= company.colors.main %>">
+                    <div class="item-name">
+                        <h5 style="color: <%= company.colors.main %>"><%= item.make %></h5>
+                        <h6><%= item.name %></h6>
+                    </div>
+                </div>
+                <div class="item-image">
+                    <img src="/image/<%= item.item_images[0] %>" alt="">
+                </div>
+                <div class="item-body">
+                    <p><%= item.description %></p>
+                </div>
+                <div class="item-footer" style="border-top: solid 1px <%= company.colors.main %>">
+                    <div class="item-price">
+                        <p style="color: <%= company.colors.main %>">$<%= item.price %></p>
+                    </div>
+                    <div class="item-link">
+                        <a href="/business/company/<%= company.id %>/product/<%= item.id %>"><i style="color: <%= company.colors.main %>" class="fas fa-arrow-alt-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+
+    </div>
+<% } else { %>
+<div class="subpage-title">
+    <h2><%= page.page_name %></h2>
+</div>
+<div class="page-container">
+
+    <% if (page.page_body.page_header1 && page.page_body.page_body1) { %>
+    <div class="page-section">
+        <div class="page-header">
+            <h3 style="color: <%= company.colors.main %>"><%= page.page_body.page_header1 %></h3>
+        </div>
+        <div class="page-body">
+            <p><%= page.page_body.page_body1 %></p>
+        </div>
+    </div>
+    <% } else { %>
+        <span style="display: none;"></span>
+    <% } %>
+
+    <% if (page.page_body.page_header2 && page.page_body.page_body2) { %>
+    <div class="page-section">
+        <div class="page-header">
+            <h3 style="color: <%= company.colors.main %>"><%= page.page_body.page_header2 %></h3>
+        </div>
+        <div class="page-body">
+            <p><%= page.page_body.page_body2 %></p>
+        </div>
+    </div>
+    <% } else { %>
+        <span style="display: none;"></span>
+    <% } %>
+
+    <% if (page.page_body.page_header3 && page.page_body.page_body3) { %>
+    <div class="page-section">
+        <div class="page-header">
+            <h3 style="color: <%= company.colors.main %>"><%= page.page_body.page_header3 %></h3>
+        </div>
+        <div class="page-body">
+            <p><%= page.page_body.page_body3 %></p>
+        </div>
+    </div>
+    <% } else { %>
+        <span style="display: none;"></span>
+    <% } %>
+
+
+
+</div>
+
+<% if (page.list_name && page.list) { %>
+    <div class="page-list">
+
+        <div class="page-header">
+            <h3><%= page.list_name %></h3>
+        </div>
+        <div class="list">
+            <ul>
+                <% page.list.forEach(function(item) { %>
+                    <li style="color: <%= company.colors.main %>"><%= item %></li>
+                <% }) %>
+            </ul>
+        </div>
+    </div>
+<% } else { %>
+    <span style="display: none;"></span>
+<% } %>
+
+
+<% if (!page.page_side.phone1 && !page.page_side.phone2 && !page.page_side.phone3 && !page.page_side.email1 && !page.page_side.email2 && !page.page_side.email3 && !page.page_side.email4 && !page.page_side.fax1 && !page.page_side.fax2) { %>
+    <span style="display: none;"></span>
+<% } else { %>
+<div class="subpage-side">
+    <!-- Phone -->
+    <% if (!page.page_side.phone1 && !page.page_side.phone2 && !page.page_side.phone3) { %>
+        <span style="display: none;"></span>
+    <% } else { %>
+    <div class="subpage-side-section-header">
+        <h5>Phone</h5>
+    </div>
+    <% } %>
+    <div class="subpage-side-section">
+    <% if (page.page_side.phone1) { %>
+        <a style="color: <%= company.colors.main %>" href="tel:<%= page.page_side.phone1 %>"><%= page.page_side.phone1 %></a>
+    <% } else { %>
+        <span style="display: none;"></span>
+    <% } %>
+
+    <% if (page.page_side.phone2) { %>
+        <a style="color: <%= company.colors.main %>" href="tel:<%= page.page_side.phone2 %>"><%= page.page_side.phone2 %></a>
+    <% } else { %>
+        <span style="display: none;"></span>
+    <% } %>
+
+    <% if (page.page_side.phone3) { %>
+        <a style="color: <%= company.colors.main %>" href="tel:<%= page.page_side.phone3 %>"><%= page.page_side.phone3 %></a>
+    <% } else { %>
+        <span style="display: none;"></span>
+    <% } %>
+    </div>
+    <!-- Email -->
+    <% if (!page.page_side.email1 && !page.page_side.email2 && !page.page_side.email3 && !page.page_side.email4) { %>
+        <span style="display: none;"></span>
+        <% } else { %>
+            <div class="subpage-side-section-header">
+                <h5>Email</h5>
+            </div>
+            <% } %>
+    <div class="subpage-side-section">
+
+    <% if (page.page_side.email1) { %>
+        <a style="color: <%= company.colors.main %>" href="mailto:<%= page.page_side.email1 %>"><%= page.page_side.email1 %></a>
+    <% } else { %>
+        <span style="display: none;"></span>
+    <% } %>
+
+    <% if (page.page_side.email2) { %>
+        <a style="color: <%= company.colors.main %>" href="mailto:<%= page.page_side.email2 %>"><%= page.page_side.email2 %></a>
+    <% } else { %>
+        <span style="display: none;"></span>
+    <% } %>
+
+    <% if (page.page_side.email3) { %>
+        <a style="color: <%= company.colors.main %>" href="mailto:<%= page.page_side.email3 %>"><%= page.page_side.email3 %></a>
+    <% } else { %>
+        <span style="display: none;"></span>
+    <% } %>
+
+    <% if (page.page_side.email4) { %>
+        <a style="color: <%= company.colors.main %>" href="mailto:<%= page.page_side.email4 %>"><%= page.page_side.email4 %></a>
+    <% } else { %>
+        <span style="display: none;"></span>
+    <% } %>
+    </div>
+<!-- Fax -->
+    <% if (!page.page_side.fax1 && !page.page_side.fax2) { %>
+        <span style="display: none;"></span>
+    <% } else { %>
+    <div class="subpage-side-section-header">
+        <h5>Fax</h5>
+    </div>
+    <% } %>
+    <div class="subpage-side-section">
+
+    <% if (page.page_side.fax1) { %>
+        <a style="color: <%= company.colors.main %>" href="tel:<%= page.page_side.fax1 %>"><%= page.page_side.fax1 %></a>
+    <% } else { %>
+        <span style="display: none;"></span>
+    <% } %>
+
+    <% if (page.page_side.fax2) { %>
+        <a style="color: <%= company.colors.main %>" href="tel:<%= page.page_side.fax2 %>"><%= page.page_side.fax2 %></a>
+    <% } else { %>
+        <span style="display: none;"></span>
+    <% } %>
+
+</div>
+<% } %>
+
+</div>
+
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 <% } %>

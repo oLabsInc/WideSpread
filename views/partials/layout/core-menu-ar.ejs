@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     #coreMenu {
         position: fixed;
@@ -221,4 +222,229 @@
         document.getElementById("open").style.opacity = 1;
     }
 
+=======
+<style>
+    #coreMenu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 50px;
+        box-shadow: 0 8px 10px rgba(0, 0, 0, 0.5);
+        border-bottom: outset 2px rgba(255, 255, 255, 0.35);
+        background: transparent;
+        backdrop-filter: blur(4px);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 99996;
+        font-family: 'Gruppo', cursive;
+
+    }
+
+    #coreMenu span {
+        color: rgba(135, 206, 250, 0.5);
+        width: 50px;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #coreMenu i {
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.25);
+    }
+
+    #searchForm {
+        height: 50px;
+        width: calc(100vw - 50px);
+        font-size: 1.2rem;
+    }
+
+    #searchForm form {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    
+    #searchForm input {
+        font-family: 'Gruppo', cursive;
+        font-size: 1rem;
+        width: calc(95% - 50px);
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        padding: 3px;
+        padding-left: 5px;
+        background: rgba(255, 255, 255, 0.25);
+        color: #fff;
+        font-weight: lighter;
+        margin: 0;
+        margin-top: 1px;
+        outline: none;
+        border: inset 2px rgba(255, 255, 255, 0.25);
+        border-right: none;
+        transition: ease-in 0.5s;
+    }
+
+    #searchForm input:-webkit-autofill,
+    #searchForm input:-webkit-autofill:focus {
+        transition: background-color 600000s 0s, color 600000s 0s;
+        font-family: 'Gruppo', cursive;
+
+    }
+
+    #searchForm input::placeholder {
+        color: #fff;
+        text-shadow: 0 0 6px #000;
+        font-family: 'Gruppo', cursive;
+
+    }
+
+    #searchForm input:focus {
+        color: #fff;
+        text-shadow: 0 0 6px #000;
+        background: rgba(135, 206, 250, 0.25);
+        box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.25), 0 0 2px rgba(255, 255, 255, 0.5);
+        border: inset 2px rgba(135, 206, 250, 0.75);
+        border-right: none;
+        transition: ease-in 0.3s;
+        font-family: 'Gruppo', cursive;
+
+    }
+
+    #searchForm button {
+        font-size: 1.1rem;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        margin: 0;
+        width: 50px;
+        background: rgba(135, 206, 250, 0.5);
+        padding: 7px;
+        outline: none;
+        border: outset 2px lightskyblue;
+        border-right: none;
+        color: #fff;
+        font-family: 'Gruppo', cursive;
+        box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25), inset 0 0 3px #fff;
+
+    }
+
+    .fade {
+        transition: ease-in opacity 2s;
+    }
+
+    .overlay {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 99950;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(4px);
+        box-shadow: inset 0 0 70px rgba(0, 0, 0, 0.5);
+        overflow-x: hidden;
+        transition: 0.5s;
+        overscroll-behavior: contain;
+    }
+
+    .overlay-content {
+        position: relative;
+        top: 25%;
+        width: 100%;
+        text-align: center;
+    }
+
+    .overlay a {
+        padding: 8px;
+        text-decoration: none;
+        font-size: 36px;
+        color: rgba(255, 255, 255, 0.75);
+        text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+        display: block;
+        transition: ease-in 0.5s;
+    }
+
+    .overlay a:hover,
+    .overlay a:focus {
+        color: rgba(0, 0, 0, 0.5);
+        text-shadow: 0 0 8px rgba(135, 206, 250, 0.75);
+        transition: ease-in 0.5s;
+    }
+
+    .overlay .closebtn {
+        position: absolute;
+        top: 45px;
+        right: 20px;
+        font-size: 60px;
+        z-index: 99999;
+    }
+
+    @media screen and (min-width: 900px) {
+        #rootNav {
+            z-index: 999999;
+            margin-top: -50px;
+            height: calc(100vh + 50px);
+            background-color: rgba(0, 0, 0, 0.25);
+            box-shadow: 8px 0 8px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+        }
+
+        #searchForm {
+            width: 78%;
+        }
+
+    }
+</style>
+
+
+
+<div id="rootNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div id="mainMenu">
+        <%- include('../menus/main-ar'); %>
+    </div>
+</div>
+
+<div id="coreMenu">
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()"><i id="open" class="fa-solid fa-bars"></i></span>
+    <div id="searchForm">
+        <form action="/search" method="post">
+            <input type="search" name="query" placeholder="Search..." spellcheck="false">
+            <button type="submit">Go</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    let screenWidth = screen.width;
+    let screenHeight = screen.height;
+    console.log('Screen Width: ' + screenWidth + 'px')
+    console.log('Screen Height: ' + screenHeight + 'px')
+    function openNav() {
+        if (screenWidth >= 900) {
+            document.getElementById("rootNav").style.width = "22%";
+            document.getElementById("open").style.opacity = 0;
+        } else {
+            document.getElementById("rootNav").style.width = "100%";
+            document.getElementById("open").style.opacity = 0;
+        }
+    }
+
+    function closeNav() {
+        document.getElementById("rootNav").style.width = "0%";
+        document.getElementById("open").style.opacity = 1;
+    }
+
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 </script>

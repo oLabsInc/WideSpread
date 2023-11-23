@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     #tvShowMenu {
         display: flex;
@@ -26,4 +27,34 @@
             <div class="menu-item <%= seasonName==season.name ? 'menu-link active' : 'menu-link' %>"><a href="/entertainment/tv/show/<%= showId %>/<%= season.season_number %>"><%= season.name %></a></div>
         <% } %>
     <% }) %>
+=======
+<style>
+    #tvShowMenu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+    #tvShowMenu > .menu-item {
+
+    }
+
+</style>
+
+
+<div id="tvShowMenu">
+<% if (!showName) { %> 
+        <div class="menu-item <%= subZonePage=='Home' ? 'menu-link active' : 'menu-link' %>"><a href="/entertainment/tv/show/<%= showId %>">Current Show</a></div>
+    <% } else { %>
+        <div class="menu-item <%= subZonePage==showName ? 'menu-link active' : 'menu-link' %>"><a href="/entertainment/tv/show/<%= showId %>"><%= showName %></a></div>
+    <% } %>
+    <% seasonsList.forEach(function(season) { %>
+        <% if (seasonName == '') { %>
+            <div class="menu-item"><a href="/entertainment/tv/show/<%= showId %>/<%= season.season_number %>"><%= season.name %></a></div>
+        <% } else { %>
+            <div class="menu-item <%= seasonName==season.name ? 'menu-link active' : 'menu-link' %>"><a href="/entertainment/tv/show/<%= showId %>/<%= season.season_number %>"><%= season.name %></a></div>
+        <% } %>
+    <% }) %>
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 </div>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     .sub-zone-section-title h2 {
         margin-top: 30px;
@@ -260,4 +261,268 @@
         synth.speak(speakText)
     }
     
+=======
+<style>
+    .sub-zone-section-title h2 {
+        margin-top: 30px;
+    }
+    .sub-zone-section-title h2 {
+        text-align: center;
+        font-size: 1.2rem;
+        color: lightskyblue;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+    }
+    .dropdown-data label, .boolean-data label {
+        color: #fff;
+        padding: 8px; 
+    }
+    .input-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+    }
+    .input-section button {
+        margin-top: 15px;
+        margin-inline: auto;
+        color: #fff;
+        background-color: lightskyblue;
+        border-radius: 8px;
+        padding: 10px;
+        font-size: 1.2rem;
+        outline: none;
+        border: none;
+    }
+.container {
+    background-color: #222;
+    box-shadow: -3px -3px 5px #444, 3px 3px 5px #000, inset -1px -1px 4px #111, inset 1px 1px 4px #333;
+    width: 90vw;
+    max-width: 800px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    border-radius: 26px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#selectedAssistant {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 30px;
+}
+.assistant-option {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#selectedAssistant label {
+    color: lightskyblue;
+    font-size: 1.5rem;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: pointer;
+}
+#selectedAssistant input {
+    display: none;
+}
+#assistantCoreContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+    
+}
+    #assistantCore {
+        background-color: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        height: 6rem;
+        width: 6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 3px;
+        border-radius: 50%;
+
+        /* THIS IS CORA/CORY BACKGROUND - ADD ANIMATION FOR INTERACTIONS */
+    }
+    #assistantCoreContainer i {
+        color: lightskyblue;
+        font-size: 5rem;
+        text-shadow: 0 0 2px #000;
+    }
+</style>
+
+<%- include('../../partials/menus/user'); %>
+
+<%- include('../../partials/menus/sub/user/settings'); %>
+
+    <div class="sub-zone-page-title">
+        <h2>
+            <%= subZonePage %>
+        </h2>
+    </div>
+
+
+    <div class="input-section">
+        <div class="dropdown-data">
+            <label for="measuring_system">Measuring System</label>
+            <select name="measuring_system" id="measuring_system">
+                <option value="imperial" selected>Imperial</option>
+                <option value="metric">Metric</option>
+            </select>
+        </div>
+        <div class="boolean-data">
+            <label for="wants_hints">Hints</label>
+            <input type="checkbox" name="wants_hints" id="wants_hints" checked>
+        </div>
+        <button type="submit">Update Preferences</button>    
+    </div>
+
+            <div class="sub-zone-section-title">
+                <h2>Personal Assistant</h2>
+                <p style="color: #fff;">Click on the names below to listen to their voice.</p>
+            </div>
+            <div id="selectedAssistant">
+                <div class="assistant-option">
+                    <label style="color: lightpink;" for="michelleAdult">Cora</label>
+                    <input type="radio" name="voice_choice" value="1" id="michelleAdult">
+                </div>
+                <div class="assistant-option">
+                    <label style="color: hotpink;" for="michelleYoung">Young Cora</label>
+                    <input type="radio" name="voice_choice" value="0" id="michelleYoung">
+                </div>
+                <div class="assistant-option">
+                    <label style="color: lightskyblue;" for="mikeAdult">Corey</label>
+                    <input type="radio" name="voice_choice" value="3" id="mikeAdult">
+                </div>
+                <div class="assistant-option">
+                    <label style="color: aqua;" for="mikeYoung">Young Corey</label>
+                    <input type="radio" name="voice_choice" value="2" id="mikeYoung">
+                </div>
+            </div>
+
+        <div id="assistantCoreContainer">
+            <div id="assistantCore">
+                <div id="assistantCoreButton"><i class="fas fa-microphone"></i></div>
+            </div>
+        </div>
+
+<script>
+    const 
+        assitantOptions = document.querySelectorAll('.assistant-option input'),
+        assistantCore = document.getElementById('assistantCore')
+
+    console.log(assitantOptions)
+    const synth = window.speechSynthesis
+    
+    let voices = []
+
+    const getVoices = () => {
+        voices = synth.getVoices()
+        // console.table(voices)
+    }
+
+    getVoices()
+    if (synth.onvoiceschanged !== undefined) {
+        synth.onvoiceschanged = getVoices
+    }
+    const instructions = () => {
+        const speakInstructions = new SpeechSynthesisUtterance('Welcome! Click on a name below to preview their voice.')
+        speakInstructions.onend = e => {
+            console.log('Waiting for user to click an option...')
+        }
+        speakInstructions.onerror = e => {
+            console.error('Oops, something went wrong!', error)
+        }
+
+        speakInstructions.rate = 1.1
+        speakInstructions.pitch = 1.7
+        synth.speak(speakInstructions)
+    }
+
+
+    assistantCoreContainer.addEventListener('click', e => {
+        speak('1')
+    })
+
+    assitantOptions.forEach(assistant => {
+        assistant.addEventListener('click', e => {
+        speak(e.target.value)
+        })
+    })
+
+    const speak = (assistantSelected) => {
+        const voiceChoices = [
+            {
+                name: 'Young Cora',
+                rate: 1.1,
+                pitch: 1.6,
+                voice: 'Microsoft Ana Online (Natural) - English (United States)',
+                testing_text: "How can I help you?"
+            },
+            {
+                name: 'Cora',
+                rate: 1.1,
+                pitch: 1.7,
+                voice: 'Microsoft Jenny Online (Natural) - English (United States)',
+                testing_text: "How can I help you?"
+            },
+            {
+                name: 'Young Corey',
+                rate: 1.4,
+                pitch: 2,
+                voice: 'Microsoft Sam Online (Natural) - English (Hongkong)',
+                testing_text: "What can I help you with?"
+            },
+            {
+                name: 'Corey',
+                rate: 1,
+                pitch: 0.6,
+                voice: 'Microsoft Ryan Online (Natural) - English (United Kingdom)',
+                testing_text: "What can I help you with?"
+            },
+
+        ]
+
+        const usersAssistant = parseInt(assistantSelected)
+
+        const selectedVoice = voiceChoices[usersAssistant].voice
+
+        const speakText = new SpeechSynthesisUtterance(voiceChoices[usersAssistant].testing_text)
+        speakText.onstart = e => {
+            console.log('SPEAKING STARTED')
+            assistantCore.style.backgroundColor = '#fff'
+            
+        }
+        speakText.onend = e => {
+            console.log('Wait for user to reply or run a function on the app...')
+            assistantCore.style.backgroundColor = 'rgba(255, 255, 255, 0.15)'
+        }
+        speakText.onerror = e => {
+            console.error('Oops, something went wrong!', error)
+        }
+
+        voices.forEach(voice => {
+            if (voice.name === selectedVoice) {
+                speakText.voice = voice
+            }
+        })
+
+        speakText.rate = voiceChoices[usersAssistant].rate
+        speakText.pitch = voiceChoices[usersAssistant].pitch
+        const text = voiceChoices[usersAssistant].testing_text
+        synth.speak(speakText)
+    }
+    
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 </script>

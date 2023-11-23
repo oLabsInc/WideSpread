@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     .page-title h6 {
         text-align: center;
@@ -105,4 +106,113 @@
 
         <button type="submit">Configure Device</button>
     </form>
+=======
+<style>
+    .page-title h6 {
+        text-align: center;
+    }
+    .add-new-device {
+        margin-top: 30px;
+        border-top: solid 1px lightskyblue;
+        padding-top: 20px;
+    }
+    .add-new-device h3 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    input {
+        background-color: #000;
+        border-radius: 8px;    
+        padding: 5px;
+        border: none;
+        outline: none;
+        margin-bottom: 10px;
+    }
+    button {
+        margin-top: 30px;
+        outline: none;
+        border: none;
+        padding: 10px;
+        border-radius: 8px;
+        background-color: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(5px);
+        color: #fff;
+        font-size: 1.5rem;
+    }
+
+    .thing-container {
+        background-color: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(5px);
+        width: 95vw;
+        margin-inline: auto;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .thing-data {
+        padding: 5px;
+    }
+    .thing-data h5 {
+        font-size: 1.3rem;
+    }
+    .thing-actions {
+        padding: 5px;
+    }
+</style>
+
+
+<div class="page-title">
+    <h2>IoT Dashboard</h2>
+    <h6><%= user.fname %> <%= user.lname %>'s Devices</h6>
+</div>
+
+<% if (userThings) { %>
+    <% userThings.forEach(function(thing) { %>
+        <div class="thing-container">
+            <div class="thing-data">
+                <h5><%= thing.device_information.device_name %></h5>
+                <p><%= thing.device_information.device_type %></p>
+            </div>
+            <div class="thing-actions">
+                <a href="/things/user/<%= user.id %>/devices/id/<%= thing.id %>/configure">
+                    <i class="bx bx-cog"></i>
+                </a>
+            </div>
+        </div>
+    <% }) %>
+ <% } else { %>
+    <p>You haven't connected any Smart Devices yet.</p>
+<% } %>
+
+<div class="add-new-device">
+    <h3>Add New Device</h3>
+    <form action="/things/user/<%= user.id %>/devices/new/add" method="post">
+        <input type="text" name="device_name" placeholder="Name Your Device">
+        <select name="device_type" id="type">
+            <option value="" selected hidden disabled>Device Type</option>
+            <option value="Lighting Control">Lighting Control</option>
+            <option value="Garage Door">Garage Door</option>
+            <option value="Thermostat">Thermostat</option>
+            <option value="Security Camera">Security Camera</option>
+            <option value="Door Lock">Door Lock</option>
+            <option value="Blinds/Shades">Blinds/Shades</option>
+            <option value="Irrigation">Irrigation</option>
+            <option value="FlexFloor">FlexFloor</option>
+            <option value="SpreadShield">SpreadShield</option>
+        </select>
+
+        <button type="submit">Configure Device</button>
+    </form>
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 </div>

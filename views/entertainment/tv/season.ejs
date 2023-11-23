@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     .show-image {
         position: fixed;
@@ -114,4 +115,122 @@
                             </p>
                         </div>
                         <% }) %>
+=======
+<style>
+    .show-image {
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100vw;
+        min-height: 100vh;
+        z-index: -50;
+    }
+
+    .movie-search {
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(4px);
+        border-top: outset 2px lightskyblue;
+        border-bottom: outset 2px lightskyblue;
+        padding: 10px;
+        padding-left: 0;
+        padding-bottom: 0;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .movie-search input {
+        width: 100%;
+        outline: none;
+        border: none;
+        margin-left: 0;
+        padding: 5px;
+        background: rgba(135, 206, 250, 0.5);
+        backdrop-filter: blur(4px);
+        color: #fff;
+        box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.75);
+    }
+
+    .movie-search input::placeholder {
+        color: #fff;
+    }
+
+    .movie-search button {
+        width: 80%;
+        margin-left: 10%;
+        background: green;
+        border: outset 2px green;
+        border-bottom: none;
+        margin-bottom: 0;
+        color: #fff;
+        margin-top: 10px;
+        border-radius: none;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+
+    .spread-container {
+        background: transparent;
+    }
+    a {
+        color: lightskyblue;
+        font-size: 2rem;
+        text-decoration: none;
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    p {
+        color: #fff;
+        padding: 10px;
+        font-size: 1.3rem;
+    }
+</style>
+<div class="show-image" style="background:url('https://image.tmdb.org/t/p/w500<%= season.poster_path %>') 50% 50% no-repeat; background-size:cover;"></div>
+<%- include('../../partials/menus/entertainment'); %>
+
+
+    <%- include('../../partials/menus/sub/entertainment/tv', {showName: show.name, showId: showId}); %>
+
+        <%- include('../../partials/menus/sub/entertainment/tv-show', {showName: subZonePage, seasonsList: show.seasons,
+            seasonName: currentPage, showId: showId}); %>
+
+            <div class="sub-zone-page-title">
+                <h2 style="font-size: 1.5rem;">
+                    <%= subZonePage %>
+                </h2>
+            </div>
+
+            <div class="movie-search">
+                <form action="/entertainment/tv/search" method="POST">
+                    <input type="text" name="show" id="movie" placeholder="Search for shows...">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+
+
+            <div class="page-title">
+                <h3>
+                    <%= currentPage %>
+                </h3>
+            </div>
+
+
+
+                <div class="spread-container">
+                    <% season.episodes.forEach(function(episode) { %>
+                        <div class="spread-container-box-item" style="padding: 0; border-radius: 8px; margin-bottom: 20px; align-items: stretch; box-shadow: 0 0 10px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue; backdrop-filter: blur(4px);">
+                            <div class="spread-container-header"
+                                style="border-top-left-radius: 8px; border-top-right-radius: 8px; border-top: none; text-align: center; padding: 5px;">
+                                <a style="color: #fff; font-size: 1.4rem" href="/entertainment/tv/show/<%= showId %>/<%= season.season_number %>/<%= episode.episode_number %>">
+                                    <small style="font-size: 1rem;">Episode <%= episode.episode_number %></small>
+                                    <p><%= episode.name %></p>
+                                </a>
+                            </div>
+                            <p>
+                                <%= episode.overview %>
+                            </p>
+                        </div>
+                        <% }) %>
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
                 </div>

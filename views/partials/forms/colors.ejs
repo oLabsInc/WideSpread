@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     #colorBlack {
         background: #000;
@@ -266,4 +267,274 @@
         //inputFormColor.removeChild(selectedColorContainer);
     }
 
+=======
+<style>
+    #colorBlack {
+        background: #000;
+    }
+
+    #colorWhite {
+        background: #fff;
+
+    }
+
+    #colorBlue {
+        background: #0000ff;
+
+    }
+
+    .input-group-color-selection {
+        margin-bottom: 20px;
+
+    }
+
+    .selected-color-container {
+        position: relative;
+    }
+
+    .toast-copied-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 16px;
+        margin: 0 auto;
+        padding: 12px;
+        margin-bottom: 10px;
+        text-align: center;
+        color: #fff;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    .toast-copied {
+        border-radius: 16px;
+        width: 70%;
+        margin: 0 auto;
+        padding: 10px;
+        height: 70px;
+        margin-bottom: 20px;
+        text-align: center;
+        text-shadow: 0 0 2px #fff;
+        border: outset 1px lightskyblue;
+
+    }
+
+    .toast-copied input {
+        display: none;
+    }
+
+    .palette-form {
+        width: 80%;
+        height: auto;
+        max-width: 80%;
+        backdrop-filter: blur(4px);
+        border: outset 1px lightskyblue;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 10px;
+        border-radius: 16px;
+        margin: 0 auto;
+
+    }
+
+    .a_palette_color-form {
+        width: 40px;
+        height: 40px;
+        display: inline-block;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        margin: 14px;
+        border-radius: 5%;
+        cursor: pointer;
+        border-radius: 50%;
+    }
+
+    .a_palette_color-form:nth-child(20n + 1) {
+        display: none;
+    }
+    
+    .a_palette_color-form:nth-child(20n + 2) {
+        display: none;
+        background-color: #D3D3D3;
+    }
+
+    .a_palette_color-form:nth-child(20n + 3) {
+        background-color: #696969;
+    }
+
+    .a_palette_color-form:nth-child(20n + 4) {
+        background-color: #000000;
+    }
+
+    .a_palette_color-form:nth-child(20n + 5) {
+        background-color: #000080;
+    }
+
+    .a_palette_color-form:nth-child(20n + 6) {
+        background-color: #1b6492;
+    }
+
+    .a_palette_color-form:nth-child(20n + 7) {
+        background-color: #DDA0DD;
+    }
+
+    .a_palette_color-form:nth-child(20n + 8) {
+        background-color: #9400D3;
+    }
+
+    .a_palette_color-form:nth-child(20n + 9) {
+        background-color: #FF1493;
+    }
+
+    .a_palette_color-form:nth-child(20n + 10) {
+        background-color: #FFB6C1;
+    }
+
+    .a_palette_color-form:nth-child(20n + 11) {
+        background-color: #DC143C;
+    }
+
+    .a_palette_color-form:nth-child(20n + 12) {
+        background-color: #FF4500;
+    }
+
+    .a_palette_color-form:nth-child(20n + 13) {
+        background-color: #FFA500;
+    }
+
+    .a_palette_color-form:nth-child(20n + 14) {
+        background-color: #FFA07A;
+    }
+
+    .a_palette_color-form:nth-child(20n + 15) {
+        background-color: #FFFF00;
+        display: none;
+    }
+
+    .a_palette_color-form:nth-child(20n + 16) {
+        background-color: #D2691E;
+    }
+
+    .a_palette_color-form:nth-child(20n + 17) {
+        background-color: #8B4513;
+    }
+
+    .a_palette_color-form:nth-child(20n + 18) {
+        background-color: #FFD700;
+        display: none;
+    }
+
+    .a_palette_color-form:nth-child(20n + 19) {
+        background-color: #6B8E23;
+    }
+
+    .a_palette_color-form:nth-child(20n + 20) {
+        background-color: #98FB98;
+        display: none;
+    }
+</style>
+
+
+
+<div class="input-group-color-selection">
+    <div class="selected-color-container">
+
+        <div class="toast-copied-text">
+            Selected Color
+        </div>
+        <div class="toast-copied"></div>
+
+    </div>
+    <div class="palette-form">
+        <div class="a_palette_color-form"></div>
+        <div class="a_palette_color-form"></div>
+        <div class="a_palette_color-form"></div>
+        <div class="a_palette_color-form"></div>
+        <div class="a_palette_color-form"></div>
+        <div class="a_palette_color-form"></div>
+        <div class="a_palette_color-form"></div>
+        <div class="a_palette_color-form"></div>
+        <div class="a_palette_color-form"></div>
+        <div class="a_palette_color-form"></div>
+        <div class="a_palette_color-form"></div>
+        <div class="a_palette_color-form"></div>
+        <div class="a_palette_color-form"></div>
+        <div class="a_palette_color-form"></div>
+        <div class="a_palette_color-form"></div>
+        <div class="a_palette_color-form"></div>
+        <div class="a_palette_color-form"></div>
+        <div class="a_palette_color-form"></div>
+        <div class="a_palette_color-form"></div>
+        <div class="a_palette_color-form"></div>
+
+    </div>
+</div>
+
+
+<script>
+    const copyToast = document.getElementsByClassName("toast-copied")[0];
+    const copyToastText = document.getElementsByClassName("toast-copied-text")[0];
+
+    const colorSelector = document.getElementsByClassName("a_palette_color-form");
+
+    for (let i = 0; i < colorSelector.length; i++) {
+        colorSelector[i].addEventListener("click", function (e) {
+            var rgbValues = window
+                .getComputedStyle(this, null)
+                .getPropertyValue("background-color");
+            var hexValue = rgb2hex(rgbValues);
+            copyToast.classList.toggle("show");
+            copyToastText.innerText = "Selected Color";
+
+            copyToastText.innerText = copyToastText.innerText;
+            copyToClipboard(hexValue);
+            copyToast.style.backgroundColor = hexValue;
+
+        });
+    }
+
+    function rgb2hex(rgb) {
+        if (rgb.search("rgb") == -1) {
+            return rgb;
+        } else {
+            rgb = rgb.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+))?\)$/);
+            function hex(x) {
+                return ("0" + parseInt(x).toString(16)).slice(-2);
+            }
+            return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+        }
+    }
+
+    function copyToClipboard(text) {
+        const inputFormColor = document.querySelector('.input-group-color-selection')
+        const selectedColorContainer = document.createElement("div")
+        selectedColorContainer.classList.add('chosen-color-container')
+        let selectedColor = document.createElement("input");
+        selectedColor.classList.add('selected-color')
+        const selectedColorCheck = document.querySelectorAll('.selected-color')
+        if (selectedColorCheck.length >= 1) {
+            let toastCopied = inputFormColor.querySelector('toast-copied')
+            let allColorInputs = inputFormColor.querySelectorAll('input')
+            allColorInputs.forEach(input => {
+                input.removeAttribute('name')
+            })
+        }
+        selectedColor.setAttribute('name', 'color')
+        selectedColor.setAttribute('value', text)
+        selectedColorContainer.appendChild(selectedColor);
+        //inputFormColor.appendChild(selectedColorContainer);
+        console.log(selectedColor)
+        copyToast.appendChild(selectedColor)
+        selectedColor.value = text;
+        selectedColor.select();
+        document.execCommand("copy");
+        //selectedColorContainer.removeChild(selectedColor);
+        //inputFormColor.removeChild(selectedColorContainer);
+    }
+
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 </script>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     @media screen and (min-width: 299px) {
         #coreData {
@@ -515,3 +516,522 @@
 
 
 <% } %>
+=======
+<style>
+    @media screen and (min-width: 299px) {
+        #coreData {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 40px;
+            padding: 5px;
+            border-top: outset 1px rgba(255, 255, 255, 0.75);
+            background: transparent;
+            backdrop-filter: blur(4px);
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: flex-start;
+            box-shadow: 0 -8px 10px rgba(0, 0, 0, 0.5);
+            z-index: 99900;
+        }
+        #coreData h3 {
+            color: #fff;
+            text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+        }
+        .spread-messaging {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        #spreadChatForm { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; width: calc(100% - 40px); display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
+        #spreadChatInput { border: none; padding: 0 1rem; flex-grow: 1; border-radius: 4px; margin: 0.25rem; color: #000; background-color: rgba(255, 255, 255, 0.25); backdrop-filter: blur(4px); text-shadow: 0 0 2px #000; transition: ease-in 0.2s;}
+        #spreadChatInput::placeholder { color: lightskyblue; text-shadow: 0 0 2px #000;}
+        #spreadChatInput:focus { outline: none; background-color: rgba(255, 255, 255, 0.5); backdrop-filter: blur(8px); transition: ease-in 0.2s; }
+        #spreadChatForm > button { background: rgba(135, 206, 250, 0.25); border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; border-top-left-radius: 4px; border-bottom-left-radius: 4px;}
+
+
+        #currentSpreadChats {
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            width: 100%;
+            height: 120px;
+            bottom: 50px;
+            left: 0;
+            right: 0;
+            position: fixed;
+            display: none;
+            border-top: outset 2px lightskyblue;
+            display: none;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: flex-start;
+            overflow-x: auto;
+        }
+        .spreadchat-contact {
+            margin-right: 5px;
+            color: #fff;
+            padding: 5px;
+            width: 100%;
+            text-align: center;
+        }
+        #messagesContainer {
+            width: 100vw;
+            padding: 2px;
+            position: absolute;
+            bottom: 80px;
+            left: 0;
+            right: 0;
+        }
+        #spreadChatMessages { 
+            width: 100%;
+            max-width: 1000px;
+            list-style-type: none; 
+            margin: 0; 
+            padding: 0; 
+            display: none;
+            background-color: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(8px);
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            border-top: solid 2px lightskyblue;
+            box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.4);
+            font-weight: bold;
+            text-shadow: 0 0 1px #000;
+        }
+        #spreadChatMessages > li { padding: 0.5rem 1rem; background-color: rgba(255, 255, 255, 0.5);}
+        #spreadChatMessages > li:nth-child(odd) { color: #fff; background: rgba(135, 206, 250, 0.5); }
+        #spreadChatMessages li:first-of-type {
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+
+        .spread-messaging > div {
+            color: lightskyblue;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 48px;
+            padding-left: 5px;
+            padding-right: 5px;
+            width: 30px;
+        }
+        .spread-messaging i {
+            line-height: 50px;
+        }
+        #hideContactsButton {
+            display: none;
+        }
+
+        .startNewChatButton {
+            color: greenyellow;
+            display: none;
+            text-align: center;
+            margin-top: 0;
+            font-size: 2rem;
+        }
+
+        .spreadchat-form {
+            display: none;
+
+        }
+
+
+
+        .spread-chat-form {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .spread-chat-form input {
+            width: 80%;
+            background-color: #000;
+            color: #fff;rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            padding: 5px;
+            outline: none;
+            border: none;
+            border-radius: 4px;
+            box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.5);
+
+        }
+        .spread-chat-form input::placeholder {
+            color: lightskyblue;
+        }
+        .spread-chat-form button {
+            background-color: rgba(135, 206, 250, 0.5);
+            color: #fff;
+            width: 15%;
+            border: outset 1px lightskyblue;
+            border-right: none;
+            padding: 5px;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+            outline: none;
+        }
+
+        .spread-chat-user {
+            margin-right: 8px;
+            min-width: 80px;
+            display: flex;
+            height: 80px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            border-right: solid 1px lightskyblue;
+
+        }
+        iframe {
+            position: absolute;
+            bottom: 92px;
+            height: 300px;
+            max-height: 50vh;
+
+        }
+
+        .exit-chat-window {
+            background-color: red;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            padding: 8px;
+            color: #fff;
+            position: absolute;
+            bottom: 400px;
+            font-size: 2.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            left: 10px;
+        }
+    }
+    @media screen and (min-width: 762px) {
+        #coreData {
+        }
+    }
+    @media screen and (min-width: 992px) {
+        #coreData {
+        }
+    }
+    @media screen and (min-width: 1199px) {
+        #coreData {
+        }
+    }
+</style>
+<% if (user) { %>
+<div id="coreData">
+    <div style="display: none;" id="currentUserId" data-current-user="<%= user.id %>"></div>
+    <div style="display: none;" id="currentUsersChats">
+        <% user.spread_chats.forEach(function(chat) { %>
+            <span class="current-chat-session" data-chat-session-id="<%= chat %>"></span>
+        <% }) %>
+    </div>
+    <% if (user.spread_chats.length <= 0) { %>
+        <h1>NO CHATS YET</h1>
+    <% } %>
+        <div id="messagesContainer">
+            <ul id="spreadChatMessages" style="display: none;"></ul>
+        </div>
+        <div id="currentSpreadChats">
+            <% user.friends.forEach(function(friend) { %>
+                <div class="spread-chat-user">
+
+                    <div class="startNewChatButton" data-user-id="<%= friend.id %>"><i class="fas fa-plus"></i></div>
+                    <div class="spreadchat-contact" data-user-id="<%= friend.id %>" data-user-fname="<%= friend.fname %>"><%= friend.fname %> <%= friend.lname %></div>
+                </div>
+
+            <% }) %>
+        </div>
+        <div class="spread-messaging">
+            <div id="showContactsButton"><i class="fas fa-caret-up"></i></div>
+            <div id="hideContactsButton"><i class="fas fa-caret-down"></i></div>
+            <div id="spreadChatForm"></div>
+            <!-- <form class="spreadchat-form" id="spreadChatForm" action="">
+                <input id="spreadChatInput" autocomplete="off" placeholder="Message " /><button>Send</button>
+            </form> -->
+
+        </div>
+</div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+
+    </script>
+
+
+    <script>
+        const showContactsBtn = document.getElementById('showContactsButton')
+        const hideContactsBtn = document.getElementById('hideContactsButton')
+        const messagesContainerEl = document.getElementById('spreadChatMessages')
+        const currentSpreadChatsEl = document.getElementById('currentSpreadChats')
+
+
+        showContactsBtn.addEventListener('click', (e) => {
+        
+            showContactsBtn.style.display = 'none'
+            hideContactsBtn.style.display = 'block'
+            messagesContainerEl.style.display = 'none'
+            currentSpreadChatsEl.style.display = 'flex'
+        })
+        hideContactsBtn.addEventListener('click', (e) => {
+            showContactsBtn.style.display = 'block'
+            hideContactsBtn.style.display = 'none'
+            messagesContainerEl.style.display = 'none'
+            currentSpreadChatsEl.style.display = 'none'
+        })
+
+                    const currentChatSessions = document.querySelectorAll('.current-chat-session')
+                    currentChatSessions.forEach(session => {
+                        const sessionId = session.getAttribute('data-chat-session-id')
+                    
+        const openChatButton = document.querySelectorAll('.spreadchat-contact')
+        openChatButton.forEach((chatUser, index) => {
+            const chatUserId = chatUser.getAttribute('data-user-id')
+            const currentUserId = document.getElementById('currentUserId').getAttribute('data-current-user')
+            const currentUserChatsEl = document.getElementById('currentUsersChats')
+            
+            
+
+            const dataSpreadChatIdAttr = chatUser.getAttribute('data-spread-chat-id')
+            const chatButtons = document.querySelectorAll('.startNewChatButton')
+            chatButtons.forEach(chatButton => {
+                const chatSession1 = chatUserId + '_' + currentUserId
+                const chatSession2 = currentUserId + '_' + chatUserId
+                
+                    
+                    chatButton.style.display = 'block'
+                    
+                    chatButton.addEventListener('click', (e) => {
+                        const userToChatWith = chatButton.getAttribute('data-user-id')
+                        if (chatUserId === userToChatWith) { 
+                        // event.preventDefault();
+                        
+                        const chatSession = currentUserId + '_' + userToChatWith
+                        const spreadObject = {
+                            chat_session: chatSession,
+                            other_user: userToChatWith
+                        }
+
+                        fetch('/chat/create-new', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(spreadObject)
+                        }).then(response => response.json()).then((data) => {
+                            console.log(data)
+                            window.location.reload()
+                            // Create a render function to add the todo to the DOM
+
+                        }).catch(e => console.log(`Error is ${e}`))
+                    }
+                    })
+
+
+            })
+
+
+        
+        })
+        
+                    })
+    </script>
+
+
+<script>
+    const startNewChatButtonEls = document.querySelectorAll('.startNewChatButton')
+
+    const spreadChatContactEls = document.querySelectorAll('.current-chat-session')
+    
+    const currentUserId = document.getElementById('currentUserId').getAttribute('data-current-user')
+    spreadChatContactEls.forEach(chat => {
+        const chatId = chat.getAttribute('data-chat-session-id')
+        startNewChatButtonEls.forEach(button => {
+            const friendId = button.getAttribute('data-user-id')
+            const chatSession1 = friendId + '_' + currentUserId
+            const chatSession2 = currentUserId + '_' + friendId
+            if (chatSession1 === chatId || chatSession2 === chatId) {
+                button.style.display = 'none'
+            }
+        })
+    })
+</script>
+
+
+<script>
+    const spreadChatContact = document.querySelectorAll('.spreadchat-contact')
+    const userId = document.getElementById('currentUserId').getAttribute('data-current-user')
+    spreadChatContact.forEach(contact => {
+        const spreadChatContactEls = document.querySelectorAll('.current-chat-session')
+        spreadChatContactEls.forEach(spreadChat => {
+            const chatId = spreadChat.getAttribute('data-chat-session-id')
+            const splitChatIds = chatId.split('_')
+            const splitId1 = splitChatIds[0]
+            const splitId2 = splitChatIds[1]
+            const friendId = contact.getAttribute('data-user-id')
+            const friendName = contact.getAttribute('data-user-fname')
+            const chatSession1 = friendId + '_' + userId
+            const chatSession2 = userId + '_' + friendId
+
+            const spreadChatFormEl = document.getElementById('spreadChatForm')
+            console.log(spreadChatFormEl.querySelector('form'))
+            if (friendId == splitId1 || friendId == splitId2) {
+                contact.addEventListener('click', e => {
+                    const spreadChatFormEl = document.getElementById('spreadChatForm')
+                    spreadChatFormEl.innerHTML = ''
+                    const friendsFormEl = document.createElement('form')
+                    const friendsFormId = 'spreadChatForm_' + friendId
+                    friendsFormEl.setAttribute('id', friendsFormId)
+                    friendsFormEl.classList.add('spread-chat-form')
+                    friendsFormEl.setAttribute('data-spread-session-id', chatId)
+                    const friendsInputEl = document.createElement('input')
+                    const friendsInputId = 'spreadChatInput_' + friendId
+                    friendsInputEl.setAttribute('id', friendsInputId)
+                    const placeholderMessage = 'Message ' + friendName + '...'
+                    const formButton = document.createElement('button')
+                    formButton.innerText = 'Send'
+
+                    friendsInputEl.setAttribute('placeholder', placeholderMessage)
+                    friendsFormEl.appendChild(friendsInputEl)
+                    friendsFormEl.appendChild(formButton)
+                    spreadChatFormEl.appendChild(friendsFormEl)
+
+                            const socket = io();
+
+                    const form = document.querySelector('.spread-chat-form')
+                    const input = form.querySelector('input')
+                    const messagesContainer = document.getElementById('messagesContainer')
+                    const messages = document.getElementById('spreadChatMessages')
+
+                    form.addEventListener('submit', (e) => {
+                        console.log('e.target: ', e.target)
+                        e.preventDefault()
+                        if (input.value) {
+                            socket.emit('chat message', input.value, currentUserId)
+                            const messageData = input.value
+                            const spreadObject = {
+                                body: messageData,
+                                sent_by: currentUserId
+                            }
+                            input.value = ''
+                                
+                            console.log('spreadObject: ', spreadObject)
+                            const route = '/chat/spread-session/' + chatId + '/append'
+                            fetch(route, {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(spreadObject)
+                                
+                            }).then(response => response.json()).then((data) => {
+                                console.log('Data: ', data)
+                                window.location.reload()
+                                // Create a render function to add the todo to the DOM
+
+                            }).catch(e => console.log(`Error is ------ ${e}`))
+                        }
+                    })
+
+                    socket.on('chat message', function (msg, sentBy) {
+                        var item = document.createElement('li');
+                        item.innerText = msg;
+                        messages.appendChild(item);
+                        messagesContainer.scrollTo(0, document.body.scrollHeight);
+                    });
+                            
+
+                })
+            }
+        })
+    })
+</script>
+
+
+
+
+
+
+<script>
+    const messagesContainerElem = document.getElementById('messagesContainer')
+    const chatWindowEl = document.createElement('iframe')
+    const exitChatWindowBtn = document.createElement('div')
+    exitChatWindowBtn.innerText = 'X'
+    exitChatWindowBtn.classList.add('exit-chat-window')
+    
+    messagesContainerElem.appendChild(chatWindowEl)
+
+    const contactsList = document.querySelectorAll('.spread-chat-user')
+    contactsList.forEach(contact => {
+        console.log(contact)
+        contact.addEventListener('click', e => {
+            console.log(e.target)
+            const friendEl = e.target
+            const currentSpreadChatContainer = document.getElementById('currentSpreadChatContainer')
+            const spreadChatContactEls = document.querySelectorAll('.current-chat-session')
+            spreadChatContactEls.forEach(spreadChat => {
+            const chatId = spreadChat.getAttribute('data-chat-session-id')
+            console.log('spreadChat: ', spreadChat)
+            const splitChatIds = chatId.split('_')
+            const splitId1 = splitChatIds[0]
+            const splitId2 = splitChatIds[1]
+            const friendId = friendEl.getAttribute('data-user-id')
+            const friendName = contact.getAttribute('data-user-fname')
+            const chatSession1 = friendId + '_' + userId
+            const chatSession2 = userId + '_' + friendId
+            console.log('friendId: ', friendId)
+            console.log('splitId1: ', splitId1)
+            console.log('splitId2: ', splitId2)
+            if (friendId === splitId1 || friendId === splitId2) {
+                console.log('A CHAT EXISTS HERE')
+                if ((splitId1 + '_' + splitId2) == chatId || (splitId2 + '_' + splitId1) == chatId)
+                console.log('chatId: ', chatId)
+                chatWindowEl.classList.add('active-chat-window')
+                // const currentChatURL = 'https://www.widespread.world/chat/users/' + chatId 
+                const currentChatURL = 'http://localhost:5000/chat/users/' + chatId 
+                chatWindowEl.setAttribute('src', currentChatURL)
+                messagesContainerElem.appendChild(chatWindowEl)
+                messagesContainerElem.setAttribute('data-chat-session-id', chatId)
+                messagesContainerElem.appendChild(exitChatWindowBtn)
+                
+                exitChatWindowBtn.addEventListener('click', e => {
+                    messagesContainerElem.removeChild(chatWindowEl)
+                    messagesContainerElem.removeChild(exitChatWindowBtn)
+                })
+            } else {
+
+            }
+        })
+        })
+    })
+    
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% } %>
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3

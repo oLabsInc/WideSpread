@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     .company-background-image {
         position: fixed;
@@ -436,4 +437,444 @@
 
 <div class="delete-page">
     <a href="/business/admin/<%= company.id %>/manage/public-pages/delete/<%= page.id %>">Delete Page</a>
+=======
+<style>
+    .company-background-image {
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100vw;
+        min-height: 100vh;
+        z-index: -50;
+    }
+
+    .company-background-image-filter {
+        position: fixed;
+        background: rgba(0, 0, 0, 0.5);
+        box-shadow: inset 0 0 100px #000;
+        top: 0;
+        left: 0;
+        min-width: 100vw;
+        min-height: 100vh;
+        z-index: -40;
+
+    }
+
+
+    .company-pages-nav {
+        width: 100%;
+        background: rgba(0, 0, 0, 0.25);
+        margin-top: 20px;
+        backdrop-filter: blur(4px);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+    }
+    .company-nav-item {
+        width: fit-content;
+        min-width: 100px;
+        padding: 8px;
+        text-align: center;
+    }
+    .company-nav-item a {
+        color: #fff;
+        text-decoration: none;
+    }
+    .subpage-active a {
+        color: lightskyblue;
+    }
+    .company-container {
+        width: 100vw;
+        margin: 0 auto;
+    }
+
+    .company-header {
+        margin-top: 20px;
+    }
+
+    .company-name {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        color: #fff;
+    }
+
+    .company-name h2 {
+        font-size: 1.8rem;
+    }
+
+    .company-name p {
+        font-size: 0.8rem;
+        margin-top: 10px;
+    }
+
+    .company-logo {
+        width: 90%;
+        max-width: 300px;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+
+    .company-logo img {
+        width: 100%;
+        border-radius: 16px;
+    }
+
+
+    .edit-form {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 50px;
+        padding-top: 20px;
+        background:rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        border-radius: 8px;
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+    }
+
+
+    .edit-form-main-header {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .edit-form-main-header h3 {
+        font-size: 1.4rem;
+    }
+
+
+
+    .edit-form-section {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 30px;
+    }
+    .edit-form-header {
+        text-align: center;
+        padding: 8px;
+        font-size: 1.2rem;
+    }
+    .edit-input label {
+        color: #fff;
+        padding: 8px;
+    }
+    .edit-input {
+        width: 100%;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+    .edit-input input {
+        width: 100%;
+        min-width: 100%;
+        padding: 5px;
+        border-radius: 4px;
+        outline: none;
+        border: none;
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.25), 0 0 2px lightskyblue;
+    }
+    .edit-input input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+        text-shadow: 0 0 2px lightskyblue;
+    }
+    .edit-input textarea {
+        width: 100%;
+        min-width: 100%;
+        padding: 5px;
+        border-radius: 4px;
+        outline: none;
+        border: none;
+        resize: none;
+        min-height: 150px;
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.25), 0 0 2px lightskyblue;
+    }
+    .edit-input textarea::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+        text-shadow: 0 0 2px lightskyblue;
+    }
+    .edit-form-photos {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: flex-start;
+        overflow-x: scroll;
+        margin-bottom: 20px;
+    }
+    .delete-photo {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background: rgba(255, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.25), 0 0 2px red;
+        padding: 8px;
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        line-height: 15px;
+        text-align: center;
+    }
+    .delete-photo p {
+        color: #fff;
+        text-shadow: 0 0 2px #fff;
+    }
+    .edit-form-photo {
+        position: relative;
+        margin-right: 15px;    
+        width: 150px;
+        
+    }
+    .edit-form-photo img {
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.25), 0 0 2px lightskyblue;
+    }
+    .edit-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+    .edit-button button {
+        background: rgba(135, 206, 250, 0.5);
+        color: #fff;
+        font-size: 1.4rem;
+        border-radius: 8px;
+        padding: 8px;
+        border: none;
+        outline: none;
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.25), 0 0 2px lightskyblue;
+    }
+    .delete-page {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .delete-page a {
+        color: #fff;
+        background: rgba(255, 0, 0, 0.25);
+        text-decoration: none;
+        font-size: 1.4rem;
+        padding: 10px;
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.25), 0 0 2px red;
+    }
+</style>
+
+<%- include('../../../partials/menus/business'); %>
+
+    <div class="company-background-image"
+        style="background:url('/image/<%= company.background_image %>') 50% 50% no-repeat; background-size:cover;">
+    </div>
+    <div class="company-background-image-filter"></div>
+
+<div class="company-pages-nav">
+
+    <% pages.forEach(function(page) { %>
+        <div class="company-nav-item <%= subZonePage==page.page_name ? 'company-nav-item subpage-active' : 'company-nav-item' %>">
+            <a href="/business/admin/<%= company.id %>/manage/public-pages/edit/<%= page.id %>"><%= page.page_name %></a>
+        </div>
+    <% }) %>
+</div>
+
+<form action="/business/admin/<%= company.id %>/manage/public-pages/<%= page.id %>?_method=PATCH" method="post">
+<div class="edit-form">
+
+    <div class="edit-form-main-header">
+        <h3>Update Subpage</h3>
+    </div>
+
+    <div class="edit-form-section">
+        <div class="edit-form-header">
+            <h5>Page Content</h5>
+        </div>
+
+        <div class="edit-input">
+            <label for="pageName">Page Name</label>
+            <input type="text" id="pageName" name="page_name" placeholder="Page Name" value="<%= page.page_name %>">
+        </div>
+
+        <div class="edit-input">
+            <label for="">First Header</label>
+            <input type="text" name="page_header1" placeholder="First Header" value="<%= page.page_body.page_header1 %>">
+        </div>
+        <div class="edit-input">
+            <label for="">First Body</label>
+            <textarea name="page_body1" placeholder="First Headers Content"><%= page.page_body.page_body1 %></textarea>
+        </div>
+
+        
+
+        <div class="edit-input">
+            <label for="">Second Header</label>
+            <input type="text" name="page_header2" placeholder="Second Header" value="<%= page.page_body.page_header2 %>">
+        </div>
+        <div class="edit-input">
+            <label for="">Second Body</label>
+            <textarea name="page_body2" placeholder="Second Headers Content"><%= page.page_body.page_body2 %></textarea>
+        </div>
+
+
+        <div class="edit-input">
+            <label for="">Third Header</label>
+            <input type="text" name="page_header3" placeholder="Third Header" value="<%= page.page_body.page_header3 %>">
+        </div>
+        <div class="edit-input">
+            <label for="">Third Body</label>
+            <textarea name="page_body3" placeholder="Third Headers Content"><%= page.page_body.page_body3 %></textarea>
+        </div>
+
+    </div>
+    <div class="edit-form-section">
+        <div class="edit-form-header">
+            <h5>Page Contact Details</h5>
+        </div>
+
+        <div class="edit-input">
+            <label for="">Phone 1</label>
+            <input type="number" name="phone1" placeholder="Phone 1" value="<%= page.page_side.phone1 %>">
+        </div>
+        
+        <div class="edit-input">
+            <label for="">Phone 2</label>
+            <input type="number" name="phone2" placeholder="Phone 2" value="<%= page.page_side.phone2 %>">
+        </div>
+        
+        <div class="edit-input">
+            <label for="">Phone 3</label>
+            <input type="number" name="phone3" placeholder="Phone 3" value="<%= page.page_side.phone3 %>">
+        </div>
+        
+        <div class="edit-input">
+            <label for="">Email 1</label>
+            <input type="email" name="email1" placeholder="Email 1" value="<%= page.page_side.email1 %>">
+        </div>
+        
+        <div class="edit-input">
+            <label for="">Email 2</label>
+            <input type="email" name="email2" placeholder="Email 2" value="<%= page.page_side.email2 %>">
+        </div>
+        
+        <div class="edit-input">
+            <label for="">Email 3</label>
+            <input type="email" name="email3" placeholder="Email 3" value="<%= page.page_side.email3 %>">
+        </div>
+        
+        <div class="edit-input">
+            <label for="">Email 4</label>
+            <input type="email" name="email4" placeholder="Email 4" value="<%= page.page_side.email4 %>">
+        </div>
+        
+        <div class="edit-input">
+            <label for="">Fax 1</label>
+            <input type="phone" name="fax1" placeholder="Fax 1" value="<%= page.page_side.fax1 %>">
+        </div>
+        
+        <div class="edit-input">
+            <label for="">Fax 2</label>
+            <input type="phone" name="fax2" placeholder="Fax 2" value="<%= page.page_side.fax2 %>">
+        </div>
+        
+        <div class="edit-form-header">
+            <h5>Main Office</h5>
+        </div>
+        <div class="edit-input">
+            <label for="">Street</label>
+            <input type="text" name="street" placeholder="Street" value="<%= page.page_side.main_office.street %>">
+        </div>
+        
+        <div class="edit-input">
+            <label for="">City</label>
+            <input type="text" name="city" placeholder="City" value="<%= page.page_side.main_office.city %>">
+        </div>
+        
+        <div class="edit-input">
+            <label for="">State</label>
+            <input type="text" name="state" placeholder="State" value="<%= page.page_side.main_office.state %>">
+        </div>
+        
+        <div class="edit-input">
+            <label for="">Country</label>
+            <input type="text" name="country" placeholder="Country" value="<%= page.page_side.main_office.country %>">
+        </div>
+        
+        <div class="edit-input">
+            <label for="">Zip</label>
+            <input type="text" name="zip" placeholder="Zip" value="<%= page.page_side.main_office.zip %>">
+        </div>
+        
+        
+        <div class="edit-form-header">
+            <h5>Sub Office</h5>
+        </div>
+        <div class="edit-input">
+            <label for="">Street</label>
+            <input type="text" name="street_sub" placeholder="Street" value="<%= page.page_side.sub_office.street %>">
+        </div>
+        
+        <div class="edit-input">
+            <label for="">City</label>
+            <input type="text" name="city_sub" placeholder="City" value="<%= page.page_side.sub_office.city %>">
+        </div>
+        
+        <div class="edit-input">
+            <label for="">State</label>
+            <input type="text" name="state_sub" placeholder="State" value="<%= page.page_side.sub_office.state %>">
+        </div>
+        
+        <div class="edit-input">
+            <label for="">Country</label>
+            <input type="text" name="country_sub" placeholder="Country" value="<%= page.page_side.sub_office.country %>">
+        </div>
+        
+        <div class="edit-input">
+            <label for="">Zip</label>
+            <input type="text" name="zip_sub" placeholder="Zip" value="<%= page.page_side.sub_office.zip %>">
+        </div>
+        
+        <div class="edit-form-header">
+            <h5>Page Photos</h5>
+        </div>
+        <div class="edit-form-photos">
+            <% page.page_images.forEach(function(photo) { %>
+                <div class="edit-form-photo">
+                    <div class="delete-photo"><p>X</p></div>
+                    <img src="/image/<%= photo %>" alt="">
+                </div>
+            <% }) %>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="edit-button">
+        <button type="submit">Update Page</button>
+    </div>
+
+</div>
+</form>
+
+
+<div class="delete-page">
+    <a href="/business/admin/<%= company.id %>/manage/public-pages/delete/<%= page.id %>">Delete Page</a>
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 </div>

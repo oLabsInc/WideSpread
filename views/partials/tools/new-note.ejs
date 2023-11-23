@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
 
 
@@ -292,4 +293,300 @@
         newNoteCloseBtn.addEventListener('click', e => {
             newNoteContainer.classList.add('hide')
         })
+=======
+<style>
+
+
+    .new-note-container {
+        padding-top: 60px;
+        min-height: calc(100vh - 60px);
+    }
+    .new-note-container input {
+        box-shadow: 0 0 8px lightskyblue;
+    }
+    .new-note-container .codex-editor {
+        box-shadow: 0 0 8px lightskyblue;
+        margin-top: 20px;
+        border-radius: 8px;
+        
+    }
+    .new-note-header {
+        padding-bottom: 10px;
+        background-color: lightskyblue;
+        position: relative;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        box-shadow: 0 4px 8px rgba(135, 206, 250, 0.5);
+
+    }
+    #newNoteCloseButton {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+
+    }
+    .new-note-container h6 {
+        text-align: center;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        font-size: 1.2rem;
+        color: lightskyblue;
+    }
+    .new-note-container h6:first-of-type {
+        margin-top: 0;
+    }
+    .new-note-header h3 {
+        text-align: center;
+        font-size: 1.5rem;
+        color: lightskyblue;
+    }
+    .new-note-header h4 {
+        text-align: center;
+        font-size: 1.3rem;
+    }
+    .new-note-header h5 {
+        text-align: center;
+        font-size: 1.1rem;
+    }
+
+
+    .new-note-body {
+        background-color: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(4px);
+        border-radius: 16px;
+        margin-top: 30px;
+        width: 90%;
+        margin-inline: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 10px;
+        padding-bottom: 10px;   
+    }
+    .note-title {
+    }
+    .new-note-body-options {
+    }
+    .new-note-body-options h6 {
+        text-align: center;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        font-size: 1.2rem;
+        color: lightskyblue;
+    }
+    #tags {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    #tags input {
+        width: calc(30% - 10px);
+    }
+    #references {
+        width: 90%;
+        margin-inline: auto;
+    }
+    #references input {
+        width: calc(100% - 10px);
+    }
+    .new-note-body input {
+        background-color: #000;
+        border-radius: 8px;
+        padding: 5px;
+        outline: none;
+        border: none;
+        margin-bottom: 10px;
+    }
+
+    .new-note-footer {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 30px;
+    }
+    .new-note-footer button {
+        background-color: rgba(153, 205, 50, 0.5);
+        border: none;
+        outline: none;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        border-radius: 8px;
+        padding: 10px;
+        font-size: 1.5rem;
+        color: #fff;
+    }
+    
+
+    #newNoteEditor {
+        width: 100%;
+        background-color: #000;
+        margin-bottom: 20px;
+    }
+</style>
+
+
+
+<div class="new-note-container">
+    <div class="new-note-header" style="background-color: <%= notebook.color %>;">
+        <div id="newNoteCloseButton"><i style="color: red; font-size: 2rem;" class="far fa-times-circle"></i></div>
+        <h3>Add New Note</h3>
+        <h4 data-notebook-section="<%= notebook.id %>"><%= notebook.name %> Notebook</h4>
+        <h5 data-notebook-section="<%= notebookSection.id %>">Section: <%= notebookSection.title %></h5>
+    </div>
+    <div class="new-note-body" style="background-color: <%= notebook.color %>;">
+        <h6>Note Title</h6>
+        <div class="note-title">
+            <input type="text" name="title" id="noteTitle" placeholder="Note Title" required>
+        </div>
+        <div id="newNoteEditor"></div>
+        <div class="new-note-body-options">
+            <h6>Tags</h6>
+            <div id="tags">
+                <input type="text" name="tags" placeholder="Tag">
+                <input type="text" name="tags" placeholder="Tag">
+                <input type="text" name="tags" placeholder="Tag">
+            </div>
+            <h6>References</h6>
+            <div id="references">
+                <input type="text" name="references" placeholder="Reference">
+                <input type="text" name="references" placeholder="Reference">
+                <input type="text" name="references" placeholder="Reference">
+            </div>
+        </div>    
+    </div>
+    <div class="new-note-footer">
+        <button type="submit" id="submitNoteButton">Add Note</button>
+    </div>
+
+</div>
+
+    <script src="../dist/editor.js"></script>
+    <script src="./tools/header/dist/bundle.js"></script>
+    <script>
+
+
+        const newNote = new EditorJS({
+            holder: 'newNoteEditor',
+            tools: {
+                header: {
+                    class: Header,
+                    shortcut: 'CMD+SHIFT+H',
+                    inlineToolbar: ['link']
+                },
+                list: {
+                    class: List,
+                    inlineToolbar: true
+                },
+                image: SimpleImage,
+                checklist: Checklist,
+                quote: Quote,
+                embed: Embed,
+                table: Table,
+                raw: {
+                    class: RawTool,
+                    placeholder: 'Enter code...'
+                }
+            },
+            autofocus: true,
+            placeholder: 'Add a new note here...'
+        })
+
+        newNote.isReady
+            .then(() => {
+                /** Do anything you need after editor initialization */
+            })
+            .catch((reason) => {
+                console.log(`Editor.js initialization failed because of ${reason}`)
+            });
+
+
+
+        const submitNoteBtn = document.getElementById('submitNoteButton')
+        submitNoteBtn.addEventListener("click", (e) => {
+            const noteTitle = document.getElementById('noteTitle').value
+            console.log(noteTitle.toString())
+            const noteTitleChain = noteTitle.replace(/\s/g, '+');
+            
+            // Tags
+            const allTagElsContainer = document.getElementById('tags')
+            let tagElValues = []
+            const allTagEls = allTagElsContainer.querySelectorAll('input')
+            allTagEls.forEach(tagEl => {
+                if (tagEl.value != '') {
+                    console.log(tagEl.value)
+                    const tagElValue = tagEl.value
+                    tagElValues.push(tagElValue)
+                }
+            })
+            console.table(tagElValues)
+            
+            
+            
+            // References
+            const allReferenceElsContainer = document.getElementById('references')
+            let referenceElValues = []
+            const allReferenceEls = allReferenceElsContainer.querySelectorAll('input')
+            allReferenceEls.forEach(referenceEl => {
+                if (referenceEl.value != '') {
+                    console.log(referenceEl.value)
+                    const referenceElValue = referenceEl.value
+                    referenceElValues.push(referenceElValue)
+                }
+            })
+            console.table(referenceElValues)
+
+
+            console.log('noteTitleChain: ', noteTitleChain)
+
+            newNote.save().then((outputData) => {
+                
+                console.log('Note data: ', outputData.blocks)
+                
+                
+                // vvvvv GET USER DATA FOR URL vvvvv
+                const url = `http://localhost:5000/academy/<%= notebook.id %>/<%= notebookSection.id %>/add/note/title/${noteTitleChain}`
+                console.log('URL: ', url)
+                let spreadData = outputData.blocks
+                
+                // event.preventDefault();
+                console.log(event);
+                
+                console.log('spreadData: ', spreadData);
+                const spreadObject = { noteBody: spreadData, tags: tagElValues, references: referenceElValues }
+                console.log('spreadObject', spreadObject)
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(spreadObject)
+                    
+                }).then(response => response.json()).then((data) => {
+                    console.log(data)
+                    // Create a render function to add the todo to the DOM
+                    
+                }).catch(e => console.log(`Error is ${e}`))
+                
+            })
+            location.reload()
+            
+
+        })
+
+
+
+
+
+    </script>
+
+    <script>
+        const newNoteCloseBtn = document.getElementById('newNoteCloseButton')
+        const newNoteContainer = document.getElementById('newNoteEl')
+        newNoteCloseBtn.addEventListener('click', e => {
+            newNoteContainer.classList.add('hide')
+        })
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
     </script>

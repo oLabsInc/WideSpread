@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     .coming-soon {
         color: orange;
@@ -277,4 +278,285 @@
        
     })
 
+=======
+<style>
+    .coming-soon {
+        color: orange;
+        font-size: 1.6rem;
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        background: rgba(135, 206, 250, 0.5);
+        text-shadow: 0 0 3px #000;
+        border-radius: 16px;
+        box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+    .coming-soon h5 {
+        text-align: center;
+        color: orange;
+        font-weight: bold;
+        font-size: 2rem;
+        padding: 8px;
+    }
+    .coming-soon ol {
+        list-style-type:lower-roman;
+        margin-left: 30px;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+    .coming-soon>ol>ol {
+        list-style-type:lower-alpha;
+        margin-left: 30px;
+        padding: 10px;
+    }
+    .coming-soon>ol>ol>ol {
+        list-style-type:decimal;
+        margin-left: 30px;
+        padding: 10px;
+    }
+    .coming-soon li {
+        text-shadow: 0 0 3px #000;
+    }
+
+    .zone-main-vertical-menu {
+        width: 90%;
+        margin: 0 auto;
+        border-radius: 16px;
+        background: rgba(135, 206, 250, 0.5);
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .zone-main-vertical-menu-header h2 {
+        font-size: 2rem;
+    }
+    .zone-main-vertical-item {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 10px;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 8px;
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .zone-main-vertical-item a {
+        padding: 10px;
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.5rem;
+    }
+    
+
+    .academy-user-menu {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 20px;
+        padding: 8px;
+        background-color: rgba(85, 85, 85, 0.5);
+        backdrop-filter: blur(4px);
+        border-radius: 8px;
+
+    }
+
+
+
+    .current-courses {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .course-card {
+        border-radius: 8px;
+        width: 95%;
+        margin-bottom: 15px;
+        background-color: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+    .course-card a {
+        text-decoration: none;
+    }
+    .course-header {
+        border-bottom: outset 2px lightskyblue;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        font-weight: bold;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+    .course-header h3 {
+        font-size: 1.2rem;
+        padding: 5px;
+    }
+    .course-subject-name {
+        padding: 5px;
+        padding-top: 0;
+        display: block;
+        width: 100%;
+    }
+    .course-data {
+        padding: 10px;
+        color: #fff;
+    }
+    @media screen and (min-width: 762px) {
+        .current-courses {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: space-evenly;
+        }
+        .course-card {
+            width: 300px;
+
+        }
+    }
+</style>
+
+<%- include('../partials/menus/academy'); %>
+
+<div class="page-title">
+    <h2>Academy Home</h2>
+</div>
+
+<div class="academy-user-menu">
+    <div class="academy-user-menu-item"><i class="bx bx-calendar"></i></div>
+    <div class="academy-user-menu-item"><i class="bx bx-note"></i></div>
+    <div class="academy-user-menu-item"><i class="bx bx-id-card"></i></div>
+    <div class="academy-user-menu-item"><i class="bx bx-line-chart"></i></div>
+    <div class="academy-user-menu-item"><i class="bx bx-slider-alt"></i></div>
+</div>
+
+
+
+<div class="section-header">
+    <h2>Your Current Courses</h2>
+</div>
+
+
+
+
+<div class="current-courses">
+    <% if (savedCourses.length <= 0 || !savedCourses) { %>
+        <p>No courses added yet</p>
+    <% } else { %>
+
+    
+    <% savedCourses.forEach(function(courseObj) { %>
+
+        
+
+        
+        <div class="course-card" data-course-id="<%= courseObj.id %>">
+            <% if (allQuizzes.length > 0) { %>
+                <% allQuizzes.forEach(function(quiz) { %>
+                    <% if (quiz.course_id == courseObj.course_id.id && quiz.user_id == user.id) { %>
+                        <p data-course-id="<%= courseObj.id %>" class="single-quiz-grade" style="display: none; color: lime;"><%= quiz.grade %></p>
+                    <% } %>
+                <% }) %>
+            <% } %>
+            <a href="/academy/course/<%= courseObj.course_id.id %>">
+                <div style="border-bottom: outset 2px #fff; background-color: <%= courseObj.course_id.course_colors.main %>;" class="course-header">
+                    <h3><%= courseObj.course_id.name %></h3>
+                    <div class="course-subject">
+                        <h6 class="course-subject-name"><%= courseObj.course_id.subject %></h6>
+                    </div>
+                </div>
+                <div class="course-data">
+                    <div class="course-length">
+                        <p>Number of Classes: <%= courseObj.course_id.classes.length %></p>
+                    </div>
+                    <div class="course-grade">
+                        <p>Current Grade: <span class="current-grade" data-course-id="<%= courseObj.id %>"></span>%</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    <% }) %>
+    <% } %>
+
+<div class="zone-main-vertical-menu">
+    <div class="zone-main-vertical-menu-header">
+        <h2>Accessible Now</h2>
+    </div>
+    <div class="zone-main-vertical-item">
+        <a href="/academy/all-courses">All Courses</a>
+    </div>
+    <div class="zone-main-vertical-item">
+        <a href="/academy/create-new-course">Create New Course</a>
+    </div>
+
+
+</div>
+
+
+
+
+<script>
+
+    const allCurrentCourses = document.querySelectorAll('.course-card')
+    allCurrentCourses.forEach(courseCard => {
+        const currentCourseId = courseCard.getAttribute('data-course-id')
+
+        let accumulatedGrades = []
+        let currentGrade
+        const singleQuizGrade = document.querySelectorAll('.single-quiz-grade')
+        singleQuizGrade.forEach(grade => {
+            const singleGradeForCourseId = grade.getAttribute('data-course-id')
+            if (singleGradeForCourseId === currentCourseId) {
+
+                console.log(singleGradeForCourseId)
+                const gradeValue = grade.innerHTML
+                const gradeInt = parseInt(gradeValue)
+                console.log(gradeInt)
+                accumulatedGrades.push(gradeInt)
+            }
+        })
+        console.table(accumulatedGrades)
+        const totalGrades = accumulatedGrades.reduce((a, b) => a + b, 0)
+        console.log(totalGrades)
+        const totalQuizzes = accumulatedGrades.length
+        console.log(totalQuizzes)
+        const currentGradePercent = (totalGrades / totalQuizzes)
+        currentGrade = parseFloat(currentGradePercent).toFixed(0)
+        console.log('Current Grade: ', currentGrade)
+
+
+        const currentGradeEls = document.querySelectorAll('.current-grade')
+        currentGradeEls.forEach(gradeEl => {
+            const currentGradeInCourseId = gradeEl.getAttribute('data-course-id')
+            if (currentCourseId === currentGradeInCourseId) {
+            if (accumulatedGrades.length <= 0) {
+                console.log('No quizzes taken yet.')
+                gradeEl.innerText = '100'
+            } else {
+                    gradeEl.innerText = currentGrade
+                    
+                }
+            }
+        })
+       
+    })
+
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 </script>

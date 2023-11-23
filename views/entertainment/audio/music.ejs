@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <style>
     #nowPlaying {
@@ -1014,4 +1015,1022 @@
     // Load the first track in the tracklist
     loadTrack(track_index);
 
+=======
+
+<style>
+    #nowPlaying {
+        position: relative;
+        min-height: 200px;
+        margin-bottom: 30px;
+
+    }
+
+    #nowPlayingArt {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -10;
+        width: 100%;
+        height: 100%;
+
+    }
+
+
+    .music-playlists {
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .music-playlists a {
+        color: #fff;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue;
+        border-radius: 8px;
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+        padding: 10px;
+        text-decoration: none;
+    }
+
+
+    .player {
+        width: 90vw;
+        margin: 0 auto;
+        margin-top: 50px;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        border-radius: 16px;
+        border-top: outset 1px rgba(255, 255, 255, 0.25);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.25);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        color: #fff;
+    }
+
+    .details {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        color: #fff;
+    }
+
+    .track-art {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -10;
+        background-image: URL("https://source.unsplash.com/Qrspubmx6kE/640x360");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+
+    /* Changing the font sizes to suitable ones */
+    .now-playing {
+        font-size: 1rem;
+    }
+
+    .track-name {
+        font-size: 2rem;
+        border-top: solid 1px lightskyblue;
+        border-bottom: solid 1px lightskyblue;
+        margin-top: 10px;
+        margin-top: 10px;
+        background-color: rgba(0, 0, 0, 0.405);
+        text-align: center;
+        padding: 8px;
+        padding-bottom: 12px;
+        border-radius: 2px;
+        width: calc(100% - 16px);
+    }
+
+    .track-artist {
+        font-size: 1.5rem;
+        padding: 8px;
+    }
+
+    /* Using flex with the row direction to
+   align items in a horizontal direction */
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .buttons i {
+        color: rgba(255, 255, 255, 0.5);
+        text-shadow: 0 0 5px rgba(135, 206, 250, 0.75);
+    }
+
+    .playpause-track,
+    .prev-track,
+    .next-track {
+        padding: 25px;
+        opacity: 0.8;
+
+        /* Smoothly transition the opacity */
+        transition: opacity .2s;
+    }
+
+    /* Change the opacity when mouse is hovered */
+    .playpause-track:hover,
+    .prev-track:hover,
+    .next-track:hover {
+        opacity: 1.0;
+    }
+
+    /* Define the slider width so that it scales properly */
+    .slider_container {
+        width: 95%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        max-width: 400px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .track-length {
+    }
+    .track-length > div {
+        max-width: 15%;
+        overflow: hidden;
+    }
+    .track-length input {
+        max-width: 70%;
+    }
+    .volume-container {
+        width: 75%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+    /* Modify the appearance of the slider */
+    .seek_slider,
+    .volume_slider {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        height: 5px;
+        background: rgba(0, 0, 0, 0.5);
+        box-shadow: inset 0 0 2px lightskyblue, 0 0 8px rgba(255, 255, 255, 0.25);
+        border-radius: 2px;
+        opacity: 0.7;
+
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+    }
+
+    /* Modify the appearance of the slider thumb */
+    .seek_slider::-webkit-slider-thumb,
+    .volume_slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 15px;
+        height: 15px;
+        background: rgba(135, 206, 250, 0.5);
+        box-shadow: inset 0 0 5px #fff, 0 0 5px rgba(255, 255, 255, 0.25);
+        cursor: pointer;
+        border-radius: 50%;
+    }
+
+    /* Change the opacity when mouse is hovered */
+    .seek_slider:hover,
+    .volume_slider:hover {
+        opacity: 1.0;
+    }
+
+    .seek_slider {
+        width: 60%;
+    }
+
+    .volume_slider {
+        width: 70%;
+    }
+    .current-time {
+        text-align: right;
+    }
+    .current-time,
+    .total-duration {
+    }
+
+    i.fa-volume-down,
+    i.fa-volume-up {
+        padding: 10px;
+    }
+
+    /* Change the mouse cursor to a pointer
+   when hovered over */
+    i.fa-play-circle,
+    i.fa-pause-circle,
+    i.fa-step-forward,
+    i.fa-step-backward {
+        cursor: pointer;
+    }
+
+
+
+
+
+
+
+
+
+    .back-to-playlists {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    .back-to-playlists a {
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue;
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.2rem;
+
+    }
+
+    .search-music-button {
+        margin-top: 30px;
+    }
+
+    .music-list {
+        text-align: center;
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        border-radius: 16px;
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+        padding-bottom: 20px;
+    }
+
+    .music-list h2 {
+        font-size: 2rem;
+        padding: 20px;
+    }
+
+    .music-list p {
+        color: #fff;
+    }
+
+    .music-list a {
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue;
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.2rem;
+    }
+
+    .song {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        border-radius: 8px;
+    }
+
+    .song p {
+        color: #fff;
+    }
+
+    .song-body {
+        margin-left: 5px;
+        padding: 5px;
+    }
+
+    .song-body h6 {
+        font-size: 1.2rem;
+        padding: 5px;
+    }
+
+    .song-path {
+        display: none;
+    }
+
+    .song-image {
+        display: none;
+    }
+
+    .song-actions {
+        margin-right: 15px;
+    }
+
+    .song-actions i {
+        color: rgba(255, 255, 255, 0.5);
+        text-shadow: 0 0 2px lightskyblue;
+    }
+    .playing-options {
+        width: 25%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .loop-button {
+        text-align: right;
+    }
+    .loop-button i {
+        font-size: 2rem;
+        text-shadow: 0 0 5px rgb(135 206 250 / 75%);
+
+    }
+    .hidden {
+        display: none;
+    }
+
+
+
+
+    /* NEW MUSIC PLAYER */
+.audio-visualizer-container {
+    position: relative;
+    width: 500px;
+    padding-bottom: 20px;
+    max-width: 80vw;
+    border-top: solid 2px lightskyblue;
+    border-bottom: solid 2px lightskyblue;
+    background-color: rgba(34, 34, 34, 0.75);
+    backdrop-filter: blur(10px);
+    margin-inline: auto;
+    border-radius: 26px;
+    box-shadow: 0 20px 18px rgba(0, 0, 0, 0.6);
+    margin-bottom: 30px;
+}
+.visualizer-box {
+    height: 500px;
+    position: relative;
+}
+.box {
+    width: 100%;
+    max-width: 90vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: blur(8px) contrast(10);
+    mix-blend-mode: screen;
+    scale: 0.825;
+}
+
+.visualizer {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgba(0, 255, 255, 0.5);
+    transition: .25s;
+    transform: rotateZ(180deg);
+}
+
+.play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 250px;
+    background: #2a2a2a;
+    border-radius: 50%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset -3px -3px 3px #333, inset 3px 3px 3px #333, -3px -3px 5px #555, 3px 3px 5px #000;
+}
+
+.btn-play {
+    border-left: 80px solid lightskyblue;
+    border-bottom: 50px solid transparent;
+    border-top: 50px solid transparent;
+    cursor: pointer;
+}
+
+.btn-pause {
+    border-right: 20px solid lightskyblue;
+    border-left: 20px solid lightskyblue;
+    width: 40px;
+    height: 80px;
+    cursor: pointer;
+}
+
+.element {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    border-top: 40px solid #222;
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+    transform-origin: top left;
+    transition: .25s;
+}
+</style>
+<div class="zone-title">
+    <h1>
+        <%= zone %>
+    </h1>
+</div>
+
+
+
+
+<%- include('../../partials/menus/entertainment'); %>
+
+
+    <%- include('../../partials/menus/sub/entertainment/audio'); %>
+
+        <div class="page-title">
+            <h2>
+                <%= subZonePage %>
+            </h2>
+        </div>
+
+        <div class="music-playlists">
+            <a href="/entertainment/audio/music/playlists">Your Playlists</a>
+        </div>
+
+<div class="track-art"></div>
+
+<!-- NEW AUDIO PLAYER/VISUALIZER -->
+    <div class="audio-visualizer-container">
+        <audio id="audioVisualizerPlayer" src=""></audio>
+        <div class="visualizer-box">
+            <div class="box">
+                <div class="visualizer"></div>
+            </div>
+            <div class="play">
+                <div class="btn btn-play"></div>
+            </div>
+        </div>
+            <div class="details">
+                <div class="now-playing">Now Playing x of y</div>
+                <div class="track-name">Track Name</div>
+                <div class="track-artist">Track Artist</div>
+            </div>
+    </div>
+
+
+
+<!-- ORIGINAL AUDIO PLAYER -->
+
+<div class="player" style="display: none;">
+
+    <div class="details-1">
+        <div class="now-playing">Now Playing x of y</div>
+        <div class="track-name">Track Name</div>
+        <div class="track-artist">Track Artist</div>
+    </div>
+
+    <div class="buttons">
+        <div class="prev-track" onclick="prevTrack()">
+            <i class="fa fa-step-backward fa-2x"></i>
+        </div>
+        <div class="playpause-track" onclick="playpauseTrack()">
+            <i class="fa fa-play-circle fa-5x"></i>
+        </div>
+        <div class="next-track" onclick="nextTrack()">
+            <i class="fa fa-step-forward fa-2x"></i>
+        </div>
+    </div>
+
+    <div class="slider_container track-length">
+        <div class="current-time">00:00</div>
+        <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
+        
+        <div class="total-duration">00:00</div>
+    </div>
+    
+    <div class="slider_container">
+        <div class="volume-container">
+            <i class="fa fa-volume-down"></i>
+            <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume()">
+            <i class="fa fa-volume-up"></i>
+        </div>
+        <div class="playing-options">
+            <div class="loop-button" onclick="loop()"><i class="fas fa-sync"></i></div>
+        </div>
+    </div>
+</div>
+
+<div class="music-list">
+        <div class="page-title">
+            <h2>All Music</h2>
+        </div>
+
+            <% audioFiles.forEach(function(song, i) { %>
+                <div class="song">
+                    <div class="song-body" onclick="thisSong(this)">
+                        
+                        <h6 class="song-name">
+                            <%= song.song %>
+                        </h6>
+                        <p class="song-artist">
+                            <%= song.artist %>
+                        </p>
+                        <p class="song-path">/audio/<%= song.img.data %>
+                        </p>
+                        <p class="song-image" style="display: none;">
+                            <%= song.background_photo %>
+                        </p>
+                        <p class="song-id" style="display: none;"><%= song.id %></p>
+                    </div>
+                    <div class="song-actions">
+
+                        <span><a href="/socialspread/music/share/<%= song.id %>"><i class="fas fa-share-alt"></i></a></span>
+                    </div>
+                </div>
+                <% }) %>
+</div>
+
+<script>
+    const btn = document.querySelector('.btn');
+        const audio = document.querySelector('#audioVisualizerPlayer');
+        const visualizer = document.querySelector('.visualizer');
+
+        btn.addEventListener('click', e => {
+            audio.paused ? audio.play() : audio.pause();
+            btn.classList.toggle('btn-play');
+            btn.classList.toggle('btn-pause');
+            if (audio.currentTime == 0) {
+                runVisualizer()
+            }
+        });
+
+        const runVisualizer = () => {
+
+            window.AudioContext = window.AudioContext || window.webkitAudioContext;
+            const ctx = new window.AudioContext();
+            const analyser = ctx.createAnalyser();
+            const source = ctx.createMediaElementSource(audio);
+            source.connect(analyser);
+            source.connect(ctx.destination);
+            analyser.fftSize = 64;
+            const bufferLength = analyser.frequencyBinCount;
+
+            let dataArray = new Uint8Array(bufferLength);
+            let elements = [];
+            for (let i = 0; i < bufferLength; i++) {
+                const element = document.createElement('span');
+                element.classList.add('element');
+                elements.push(element);
+                visualizer.appendChild(element);
+                console.log(element)
+            }
+
+            const clamp = (num, min, max) => {
+                if (num >= max) return max;
+                if (num <= min) return min;
+                return num;
+            }
+
+            const update = () => {
+                requestAnimationFrame(update);
+                analyser.getByteFrequencyData(dataArray);
+                for (let i = 0; i < bufferLength; i++) {
+                    let item = dataArray[i];
+                    item = item > 150 ? item / 1.5 : item * 1.25;
+                    elements[i].style.transform = `rotateZ(${i * (360 / bufferLength)}deg) translate(-50%, ${clamp(item, 100, 150)}px)`;
+                    elements[i].style.height = `${item / 4}px`
+                    elements[i].style.borderTop = `40px solid lightskyblue`
+                    elements[i].style.borderBottom = `10px solid #fff`
+                    elements[i].style.boxShadow = `0 0 1px lightskyblue`
+                }
+            };
+            update();
+        }
+</script>
+
+
+<script>
+    const loopButton = document.querySelector('.loop-button')
+    loopButton.setAttribute('style', 'color: rgba(255, 255, 255, 0.5)')
+    let now_playing = document.querySelector(".now-playing");
+    let track_art = document.querySelector(".track-art");
+    let track_name = document.querySelector(".track-name");
+    let track_artist = document.querySelector(".track-artist");
+    
+    let playpause_btn = document.querySelector(".playpause-track");
+    let next_btn = document.querySelector(".next-track");
+    let prev_btn = document.querySelector(".prev-track");
+    
+    let seek_slider = document.querySelector(".seek_slider");
+    let volume_slider = document.querySelector(".volume_slider");
+    let curr_time = document.querySelector(".current-time");
+    let total_duration = document.querySelector(".total-duration");
+
+    // Specify globally used values
+    let track_index = 0;
+    let isPlaying = false;
+    let updateTimer;
+
+    // Create the audio element for the player
+    let curr_track = document.createElement('audio');
+    curr_track.setAttribute('crossOrigin', "anonymous")
+    // Define the list of tracks that have to be played
+    let track_list = [];
+    const allSongs = document.querySelectorAll('.song')
+    allSongs.forEach((song, i) => {
+        let songData = {
+            id: song.querySelector('.song-id').innerHTML,
+            name: song.querySelector('.song-name').innerHTML,
+            artist: song.querySelector('.song-artist').innerHTML,
+            image: song.querySelector('.song-image').innerHTML,
+            path: song.querySelector('.song-path').innerHTML
+        }
+        track_list.push(songData)
+        // console.table(songData)
+        console.log(allSongs[i])
+    })
+    console.log('allSongs')
+
+        function thisSong(songDiv) {
+            let songIds = []
+            let songId = songDiv.querySelector('.song-id').innerHTML
+
+            console.log(songId)
+            allSongs.forEach((song, index) => {
+
+                let songData = {
+                    id: song.querySelector('.song-id').innerHTML,
+                    name: song.querySelector('.song-name').innerHTML,
+                    artist: song.querySelector('.song-artist').innerHTML,
+                    image: song.querySelector('.song-image').innerHTML,
+                    path: song.querySelector('.song-path').innerHTML
+                }
+                if (songId === songData.id) {
+                    console.log('Song Name: ', songData.name)
+                    console.log('Song ID: ', songData.id)
+                    loadTrack([index])
+                    playTrack() || playThisTrack()
+
+                    let songListPlayBtn = song.querySelector('.play')
+                    let songListPauseBtn = song.querySelector('.pause')
+                    songListPauseBtn.classList.add('hidden')
+                    if (!isPlaying) {
+                        songListPlayBtn.classList.remove('hidden')
+                        songListPauseBtn.classList.add('hidden')
+                        btn.classList.add('btn-play')
+                        btn.classList.remove('btn-pause')
+                        console.log('Paused - Should Show Play Buttton')
+                        
+                    } else { 
+                        btn.classList.remove('btn-play')
+                        btn.classList.add('btn-pause')
+                        songListPlayBtn.classList.add('hidden')
+                        songListPauseBtn.classList.remove('hidden')
+                        console.log('Playing - Should Show Pause Buttton')
+                    }
+                    console.log('Play Button: ', songListPlayBtn)
+                    console.log('Pause Button: ', songListPauseBtn)
+                    console.log('if (songId === songData.id) inside allSongs.forEach(): ', song)
+                    
+                }
+                songIds.push(songData)
+            })
+            
+
+        }
+
+
+
+    function loadTrack(track_index) {
+        // Clear the previous seek timer
+        clearInterval(updateTimer);
+        resetValues();
+
+        // Load a new track
+
+        audio.src = track_list[track_index].path;
+        audio.load()
+
+  
+        // curr_track.src = track_list[track_index].path;
+        curr_track.load();
+
+        // Update details of the track
+        track_art.style.backgroundImage =
+            "url(" + track_list[track_index].image + ")";
+        track_name.textContent = track_list[track_index].name;
+        track_artist.textContent = track_list[track_index].artist;
+        now_playing.textContent =
+            "Now Playing " + (track_index + 1) + " of " + track_list.length;
+
+        // Set an interval of 1000 milliseconds
+        // for updating the seek slider
+        updateTimer = setInterval(seekUpdate, 1000);
+
+        // Move to the next track if the current finishes playing
+        // using the 'ended' event
+        curr_track.addEventListener("ended", nextTrack);
+
+    }
+
+
+
+    // Function to reset all values to their default
+    function resetValues() {
+        curr_time.textContent = "00:00";
+        total_duration.textContent = "00:00";
+        seek_slider.value = 0;
+        let songListPlayBtn = document.body.querySelectorAll('.play')
+        let songListPauseBtn = document.body.querySelectorAll('.pause')
+        console.log('SongListPlayBtn: ', songListPlayBtn)
+        console.log('SongListPauseBtn: ', songListPauseBtn)
+        let allPlayButtons = songListPlayBtn.forEach((button, i) => {
+            console.log('Button: ', button)
+            if (button.classList.value === 'play hidden') {
+                button.classList.toggle('hidden')
+
+               }
+        })
+        
+        let allPauseButtons = songListPauseBtn.forEach((button, i) => {
+            console.log('Button: ', button)
+            if (button.classList.value === 'pause') {
+                button.classList.toggle('hidden')
+
+
+               }
+        })
+        console.table(allPlayButtons)
+    
+
+    }
+
+
+
+    function playpauseTrack() {
+        // Switch between playing and pausing
+        // depending on the current state
+        if (!isPlaying) {
+            playTrack();
+        } else {
+            pauseTrack();
+        }
+    }
+
+
+    function loadThisTrack(songIndex) {
+        console.log('songIndex: ', songIndex)
+        console.log('allSongs: ', allSongs)
+        allSongs.forEach((song, i ) => {
+            console.log('allSongs.forEach(): ', song)
+            console.log('allSongs.forEach([i]): ', i)
+            let songButtonIndex = song.innerHTML
+            let songPath = song.querySelector('.song-path').innerHTML
+            console.log(songPath)
+            loadTrack(songIndex)
+            //song.previousElementSibling.querySelector('.song-path')
+
+
+            //loadTrack(songButtonIndex)
+        
+/*         let songListPlayBtn = document.body.querySelectorAll('.thisPlayBtn')
+        let songListPauseBtn = document.body.querySelectorAll('.thisPauseBtn')
+        console.log('SongListPlayBtn: ', songListPlayBtn)
+        console.log('SongListPauseBtn: ', songListPauseBtn)
+        songListPlayBtn.forEach((button, j) => {
+            console.log('Button: ', button)
+            console.log('Button: ', button)
+            let playSpan = button.innerText
+            console.log('Clicked Play Buttons SongId Index: ', playSpan)
+            if ([i] = [j]) {
+                console.log('[i] === [j]', i && j)
+                console.log('allSongs[j]', allSongs[j])
+
+                loadTrack()
+                let thisSongsId = allSongs[j].querySelector('.song-id').innerHTML
+                console.log('thisSongsId: ', thisSongsId)
+            } */
+            // console.log('[i]', i )
+            // console.log('[j]', j )
+
+          //})  
+            
+            
+          
+            
+        })  
+
+        //console.table(allPlayButtons)
+    }
+        // Play the loaded track
+        // allSongs[`${}`].loadTrack();
+
+
+        function playThisTrack() {
+        curr_track.play();
+              if (audio.currentTime == 0) {
+                runVisualizer()
+            }
+        audio.play()
+        isPlaying = true;
+        curr_track.loop = false
+        btn.classList.add('btn-pause')
+        btn.classList.remove('btn-play')
+        if (loopButton.classList.value === 'loop-button looping') {
+
+            curr_track.loop = false
+            loopButton.setAttribute('style', 'color: rgba(255, 255, 255, 0.5)')
+            loopButton.classList.remove('looping')
+
+        }
+
+
+        // Replace icon with the pause icon
+        playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
+
+        console.log('Current Track HTML Element: ', curr_track)
+        console.log('Loop Reset - Loop On: ', curr_track.loop)
+
+    }
+    function playTrack() {
+        // Play the loaded track
+        curr_track.play();
+        audio.play()
+        btn.classList.add('btn-pause')
+        btn.classList.remove('btn-play')
+        isPlaying = true;
+        curr_track.loop = false
+        if (loopButton.classList.value === 'loop-button looping') {
+
+            curr_track.loop = false
+            loopButton.setAttribute('style', 'color: rgba(255, 255, 255, 0.5)')
+            loopButton.classList.remove('looping')
+            
+        }
+        
+        // Replace icon with the pause icon
+        playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
+
+        console.log('Current Track HTML Element: ', curr_track)
+        console.log('Loop Reset - Loop On: ', curr_track.loop)
+    }
+
+    function pauseTrack() {
+        // Pause the loaded track
+        curr_track.pause();
+        isPlaying = false;
+
+        // Replace icon with the play icon
+        playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
+    }
+
+    function nextTrack() {
+        // Go back to the first track if the
+        // current one is the last in the track list
+        if (track_index < track_list.length - 1)
+            track_index += 1;
+        else track_index = 0;
+
+        // Load and play the new track
+        loadTrack(track_index);
+        playTrack();
+
+    }
+
+    function prevTrack() {
+        // Go back to the last track if the
+        // current one is the first in the track list
+        if (track_index > 0)
+            track_index -= 1;
+        else track_index = track_list.length - 1;
+
+        // Load and play the new track
+        loadTrack(track_index);
+        playTrack();
+    }
+
+
+
+    function seekTo() {
+        // Calculate the seek position by the
+        // percentage of the seek slider 
+        // and get the relative duration to the track
+        let seekValue = seek_slider.value
+
+        console.log('Seek Value: ', seekValue)
+        let seekto = curr_track.duration * (seekValue / 100);
+
+        // Set the current track position to the calculated seek position
+        curr_track.currentTime = seekto;
+    }
+
+    function setVolume() {
+        // Set the volume according to the
+        // percentage of the volume slider set
+        curr_track.volume = volume_slider.value / 100;
+    }
+
+    function seekUpdate() {
+        let seekPosition = 0;
+
+        // Check if the current track duration is a legible number
+        if (!isNaN(curr_track.duration)) {
+            console.log('Current Track Duration is not a Number: ', isNaN(curr_track.duration))
+            seekPosition = curr_track.currentTime * (100 / curr_track.duration);
+            seek_slider.value = seekPosition;
+
+            // Calculate the time left and the total duration
+            let currentMinutes = Math.floor(curr_track.currentTime / 60);
+            let currentSeconds = Math.floor(curr_track.currentTime - currentMinutes * 60);
+            let durationMinutes = Math.floor(curr_track.duration / 60);
+            let durationSeconds = Math.floor(curr_track.duration - durationMinutes * 60);
+
+            // Add a zero to the single digit time values
+            if (currentSeconds < 10) { currentSeconds = "0" + currentSeconds; }
+            if (durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
+            if (currentMinutes < 10) { currentMinutes = "0" + currentMinutes; }
+            if (durationMinutes < 10) { durationMinutes = "0" + durationMinutes; }
+
+            // Display the updated duration
+            curr_time.textContent = currentMinutes + ":" + currentSeconds;
+            total_duration.textContent = durationMinutes + ":" + durationSeconds;
+        } else {
+            console.log('Current Track Duration is not a Number: ', isNaN(curr_track.duration))
+            seekPosition = curr_track.currentTime * (100 / curr_track.duration);
+            seek_slider.value = seekPosition;
+            // Calculate the time left and the total duration
+            let currentMinutes = Math.floor(curr_track.currentTime / 60);
+            let currentSeconds = Math.floor(curr_track.currentTime - currentMinutes * 60);
+            let durationMinutes = Math.floor(curr_track.duration / 60);
+            let durationSeconds = Math.floor(curr_track.duration - durationMinutes * 60);
+
+            // Add a zero to the single digit time values
+            if (currentSeconds < 10) { currentSeconds = "0" + currentSeconds; }
+            if (durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
+            if (currentMinutes < 10) { currentMinutes = "0" + currentMinutes; }
+            if (durationMinutes < 10) { durationMinutes = "0" + durationMinutes; }
+
+            // Display the updated duration
+            curr_time.textContent = currentMinutes + ":" + currentSeconds;
+            total_duration.textContent = durationMinutes + ":" + durationSeconds;
+        }
+    }
+    function loop() {
+        
+        if (curr_track.loop === false) {
+            curr_track.loop = true
+            loopButton.setAttribute('style', 'color: rgba(135, 206, 250, 0.5)')
+            loopButton.classList.add('looping')
+            console.log('Loop On: ', curr_track.loop)
+            console.log(curr_track)
+        } 
+        else if (loopButton.classList.value === 'loop-button looping') {
+            
+            curr_track.loop = false
+            loopButton.setAttribute('style', 'color: rgba(255, 255, 255, 0.5)')
+            loopButton.classList.remove('looping')
+            console.log('Loop On: ', curr_track.loop)
+            console.log(curr_track)
+                   
+        }
+
+    }
+
+   
+    // Load the first track in the tracklist
+    loadTrack(track_index);
+
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 </script>

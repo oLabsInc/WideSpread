@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     @media screen and (min-width: 300px) {
         .friend-container {
@@ -371,4 +372,379 @@
                                 <script>
                                     const htmlEl = document.getElementById('htmlElement')
                                     console.log(htmlEl)
+=======
+<style>
+    @media screen and (min-width: 300px) {
+        .friend-container {
+            background: #000;
+            backdrop-filter: blur(4px);
+            border-radius: 16px;
+            box-shadow: 0 0 30px #fff;
+            color: #333;
+            font-size: 48px
+        }
+
+        .friend-container h5 {
+            color: #fff;
+            text-shadow: 0 0 20px lightskyblue;
+            font-size: 5rem;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .friends-list {
+            padding: 30px;
+            border: outset 5px lightskyblue;
+            border-radius: 50px;
+            box-shadow: 0 0 40px #fff;
+        }
+
+        .friend {
+            margin-bottom: 20px;
+            text-align: center;
+            color: rgb(255, 255, 255);
+        }
+
+        .friend p {
+            font-family: 'Gruppo', cursive;
+            font-size: 2.5rem;
+            text-shadow: 0 0 15px lightskyblue;
+        }
+
+        .friend a {
+            text-decoration: none;
+            color: lightblue;
+            font-family: 'Gruppo', cursive;
+            font-size: 2.5rem;
+        }
+
+    }
+
+    @media screen and (min-width: 900px) {
+        .friend-container {
+            background: #000;
+            backdrop-filter: blur(4px);
+            border-radius: 16px;
+            box-shadow: 0 0 30px #fff;
+            color: #333;
+            font-size: 48px
+        }
+
+        .friend-container h5 {
+            color: #fff;
+            text-shadow: 0 0 20px lightskyblue;
+            font-size: 15rem;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .friends-list {
+            padding: 30px;
+            border: outset 5px lightskyblue;
+            border-radius: 50px;
+            box-shadow: 0 0 40px #fff;
+        }
+
+        .friend {
+            margin-bottom: 20px;
+            text-align: center;
+            color: rgb(255, 255, 255);
+        }
+
+        .friend p {
+            font-family: 'Gruppo', cursive;
+            font-size: 5rem;
+            text-shadow: 0 0 15px lightskyblue;
+        }
+
+        .friend a {
+            text-decoration: none;
+            color: lightblue;
+            font-family: 'Gruppo', cursive;
+            font-size: 4rem;
+        }
+    }
+</style>
+<a-assets>
+    <img id="ground" src="/images/system/vr/floor_1a2a1a.jpg" alt="">
+    <img id="floorImg" src="/images/system/vr/floors/metal-treadplate_1/img.png" alt="">
+    <img id="floorMap" src="/images/system/vr/floors/metal-treadplate_1/map.png" alt="">
+    <img id="floor2" src="/images/system/vr/floors/metal-treadplate_2.png" alt="">
+    <img id="brushedMetal" src="/images/system/vr/metal/brushed-metal_1.png" alt="">
+</a-assets>
+
+<a-text value="Academy" color="lightskyblue" position="0 3.75 -3" align="center" scale="2.5 2.5 2.5"
+    text="opacity: 0.5"></a-text>
+
+
+<!-- STATIC SCENE -->
+
+
+
+<!-- FLOOR -->
+
+
+<a-circle geometry="segments: 100; "
+    material="src: #floorImg; repeat: 25 25; normal-map: #floorMap; normal-texture-repeat: 25 25 metalness: 0.5"
+    rotation="-90 0 0" scale="10 10 1"></a-circle>
+<a-box scale="10 0.5 10"
+    material="src: #floorImg; repeat: 20 20; normal-map: #floorMap; normal-texture-repeat: 20 20 metalness: 0.5">
+</a-box>
+<a-cylinder scale="10 1 10" color="cyan" material="color: #6bffff; side: double; opacity: 0.5; metalness: 0.5"
+    open-ended="true" rotation="" geometry="segmentsHeight: 100; segmentsRadial: 100" position="0 0.4 0"></a-cylinder>
+<a-torus rotation="90 0 0" arc="360" radius="5" radius-tubular="0.1"
+    material="src: #brushedMetal; metalness: 0.25; roughness: 0.5"
+    geometry="radius: 10; radiusTubular: 0.02; segmentsRadial: 100; segmentsTubular: 100" scale="1 1 1"
+    position="0 0.89 0"></a-torus>
+
+
+<!-- Lighting -->
+
+<!-- Ambient -->
+
+<a-entity light="color: #f0fdff" position="-10 10 0"></a-entity>
+<a-entity light="color: #f0fdff" position="10 10 0"></a-entity>
+
+
+<!-- Spot Lights -->
+
+<!-- Friend List -->
+
+
+
+
+<!-- DYNAMIC SCENE -->
+
+<a-entity position="-3 1.5 -2">
+    <a-text value="Courses" align="center" position="3 1 0"></a-text>
+    <% let courseStartingPoint=0 %>
+    <% courses.forEach(function(course) { %>
+        <a-entity scale="1.2 1.2 1" position="<%- courseStartingPoint++ %> 0 0" href="/vr/academy/course/<%= course.id %>">
+            <a-image scale="0.6 0.9 1" src="/image/<%= course.background_image %>" opacity="0.75"></a-image>
+            <a-text value="<%= course.subject %>" color="lightskyblue" position="0 0.3 0.01" scale="0.3 0.3 1" align="center" width="3"></a-text>
+            <a-text value="<%= course.course %>" color="#fff" position="0 0 0.01" scale="0.5 0.5 1" align="center" width="3"></a-text>
+            <a-gui-button scale="0.2 0.2 0.1" position="0 -0.25 0" width="2.5" height="0.75" onclick="runPage('/vr/academy/course/<%= course.id %>')" gui-button="fontFamily:  assets/fonts/PermanentMarker-Regular.ttf;  fontSize:  0.3;  focusColor:  #fff;  activeColor:  #fff"
+                font-family="assets/fonts/PermanentMarker-Regular.ttf" font-size="0.3" >
+                <a-entity geometry="width: 2.5; height: 0.75; depth: 0.01" position="0 0 0.005" rotation=""
+                    material="opacity: 0.92; side: double; color: #4bc4ec; blending: additive" visible=""></a-entity>
+                <a-entity geometry="width: 2.475; height: 0.725; depth: 0.02" position="0 0 0.01"
+                    material="shader: flat; opacity: 0.38; side: double; color: #8a9bb7; blending: additive" rotation=""
+                    animation__leave="property: material.color; from: #2c3037; to: #22252a; dur: 200; easing: easeOutQuad">
+
+                    <% if (course.course_colors.main) { %>                    
+                        <a-entity
+                            troika-text="value: <%= course.course %>; align: center; color: <%= course.course_colors.main %>; font: assets/fonts/PermanentMarker-Regular.ttf; fontSize: 0.22; depthOffset: 1; maxWidth: 2.381; outlineColor: #d4edf2"
+                            troika-text-material="shader: flat;" position="0 0 0.060000000000000005">
+                        </a-entity>
+                    <% } else { %>
+                        <a-entity
+                            troika-text="value: <%= course.course %>; align: center; color: #00d5ff; font: assets/fonts/PermanentMarker-Regular.ttf; fontSize: 0.22; depthOffset: 1; maxWidth: 2.381; outlineColor: #d4edf2"
+                            troika-text-material="shader: flat;" position="0 0 0.060000000000000005">
+                        </a-entity>
+                    <% } %>
+
+                </a-entity>
+                <a-entity geometry="width: 2.5; height: 0.75; depth: 0.01" position="0 0 0.005" rotation=""
+                    material="shader: flat; opacity: 0.09; side: double; color: #d3d3d4"></a-entity>
+                    <a-entity geometry="width: 2.475; height: 0.725; depth: 0.02" position="0 0 0.01"
+                        material="opacity: 0.3; side: double; color: #78a7c4" rotation=""
+                        animation__leave="property: material.color; from: #2c3037; to: #22252a; dur: 200; easing: easeOutQuad">
+                        <a-entity
+                            troika-text="align: center; color: #d3d3d4; font: assets/fonts/PermanentMarker-Regular.ttf; fontSize: 0.3; depthOffset: 1; maxWidth: 2.380952380952381"
+                            troika-text-material="shader: flat;" position="0 0 0.060000000000000005">
+    
+                        </a-entity>
+                    </a-entity>
+            </a-gui-button>
+        </a-entity>
+    <% }) %>
+</a-entity>
+
+
+<a-gui-flex-container flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1"
+    opacity="0.7" width="3.5" height="4.5" panel-color="#072B73" panel-rounded="0.2" position="0 2.5 -6"
+    rotation="0 0 0">
+ 
+
+
+
+
+</a-gui-flex-container>
+
+<a-entity position="0 1.5 5" rotation="0 180 0">
+    <a-entity id="dropdownContainer" position="0 0 -1">
+
+        <a-gui-flex-container flex-direction="row" justify-content="center" align-items="normal" component-padding="0.1"
+            opacity="0" width="2.5" height="0.75" position="0 0.375 0" rotation="0 0 0">
+<a-gui-icon-label-button id="mydropdown" width="2.5" height="0.75" onclick="openDropdown" icon="f0c9"
+    icon-font="/fonts/fa-solid-900.ttf" value="Classes" font-family="assets/fonts/PermanentMarker-Regular.ttf"
+    font-size="0.25" visible="" animation__rotatein="property: rotation; to: 180 0 0; startEvents: opendropdown"
+    animation__visiblein="property: visible; to: false; delay: 500; startEvents: opendropdown"
+    animation__rotateout="property: rotation; to: 0 0 0; startEvents: closedropdown"
+    animation__visibleout="property: visible; to: true; delay: 500; startEvents: closedropdown"
+    geometry="primitive: plane; height: 0.75; width: 2.5" material="shader: flat; color: #ffffff; opacity: 0"
+    role="button" gui-icon-label-button="" position="0 0 0.01">
+    <a-entity geometry="width: 2.5; height: 0.75; depth: 0.02" material="opacity: 0; side: double; color: #00b3ff7a"
+        rotation="" position="0 0 0.01"></a-entity>
+    <a-entity geometry="width: 2.475; height: 0.725; depth: 0.04"
+        material="opacity: 0.45; side: double; color: rgba(34,37,42,1); alphaTest: 0.74" rotation="" position=""
+        animation__leave="property: material.color; from: #2c3037a9; to: #22252a2d; dur: 200; easing: easeOutQuad">
+    </a-entity>
+    <a-entity
+        troika-text="value: Classes; anchor: left; color: #7adeff; font: assets/fonts/PermanentMarker-Regular.ttf; fontSize: 0.25; depthOffset: 1.85; maxWidth: 2.381; outlineColor: #ffffff; outlineWidth: 0.005"
+        position="-0.5 0 0.05">
+        <a-entity></a-entity>
+    </a-entity>
+</a-gui-icon-label-button>
+        </a-gui-flex-container>
+
+        <a-gui-flex-container id="myoptions" flex-direction="column" justify-content="center" align-items="normal"
+            component-padding="0.1" opacity="0" width="2.5" height="0.75" position="0 0 -0.15" rotation="0 0 0"
+            scale="1 0.001 0.001" visible="false"
+            animation__positionIn="property: position; to: 0 0.375 0.15; dur: 1000; startEvents:opendropdown"
+            animation__scaleIn="property: scale; to: 1 1 1; dur: 1000; startEvents:opendropdown"
+            animation__visibleIn="property: visible; to: true; dur: 100; startEvents:opendropdown"
+            animation__positionOut="property: position; to: 0 0 -0.15; dur: 1000; startEvents:closedropdown"
+            animation__scaleOut="property: scale; to: 1 0.001 0.001; dur: 1000; startEvents:closedropdown"
+            animation__visibleOut="property: visible; to: false; dur: 100; delay: 500; startEvents:closedropdown">
+
+
+            <a-gui-button width="2.5" height="0.75" onclick="runPage('This Page: What is HTML?')"
+                gui-button="fontFamily:  assets/fonts/PermanentMarker-Regular.ttf;  fontSize:  0.3;  focusColor:  #ffffff79;  activeColor:  #ffffff79"
+                font-family="assets/fonts/PermanentMarker-Regular.ttf" font-size="0.3">
+                <a-entity geometry="width: 2.5; height: 0.75; depth: 0.01" position="0 0 0.005" rotation=""
+                    material="opacity: 0.25; side: double; color: #4bc4ec7c; blending: additive" visible=""></a-entity>
+                <a-entity geometry="width: 2.475; height: 0.725; depth: 0.02" position="0 0 0.01"
+                    material="shader: flat; opacity: 0.38; side: double; color: #8a9bb76e; blending: additive" rotation=""
+                    animation__leave="property: material.color; from: #2c3037a9; to: #22252a2d; dur: 200; easing: easeOutQuad">
+                    <a-entity
+                        troika-text="value: What is HTML?; align: center; color: #00d5ff; font: assets/fonts/PermanentMarker-Regular.ttf; fontSize: 0.22; depthOffset: 1; maxWidth: 2.381; outlineColor: #d4edf2"
+                        troika-text-material="shader: flat;" position="0 0 0.060000000000000005">
+
+                    </a-entity>
+                </a-entity>
+
+            </a-gui-button>
+
+            <a-gui-button width="2.5" height="0.75" onclick="runPage('This Page: HTML Tags')" gui-button="fontFamily:  assets/fonts/PermanentMarker-Regular.ttf;  fontSize:  0.3;  focusColor:  #fff;  activeColor:  #fff"
+                font-family="assets/fonts/PermanentMarker-Regular.ttf" font-size="0.3" >
+                <a-entity geometry="width: 2.5; height: 0.75; depth: 0.01" position="0 0 0.005" rotation=""
+                    material="opacity: 0.92; side: double; color: #4bc4ec; blending: additive" visible=""></a-entity>
+                <a-entity geometry="width: 2.475; height: 0.725; depth: 0.02" position="0 0 0.01"
+                    material="shader: flat; opacity: 0.38; side: double; color: #8a9bb7; blending: additive" rotation=""
+                    animation__leave="property: material.color; from: #2c3037; to: #22252a; dur: 200; easing: easeOutQuad">
+                    <a-entity
+                        troika-text="value: HTML Tags; align: center; color: #00d5ff; font: assets/fonts/PermanentMarker-Regular.ttf; fontSize: 0.22; depthOffset: 1; maxWidth: 2.381; outlineColor: #d4edf2"
+                        troika-text-material="shader: flat;" position="0 0 0.060000000000000005">
+
+                    </a-entity>
+                </a-entity>
+                <a-entity geometry="width: 2.5; height: 0.75; depth: 0.01" position="0 0 0.005" rotation=""
+                    material="shader: flat; opacity: 0.09; side: double; color: #d3d3d4"></a-entity>
+                    <a-entity geometry="width: 2.475; height: 0.725; depth: 0.02" position="0 0 0.01"
+                        material="opacity: 0.3; side: double; color: #78a7c4" rotation=""
+                        animation__leave="property: material.color; from: #2c3037; to: #22252a; dur: 200; easing: easeOutQuad">
+                        <a-entity
+                            troika-text="align: center; color: #d3d3d4; font: assets/fonts/PermanentMarker-Regular.ttf; fontSize: 0.3; depthOffset: 1; maxWidth: 2.380952380952381"
+                            troika-text-material="shader: flat;" position="0 0 0.060000000000000005">
+    
+                        </a-entity>
+                    </a-entity>
+            </a-gui-button>
+            <a-gui-button width="2.5" height="0.75" onclick="runPage('This Page: Using HTML')"
+                gui-button="fontFamily:  assets/fonts/PermanentMarker-Regular.ttf;  fontSize:  0.3;  focusColor:  #fff;  activeColor:  #fff"
+                font-family="assets/fonts/PermanentMarker-Regular.ttf" font-size="0.3">
+                <a-entity geometry="width: 2.5; height: 0.75; depth: 0.01" position="0 0 0.005" rotation=""
+                    material="opacity: 0.92; side: double; color: #4bc4ec; blending: additive" visible=""></a-entity>
+                <a-entity geometry="width: 2.475; height: 0.725; depth: 0.02" position="0 0 0.01"
+                    material="shader: flat; opacity: 0.38; side: double; color: #8a9bb7; blending: additive" rotation=""
+                    animation__leave="property: material.color; from: #2c3037; to: #22252a; dur: 200; easing: easeOutQuad">
+                    <a-entity
+                        troika-text="value: Using HTML; align: center; color: #00d5ff; font: assets/fonts/PermanentMarker-Regular.ttf; fontSize: 0.22; depthOffset: 1; maxWidth: 2.381; outlineColor: #d4edf2"
+                        troika-text-material="shader: flat;" position="0 0 0.060000000000000005">
+
+                    </a-entity>
+                </a-entity>
+            
+            </a-gui-button>
+            <a-gui-icon-button position="0 -1.25 0.010" height="0.5" onclick="closeDropdown" icon="f00d"
+                icon-font="/fonts/fa-solid-900.ttf">
+            </a-gui-icon-button>
+
+        </a-gui-flex-container>
+
+
+    </a-entity>
+</a-entity>
+
+<!-- Camera + cursor. -->
+<a-entity id="cameraRig" position="0 1.6 0">
+    <a-camera look-controls wasd-controls position="0 0 0">
+        <a-gui-cursor id="cursor" raycaster="objects: [gui-interactable]" fuse="true" fuse-timeout="2000" design="ring"
+            gui-cursor="activeColor: lightskyblue">
+        </a-gui-cursor> <!-- /cursor -->
+    </a-camera> <!-- /camera -->
+</a-entity>
+
+
+
+
+
+
+
+
+
+
+<!-- JAVASCRIPT -->
+
+
+<script>
+    window.closeDropdown = function () {
+        console.log("closedropdown");
+        var mydropdown = document.getElementById("mydropdown");
+        mydropdown.emit('closedropdown');
+        var myoptions = document.getElementById("myoptions");
+        myoptions.emit('closedropdown');
+
+    }
+    window.openDropdown = function () {
+        console.log("opendropdown");
+        var mydropdown = document.getElementById("mydropdown");
+        mydropdown.emit('opendropdown');
+        var myoptions = document.getElementById("myoptions");
+        myoptions.emit('opendropdown');
+
+    }
+
+    window.runPage = function (page) {
+        console.log(page)
+        window.location.href = `http://localhost:5000${page}`
+    }
+
+</script>
+
+<!-- HTML -->
+
+
+
+                                <div
+                                    style="width: 100%; height: 100%; position: fixed; left: 0; top: 0; z-index: -1; overflow: hidden; background: #000;">
+                                </div>
+                                <script>
+
+                                    AFRAME.registerComponent('log', {
+                                        init: function () {
+                                            console.log('Hello, World!');
+                                        }
+                                    });
+
+
+
+
+                                </script>
+
+                                <script>
+                                    const htmlEl = document.getElementById('htmlElement')
+                                    console.log(htmlEl)
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
                                 </script>

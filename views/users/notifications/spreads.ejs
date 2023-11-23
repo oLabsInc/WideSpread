@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
 
 .no-requests {
@@ -149,4 +150,157 @@
 
         })
     })
+=======
+<style>
+
+.no-requests {
+    width: calc(90% - 40px);
+    margin: 0 auto;
+    margin-top: 40px;
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    border-radius: 16px;
+    padding: 20px;
+}
+.no-requests p {
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.spread-notification-container {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.spread-notification-item {
+    background-color: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(4px);
+    margin-bottom: 10px;
+    width: 90%;
+    height: 120px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px lightskyblue;
+}
+.spread-notification-avatar {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.spread-notification-avatar img {
+    max-width: 100%;
+    max-height: 100%;
+}
+.spread-notification-data {
+    width: calc(100% - 10px);
+    padding: 5px;
+}
+.spread-notification-data p {
+    color: lightskyblue;
+    font-size: 1.5rem;
+    text-shadow: 0 0 4px #000;
+}
+.spread-notification-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 100px;
+}
+.request-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50%;
+}
+.request-option button {
+    outline: none;
+    border: none;
+    background: transparent;
+    background-color: transparent;
+}
+.request-option i {
+    font-size: 2rem;
+}
+
+</style>
+    <% if (!user.user_background_image) { %>
+        <span style="display: none;"></span>
+    <% } else { %>
+        <div class="user-background-image" style="background:url('<%= user.user_background_image %>') 50% 50% no-repeat; background-size:cover;"></div>
+    <% } %>
+<div class="page-title">
+    <h2>Spread Notifications</h2>
+</div>
+
+<div class="back-button"><a href="/users/dashboard">Dashboard</a></div>
+<div class="page-content">
+    <% if (user.spread_notifications.length > 0) { %>
+        <div class="spread-notification-container">
+            <% user.spread_notifications.forEach(function(notification) { %>
+                <div style="box-shadow: inset 0 0 10px <%= notification.from.favColor1 %>;" class="spread-notification-item">
+                    <div class="spread-notification-avatar">
+                        <% if (notification.from.user_avatar) { %>
+                            <img src="/image/<%= notification.from.user_avatar %>" alt="">
+                        <% } else { %>
+                            <img src="/images/system/default-user-avatar_1a1a1a.png" alt="">
+                        <% } %>
+                    </div>
+                    <div class="spread-notification-data">
+                        <p style="padding: 5px; margin-left: 3px; font-size: 1.5rem; color: <%= notification.from.favColor1 %>;"><%= notification.from.fname %> <%= notification.from.lname %></p>
+                        <p style="padding: 5px; margin-left: 3px; font-size: 1.2rem; color: <%= notification.from.favColor1 %>;"><%= notification.spread_type %></p>
+                    </div>
+                    <div class="spread-notification-options">
+
+                        <div class="request-option">
+                            <a href="/socialspread/view/<%= notification.spread_id %>">
+                                <i data-request-data="<%= notification.from.id %>" style="color: yellowgreen" class="bx bx-chevron-right-circle"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            <% }) %>
+        </div>
+    <% } else { %>
+        <div class="no-requests">
+            <p>You have no Spread notifications at the moment.</p>
+        </div>
+    <% } %>
+</div>
+
+
+<script>
+    const yesButtons = document.querySelectorAll('.yes')
+    const noButtons = document.querySelectorAll('.no')
+
+    yesButtons.forEach(button => {
+        console.log('Yes Button: ', button)
+        button.addEventListener('click', e => {
+            console.log('Button Clicked: ', e.target)
+
+            // Person that sent the requests ID
+            const userRequestingYesEl = e.target
+            const userRequestingYesId = userRequestingYesEl.getAttribute('data-request-data')
+            console.log(userRequestingYesId)
+        })
+    })
+    noButtons.forEach(button => {
+        console.log('No Button: ', button)
+        button.addEventListener('click', e => {
+            console.log('Button Clicked: ', e.target)
+
+        })
+    })
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 </script>

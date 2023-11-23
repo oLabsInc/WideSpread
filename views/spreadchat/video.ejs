@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     #video-grid {
         width: 100vw;
@@ -24,4 +25,32 @@
 
 <script defer src="https://unpkg.com/peerjs@1.3.2/dist/peerjs.min.js"></script>
 <script defer src="/socket.io/socket.io.js"></script>
+=======
+<style>
+    #video-grid {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+</style>
+<script>
+    const ROOM_ID = "<%= roomId %>"
+</script>
+<div id="video-grid"></div>
+
+
+
+<script defer src="https://unpkg.com/peerjs@1.3.2/dist/peerjs.min.js"></script>
+<script defer src="/socket.io/socket.io.js"></script>
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 <script defer src="/logic/video-chat.js"></script>

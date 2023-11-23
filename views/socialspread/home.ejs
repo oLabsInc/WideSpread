@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 
@@ -2289,4 +2290,2297 @@
     })
 
 
+=======
+
+
+
+<style>
+
+    #coreContainer {
+        padding-top: 65px;
+
+    }
+    .spreads-container {
+        padding-bottom: 150px;
+    }
+    .spreads-container-header {
+        margin-top: 30px;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+    .spreads-container-header h3 {
+        color: lightskyblue;
+        font-size: 2rem;
+    }
+    #newSpreadButton {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50%;
+        max-width: 200px;
+        height: 55px;
+        background-color: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(2px);
+        box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.6);
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        z-index: 99995;
+        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #newSpreadButton p {
+        text-align: center;
+        font-size: 1.5rem;
+        text-shadow: 0 0 2px #fff;
+        color: #fff;
+    }
+    #spreadPostHeader {
+        position: fixed;
+        bottom: 350px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        display: none;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(135, 206, 250, 0.5);
+        border-top: outset 1px lightskyblue;
+        border-bottom: solid 3px #555;
+        
+    }
+    #spreadPostHeader h6 {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        color: lightskyblue;
+        font-size: 2rem;
+        text-shadow: 0 0 3px #fff;
+        text-align: center;
+        width: 99%;
+    }
+
+    .spreader-exit-button-container {
+        position: relative;
+        width: 1%;
+    }
+    #spreaderExitButton {
+        position: absolute;
+        top: -45px;
+        right: 10px;
+        background-color: rgba(0, 0, 0, 1);
+        box-shadow: 0 0 5px rgba(255, 68, 0, 0.5), inset 0 0 10px rgba(255, 68, 0, 0.5);
+        border-radius: 50%;
+    }
+    #spreaderContainer {
+        display: none;
+    }
+    #spreadPost {
+        width: 100vw;
+        background-color: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(8px);
+        min-width: 50%;
+        position: fixed;
+        bottom: 50px;
+        left: 0;
+        right: 0;
+        height: 300px;
+        max-height: calc(100vh - 50px);
+        overflow-y: auto;
+        
+    }
+    p {
+        color: #fff;
+    }
+
+    .ss-mini-card-slider {
+        width: 100vw;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        max-height: 250px;
+        padding: 8px;
+    }
+
+    .ss-mini-card {
+        width: 250px;
+        max-width: 250px;
+        max-height: 250px;
+        min-height: 185px;
+        min-width: 200px;
+        background: rgba(85, 85, 85, 0.25);
+        backdrop-filter: blur(4px);
+        margin-right: 15px;
+        padding-bottom: 8px;
+        position: relative;
+        border-radius: 16px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue;
+        overflow: hidden;
+    }
+
+    .ss-mini-card-logo {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 5px;
+        max-height: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 5px;
+        min-height: min-content;
+    }
+
+    .ss-mini-card-logo img {
+        max-width: 100%;
+        max-height: 150px;
+        border-radius: 8px;
+        opacity: 0.75;
+        filter: drop-shadow(0 0 5px rgba(135, 206, 250, 0.5));
+    }
+
+    .ss-mini-card-header {
+        text-align: center;
+        padding: 8px;
+    }
+
+    .ss-mini-card-header p {
+        color: #fff;
+    }
+
+    .ss-mini-card-body {
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+        box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.25), 0 0 4px rgba(255, 255, 255, 0.25);
+        border-top: outset 2px rgba(135, 206, 250, 0.75);
+        border-bottom: outset 2px rgba(135, 206, 250, 0.75);
+        text-align: center;
+        margin-top: 5px;
+        width: 100%;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        overflow: hidden;
+    }
+
+    .ss-mini-card-body a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.2rem;
+    }
+
+    .spreader {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .socialspread-spreader-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        width: 100%;
+
+    }
+
+    .spreader-header {
+        width: 100%;
+        backdrop-filter: blur(4px);
+    }
+
+    .spreader-header h5 {
+        text-align: center;
+        font-size: 2.5rem;
+        width: 100%;
+        color: #fff;
+        text-shadow: 0 0 5px #000;
+        margin-bottom: 15px;
+    }
+
+
+    #spreadPostSave {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: none;
+        height: 50px;
+        backdrop-filter: blur(4px);
+        background-color: rgba(135, 206, 250, 0.5);
+        box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5);
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.25);
+        outline: none;
+        border: none;
+        color: #fff;
+        line-height: 50px;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        min-width: 100vw;
+    }
+
+
+
+
+
+
+    .commentEditor {
+        display: none;
+    }
+    .commentEditor textarea {
+        font-family: 'Gruppo', cursive;
+        color: #fff;
+        font-size: 1rem;
+        width: 100%;
+        height: 100px;
+        background: transparent;
+        font-size: 1.2rem;
+        padding: 8px;
+        outline: none;
+        border: none;
+    }
+    .comment-editor-container {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 40px;
+        background-color: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(4px);
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    }
+
+    .commentEditor {
+        width: 100%;
+    }
+
+    .cancelComment {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 8px;
+        border-bottom: solid 1px red;
+        background-color: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+    }
+
+
+    .comment-editor-container button {
+        background-color: rgba(0, 0, 0, 0.25);
+        margin: 0 auto;
+        outline: none;
+        border: outset 1px lightskyblue;
+        border-bottom: none;
+        color: lightskyblue;
+        font-size: 1.5rem;
+        padding: 8px;
+        width: 100%;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.2), inset 0 0 20px rgba(135, 206, 250, 0.5);
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+    }
+
+    .active {
+        display: block;
+        width: 100%;
+
+    }
+
+    .active>button {
+        margin: 0 auto;
+    }
+
+    .commentEditorObject>.codex-editor--narrow .codex-editor__redactor {
+        width: 100%;
+        padding: auto;
+    }
+
+    .hide {
+        display: none;
+    }
+    .hidden {
+        display: none;
+    }
+    .spread-element {
+
+        word-break: break-word;
+    }
+    .spread-element a {
+        color: lightskyblue;
+        font-weight: bold;
+        word-break: break-all;
+    }
+
+    ol > li.spread-element {
+        list-style: decimal;
+        margin-left: 20px;
+        padding-left: 8px;
+        margin-bottom: 8px;
+    }
+    ol > li.spread-element::marker {
+        font-weight: bold;
+        color: #fff;
+    }
+    table {
+        max-width: 100%;
+        overflow-x: scroll;
+    }
+    .spread-table {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+    .spread-element-table {
+        width: 95%;
+        max-width: 95%;
+        overflow-x: auto;
+        margin: 0 auto;
+        font-size: 1.2rem;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(135, 206, 250, 0.5);
+        border: outset 1px lightskyblue;
+    }
+    .spread-element-table thead {
+        background-color: #000;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+    .spread-element-table th {
+        border-right: solid 1px lightskyblue;
+        padding: 5px;
+        color: lightskyblue;
+        font-weight: bold;
+        transition: ease-in 1s;
+    }
+    .spread-element-table th:hover {
+        background-color: lightskyblue;
+        color: #000;
+        transition: ease-in 0.3s;
+    }
+    .spread-element-table {
+    overflow: hidden;
+    }
+
+    td, th {
+    padding: 10px;
+    position: relative;
+    outline: 0;
+    }
+
+    body:not(.nohover) tbody tr:hover {
+    background-color: rgba(135, 206, 250, 0.5);
+    box-shadow: 0 0 5px #000;
+    border-top: solid 1px #000;
+    border-bottom: solid 1px #000;
+    }
+
+    td:hover::after,
+    thead th:not(:empty):hover::after,
+    td:focus::after,
+    thead th:not(:empty):focus::after { 
+    content: '';  
+    height: 10000px;
+    left: 0;
+    position: absolute;  
+    top: -5000px;
+    width: 100%;
+    z-index: -1;
+    }
+
+    td:hover::after,
+    th:hover::after {
+    background-color: rgba(135, 206, 250, 0.25);
+    box-shadow: 0 0 5px #000;
+    }
+
+    td:focus::after,
+    th:focus::after {
+    background-color: rgba(173, 216, 230, 1);
+    }
+
+    /* Focus stuff for mobile */
+    td:focus::before,
+    tbody th:focus::before {
+    background-color: lightblue;
+    content: '';  
+    height: 100%;
+    top: 0;
+    left: -5000px;
+    position: absolute;  
+    width: 10000px;
+    z-index: -1;
+    }
+    .spread-element-table th:first-of-type {
+        border-top-left-radius: 8px;
+        
+    }
+    .spread-element-table th:last-of-type {
+        border-top-right-radius: 8px;
+        border-right: none;
+
+    }
+    .spread-element-table tbody {
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(4px);
+    }
+    .spread-element-table > tbody > tr {
+        font-weight: normal;
+        transition: ease-in 1s;
+    }
+    .spread-element-table > tbody > tr:hover {
+        background-color: #fff;
+        font-weight: bold;
+        transition: ease-in 0.3s;
+    }
+    .spread-element-table > tbody > tr > td {
+        padding: 5px;
+        border-right: solid 1px #000;
+        box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    .spread-element-table > tbody > tr > td:last-of-type {
+        border-right: none;
+    }
+    .spread-element-table > tbody > tr:last-of-type > td:first-of-type {
+        border-bottom-left-radius: 8px;
+    }
+    .spread-element-table > tbody > tr:last-of-type > td:last-of-type {
+        border-bottom-right-radius: 8px;
+    }
+
+    /* AUDIO SPREAD */
+    #nowPlaying {
+        position: relative;
+        min-height: 200px;
+        margin-bottom: 30px;
+
+    }
+
+    #nowPlayingArt {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -10;
+        width: 100%;
+        height: 100%;
+
+    }
+
+
+    .music-playlists {
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .music-playlists a {
+        color: #fff;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.25), 0 0 3px lightskyblue;
+        border-radius: 8px;
+        background: rgba(135, 206, 250, 0.25);
+        backdrop-filter: blur(4px);
+        padding: 10px;
+        text-decoration: none;
+    }
+    .track-data {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        width: 95%;
+    }
+
+    .details {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 25px;
+        width: 75%;
+        overflow-x: hidden;
+    }
+
+    .track-art {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -10;
+        background-image: URL("/images/system/widespread_logo_1a1a1a.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+    .track-art-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -5;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    /* Changing the font sizes to suitable ones */
+    .now-playing {
+        font-size: 1rem;
+    }
+
+    .track-name {
+        font-size: 1.5rem;
+        text-align: center;
+        padding: 8px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+                line-clamp: 1; 
+        -webkit-box-orient: vertical;
+    }
+
+    .track-artist {
+        font-size: 1.5rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+                line-clamp: 1; 
+        -webkit-box-orient: vertical;
+    }
+
+    /* Using flex with the row direction to
+   align items in a horizontal direction */
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 20%;
+    }
+
+    .buttons i {
+        color: rgba(255, 255, 255, 0.5);
+        text-shadow: 0 0 5px rgba(135, 206, 250, 0.75);
+        max-width: 30%;
+    }
+
+    .playpause-track,
+    .prev-track,
+    .next-track {
+        padding: 5px;
+        opacity: 0.8;
+
+        /* Smoothly transition the opacity */
+        transition: opacity .2s;
+    }
+
+    /* Change the opacity when mouse is hovered */
+    .playpause-track:hover,
+    .prev-track:hover,
+    .next-track:hover {
+        opacity: 1.0;
+    }
+
+    /* Define the slider width so that it scales properly */
+    .slider_container {
+        width: 95%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        max-width: 400px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .track-length {
+    }
+    .track-length > div {
+        max-width: 15%;
+        overflow: hidden;
+    }
+    .track-length input {
+        max-width: 70%;
+    }
+    .volume-container {
+        width: 75%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+    /* Modify the appearance of the slider */
+    .seek_slider,
+    .volume_slider {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        height: 5px;
+        background: rgba(0, 0, 0, 0.5);
+        box-shadow: inset 0 0 2px lightskyblue, 0 0 8px rgba(255, 255, 255, 0.25);
+        border-radius: 2px;
+        opacity: 0.7;
+
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+    }
+
+    /* Modify the appearance of the slider thumb */
+    .seek_slider::-webkit-slider-thumb,
+    .volume_slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 15px;
+        height: 15px;
+        background: rgba(135, 206, 250, 0.5);
+        box-shadow: inset 0 0 5px #fff, 0 0 5px rgba(255, 255, 255, 0.25);
+        cursor: pointer;
+        border-radius: 50%;
+    }
+
+    /* Change the opacity when mouse is hovered */
+    .seek_slider:hover,
+    .volume_slider:hover {
+        opacity: 1.0;
+    }
+
+    .seek_slider {
+        width: 60%;
+    }
+
+    .volume_slider {
+        width: 70%;
+    }
+    .current-time {
+        text-align: right;
+    }
+    .current-time,
+    .total-duration {
+    }
+
+    i.fa-volume-down,
+    i.fa-volume-up {
+        padding: 10px;
+    }
+
+    /* Change the mouse cursor to a pointer
+   when hovered over */
+    i.fa-play-circle,
+    i.fa-pause-circle,
+    i.fa-step-forward,
+    i.fa-step-backward {
+        cursor: pointer;
+    }
+.scrolled-down{
+  transform:translateY(calc(-100% - 52px)); transition: all 0.3s ease-in-out;
+}
+.scrolled-up{
+  transform:translateY(0); transition: all 0.3s ease-in-out;
+}
+
+        .player {
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 16px;
+            border-top: outset 1px rgba(255, 255, 255, 0.25);
+            border-bottom: outset 1px rgba(255, 255, 255, 0.25);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            color: #fff;
+            backdrop-filter: blur(4px);
+            position: fixed;
+            top: 52px;
+            left: 0;
+            right: 0;
+            width: 100vw;
+            z-index: 2000;
+        }
+        
+        .player > .buttons {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+    .playing-options {
+        width: 25%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .loop-button {
+        text-align: right;
+    }
+    .loop-button i {
+        font-size: 2rem;
+        text-shadow: 0 0 5px rgb(135 206 250 / 75%);
+
+    }
+
+
+
+    .spread-container-audio {
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        max-width: 90vw;
+        width: 500px;
+        margin: 0 auto;
+        margin-top: 30px;
+        transition: ease-in 1;
+        border-radius: 16px;
+    }
+    .spread-container-audio:hover {
+        background-color: rgba(0, 0, 0, 0.75);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
+        transition: ease-in 0.3s;
+    }
+    .spread-container-audio-header {
+    }
+    .spread-container-audio-data {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(4px);
+        padding-bottom: 15px;
+        border-bottom-left-radius: 16px;
+        border-bottom-right-radius: 16px;
+    }
+        .song {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        border-top: outset 1px rgba(255, 255, 255, 0.5);
+        border-bottom: outset 1px rgba(255, 255, 255, 0.5);
+        border-radius: 8px;
+    }
+
+    .song p {
+        color: #fff;
+        width: 100%;
+        text-align: center;
+    }
+
+    .song-body {
+        margin-left: 5px;
+        padding: 5px;
+        width: calc(100% - 100px);
+        padding-left: 10px;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        background-color: rgba(255, 255, 255, 0.25);
+        border: outset 1px #fff;
+        border-right: none;
+    }
+
+    .song-body h6 {
+        font-size: 1.2rem;
+        padding: 5px;
+    }
+    .song-path {
+        display: none;
+    }
+    .song-image {
+        width: 100px;
+        height: 100px;
+    }
+    .song-image img {
+        max-height: 100px;
+        max-width: 100px;
+        border-radius: 8px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+    }
+
+
+
+
+    /* VIDEO SPREADS */
+    .spread-container-video {
+        margin: 0 auto;
+        margin-top: 30px;
+        max-width: 90vw;
+        width: 500px;
+        transition: ease-in 1s;
+        border-radius: 16px;
+        
+    }
+    .spread-container-video:hover {
+        background-color: rgba(0, 0, 0, 0.75);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
+        transition: ease-in 0.3s;
+    }
+    .spread-container-video-data {
+        background-color: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(4px);
+        text-align: center;
+        padding-bottom: 20px;
+        border-bottom-left-radius: 16px;
+        border-bottom-right-radius: 16px;
+        border: outset 1px lightskyblue;
+        width: calc(100% - 2px);
+    }
+    .spread-container-video-data iframe {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 15px;
+        border-radius: 8px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+    }
+
+
+    .video-info {
+        padding-top: 10px;
+    }
+    .video-info span {
+        color: #fff;
+    }
+    .video-info h5 {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 10px;
+        color: lightskyblue;
+        font-weight: bold;
+        
+    }
+    .movie-genres {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+    .movie-director {
+        text-align: center;
+    }
+
+    .movie-cast-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+    .video-info h6 {
+        text-align: center;
+        font-size: 1.3rem;
+        color: lightskyblue;
+        margin-top: 10px;
+        padding-bottom: 8px;
+    }
+    .movie-cast {
+        margin-right: 8px;
+    }
+
+
+    .other-data {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+    .other-data span {
+    }
+
+
+    .movie-photos {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        align-items: center;
+        justify-content: flex-start;
+        width: 97%;
+        margin: 0 auto;
+        margin-top: 15px;
+        padding-left: 10px;
+    }
+    .movie-photo {
+        width: 200px;
+        margin-right: 10px;
+        margin-bottom: 5px;
+    }
+    .movie-photo img {
+        max-height: 200px;
+        max-width: 200px;
+        border-radius: 8px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .spread-item-mini-menu {
+        margin-top: 8px;
+        margin-right: 8px;
+        font-size: 2rem;
+        width: 35px;
+        text-align: center;
+        cursor: pointer;
+
+    }
+    .spread-item-mini-menu i {
+        /* color: #ffffff25; */
+        text-shadow: 0 0 2px rgba(135, 206, 250, 0.5);
+    }
+
+
+
+
+
+
+/* .mini-menu-data-container */
+    /* 
+
+        data-spread-id="6347303a5c86b63154a31689" 
+    */
+
+    .mini-menu-data-container {
+        background-color: rgba(0, 0, 0, 0.75);
+        background-color: rgba(0, 255, 0, 0.356);
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        padding: 5px;
+        font-size: 1rem;
+        border-radius: 4px;
+        border-top-right-radius: 16px;
+        backdrop-filter: blur(10px);
+        border-bottom: solid 1px rgba(135, 206, 250, 0.75);
+        border-left: solid 1px rgba(135, 206, 250, 0.75);
+        box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.6);
+        
+    }
+    .mini-menu-data-container-inner {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 0.25rem;
+        background-color: aqua;
+    }
+
+    .mini-menu-data-container i {
+        padding: 5px;
+        /* color: lightskyblue; */
+        font-size: 1.2rem;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
+    }
+
+    .delete-spread-button {
+        color: orangered;
+    }
+    .spread-item-mini-menu-option {
+        background-color: blue;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .spread-item-mini-menu-option-modal {
+        background-color: hotpink;
+        user-select: none;
+        display: none;
+        
+    }
+
+
+
+
+</style>
+<%- include('../partials/menus/socialspread'); %>
+        
+<div id="userId" data-user-id="<%= user.id %>"></div>
+<div class="zone-title">
+    <h1>
+        <%= zone %>
+    </h1>
+</div>
+
+
+
+<div class="player autohide">
+    <div class="track-art"></div>
+    <div class="track-art-overlay"></div>
+    <div class="track-data">
+        <div class="details">
+            <div class="now-playing" style="display: none;">Now Playing x of y</div>
+            <div class="track-name">Track Name</div>
+            <div class="track-artist">Track Artist</div>
+        </div>
+
+        <div class="buttons">
+            <div class="prev-track" onclick="prevTrack()">
+                <i class="fa fa-step-backward fa-1x"></i>
+            </div>
+            <div class="playpause-track" onclick="playpauseTrack()">
+                <i class="fa fa-play-circle fa-2x"></i>
+            </div>
+            <div class="next-track" onclick="nextTrack()">
+                <i class="fa fa-step-forward fa-1x"></i>
+            </div>
+        </div>
+    </div>
+    <div class="slider_container track-length">
+        <div class="current-time">00:00</div>
+        <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
+
+        <div class="total-duration">00:00</div>
+        <div class="playing-options">
+            <div class="loop-button" onclick="loop()"><i class="fas fa-sync"></i></div>
+        </div>
+    </div>
+
+
+</div>
+
+    <div id="spreadsContainerElem" class="spreads-container">
+        <div class="spreads-container-header">
+
+            <h3>Recent Spreads</h3>
+        </div>
+        <% spreads.forEach(function(spread) { %>
+                <% if (spread.spread_type === 'generic') { %>
+                <div class="spread-container-item" data-spread-id="<%= spread.id %>" data-spread-author="<%= spread.author.id %>">
+                    <div class="spread-header">
+                        <a href="/users/<%= spread.author.id %>">
+                            <div class="spread-header-image">
+                                <% if (spread.author.user_avatar) { %>
+                                    <img src="/image/<%= spread.author.user_avatar %>" alt="">
+                                <% } else { %>
+                                    <img src="/images/system/default-user-avatar_1a1a1a.png" alt="">
+                                <% } %>
+                            </div>
+                        </a>
+                        <div class="spread-header-text">
+                        <a href="/users/<%= spread.author.id %>">
+                            <h6><%= spread.author.fname %> <%= spread.author.lname %></h6>
+                        </a>
+                            <p class="spreadAt"><%= spread.created_at.toLocaleDateString(undefined, { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' }) %> - <%= spread.created_at.toLocaleTimeString("en-US", {timeZone:"Canada/Eastern", hour12 : true, hour:  "numeric", minute: "numeric",seconds:"numeric"}) %> </p>
+                        </div>
+                        <div class="spread-item-mini-menu">
+                            <i class="fas fa-dice-d20" data-spread-info="<%= spread.spread_type %>"></i>
+                            <% if (spread.author.id == user.id) { %>
+
+                                <div class="mini-menu-data-container hidden" data-spread-id="<%= spread.id %>">
+
+                                    <div class="mini-menu-data-container-inner">
+                                        
+                                        
+                                        <div class="spread-item-mini-menu-option">
+                                            <i class="bx bx-trash delete-spread-button"></i>
+                                            <div class="spread-item-mini-menu-option-modal">
+                                                <a href="/socialspread/social/spread/<%= spread.id %>/delete">
+                                                    <span>Yes, delete this Spread<i class="bx bx-trash"></i></span>
+                                                    <span>Nevermind, keep this Spread <i class="bx bx-x-circle"></i></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="spread-item-mini-menu-option">
+                                            <i class="bx bx-pencil edit-spread"></i>
+                                        </div>
+                                        <div class="spread-item-mini-menu-option">
+                                            <i class="fas fa-share-alt share-spread"></i>
+                                        </div>
+                                        <div class="spread-item-mini-menu-option">
+                                            <i class="far fa-save"></i>
+                                        </div>
+                                        <div class="spread-item-mini-menu-option">
+                                            <i class="far fa-plus-square"></i>
+                                        </div>
+                                        <div class="spread-item-mini-menu-option">
+                                            <i style="color: orangered;" class="bx bx-x-circle close-mini-menu-btn"></i>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                            <% } else { %>
+                                <div class="mini-menu-data-container hidden" data-spread-id="<%= spread.id %>">
+                                    <i class="fas fa-share-alt"></i>
+                                    <i class="far fa-save"></i>
+                                    <i class="far fa-plus-square"></i>
+                                    <i class="far fa-flag"></i>
+                                    <i class="far fa-eye-slash"></i>
+                                    <i style="color: orangered;" class="bx bx-x-circle close-mini-menu-btn"></i>
+                                </div>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="spread-body">
+                        <% spread.generic_spread.spreadData.forEach(function(spreadBlock) { %>
+
+                            <% if (spreadBlock.type==='header' ) { %>
+                                <h3 class="spread-element">
+                                    <%- spreadBlock.data.text %>
+                                </h3>
+                                <% } %>
+                                    <% if (spreadBlock.type==='paragraph' ) { %>
+                                        <p class="spread-element">
+                                            <%- spreadBlock.data.text %>
+                                        </p>
+                                        <% } %>
+
+                                            <% if (spreadBlock.type==='quote' ) { %>
+                                                <p class="quote spread-element">"<%- spreadBlock.data.text %>"</p>
+                                                <p><strong class="spread-element">- <%- spreadBlock.data.caption %></strong></p>
+                                                <% } %>
+
+                                                    <% if (spreadBlock.type==='list' ) { %>
+                                                        <ol>
+                                                            <% spreadBlock.data.items.forEach(function(listItem) { %>
+                                                                <li class="spread-element">
+                                                                    <%- listItem %>
+                                                                </li>
+                                                                <% }) %>
+                                                        </ol>
+                                                        <% } %>
+                        <% if (spreadBlock.type==='table' ) { %>
+                            <div class="spread-table">
+                            <table class="spread-element-table">
+
+                                <thead>
+                                    <tr>
+                                        <% spreadBlock.data.content[0].forEach(function(tr) { %>
+                                            <th><%= tr %></th>
+                                        <% }) %>
+
+                                    </tr>
+                                    <tr></tr>
+                                </thead>
+                                <tbody>
+                                    <% spreadBlock.data.content.forEach(function(tableRow) { %>
+                                        <% if (spreadBlock.data.content[0] === tableRow) { %>
+                                            <tr style="display: none;">
+                                            </tr>
+                                        <% } else { %>
+                                            <tr>
+                                                <% tableRow.forEach(function(td) { %>
+                                                    <td><%= td %></td>
+                                                <% }) %>
+                                            </tr>
+                                        <% } %>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                            </div>
+                        <% } %>
+
+
+
+                                                            <% }) %>
+                    </div>
+
+                    <div class="comment-section">
+                        <div class="comment-section-header">
+                            <h6>Comments</h6>
+                        </div>
+
+                        <div class="comments-container">
+                            <% comments.forEach(function(comment) { %>
+                                <% if (comment.fromPost == spread.id) { %>
+                                    <div class="comment">
+                                        <div class="comment-header">
+                                            <div class="comment-header-image">
+                                                <img src="/image/<%= comment.author.user_avatar %>" alt="User Avatar">
+                                            </div>
+                                            <div class="comment-header-text">
+                                                <div class="comment-author">
+                                                    <p><%= comment.author.fname %> <%= comment.author.lname %></p>
+                                                </div>
+                                                <div class="comment-body">
+                                                    <p><%= comment.commentBody %></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% } %>
+                            <% })  %>
+
+
+
+                            <div class="comment-editor-container" data-spread-id="<%= spread.id %>">
+                                <div class="commentEditor" data-spread-id="<%= spread.id %>">
+                                    <div class="cancel-comment-container">
+                                        <p style="color: orangered" class="cancelComment" data-spread-id="<%= spread.id %>">Cancel
+                                        </p>
+                                    </div>
+
+                                    <div class="commentEditorObject" id="commentID<%= spread.id %>"
+                                        data-spread-id="<%= spread.id %>"></div>
+                                    <form action="/socialspread/social/spread-it/comment/<%= spread.id %>" method="post">
+                                        <textarea name="commentBody"></textarea>
+                                        <button class="addCommentToSpeadBtn" data-spread-id="<%= spread.id %>">Spread It</button>
+                                        </form>
+                                </div>
+
+                            </div>
+                            <div class="add-comment-button">
+                                <p class="addCommentButton" data-spread-id="<%= spread.id %>">Add Comment</p>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <% } %>
+
+                <% if (spread.spread_type === 'audio') { %>
+                    <div class="spread-container-audio">
+                        <div class="spread-container-audio-header">
+                            <div class="spread-header">
+                                <div class="spread-header-image">
+                                    <img src="/image/<%= spread.author.user_avatar %>" alt="">
+                                </div>
+                                <div class="spread-header-text">
+                                    <h6>
+                                        <%= spread.author.fname %>
+                                            <%= spread.author.lname %>
+                                    </h6>
+                                    <p class="spreadAt"><%= spread.created_at.toLocaleDateString(undefined, { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' }) %> - <%= spread.created_at.toLocaleTimeString("en-US", {timeZone:"Canada/Eastern", hour12 : true, hour:  "numeric", minute: "numeric",seconds:"numeric"}) %> </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spread-container-audio-data">
+                            <div class="song-image">
+                                <img src="<%= spread.audio_post.background_photo %>" alt="">
+                            
+                            </div>
+                        <div class="song-body" onclick="thisSong(this)">
+                            
+                            <h6 class="song-name">
+                                <%= spread.audio_post.song %>
+                            </h6>
+                            <p class="song-artist">
+                                <%= spread.audio_post.artist %>
+                            </p>
+                            <p class="song-path">/audio/<%= spread.audio_post.img.data %>
+                            </p>
+                            <div class="song-image-src" style="display: none;">
+                                <%= spread.audio_post.background_photo %>
+                            </div>
+
+                            <p class="song-id" style="display: none;"><%= spread.audio_post.id %></p>
+                        </div>
+
+                    </div>
+
+                    </div>
+                <% } %>
+
+                <% if (spread.spread_type === 'video') { %>
+                    <div class="spread-container-video">
+                        <div class="spread-container-video-header">
+                            <div class="spread-header">
+                                <div class="spread-header-image">
+                                    <img src="/image/<%= spread.author.user_avatar %>" alt="">
+                                </div>
+                                <div class="spread-header-text">
+                                    <h6>
+                                        <%= spread.author.fname %>
+                                            <%= spread.author.lname %>
+                                    </h6>
+                                    <p class="spreadAt"><%= spread.created_at.toLocaleDateString(undefined, { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' }) %> - <%= spread.created_at.toLocaleTimeString("en-US", {timeZone:"Canada/Eastern", hour12 : true, hour:  "numeric", minute: "numeric",seconds:"numeric"}) %> </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spread-container-video-data">
+                            <div class="video-info">
+                                <h5><%= spread.video_post.spread_movie.title %></h5>
+                                <div class="movie-genres">
+                                    <% spread.video_post.spread_movie.genres.forEach(function(genre) { %>
+                                        <span class="movie-genre"><%= genre %></span>
+                                    <% }) %>
+                                </div>
+                                <div class="movie-director">
+                                    <h6>Directed By:</h6>
+                                    <p><%= spread.video_post.spread_movie.director %></p>
+                                </div>
+                                <h6>Cast</h6>
+                                <div class="movie-cast-list">
+                                    <% spread.video_post.spread_movie.cast.forEach(function(cast) { %>
+                                        <span class="movie-cast"><%= cast %></span>
+                                    <% }) %>
+                                </div>
+                                <h6>More Info:</h6>
+                                <div class="other-data">
+                                    <span>Rated: <%= spread.video_post.spread_movie.rated %></span>
+                                    <span>Runtime: <%= spread.video_post.spread_movie.runtime %></span>
+                                    <span>Year: <%= spread.video_post.spread_movie.year %></span>
+                                </div>
+                            </div>
+
+                            <div class="movie-photos">
+                                <% spread.video_post.spread_movie.movie_photos.forEach(function(photo) { %>
+                                    <div class="movie-photo">
+                                        <img src="<%= photo %>" alt="">
+                                    </div>
+                                <% }) %>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                <% } %> 
+
+                <% if (spread.spread_type === 'question') { %>
+
+                <% } %>
+
+
+                <% if (spread.spread_type === 'poll') { %>
+
+                <% } %>
+
+
+                <% if (spread.spread_type === 'event') { %>
+
+                <% } %>
+
+
+                <% if (spread.spread_type === 'photo') { %>
+
+                <% } %>
+
+
+
+            <% }) %>
+    </div>
+
+
+    <div id="newSpreadButton">
+        <p>Spread Something</p>
+    </div>
+    <div id="spreaderContainer" class="spreader">
+        <div class="socialspread-spreader-container">
+            <div class="spreader-header">
+                <h5>Spread Something</h5>
+            </div>
+            <div id="spreadPostHeader">
+                <div class="spreader-header">
+                    <h6>Spread Something</h6>
+                </div>
+                <div class="spreader-exit-button-container">
+                    <div id="spreaderExitButton"><i style="color: orangered; font-size: 2.5rem;" class="far fa-times-circle"></i></div>
+                </div>
+            </div>
+            <div id="spreadPost"></div>
+
+            <button id="spreadPostSave">Spread It</button>
+        </div>
+    </div>
+
+    <div id="articleDataContainer"></div>
+
+    <script src="../dist/editor.js"></script>
+    <script src="./tools/header/dist/bundle.js"></script>
+
+    <script>
+        const newSpreadBtn = document.getElementById('newSpreadButton')
+        const spreaderContainerEl = document.getElementById('spreaderContainer')
+        const spreaderExitBtn = document.getElementById('spreaderExitButton')
+        const spreadPostHeaderEl = document.getElementById('spreadPostHeader')
+        const spreadPostSave = document.getElementById('spreadPostSave')
+        
+        newSpreadBtn.addEventListener('click', e => {
+            spreaderContainerEl.style.display = 'flex'
+            newSpreadBtn.style.display = 'none'
+            spreadPostHeaderEl.style.display = 'flex'
+            spreadPostSave.style.display = 'flex'
+            
+        })
+        spreaderExitBtn.addEventListener('click', e => {
+            spreaderContainerEl.style.display = 'none'
+            spreadPostHeaderEl.style.display = 'none'
+            newSpreadBtn.style.display = 'flex'
+            spreadPostSave.style.display = 'none'
+        })
+
+    </script>
+    <script>
+
+        let articleDataContainer = document.getElementById('articleDataContainer')
+        let articleData = document.createElement('p')
+        articleData.classList.add('article-data')
+
+
+        const spreader = new EditorJS({
+            holder: 'spreadPost',
+            tools: {
+                header: {
+                    class: Header,
+                    shortcut: 'CMD+SHIFT+H',
+                    inlineToolbar: ['link']
+                },
+                list: {
+                    class: List,
+                    inlineToolbar: true
+                },
+                image: SimpleImage,
+                checklist: Checklist,
+                quote: Quote,
+                embed: Embed,
+                table: Table,
+                raw: {
+                    class: RawTool,
+                    placeholder: 'Enter code...'
+                }
+            },
+            autofocus: true,
+            placeholder: 'Spread Something Awesome!'
+        })
+
+        spreader.isReady
+            .then(() => {
+                console.log('Editor.js is ready to work!')
+                /** Do anything you need after editor initialization */
+            })
+            .catch((reason) => {
+                console.log(`Editor.js initialization failed because of ${reason}`)
+            });
+
+
+
+        const spreadSaveBtn = document.getElementById('spreadPostSave')
+        spreadSaveBtn.addEventListener("click", (e) => {
+
+
+            spreader.save().then((outputData) => {
+
+                console.log('Article data: ', outputData.blocks)
+
+                const url = "https://www.widespread.world/socialspread/social/spread-it"
+                let spreadData = outputData.blocks
+
+                // event.preventDefault();
+                console.log(event);
+
+                console.log('spreadData: ', spreadData);
+                const spreadObject = { spreadData }
+
+                fetch('/socialspread/business/spread-it', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(spreadObject)
+
+                }).then(response => response.json()).then((data) => {
+                    console.log(data)
+                    // Create a render function to add the todo to the DOM
+                    
+                }).catch(e => console.log(`Error is ${e}`))
+            })
+            location.reload()
+
+
+        })
+
+
+
+
+
+    </script>
+
+
+    <script>
+        const allSpreadBodies = document.querySelectorAll('.spread-body')
+
+        const allSpreadEls = document.querySelectorAll('.spread-element')
+        allSpreadEls.forEach(el => {
+            const normalizedEl = el.textContent
+            // console.log(normalizedEl)
+            const str = normalizedEl
+
+            
+            const regex = /<a[\s\S]*?>[\s\S]*?<\/a>/gi;
+            // const regex = new RegExp('<a[\\s\\S]*?>[\\s\\S]*?<\\/a>', 'gi')
+
+
+            // Alternative syntax using RegExp constructor
+            // const regex = new RegExp('<a[\\s\\S]*?>[\\s\\S]*?<\\/a>', 'gi')
+
+            let m;
+
+            while ((m = regex.exec(str)) !== null) {
+                // This is necessary to avoid infinite loops with zero-width matches
+                if (m.index === regex.lastIndex) {
+                    regex.lastIndex++;
+                }
+
+                // The result can be accessed through the `m`-variable.
+                m.forEach((match, groupIndex) => {
+                    const thisEl = el
+                    console.log(thisEl)
+                    // console.log(`Found match, group ${groupIndex}: ${match}`);
+                    console.log(match)
+                    const newLink = document.createElement('a')
+                    var string = match
+                    var pattern = /.*href="(.*)".*/;
+                    var href = string.replace(pattern, '$1');
+                    console.log(href)
+                    newLink.innerHTML = match
+                    newLink.style.color = 'lime'
+                    thisEl.appendChild(newLink)
+                    // el.replace(match, newLink);
+
+                });
+            }
+
+        })
+/*         allSpreadBodies.forEach(spread => {
+            // console.log('Spread: ', spread)
+            const checkNodes = spread.childNodes
+            checkNodes.forEach(node => {
+                const checkString = node.innerHTML
+                // console.log('Node: ', node)
+                const paragraphs = node.querySelectorAll('p')
+                paragraphs.forEach(tag => {
+
+                })
+               
+                //  console.log(node.innerHTML)
+
+            })
+        })
+ */
+    </script>
+    <script>
+        document.addEventListener('click', (e) => {
+            const codeSnippets = document.querySelectorAll('.ce-rawtool')
+            if (codeSnippets.length > 0) {
+                codeSnippets.forEach(snippet => {
+                    const snippetTextarea = snippet.querySelector('textarea')
+                    snippetTextarea.setAttribute('spellcheck', 'false')
+                })
+            }
+        })
+    </script>
+
+
+    <script>
+        const addCommentBtn = document.querySelectorAll('.addCommentButton')
+        let commentEditor = document.querySelectorAll('.commentEditor')
+
+        addCommentBtn.forEach((button, index) => {
+            const thisButton = index + 1
+            const thisSpreadId = button.getAttribute('data-spread-id')
+            button.addEventListener('click', (e) => {
+                commentEditor.forEach((editor, index) => {
+                    const thisCommentEditor = editor.getAttribute('data-spread-id')
+
+                    if (thisCommentEditor === thisSpreadId) {
+                        editor.classList.add('active')
+                        button.classList.add('hide')
+
+
+
+                        const cancelBtn = document.querySelectorAll('.cancelComment')
+
+                        cancelBtn.forEach((canButton, index) => {
+
+                            const thisCancelBtn = canButton.getAttribute('data-spread-id')
+                            if (thisCancelBtn === thisSpreadId) {
+                                canButton.addEventListener('click', (e) => {
+                                    editor.classList.remove('active')
+                                    button.classList.remove('hide')
+                                })
+                            }
+
+                        })
+
+
+                    } else {
+
+                    }
+                })
+                // commentEditor.classList.add('active')
+            })
+        })
+    </script>
+
+
+    <script>
+
+                /*
+
+        let allCommentEditorsArray = []
+
+
+        const allCommentEditors = document.querySelectorAll('.commentEditorObject')
+        allCommentEditors.forEach((editor, index) => {
+
+            const editorId = editor.getAttribute('data-spread-id')
+
+            const thisSpreadId = editor.getAttribute('data-spread-id')
+
+            if (editorId === thisSpreadId) {
+                const thisEditorsId = 'commentID' + editorId
+                const spreaderComment = new EditorJS({
+                    holder: thisEditorsId,
+                    tools: {
+                        header: {
+                            class: Header,
+                            shortcut: 'CMD+SHIFT+H',
+                            inlineToolbar: ['link']
+                        },
+                        list: {
+                            class: List,
+                            inlineToolbar: true
+                        },
+                        image: SimpleImage,
+                        checklist: Checklist,
+                        quote: Quote,
+                        embed: Embed,
+                        table: Table,
+                        raw: {
+                            class: RawTool,
+                            placeholder: 'Enter code...'
+                        }
+                    },
+                    autofocus: true,
+                    placeholder: 'Spread some knowledge on this!'
+                })
+
+                spreaderComment.isReady
+                    .then(() => {
+                        console.log('Editor.js is ready to work!')
+                    })
+                    .catch((reason) => {
+                        console.log(`Editor.js initialization failed because of ${reason}`)
+                    });
+
+
+
+                    
+                                const allSpreadCommentBtns = document.querySelectorAll('.addCommentToSpeadBtn')
+                allSpreadCommentBtns.forEach(spreadCommentBtn => {
+                    const spreadCommentBtnId = spreadCommentBtn.getAttribute('data-spread-id')
+                    const allSpreadContainers = document.querySelectorAll('.spread-container-item')
+                    allSpreadContainers.forEach(spreadContainer => {
+                        const spreadContainerId = spreadContainer.getAttribute('data-spread-id')
+
+
+                        spreadCommentBtn.addEventListener("click", (e) => {
+                            const currentSpreadEl = e.target
+                            const currentSpreadId = currentSpreadEl.getAttribute('data-spread-id')
+                            console.log('CURRENT SPREAD ELEMENT: ', currentSpreadEl)
+                            if (spreadContainerId === currentSpreadId) {
+                                console.log('MATCHING COMMENT ID')
+                                spreaderComment.save().then((outputData) => {
+
+                                    console.log('Comment data: ', outputData.blocks)
+
+                                    const url = `https://www.widespread.world/socialspread/business/${spreadContainerId}/spread-more`
+                                    let spreadData = outputData.blocks
+
+                                    // event.preventDefault();
+                                    console.log(event);
+
+                                    console.log('spreadData: ', spreadData);
+                                    const spreadObject = { spreadData }
+
+                                    fetch('/socialspread/business/spread-it', {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify(spreadObject)
+
+                                    }).then(response => response.json()).then((data) => {
+                                        console.log(data)
+                                        // Create a render function to add the todo to the DOM
+
+                                    }).catch(e => console.log(`Error is ${e}`))
+                                })
+                                // location.reload()
+
+                            }
+                        })
+                    })
+                }) 
+            }
+            
+        })
+        */
+
+
+    </script>
+
+
+<!-- AUDIO PLAYER -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        el_autohide = document.querySelector('.autohide');
+
+        // add padding-top to bady (if necessary)
+        player_height = document.querySelector('.player').offsetHeight;
+        document.body.style.paddingTop = player_height + 'px';
+
+        if (el_autohide) {
+            var last_scroll_top = 0;
+            window.addEventListener('scroll', function () {
+                let scroll_top = window.scrollY;
+                if (scroll_top < last_scroll_top) {
+                    el_autohide.classList.remove('scrolled-down');
+                    el_autohide.classList.add('scrolled-up');
+                }
+                else {
+                    el_autohide.classList.remove('scrolled-up');
+                    el_autohide.classList.add('scrolled-down');
+                }
+                last_scroll_top = scroll_top;
+            });
+            // window.addEventListener
+        }
+        // if
+
+    }); 
+</script>
+<script>
+    const loopButton = document.querySelector('.loop-button')
+    loopButton.setAttribute('style', 'color: rgba(255, 255, 255, 0.5)')
+    let now_playing = document.querySelector(".now-playing");
+    let track_art = document.querySelector(".track-art");
+    let track_name = document.querySelector(".track-name");
+    let track_artist = document.querySelector(".track-artist");
+
+    let playpause_btn = document.querySelector(".playpause-track");
+    let next_btn = document.querySelector(".next-track");
+    let prev_btn = document.querySelector(".prev-track");
+
+    let seek_slider = document.querySelector(".seek_slider");
+    let volume_slider = document.querySelector(".volume_slider");
+    let curr_time = document.querySelector(".current-time");
+    let total_duration = document.querySelector(".total-duration");
+
+    // Specify globally used values
+    let track_index = 0;
+    let isPlaying = false;
+    let updateTimer;
+
+    // Create the audio element for the player
+    let curr_track = document.createElement('audio');
+    curr_track.setAttribute('crossOrigin', "anonymous")
+    // Define the list of tracks that have to be played
+    let track_list = [];
+    const allSongs = document.querySelectorAll('.spread-container-audio')
+    allSongs.forEach((song, i) => {
+        let songData = {
+            id: song.querySelector('.song-id').innerHTML,
+            name: song.querySelector('.song-name').innerHTML,
+            artist: song.querySelector('.song-artist').innerHTML,
+            image: song.querySelector('.song-image-src').innerHTML,
+            path: song.querySelector('.song-path').innerHTML
+        }
+        track_list.push(songData)
+        // console.table(songData)
+        console.log(allSongs[i])
+    })
+    console.log('allSongs', allSongs)
+
+    function thisSong(songDiv) {
+        let songIds = []
+        let songId = songDiv.querySelector('.song-id').innerHTML
+
+        console.log(songId)
+        allSongs.forEach((song, index) => {
+
+            let songData = {
+                id: song.querySelector('.song-id').innerHTML,
+                name: song.querySelector('.song-name').innerHTML,
+                artist: song.querySelector('.song-artist').innerHTML,
+                image: song.querySelector('.song-image-src').innerHTML,
+                path: song.querySelector('.song-path').innerHTML
+            }
+            if (songId === songData.id) {
+                console.log('Song Name: ', songData.name)
+                console.log('Song ID: ', songData.id)
+                loadTrack([index])
+                playTrack() || playThisTrack()
+
+                let songListPlayBtn = song.querySelector('.play')
+                let songListPauseBtn = song.querySelector('.pause')
+                songListPauseBtn.classList.add('hidden')
+                if (!isPlaying) {
+/*                     songListPlayBtn.classList.remove('hidden')
+                    songListPauseBtn.classList.add('hidden')
+                    console.log('Paused - Should Show Play Buttton') */
+
+                } else {
+/*                     songListPlayBtn.classList.add('hidden')
+                    songListPauseBtn.classList.remove('hidden')
+                    console.log('Playing - Should Show Pause Buttton') */
+                }
+                console.log('Play Button: ', songListPlayBtn)
+                console.log('Pause Button: ', songListPauseBtn)
+                console.log('if (songId === songData.id) inside allSongs.forEach(): ', song)
+
+            }
+            songIds.push(songData)
+        })
+
+
+    }
+
+
+
+    function loadTrack(track_index) {
+        // Clear the previous seek timer
+        clearInterval(updateTimer);
+        resetValues();
+
+        // Load a new track
+        curr_track.src = track_list[track_index].path;
+        curr_track.load();
+
+        // Update details of the track
+        track_art.style.backgroundImage =
+            "url(" + track_list[track_index].image + ")";
+        track_name.textContent = track_list[track_index].name;
+        track_artist.textContent = track_list[track_index].artist;
+        now_playing.textContent =
+            "Now Playing " + (track_index + 1) + " of " + track_list.length;
+
+        // Set an interval of 1000 milliseconds
+        // for updating the seek slider
+        updateTimer = setInterval(seekUpdate, 1000);
+
+        // Move to the next track if the current finishes playing
+        // using the 'ended' event
+        curr_track.addEventListener("ended", nextTrack);
+
+    }
+
+
+
+    // Function to reset all values to their default
+    function resetValues() {
+        curr_time.textContent = "00:00";
+        total_duration.textContent = "00:00";
+        seek_slider.value = 0;
+        let songListPlayBtn = document.body.querySelectorAll('.play')
+        let songListPauseBtn = document.body.querySelectorAll('.pause')
+        console.log('SongListPlayBtn: ', songListPlayBtn)
+        console.log('SongListPauseBtn: ', songListPauseBtn)
+        let allPlayButtons = songListPlayBtn.forEach((button, i) => {
+            console.log('Button: ', button)
+            if (button.classList.value === 'play hidden') {
+                button.classList.toggle('hidden')
+
+            }
+        })
+        let allPauseButtons = songListPauseBtn.forEach((button, i) => {
+            console.log('Button: ', button)
+            if (button.classList.value === 'pause') {
+                button.classList.toggle('hidden')
+
+
+            }
+        })
+        console.table(allPlayButtons)
+
+
+    }
+
+
+
+    function playpauseTrack() {
+        // Switch between playing and pausing
+        // depending on the current state
+        if (!isPlaying) playTrack();
+        else pauseTrack();
+
+    }
+
+
+    function loadThisTrack(songIndex) {
+        console.log('songIndex: ', songIndex)
+        console.log('allSongs: ', allSongs)
+        allSongs.forEach((song, i) => {
+            console.log('allSongs.forEach(): ', song)
+            console.log('allSongs.forEach([i]): ', i)
+            let songButtonIndex = song.innerHTML
+
+            let songPath = song.querySelector('.song-path').innerHTML
+            console.log(songPath)
+            loadTrack(songIndex)
+            //song.previousElementSibling.querySelector('.song-path')
+
+
+            //loadTrack(songButtonIndex)
+
+                     let songListPlayBtn = document.body.querySelectorAll('.thisPlayBtn')
+                    let songListPauseBtn = document.body.querySelectorAll('.thisPauseBtn')
+                    console.log('SongListPlayBtn: ', songListPlayBtn)
+                    console.log('SongListPauseBtn: ', songListPauseBtn)
+                    songListPlayBtn.forEach((button, j) => {
+                        console.log('Button: ', button)
+                        console.log('Button: ', button)
+                        let playSpan = button.innerText
+                        console.log('Clicked Play Buttons SongId Index: ', playSpan)
+                        if ([i] = [j]) {
+                            console.log('[i] === [j]', i && j)
+                            console.log('allSongs[j]', allSongs[j])
+            
+                            loadTrack()
+                            let thisSongsId = allSongs[j].querySelector('.song-id').innerHTML
+                            console.log('thisSongsId: ', thisSongsId)
+                        } 
+            // console.log('[i]', i )
+            // console.log('[j]', j )
+
+            })  
+
+
+
+
+        })
+
+        //console.table(allPlayButtons)
+    }
+    // Play the loaded track
+    // allSongs[`${}`].loadTrack();
+
+
+    function playThisTrack() {
+        curr_track.play();
+        console.log(curr_track)
+        isPlaying = true;
+        curr_track.loop = false
+        if (loopButton.classList.value === 'loop-button looping') {
+
+            curr_track.loop = false
+            loopButton.setAttribute('style', 'color: rgba(255, 255, 255, 0.5)')
+            loopButton.classList.remove('looping')
+
+        }
+
+        // Replace icon with the pause icon
+        playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-2x"></i>';
+
+        console.log('Current Track HTML Element: ', curr_track)
+        console.log('Loop Reset - Loop On: ', curr_track.loop)
+
+    }
+    function playTrack() {
+        // Play the loaded track
+        curr_track.play();
+        isPlaying = true;
+        curr_track.loop = false
+        
+        if (loopButton.classList.value === 'loop-button looping') {
+
+            curr_track.loop = false
+            loopButton.setAttribute('style', 'color: rgba(255, 255, 255, 0.5)')
+            loopButton.classList.remove('looping')
+
+        }
+
+        // Replace icon with the pause icon
+        playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-2x"></i>';
+
+        console.log('Current Track HTML Element: ', curr_track)
+        console.log('Loop Reset - Loop On: ', curr_track.loop)
+    }
+
+    function pauseTrack() {
+        // Pause the loaded track
+        curr_track.pause();
+        isPlaying = false;
+
+        // Replace icon with the play icon
+        playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-2x"></i>';
+    }
+
+    function nextTrack() {
+        // Go back to the first track if the
+        // current one is the last in the track list
+        if (track_index < track_list.length - 1)
+            track_index += 1;
+        else track_index = 0;
+
+        // Load and play the new track
+        loadTrack(track_index);
+        playTrack();
+    }
+
+    function prevTrack() {
+        // Go back to the last track if the
+        // current one is the first in the track list
+        if (track_index > 0)
+            track_index -= 1;
+        else track_index = track_list.length - 1;
+
+        // Load and play the new track
+        loadTrack(track_index);
+        playTrack();
+    }
+
+
+
+    function seekTo() {
+        // Calculate the seek position by the
+        // percentage of the seek slider 
+        // and get the relative duration to the track
+        let seekValue = seek_slider.value
+
+        console.log('Seek Value: ', seekValue)
+        let seekto = curr_track.duration * (seekValue / 100);
+
+        // Set the current track position to the calculated seek position
+        curr_track.currentTime = seekto;
+    }
+
+    function setVolume() {
+        // Set the volume according to the
+        // percentage of the volume slider set
+        curr_track.volume = volume_slider.value / 100;
+    }
+
+    function seekUpdate() {
+        let seekPosition = 0;
+
+        // Check if the current track duration is a legible number
+        if (!isNaN(curr_track.duration)) {
+            console.log('Current Track Duration is not a Number: ', isNaN(curr_track.duration))
+            seekPosition = curr_track.currentTime * (100 / curr_track.duration);
+            seek_slider.value = seekPosition;
+
+            // Calculate the time left and the total duration
+            let currentMinutes = Math.floor(curr_track.currentTime / 60);
+            let currentSeconds = Math.floor(curr_track.currentTime - currentMinutes * 60);
+            let durationMinutes = Math.floor(curr_track.duration / 60);
+            let durationSeconds = Math.floor(curr_track.duration - durationMinutes * 60);
+
+            // Add a zero to the single digit time values
+            if (currentSeconds < 10) { currentSeconds = "0" + currentSeconds; }
+            if (durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
+            if (currentMinutes < 10) { currentMinutes = "0" + currentMinutes; }
+            if (durationMinutes < 10) { durationMinutes = "0" + durationMinutes; }
+
+            // Display the updated duration
+            curr_time.textContent = currentMinutes + ":" + currentSeconds;
+            total_duration.textContent = durationMinutes + ":" + durationSeconds;
+        } else {
+            console.log('Current Track Duration is not a Number: ', isNaN(curr_track.duration))
+            seekPosition = curr_track.currentTime * (100 / curr_track.duration);
+            seek_slider.value = seekPosition;
+            // Calculate the time left and the total duration
+            let currentMinutes = Math.floor(curr_track.currentTime / 60);
+            let currentSeconds = Math.floor(curr_track.currentTime - currentMinutes * 60);
+            let durationMinutes = Math.floor(curr_track.duration / 60);
+            let durationSeconds = Math.floor(curr_track.duration - durationMinutes * 60);
+
+            // Add a zero to the single digit time values
+            if (currentSeconds < 10) { currentSeconds = "0" + currentSeconds; }
+            if (durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
+            if (currentMinutes < 10) { currentMinutes = "0" + currentMinutes; }
+            if (durationMinutes < 10) { durationMinutes = "0" + durationMinutes; }
+
+            // Display the updated duration
+            curr_time.textContent = currentMinutes + ":" + currentSeconds;
+            total_duration.textContent = durationMinutes + ":" + durationSeconds;
+        }
+    }
+    function loop() {
+
+        if (curr_track.loop === false) {
+            curr_track.loop = true
+            loopButton.setAttribute('style', 'color: rgba(135, 206, 250, 0.5)')
+            loopButton.classList.add('looping')
+            console.log('Loop On: ', curr_track.loop)
+            console.log(curr_track)
+        }
+        else if (loopButton.classList.value === 'loop-button looping') {
+
+            curr_track.loop = false
+            loopButton.setAttribute('style', 'color: rgba(255, 255, 255, 0.5)')
+            loopButton.classList.remove('looping')
+            console.log('Loop On: ', curr_track.loop)
+            console.log(curr_track)
+
+        }
+
+    }
+
+
+    // Load the first track in the tracklist
+    loadTrack(track_index);
+
+</script>
+
+
+
+
+<!-- Spread Mini Menu -->
+<script>
+    const userId = document.querySelector('#userId').getAttribute('data-user-id')
+    console.log('userId: ', userId)
+    const spreadItemMiniMenu = document.querySelectorAll('.spread-item-mini-menu')
+    spreadItemMiniMenu.forEach(miniMenu => {
+        miniMenu.addEventListener('click', e => {
+            const target = e.target
+            console.log('target: ', target)
+            const parent = target.parentNode
+            const siblings = parent.childNodes
+            console.log('parent: ', parent)
+            const grandParent = parent.parentNode
+            console.log('grandParent: ', grandParent)
+            const spreadItemContainer = grandParent.parentNode
+            const authorId = spreadItemContainer.getAttribute('data-spread-author')
+            const spreadId = spreadItemContainer.getAttribute('data-spread-id')
+            console.log('\n\n\nparent') // Works
+            console.log(parent) // Works
+            console.log(authorId) // Works
+            console.log(spreadId) // Works
+            console.log('siblings[3]: ', siblings[3])
+
+            siblings[3].classList.remove('hidden')
+            const closeMiniMenuBtn = miniMenu.querySelector('.close-mini-menu-btn')
+
+            closeMiniMenuBtn.addEventListener('click', e => {
+                miniMenu.classList.add('hidden')
+            })
+            // userId: 5f749fd3bd01753cb4f9677a
+            // data-spread-author: 5f749fd3bd01753cb4f9677a
+            // data-spread-id: 6346f9b582731a00160f5206
+            // 
+
+            // const url = `http://localhost:5000/socialspread/data/${spreadId}`;
+
+            // const options = {
+            //     method: 'GET'
+            // };
+
+            // fetch(url, options)
+            //     .then(res => res.json())
+            //     .then(json => {
+            //         console.log('First (before const results): ', json)
+            //         const results = json
+            //         console.log('Second (after const results): ', results)
+
+            //         let miniMenuDataEl = document.createElement('div')
+                    
+            //         miniMenuDataEl.classList.add('mini-menu-data-container')
+            //         miniMenuDataEl.classList.remove('hidden')
+            //         miniMenuDataEl.setAttribute('data-author-name', results.author.fname + ' ' + results.author.lname)
+            //         miniMenuDataEl.setAttribute('data-author-id', authorId)
+            //         miniMenuDataEl.setAttribute('data-spread-id', spreadId)
+            //         // mini-menu-data-container[data-author-id]: 5f749fd3bd01753cb4f9677a
+            //         // mini-menu-data-container[data-spread-id]: 6346f9b582731a00160f5206
+            //         // mini-menu-data-container[data-spread-id]: 6346f9b582731a00160f5206
+
+
+            //         if (authorId === userId) {
+
+            //         miniMenuDataEl.innerHTML = `
+            //             <i class="bx bx-trash"></i>
+            //             <i class="bx bx-pencil"></i>
+            //             <i class="fas fa-share-alt"></i>
+            //             <i class="far fa-save"></i>
+            //             <i class="far fa-plus-square"></i>
+            //             <i style="color: orangered;" class="bx bx-x-circle close-mini-menu-btn"></i>
+            //         `
+            //         } else {
+            //             miniMenuDataEl.innerHTML = `
+            //                 <i class="fas fa-share-alt"></i>
+            //                 <i class="far fa-save"></i>
+            //                 <i class="far fa-plus-square"></i>
+            //                 <i class="far fa-flag"></i>
+            //                 <i class="far fa-eye-slash"></i>
+            //                 <i style="color: orangered;" class="bx bx-x-circle close-mini-menu-btn"></i>
+
+            //             `
+
+            //         }
+
+            //         // miniMenu.appendChild(miniMenuDataEl)
+            //     })
+            //     .catch(err => console.error('error:' + err));
+                const miniMenuEls = document.querySelectorAll('.mini-menu-data-container-inner') //mini-menu-data-container
+                const closeMiniMenuBtns = document.querySelectorAll('.close-mini-menu-btn')
+
+                miniMenuEls.forEach(miniMenuEl => {
+                    const miniMenuGreatGrandParentId = miniMenuEl.parentNode.parentNode.parentNode.getAttribute('data-spread-id')
+                    const miniMenuDataContainerId = miniMenuEl.getAttribute('data-spread-id')
+
+
+                    miniMenuEl.addEventListener('click', e => {
+                        console.log(e.target)
+                    })
+                    closeMiniMenuBtns.forEach(closeMiniMenuBtn => {
+                        // console.log(miniMenuEl, closeMiniMenuBtn)
+                        console.log('spreadId: ', spreadId)
+                        console.log('miniMenuDataContainerId: ', miniMenuDataContainerId)
+                        closeMiniMenuBtn.addEventListener('click', e => {
+                        if(miniMenuGreatGrandParentId === miniMenuDataContainerId) {
+
+                                miniMenuEl.classList.add('hidden')
+                            } else {
+                                // console.log('THIS MINIMENU SHOULDNT CLOSE: ', miniMenuEl)
+                            }
+                        })
+
+                    })
+                })
+
+
+
+            
+        })
+        
+    })
+
+
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
 </script>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
 
 
@@ -191,3 +192,198 @@
 </script>
 
 
+=======
+<style>
+
+
+    @media screen and (min-width: 300px) {
+        .friend-container {
+            background: #000;
+            backdrop-filter: blur(4px);
+            border-radius: 16px;
+            box-shadow: 0 0 30px #fff;
+            color: #333;
+            font-size: 48px
+        }
+
+        .friend-container h5 {
+            color: #fff;
+            text-shadow: 0 0 20px lightskyblue;
+            font-size: 5rem;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .friends-list {
+            padding: 30px;
+            border: outset 5px lightskyblue;
+            border-radius: 50px;
+            box-shadow: 0 0 40px #fff;
+        }
+
+        .friend {
+            margin-bottom: 20px;
+            text-align: center;
+            color: rgb(255, 255, 255);
+        }
+
+        .friend p {
+            font-family: 'Gruppo', cursive;
+            font-size: 2.5rem;
+            text-shadow: 0 0 15px lightskyblue;
+        }
+
+        .friend a {
+            text-decoration: none;
+            color: lightblue;
+            font-family: 'Gruppo', cursive;
+            font-size: 2.5rem;
+        }
+
+    }
+
+    @media screen and (min-width: 900px) {
+        .friend-container {
+            background: #000;
+            backdrop-filter: blur(4px);
+            border-radius: 16px;
+            box-shadow: 0 0 30px #fff;
+            color: #333;
+            font-size: 48px
+        }
+
+        .friend-container h5 {
+            color: #fff;
+            text-shadow: 0 0 20px lightskyblue;
+            font-size: 15rem;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .friends-list {
+            padding: 30px;
+            border: outset 5px lightskyblue;
+            border-radius: 50px;
+            box-shadow: 0 0 40px #fff;
+        }
+
+        .friend {
+            margin-bottom: 20px;
+            text-align: center;
+            color: rgb(255, 255, 255);
+        }
+
+        .friend p {
+            font-family: 'Gruppo', cursive;
+            font-size: 5rem;
+            text-shadow: 0 0 15px lightskyblue;
+        }
+
+        .friend a {
+            text-decoration: none;
+            color: lightblue;
+            font-family: 'Gruppo', cursive;
+            font-size: 4rem;
+
+        }
+    }
+</style>
+<a-assets>
+    <img id="ground" src="/images/system/vr/floor_1a2a1a.jpg" alt="">
+    <img id="floorImg" src="/images/system/vr/floors/metal-treadplate_1/img.png" alt="">
+    <img id="foorMap" src="/images/system/vr/floors/metal-treadplate_1/map.png" alt="">
+    <img id="foor2" src="/images/system/vr/floors/metal-treadplate_2.png" alt="">
+    <img id="brushedMetal" src="/images/system/vr/metal/brushed-metal_1.png" alt="">
+    <img id="carbonFiber_Img" src="/images/system/vr/materials/carbon-fiber_1/img.png" alt="">
+    <img id="carbonFiber_Norm" src="/images/system/vr/materials/carbon-fiber_1/normal.png" alt="">
+</a-assets>
+
+<!-- 
+<a-entity id="cameraRig" position="0 1.6 0">
+    <a-camera look-controls wasd-controls rotation-reader position="0 0 0">
+        <a-gui-cursor id="cursor" raycaster="objects: [gui-interactable]" fuse="true" fuse-timeout="2000" color="#888"
+            hover-color="#fff" active-color="lightskyblue" design="ring">
+        </a-gui-cursor> 
+
+    </a-camera> 
+</a-entity>
+
+ -->
+
+<a-entity wasd-controls="acceleration: 20;" camera="active: true" look-controls="pointerLockEnabled: true"
+    position="0 1.6 0">
+    <a-cursor position="0 0 -.05" scale=".04 .04 1" material="opacity: 0;"></a-cursor>
+</a-entity>
+
+
+
+
+<a-text value="Movies" color="lightskyblue" position="0 4.75 -3" align="center" scale="2.5 2.5 2.5"
+    text="opacity: 0.5"></a-text>
+
+<a-text value="Shows" color="lightskyblue" position="0 4.75 3" align="center" scale="2.5 2.5 2.5" rotation="0 180 0"
+    text="opacity: 0.5"></a-text>
+
+
+<!-- STATIC SCENE -->
+
+
+
+<!-- FLOOR -->
+
+
+<a-circle geometry="segments: 100; "
+    material="src: #floorImg; repeat: 25 25; normal-map: #floorMap; normal-texture-repeat: 25 25 metalness: 0.5; color: #000;"
+    rotation="-90 0 0" scale="10 10 1"></a-circle>
+<a-box scale="10 0.5 10"
+    material="src: #carbonFiber_Img; repeat: 20 20; normal-map: #carbonFiber_Norm; normal-texture-repeat: 20 20 metalness: 0.5; color: #000;">
+</a-box>
+<a-cylinder scale="10 1 10" color="cyan" material="color: #3c6363; side: double; opacity: 0.5; metalness: 0.5"
+    open-ended="true" rotation="" geometry="segmentsHeight: 100; segmentsRadial: 100" position="0 0.4 0"></a-cylinder>
+<a-torus rotation="90 0 0" arc="360" radius="5" radius-tubular="0.1"
+    material="src: #brushedMetal; metalness: 0.25; roughness: 0.5; color: #111;"
+    geometry="radius: 10; radiusTubular: 0.02; segmentsRadial: 100; segmentsTubular: 100" scale="1 1 1"
+    position="0 0.89 0"></a-torus>
+
+
+<!-- Lighting -->
+
+<!-- Ambient -->
+
+<a-entity light="color: #f0fdff" position="-10 10 0"></a-entity>
+<a-entity light="color: #f0fdff" position="10 10 0"></a-entity>
+
+
+<!-- Spot Lights -->
+
+
+
+ 
+<!-- DYNAMIC SCENE -->
+
+<!-- <a-entity id="tvContainer" geometry material="transparent: true" websurface="url:/entertainment/tv; width:4; height:2;" position="2.25 1.5 -4"></a-entity> -->
+<a-entity id="tvContainer" websurface="url:/entertainment/tv; width:4; height:2;" position="0 1.5 1.5" rotation="0 180 0" ></a-entity>
+<a-entity id="movieContainer" websurface="url:/entertainment/vr/movies; width:4; height:2;" position="0 1.5 -1.5" ></a-entity>
+
+<div
+    style="width: 100%; height: 100%; position: fixed; left: 0; top: 0; z-index: -1; overflow: hidden; background: transparent;">
+</div>
+
+
+<script>
+    const htmlEl = document.getElementById('htmlElement')
+    console.log(htmlEl)
+</script>
+
+
+<script>
+    const tvContainer = document.getElementById('tvContainer')
+    const tvDiv = tvContainer.querySelector('div')
+    const css = el.css3d_context
+    console.log(css)
+    const divs = document.querySelectorAll('div')
+    console.log(divs)
+</script>
+
+
+>>>>>>> a8a8b4650a974eeda356f271e4e38c9b4cab5fa3
